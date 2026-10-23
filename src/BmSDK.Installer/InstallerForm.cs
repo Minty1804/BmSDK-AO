@@ -40,7 +40,7 @@ internal sealed class InstallerForm : Form
 
     private void InitializeLayout()
     {
-        Text = "BmSDK Installer";
+        Text = "BmSDK-AO Installer";
         Icon = LoadIcon();
 
         // Scaling is applied by hand below, so keep WinForms from doing it a second time
@@ -55,7 +55,7 @@ internal sealed class InstallerForm : Form
 
         var heading = new Label
         {
-            Text = $"Install BmSDK v{Program.Version}",
+            Text = $"Install BmSDK-AO v{Program.Version}",
             Font = new Font(Font.FontFamily, 13f, FontStyle.Bold),
             Location = Pt(16, 16),
             Size = Sz(532, 26),
@@ -63,7 +63,7 @@ internal sealed class InstallerForm : Form
 
         var subheading = new Label
         {
-            Text = "Choose the Batman: Arkham City folder to install into.",
+            Text = "Choose the Batman: Arkham Origins folder to install into.",
             Location = Pt(16, 44),
             Size = Sz(532, 20),
         };
@@ -85,7 +85,7 @@ internal sealed class InstallerForm : Form
         _browseButton.Click += OnBrowseClicked;
 
         _statusLabel.Location = Pt(16, 274);
-        _statusLabel.Size = Sz(532, 40);
+        _statusLabel.Size = Sz(532, 46);
 
         _progressBar.Location = Pt(16, 322);
         _progressBar.Size = Sz(532, 16);
@@ -137,9 +137,9 @@ internal sealed class InstallerForm : Form
         }
 
         // An explicitly requested folder always wins, even if detection missed it
-        if (GameDetector.IsValidGameDir(_presetTarget))
+        if (GameDetector.FindGameRoot(_presetTarget) is { } presetRoot)
         {
-            SelectPath(_presetTarget!);
+            SelectPath(presetRoot);
         }
         else if (_installList.Items.Count == 1)
         {
@@ -179,12 +179,14 @@ internal sealed class InstallerForm : Form
         {
             var installed = GameDetector.GetInstalledVersion(path);
             SetStatus(installed is null
-                ? "Ready to install. Any existing BmSDK files in this folder will be replaced."
-                : $"BmSDK v{installed} is already installed here and will be updated to v{Program.Version}.");
+                ? "Ready to install. Any existing BmSDK files in this folder will be replaced. Your other mods are kept."
+                : $"BmSDK v{installed} is already installed here and will be updated to v{Program.Version}. "
+                    + "Your mods and their settings are kept.");
         }
         else if (_installList.Items.Count == 0)
         {
-            SetStatus("No Arkham City installation was found. Use \"Choose another folder...\" to pick one yourself.");
+            SetStatus("No Arkham Origins installation was found. Use \"Choose another folder...\" to pick one yourself "
+                + "(in Steam: right-click the game > Manage > Browse local files).");
         }
         else
         {
@@ -202,7 +204,7 @@ internal sealed class InstallerForm : Form
     {
         using var dialog = new FolderBrowserDialog
         {
-            Description = "Select your Batman: Arkham City folder",
+            Description = "Select your Batman: Arkham Origins folder",
             UseDescriptionForTitle = true,
             ShowNewFolderButton = false,
             InitialDirectory = SelectedPath ?? string.Empty,
@@ -213,16 +215,17 @@ internal sealed class InstallerForm : Form
             return;
         }
 
-        if (!GameDetector.IsValidGameDir(dialog.SelectedPath))
+        // Any folder inside the game works too (SinglePlayer, Binaries\Win32...)
+        if (GameDetector.FindGameRoot(dialog.SelectedPath) is not { } gameRoot)
         {
             MessageBox.Show(this,
-                $"That folder doesn't look like a Batman: Arkham City installation:\n\n{dialog.SelectedPath}\n\n"
-                    + "Pick the folder containing the Binaries and BmGame folders.",
-                "BmSDK Installer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                $"That folder doesn't look like a Batman: Arkham Origins installation:\n\n{dialog.SelectedPath}\n\n"
+                    + "Pick the game folder, the one containing SinglePlayer and Online.",
+                "BmSDK-AO Installer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
 
-        SelectPath(dialog.SelectedPath);
+        SelectPath(gameRoot);
         UpdateStatus();
     }
 
@@ -230,7 +233,8 @@ internal sealed class InstallerForm : Form
     {
         if (_isInstalled)
         {
-            Process.Start(new ProcessStartInfo(SelectedPath!) { UseShellExecute = true });
+            var bmGameDir = Path.Combine(SelectedPath!, GameDetector.SinglePlayerDir, "BmGame");
+            Process.Start(new ProcessStartInfo(bmGameDir) { UseShellExecute = true });
             return;
         }
 
@@ -241,7 +245,14 @@ internal sealed class InstallerForm : Form
     {
         var targetPath = SelectedPath!;
 
-        // Epic installs often live under Program Files, where writing needs elevation
+        // Files in use by the game can't be replaced
+        if (GameDetector.IsGameRunning())
+        {
+            SetStatus("Batman: Arkham Origins is running. Close the game and click Install again.", true);
+            return;
+        }
+
+        // Folders under Program Files may need elevation to write to
         if (!PayloadInstaller.IsWritable(targetPath))
         {
             if (PayloadInstaller.RelaunchElevated(targetPath))
@@ -260,10 +271,11 @@ internal sealed class InstallerForm : Form
         SetStatus($"Installing to {targetPath}...");
 
         var progress = new Progress<int>(percent => _progressBar.Value = percent);
+        string? note;
 
         try
         {
-            await Task.Run(() => PayloadInstaller.Install(targetPath, progress));
+            note = await Task.Run(() => PayloadInstaller.Install(targetPath, progress));
         }
         catch (Exception ex)
         {
@@ -281,8 +293,12 @@ internal sealed class InstallerForm : Form
         _actionButton.Enabled = true;
         _closeButton.Text = "Done";
 
-        SetStatus($"BmSDK v{Program.Version} was installed successfully. "
-            + "Drop script mods into BmGame\\Scripts and start the game.");
+        // The progress bar is hidden now, so the message can use its space for the optional note
+        _statusLabel.Height = Px(72);
+
+        SetStatus($"BmSDK-AO v{Program.Version} was installed. Put script mods in SinglePlayer\\BmGame\\Mods "
+            + "(or Scripts) and start the game. Press F10 in game for the mod options."
+            + (note is null ? "" : "\n" + note), isError: note is not null);
     }
 
     private void SetUiBusy(bool isBusy)

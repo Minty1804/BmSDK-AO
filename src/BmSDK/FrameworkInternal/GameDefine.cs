@@ -90,7 +90,7 @@ public abstract class GameDefine
             GameDefineSteam.TimeDateStamp => new GameDefineSteam(),
             GameDefineAO.TimeDateStamp => new GameDefineAO(),
             _ => throw new NotSupportedException(
-                $"Unrecognized BatmanAC.exe build (TimeDateStamp 0x{timeDateStamp:X8})"
+                $"Unrecognized game executable build (TimeDateStamp 0x{timeDateStamp:X8})"
             ),
         };
     }

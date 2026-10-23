@@ -1,4 +1,3 @@
-using System.Text.Json;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
 
@@ -7,15 +6,22 @@ namespace BmSDK.Installer;
 internal sealed record GameInstall(string Path, string Source);
 
 /// <summary>
-/// Locates Arkham City installations from the Steam and Epic Games launcher metadata.
+/// Locates Arkham Origins installations from the Steam library metadata.
 /// </summary>
+/// <remarks>
+/// Paths here are the game's root folder (the one Steam's "Browse local files" opens),
+/// which holds SinglePlayer and Online. BmSDK goes into SinglePlayer.
+/// </remarks>
 internal static partial class GameDetector
 {
-    private const string SteamAppId = "200260";
+    private const string SteamAppId = "209000";
 
-    // "Egret" is Epic's internal codename for Arkham City, matched alongside the catalog namespace
-    private const string EpicAppName = "Egret";
-    private const string EpicNamespace = "40c34bea9cd0460589c867f6a7246342";
+    public const string GameProcessName = "BatmanOrigins";
+
+    /// <summary>
+    /// The folder inside the game root that BmSDK is installed into.
+    /// </summary>
+    public const string SinglePlayerDir = "SinglePlayer";
 
     /// <summary>
     /// Returns every valid installation found, deduplicated by directory.
@@ -25,7 +31,7 @@ internal static partial class GameDetector
         var results = new List<GameInstall>();
         var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-        foreach (var install in DetectSteam().Concat(DetectEpic()))
+        foreach (var install in DetectSteam())
         {
             var path = Normalize(install.Path);
             if (IsValidGameDir(path) && seen.Add(path))
@@ -46,8 +52,9 @@ internal static partial class GameDetector
 
         try
         {
-            return File.Exists(Path.Combine(path, "Binaries", "Win32", "BatmanAC.exe"))
-                && Directory.Exists(Path.Combine(path, "BmGame"));
+            var singlePlayer = Path.Combine(path, SinglePlayerDir);
+            return File.Exists(Path.Combine(singlePlayer, "Binaries", "Win32", "BatmanOrigins.exe"))
+                && Directory.Exists(Path.Combine(singlePlayer, "BmGame"));
         }
         catch (ArgumentException)
         {
@@ -55,9 +62,29 @@ internal static partial class GameDetector
         }
     }
 
+    /// <summary>
+    /// Accepts the game root or any folder inside it (SinglePlayer, Binaries\Win32...)
+    /// and returns the game root, or null if none of them is an Arkham Origins folder.
+    /// </summary>
+    public static string? FindGameRoot(string? path)
+    {
+        for (var dir = path is null ? null : new DirectoryInfo(Normalize(path)); dir is not null; dir = dir.Parent)
+        {
+            if (IsValidGameDir(dir.FullName))
+            {
+                return Normalize(dir.FullName);
+            }
+        }
+
+        return null;
+    }
+
+    public static string GetWin32Dir(string gameDir) =>
+        Path.Combine(gameDir, SinglePlayerDir, "Binaries", "Win32");
+
     public static string? GetInstalledVersion(string gameDir)
     {
-        var sdkPath = Path.Combine(gameDir, "Binaries", "Win32", "sdk", "BmSDK.dll");
+        var sdkPath = Path.Combine(GetWin32Dir(gameDir), "sdk", "BmSDK.dll");
         if (!File.Exists(sdkPath))
         {
             return null;
@@ -66,6 +93,9 @@ internal static partial class GameDetector
         var version = System.Diagnostics.FileVersionInfo.GetVersionInfo(sdkPath).ProductVersion;
         return version?.Split('+')[0];
     }
+
+    public static bool IsGameRunning() =>
+        System.Diagnostics.Process.GetProcessesByName(GameProcessName).Length > 0;
 
     public static bool PathsEqual(string a, string b) =>
         string.Equals(Normalize(a), Normalize(b), StringComparison.OrdinalIgnoreCase);
@@ -100,49 +130,6 @@ internal static partial class GameDetector
                     Path.Combine(library, "steamapps", "common", installDir),
                     "Steam"
                 );
-            }
-        }
-    }
-
-    private static IEnumerable<GameInstall> DetectEpic()
-    {
-        var manifestDir = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-            "Epic", "EpicGamesLauncher", "Data", "Manifests"
-        );
-
-        if (!Directory.Exists(manifestDir))
-        {
-            yield break;
-        }
-
-        foreach (var manifestPath in Directory.EnumerateFiles(manifestDir, "*.item"))
-        {
-            string? location = null;
-
-            try
-            {
-                using var stream = File.OpenRead(manifestPath);
-                using var doc = JsonDocument.Parse(stream);
-                var root = doc.RootElement;
-
-                var isTargetApp =
-                    GetString(root, "AppName") == EpicAppName
-                    || GetString(root, "CatalogNamespace") == EpicNamespace;
-
-                if (isTargetApp)
-                {
-                    location = GetString(root, "InstallLocation");
-                }
-            }
-            catch (Exception e) when (e is JsonException or IOException or UnauthorizedAccessException)
-            {
-                continue;
-            }
-
-            if (!string.IsNullOrWhiteSpace(location))
-            {
-                yield return new GameInstall(location, "Epic Games");
             }
         }
     }
@@ -187,11 +174,6 @@ internal static partial class GameDetector
             return [];
         }
     }
-
-    private static string? GetString(JsonElement element, string name) =>
-        element.TryGetProperty(name, out var value) && value.ValueKind == JsonValueKind.String
-            ? value.GetString()
-            : null;
 
     [GeneratedRegex("""^\s*"path"\s+"(.+?)"\s*$""", RegexOptions.Multiline)]
     private static partial Regex LibraryPathRegex();

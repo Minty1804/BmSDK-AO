@@ -140,7 +140,7 @@ jobs:
       id: upload-artifact
       uses: actions/upload-artifact@v7
       with:
-        name: "BmSDK-AC-${{ env.TARGET_REF}}"
+        name: "BmSDK-AO-${{ env.TARGET_REF}}"
         path: ${{ env.STAGING_DIR }}
         if-no-files-found: error
         compression-level: 9

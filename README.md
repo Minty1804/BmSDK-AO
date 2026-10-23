@@ -75,11 +75,21 @@ Check out the [BmSDK documentation](https://bmsdk.dev/docs) for more info. It is
 Everything specific to Arkham Origins lives in separate files (`*.AO.cs`, `ao_*`) where possible, so the original code stays easy to compare and update.
 
 ## 🚀 Getting started
-There is no installer or release for Arkham Origins yet. For now, BmSDK-AO is built from source:
-1. Build it as described in [Building from source](https://bmsdk.dev/docs/contributing/building/).
-2. Install [Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader) in `SinglePlayer\Binaries\Win32` if you don't have it yet.
-3. Copy `bin\Binaries\Win32\plugins\BmSDK.Host.asi` to `SinglePlayer\Binaries\Win32\plugins\` and `bin\Binaries\Win32\sdk\` to `SinglePlayer\Binaries\Win32\sdk\`.
-4. Script mods go in `SinglePlayer\BmGame\Scripts` as .cs files, or in their own folder in `SinglePlayer\BmGame\Mods\<Mod>\` (a `mod.toml` and a `scripts` folder). The log is written to `SinglePlayer\Binaries\Win32\BmSDK.log`.
+Download the latest version from [Releases](https://github.com/Minty1804/BmSDK-AO/releases). Nothing else is needed: BmSDK-AO carries its own .NET runtime.
+
+1. Close the game.
+2. Run `BmSDK_AO_Installer_vX.Y.Z.exe`, pick your game and click *Install*. It finds the Steam copy of the game by itself. If it doesn't, click *Choose another folder...* and pick the game folder (in Steam: right-click *Batman: Arkham Origins* > *Manage* > *Browse local files*).
+3. Start the game. Press F10 to open the options of your mods.
+
+The installer only adds files to `SinglePlayer\Binaries\Win32\`: `plugins\BmSDK.Host.asi`, the `sdk` folder and `dinput8.dll` ([Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader); an existing `dinput8.dll` from another mod is kept).
+
+Script mods go in their own folder in `SinglePlayer\BmGame\Mods\<Mod>\` (a `mod.toml` and a `scripts` folder), or as .cs files in `SinglePlayer\BmGame\Scripts`. The log is written to `SinglePlayer\Binaries\Win32\BmSDK.log`.
+
+**Update:** run the installer of the new version. Your mods and their settings are kept.
+
+**Uninstall:** in `SinglePlayer\Binaries\Win32\`, delete `plugins\BmSDK.Host.asi`, the `sdk` folder, `BmSDK.ini` and the `BmSDK*.log` files. Delete `dinput8.dll` too, unless another ASI mod uses it.
+
+To build from source instead, see [Building from source](https://bmsdk.dev/docs/contributing/building/), then copy `bin\Binaries\Win32\plugins\BmSDK.Host.asi` and `bin\Binaries\Win32\sdk\` into `SinglePlayer\Binaries\Win32\` (with [Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader) as `dinput8.dll`).
 
 Keep in mind that script mods can potentially harm your computer. Make sure you only download and install mods from trusted sources.
 

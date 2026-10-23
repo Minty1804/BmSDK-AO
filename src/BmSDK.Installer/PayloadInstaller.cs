@@ -15,11 +15,19 @@ internal static class PayloadInstaller
     // Docs that only make sense inside the release ZIP, not loose in the game folder
     private static readonly string[] SkippedEntries = ["README.md", "LICENSE.md"];
 
-    public static void Install(string gameDir, IProgress<int> progress)
+    // Ultimate ASI Loader, which loads BmSDK.Host.asi. Other ASI mods often ship it too
+    private const string AsiLoaderEntry = "SinglePlayer/Binaries/Win32/dinput8.dll";
+
+    /// <summary>
+    /// Extracts the payload into the game root. Returns a note for the user, or null.
+    /// </summary>
+    public static string? Install(string gameDir, IProgress<int> progress)
     {
+        string? note = null;
+
         using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(ResourceName)
             ?? throw new InvalidOperationException(
-                "This installer was built without a BmSDK payload. Please download an official release.");
+                "This installer was built without a BmSDK-AO payload. Please download an official release.");
 
         using var archive = new ZipArchive(stream, ZipArchiveMode.Read);
 
@@ -37,11 +45,34 @@ internal static class PayloadInstaller
                 throw new InvalidDataException($"Payload entry escapes the target directory: {entry.FullName}");
             }
 
+            if (entry.FullName.Equals(AsiLoaderEntry, StringComparison.OrdinalIgnoreCase) && File.Exists(destPath))
+            {
+                // Keep whatever is there: an ASI Loader already works, and anything else is another
+                // mod's file that must not be replaced (BmSDK then needs the user to sort it out)
+                if (!IsAsiLoader(destPath))
+                {
+                    note = "Note: the game already has a dinput8.dll that is not Ultimate ASI Loader, so it was left alone. "
+                        + "If BmSDK doesn't start, that file is the reason.";
+                }
+
+                progress.Report((i + 1) * 100 / entries.Count);
+                continue;
+            }
+
             Directory.CreateDirectory(Path.GetDirectoryName(destPath)!);
             entry.ExtractToFile(destPath, overwrite: true);
 
             progress.Report((i + 1) * 100 / entries.Count);
         }
+
+        return note;
+    }
+
+    private static bool IsAsiLoader(string path)
+    {
+        var info = FileVersionInfo.GetVersionInfo(path);
+        return (info.ProductName ?? string.Empty).Contains("ASI-Loader", StringComparison.OrdinalIgnoreCase)
+            || (info.FileDescription ?? string.Empty).Contains("ASI Loader", StringComparison.OrdinalIgnoreCase);
     }
 
     public static bool IsWritable(string dir)
