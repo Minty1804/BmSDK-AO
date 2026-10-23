@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMCombatThrownObject_Brick<br/>
-/// (size = 724)
+/// (size = 784)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBMCombatThrownObject_Brick : BmSDK.BmGame.RBMCombatThrownObject, BmSDK.IGameObject
@@ -96,7 +96,7 @@ public partial class RBMCombatThrownObject_Brick : BmSDK.BmGame.RBMCombatThrownO
     /// </summary>
     public unsafe float DamageGiven
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 720); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 720); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 780); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 780); }
     }
 }

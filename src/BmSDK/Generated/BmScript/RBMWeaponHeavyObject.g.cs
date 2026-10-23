@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// ABSTRACT Class: RBMWeaponHeavyObject<br/>
-/// (size = 960)
+/// (size = 976)
 /// (flags = 75497523)
 /// </summary>
 public partial class RBMWeaponHeavyObject : BmSDK.BmGame.RBMWeaponMelee, BmSDK.IGameObject
@@ -103,7 +103,7 @@ public partial class RBMWeaponHeavyObject : BmSDK.BmGame.RBMWeaponMelee, BmSDK.I
     public unsafe virtual BmSDK.BmGame.RWeaponConfig CreateCombatWeaponConfig(BmSDK.GameObject NewOwner, BmSDK.Engine.AnimSet AnimSet1, BmSDK.Engine.AnimSet AnimSet2)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMWeaponHeavyObject.CreateCombatWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[4036];
+        byte* paramsPtr = stackalloc byte[3924];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet1, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet2, paramsPtr + 8);

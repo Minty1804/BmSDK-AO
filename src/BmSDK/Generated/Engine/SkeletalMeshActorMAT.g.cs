@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SkeletalMeshActorMAT<br/>
-/// (size = 508)
+/// (size = 532)
 /// (flags = 142606482)
 /// </summary>
 public partial class SkeletalMeshActorMAT : BmSDK.Engine.SkeletalMeshCinematicActor, BmSDK.IGameObject
@@ -268,7 +268,7 @@ public partial class SkeletalMeshActorMAT : BmSDK.Engine.SkeletalMeshCinematicAc
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.AnimNodeSlot> SlotNodes
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.AnimNodeSlot>>(Ptr + 496); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.AnimNodeSlot>>(Ptr + 520); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
     }
 }

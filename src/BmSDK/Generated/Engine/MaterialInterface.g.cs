@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: MaterialInterface<br/>
-/// (size = 96)
+/// (size = 136)
 /// (flags = 134217875)
 /// </summary>
 public partial class MaterialInterface : BmSDK.Engine.Surface, BmSDK.IGameObject
@@ -455,19 +455,25 @@ public partial class MaterialInterface : BmSDK.Engine.Surface, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// StructProperty: LightmassSettings
+    /// </summary>
+    public unsafe ref BmSDK.Engine.MaterialInterface.FLightmassMaterialInterfaceSettings LightmassSettings
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialInterface.FLightmassMaterialInterfaceSettings>(Ptr + 80);
+
+    /// <summary>
     /// StrProperty: PreviewMesh
     /// </summary>
     public unsafe BmSDK.FString PreviewMesh
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 80); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 80); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 108); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 108); }
     }
 
     /// <summary>
     /// StructProperty: LightingGuid
     /// </summary>
     public unsafe ref BmSDK.GameObject.FGuid LightingGuid
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FGuid>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FGuid>(Ptr + 120);
 
     /// <summary>
     /// Enum: EMaterialUsage
@@ -490,22 +496,22 @@ public partial class MaterialInterface : BmSDK.Engine.Surface, BmSDK.IGameObject
         MATUSAGE_MorphTargets = 13,
         MATUSAGE_FogVolumes = 14,
         MATUSAGE_VertexLighting = 15,
-        MATUSAGE_StaticModulatedShadows = 16,
-        MATUSAGE_PerVertexRockAtmosFog = 17,
-        MATUSAGE_LightEnvironments = 18,
-        MATUSAGE_StaticMesh = 19,
-        MATUSAGE_RadialBlur = 20,
-        MATUSAGE_InstancedMeshes = 21,
-        MATUSAGE_SplineMesh = 22,
-        MATUSAGE_ScreenDoorFade = 23,
-        MATUSAGE_APEXMesh = 24,
-        MATUSAGE_Terrain = 25,
-        MATUSAGE_Landscape = 26,
-        MATUSAGE_VTF = 27,
-        MATUSAGE_DirectionalLights = 28,
-        MATUSAGE_SpotLights = 29,
-        MATUSAGE_PointLights = 30,
-        MATUSAGE_Tessellation = 31,
+        MATUSAGE_PerVertexRockAtmosFog = 16,
+        MATUSAGE_LightEnvironments = 17,
+        MATUSAGE_StaticMesh = 18,
+        MATUSAGE_RadialBlur = 19,
+        MATUSAGE_InstancedMeshes = 20,
+        MATUSAGE_SplineMesh = 21,
+        MATUSAGE_ScreenDoorFade = 22,
+        MATUSAGE_APEXMesh = 23,
+        MATUSAGE_Terrain = 24,
+        MATUSAGE_Landscape = 25,
+        MATUSAGE_VTF = 26,
+        MATUSAGE_DirectionalLights = 27,
+        MATUSAGE_SpotLights = 28,
+        MATUSAGE_PointLights = 29,
+        MATUSAGE_Tessellation = 30,
+        MATUSAGE_OpacityShadows = 31,
         MATUSAGE_MAX = 32,
     }
 }

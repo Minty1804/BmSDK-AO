@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionGeneral<br/>
-/// (size = 256)
+/// (size = 136)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -194,14 +194,15 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// <summary>
     /// Function: SetMainPrompt
     /// </summary>
-    public unsafe virtual void SetMainPrompt(int Id, BmSDK.FString Label, float Alpha, float TextAlpha)
+    public unsafe virtual void SetMainPrompt(int Id, BmSDK.FString Label, float Alpha, float TextAlpha, bool Hammering = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionGeneral.SetMainPrompt", true);
-        byte* paramsPtr = stackalloc byte[24];
+        byte* paramsPtr = stackalloc byte[28];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Label, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Alpha, paramsPtr + 16);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TextAlpha, paramsPtr + 20);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Hammering, paramsPtr + 24);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -209,14 +210,15 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// <summary>
     /// Function: SetPrompt
     /// </summary>
-    public unsafe virtual void SetPrompt(int Id, BmSDK.FString Label, float Alpha, float TextAlpha)
+    public unsafe virtual void SetPrompt(int Id, BmSDK.FString Label, float Alpha, float TextAlpha, bool Hammering = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionGeneral.SetPrompt", true);
-        byte* paramsPtr = stackalloc byte[24];
+        byte* paramsPtr = stackalloc byte[28];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Label, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Alpha, paramsPtr + 16);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TextAlpha, paramsPtr + 20);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Hammering, paramsPtr + 24);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -244,6 +246,28 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     }
 
     /// <summary>
+    /// Function: GetPromptManager
+    /// </summary>
+    public unsafe virtual BmSDK.GFxUI.GFxObject GetPromptManager()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionGeneral.GetPromptManager", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: GetHudContents
+    /// </summary>
+    public unsafe virtual BmSDK.GFxUI.GFxObject GetHudContents()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionGeneral.GetHudContents", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe override bool Init(BmSDK.BmGame.RPlayerController _RPC, BmSDK.FString _ExtensionName, BmSDK.FString _ExtensionPath)
@@ -255,23 +279,6 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
         BmSDK.Framework.MarshalUtil.ToUnmanaged(_ExtensionPath, paramsPtr + 16);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 28);
-    }
-
-    /// <summary>
-    /// Enum: ObjIcon
-    /// </summary>
-    public enum ObjIcon : byte
-    {
-        OI_Arrow = 0,
-        OI_Ticked = 1,
-        OI_Unlocked = 2,
-        OI_SideStory = 3,
-        OI_SideStoryTick = 4,
-        OI_PointOfInterest = 5,
-        OI_ARTraining = 6,
-        OI_Waypoint = 7,
-        OI_Switchpoint = 8,
-        OI_MAX = 9,
     }
 
     /// <summary>
@@ -291,8 +298,8 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe bool bSurpressLevelupSound
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 132); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
     }
 
     /// <summary>
@@ -300,8 +307,8 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe bool bXPBarFull
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 132); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
     }
 
     /// <summary>
@@ -309,8 +316,8 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe bool Anytime_bVisible
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 132); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
     }
 
     /// <summary>
@@ -318,8 +325,8 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe bool Anytime_bRestart
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 132); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
     }
 
     /// <summary>
@@ -327,8 +334,26 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe bool bInfoTextActive
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132) & 16) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 132); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: HudContentsCached
+    /// </summary>
+    public unsafe BmSDK.GFxUI.GFxObject HudContentsCached
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(Ptr + 104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: LocalPromptManagerCached
+    /// </summary>
+    public unsafe BmSDK.GFxUI.GFxObject LocalPromptManagerCached
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(Ptr + 108); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 108); }
     }
 
     /// <summary>
@@ -336,8 +361,8 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe float Anytime_X
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 136); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 112); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 112); }
     }
 
     /// <summary>
@@ -345,8 +370,8 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe float Anytime_Y
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 140); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 
     /// <summary>
@@ -354,8 +379,8 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe float Anytime_Depth
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
     }
 
     /// <summary>
@@ -363,79 +388,7 @@ public partial class RHudExtensionGeneral : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe BmSDK.FString Anytime_AnimName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_ClearPrompts
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_ClearPrompts
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 160); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_ReLayout
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_ReLayout
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 172); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 172); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetPromptUC
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetPromptUC
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 184); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 184); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetMainPromptUC
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetMainPromptUC
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 196); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 196); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_RebuildPrompts
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_RebuildPrompts
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_ReFetchAndBuildPrompts
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_ReFetchAndBuildPrompts
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetMainPromptAtY
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetMainPromptAtY
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 232); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetClockTimer
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetClockTimer
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 244); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 124); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 124); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RJokerBalloonsBase<br/>
-/// (size = 800)
+/// (size = 820)
 /// (flags = 142606995)
 /// </summary>
 public partial class RJokerBalloonsBase : BmSDK.BmGame.RBreakablePickupBase, BmSDK.IGameObject

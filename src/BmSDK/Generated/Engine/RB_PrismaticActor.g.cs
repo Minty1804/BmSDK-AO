@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: RB_PrismaticActor<br/>
-/// (size = 456)
+/// (size = 480)
 /// (flags = 10486290)
 /// </summary>
 public partial class RB_PrismaticActor : BmSDK.Engine.RB_ConstraintActor, BmSDK.IGameObject

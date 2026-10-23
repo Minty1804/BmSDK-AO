@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: ApexAsset<br/>
-/// (size = 92)
+/// (size = 108)
 /// (flags = 142606482)
 /// </summary>
 public partial class ApexAsset : BmSDK.GameObject, BmSDK.IGameObject
@@ -112,5 +112,23 @@ public partial class ApexAsset : BmSDK.GameObject, BmSDK.IGameObject
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 80); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 80); }
+    }
+
+    /// <summary>
+    /// StructProperty: MApexAsset
+    /// </summary>
+    public unsafe System.IntPtr MApexAsset
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 92); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: Materials
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.Engine.MaterialInterface> Materials
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.MaterialInterface>>(Ptr + 96); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 96); }
     }
 }

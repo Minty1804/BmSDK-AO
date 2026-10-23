@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RGrundyDrumPadBase<br/>
-/// (size = 508)
-/// (flags = 142606482)
+/// (size = 520)
+/// (flags = 176160914)
 /// </summary>
 public partial class RGrundyDrumPadBase : BmSDK.Engine.SkeletalMeshActor, BmSDK.IGameObject
 {
@@ -78,31 +78,4 @@ public partial class RGrundyDrumPadBase : BmSDK.Engine.SkeletalMeshActor, BmSDK.
         where TComponent : class, Framework.IScriptComponent<RGrundyDrumPadBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
-    /// <summary>
-    /// Function: HitByExplosion
-    /// </summary>
-    public unsafe virtual void HitByExplosion()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGrundyDrumPadBase.HitByExplosion", true);
-        byte* paramsPtr = stackalloc byte[0];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: GetVulnerabilityRadius
-    /// </summary>
-    public unsafe virtual float GetVulnerabilityRadius()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGrundyDrumPadBase.GetVulnerabilityRadius", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<float>(paramsPtr + 0);
-    }
-
-    /// <summary>
-    /// StructProperty: InvestigateOffset
-    /// </summary>
-    public unsafe ref System.Numerics.Vector3 InvestigateOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 496);
 }

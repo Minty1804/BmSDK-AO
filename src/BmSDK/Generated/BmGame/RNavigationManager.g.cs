@@ -477,6 +477,24 @@ public partial class RNavigationManager : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// Function: ShowDebugDisplay
+    /// </summary>
+    public unsafe virtual void ShowDebugDisplay()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RNavigationManager.ShowDebugDisplay", true);
+        byte* paramsPtr = stackalloc byte[0];
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return;
+    }
+
+    /// <summary>
     /// Function: ShowHandleDebug
     /// </summary>
     public unsafe virtual void ShowHandleDebug()

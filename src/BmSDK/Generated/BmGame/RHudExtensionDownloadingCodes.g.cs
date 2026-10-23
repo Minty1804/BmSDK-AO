@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionDownloadingCodes<br/>
-/// (size = 152)
+/// (size = 124)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionDownloadingCodes : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -81,12 +81,13 @@ public partial class RHudExtensionDownloadingCodes : BmSDK.BmGame.RHudExtension,
     /// <summary>
     /// Function: SetFlashParameters
     /// </summary>
-    public unsafe virtual void SetFlashParameters(BmSDK.FString _TextDbReference, float _StayOnScreenDuration)
+    public unsafe virtual void SetFlashParameters(BmSDK.FString _TextDbReference, float _StayOnScreenDuration, bool _ReverseCounter)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionDownloadingCodes.SetFlashParameters", true);
-        byte* paramsPtr = stackalloc byte[16];
+        byte* paramsPtr = stackalloc byte[20];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(_TextDbReference, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(_StayOnScreenDuration, paramsPtr + 12);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(_ReverseCounter, paramsPtr + 16);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -121,8 +122,8 @@ public partial class RHudExtensionDownloadingCodes : BmSDK.BmGame.RHudExtension,
     /// </summary>
     public unsafe BmSDK.FString TextDbReference
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
     }
 
     /// <summary>
@@ -130,8 +131,17 @@ public partial class RHudExtensionDownloadingCodes : BmSDK.BmGame.RHudExtension,
     /// </summary>
     public unsafe float StayOnScreenDuration
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 112); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 112); }
+    }
+
+    /// <summary>
+    /// BoolProperty: ReverseCounter
+    /// </summary>
+    public unsafe bool ReverseCounter
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 116) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 116); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 116); }
     }
 
     /// <summary>
@@ -139,7 +149,7 @@ public partial class RHudExtensionDownloadingCodes : BmSDK.BmGame.RHudExtension,
     /// </summary>
     public unsafe BmSDK.Engine.AkAssetPack WiseAssetPack
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkAssetPack>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkAssetPack>(Ptr + 120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
     }
 }

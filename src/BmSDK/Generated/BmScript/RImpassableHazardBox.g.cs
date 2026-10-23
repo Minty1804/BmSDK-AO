@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RImpassableHazardBox<br/>
-/// (size = 448)
+/// (size = 472)
 /// (flags = 8389138)
 /// </summary>
 public partial class RImpassableHazardBox : BmSDK.BmGame.RImpassableHazardBase, BmSDK.IGameObject
@@ -109,8 +109,8 @@ public partial class RImpassableHazardBox : BmSDK.BmGame.RImpassableHazardBase, 
     /// </summary>
     public unsafe BmSDK.BmGame.RSpecialMoveConfig StumbleMove
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSpecialMoveConfig>(Ptr + 432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSpecialMoveConfig>(Ptr + 456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
     }
 
     /// <summary>
@@ -118,8 +118,8 @@ public partial class RImpassableHazardBox : BmSDK.BmGame.RImpassableHazardBase, 
     /// </summary>
     public unsafe BmSDK.FName StumbleAnimation
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 436); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
     }
 
     /// <summary>
@@ -127,7 +127,7 @@ public partial class RImpassableHazardBox : BmSDK.BmGame.RImpassableHazardBase, 
     /// </summary>
     public unsafe BmSDK.Engine.AnimSet StumbleAnimset
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 444); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 444); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 468); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 468); }
     }
 }

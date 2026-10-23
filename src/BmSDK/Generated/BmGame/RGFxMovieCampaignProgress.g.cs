@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RGFxMovieCampaignProgress<br/>
-/// (size = 496)
-/// (flags = 18)
+/// (size = 588)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieCampaignProgress : BmSDK.BmGame.RGFxMovie, BmSDK.IGameObject
 {
@@ -99,7 +99,7 @@ public partial class RGFxMovieCampaignProgress : BmSDK.BmGame.RGFxMovie, BmSDK.I
     public unsafe virtual void CampaignCompleteAuto(bool CurrentRoundComplete)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieCampaignProgress.CampaignCompleteAuto", true);
-        byte* paramsPtr = stackalloc byte[28];
+        byte* paramsPtr = stackalloc byte[20];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CurrentRoundComplete, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;

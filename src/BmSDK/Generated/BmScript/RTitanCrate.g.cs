@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RTitanCrate<br/>
-/// (size = 568)
+/// (size = 580)
 /// (flags = 8389138)
 /// </summary>
 public partial class RTitanCrate : BmSDK.BmGame.RTitanCrateBase, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RTitanCrate : BmSDK.BmGame.RTitanCrateBase, BmSDK.IGameObje
     /// </summary>
     public unsafe BmSDK.Engine.RInteractionComponent GelInteractions
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RInteractionComponent>(Ptr + 564); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RInteractionComponent>(Ptr + 576); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
     }
 }

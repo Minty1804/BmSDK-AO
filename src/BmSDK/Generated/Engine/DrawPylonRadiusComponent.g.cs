@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: DrawPylonRadiusComponent<br/>
-/// (size = 424)
+/// (size = 460)
 /// (flags = 2290102418)
 /// </summary>
 public partial class DrawPylonRadiusComponent : BmSDK.Engine.DrawSphereComponent, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAltitudeVolume<br/>
-/// (size = 476)
+/// (size = 500)
 /// (flags = 142606994)
 /// </summary>
 public partial class RAltitudeVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
@@ -110,7 +110,7 @@ public partial class RAltitudeVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe int MaxGlidePitchAtTop
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 472); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
     }
 }

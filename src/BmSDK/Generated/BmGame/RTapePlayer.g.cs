@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RTapePlayer<br/>
-/// (size = 540)
+/// (size = 588)
 /// (flags = 142606482)
 /// </summary>
 public partial class RTapePlayer : BmSDK.BmGame.RRiddlePlayer, BmSDK.IGameObject

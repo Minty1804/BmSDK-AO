@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAnimNode_Pose<br/>
-/// (size = 9732)
+/// (size = 9768)
 /// (flags = 144703634)
 /// </summary>
 public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
@@ -301,6 +301,53 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
         return;
+    }
+
+    /// <summary>
+    /// Function: GetUpperBodyAnim
+    /// </summary>
+    public unsafe virtual BmSDK.BmGame.RAnimConfig.FCustomAnimConfig GetUpperBodyAnim(BmSDK.FName AnimName, BmSDK.Engine.AnimSet Set, BmSDK.TArray<BmSDK.Engine.AnimSet> ExtraSets, BmSDK.BmGame.RAimingConfig AimingConfig, BmSDK.BmGame.RPresetAimingConfigs.EPresetAimingConfig PresetAimingConfig = default)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.GetUpperBodyAnim", true);
+        byte* paramsPtr = stackalloc byte[72];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimName, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Set, paramsPtr + 8);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ExtraSets, paramsPtr + 12);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(AimingConfig, paramsPtr + 24);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(PresetAimingConfig, paramsPtr + 28);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAnimConfig.FCustomAnimConfig>(paramsPtr + 32);
+    }
+
+    /// <summary>
+    /// Function: GetAdditiveAnimScaled
+    /// </summary>
+    public unsafe virtual BmSDK.BmGame.RAnimConfig.FCustomAdditiveAnimConfig GetAdditiveAnimScaled(BmSDK.FName AnimName, BmSDK.FName BaseAnimName, BmSDK.Engine.AnimSet Set, BmSDK.TArray<BmSDK.Engine.AnimSet> ExtraSets, float Weight, float HideWeight)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.GetAdditiveAnimScaled", true);
+        byte* paramsPtr = stackalloc byte[76];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimName, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(BaseAnimName, paramsPtr + 8);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Set, paramsPtr + 16);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ExtraSets, paramsPtr + 20);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Weight, paramsPtr + 32);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(HideWeight, paramsPtr + 36);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAnimConfig.FCustomAdditiveAnimConfig>(paramsPtr + 40);
     }
 
     /// <summary>
@@ -640,6 +687,26 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// Function: GetFixedThoughts
+    /// </summary>
+    public unsafe virtual void GetFixedThoughts(BmSDK.BmGame.RPersistentDebugData.FPerCharacterTypeAnimDebug Options, out BmSDK.TArray<BmSDK.Engine.Actor.FThought> OutThoughts)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.GetFixedThoughts", true);
+        byte* paramsPtr = stackalloc byte[48];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Options, paramsPtr + 0);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        OutThoughts = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor.FThought>>(paramsPtr + 36);
+        return;
+    }
+
+    /// <summary>
     /// Function: GetThoughts
     /// </summary>
     public unsafe virtual void GetThoughts(BmSDK.BmGame.RPersistentDebugData.FPerCharacterTypeAnimDebug Options, out BmSDK.TArray<BmSDK.Engine.Actor.FThought> OutThoughts)
@@ -816,7 +883,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: GetMeetingPointTranslationXPercent
     /// </summary>
-    public unsafe virtual float GetMeetingPointTranslationXPercent(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id)
+    public unsafe virtual float GetMeetingPointTranslationXPercent(BmSDK.BmGame.RAnimUtil.FTransitionId Id)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.GetMeetingPointTranslationXPercent", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -835,7 +902,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: IsPastTransitionMeetingPointEnd
     /// </summary>
-    public unsafe virtual bool IsPastTransitionMeetingPointEnd(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id)
+    public unsafe virtual bool IsPastTransitionMeetingPointEnd(BmSDK.BmGame.RAnimUtil.FTransitionId Id)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.IsPastTransitionMeetingPointEnd", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -854,7 +921,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: IsPastTransitionMeetingPointBegin
     /// </summary>
-    public unsafe virtual bool IsPastTransitionMeetingPointBegin(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id)
+    public unsafe virtual bool IsPastTransitionMeetingPointBegin(BmSDK.BmGame.RAnimUtil.FTransitionId Id)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.IsPastTransitionMeetingPointBegin", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -873,7 +940,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: GetTransitionDominantAnim
     /// </summary>
-    public unsafe virtual BmSDK.Engine.AnimSequence GetTransitionDominantAnim(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id)
+    public unsafe virtual BmSDK.Engine.AnimSequence GetTransitionDominantAnim(BmSDK.BmGame.RAnimUtil.FTransitionId Id)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.GetTransitionDominantAnim", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -892,7 +959,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: SetTransitionDuration
     /// </summary>
-    public unsafe virtual void SetTransitionDuration(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id, float NewDuration)
+    public unsafe virtual void SetTransitionDuration(BmSDK.BmGame.RAnimUtil.FTransitionId Id, float NewDuration)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.SetTransitionDuration", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -912,7 +979,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: GetTransitionDuration
     /// </summary>
-    public unsafe virtual float GetTransitionDuration(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id)
+    public unsafe virtual float GetTransitionDuration(BmSDK.BmGame.RAnimUtil.FTransitionId Id)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.GetTransitionDuration", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -931,7 +998,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: GetTransitionNormalizedTime
     /// </summary>
-    public unsafe virtual float GetTransitionNormalizedTime(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id)
+    public unsafe virtual float GetTransitionNormalizedTime(BmSDK.BmGame.RAnimUtil.FTransitionId Id)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.GetTransitionNormalizedTime", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -950,7 +1017,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: GetTransitionTimeInSeconds
     /// </summary>
-    public unsafe virtual float GetTransitionTimeInSeconds(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id)
+    public unsafe virtual float GetTransitionTimeInSeconds(BmSDK.BmGame.RAnimUtil.FTransitionId Id)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.GetTransitionTimeInSeconds", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -969,7 +1036,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: IsHeadTransition
     /// </summary>
-    public unsafe virtual bool IsHeadTransition(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id)
+    public unsafe virtual bool IsHeadTransition(BmSDK.BmGame.RAnimUtil.FTransitionId Id)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.IsHeadTransition", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -988,7 +1055,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: HasTransition
     /// </summary>
-    public unsafe virtual bool HasTransition(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id)
+    public unsafe virtual bool HasTransition(BmSDK.BmGame.RAnimUtil.FTransitionId Id)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.HasTransition", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -1007,7 +1074,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: WillBeInTransition
     /// </summary>
-    public unsafe virtual bool WillBeInTransition(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id, float DeltaSeconds, BmSDK.BmGame.RAnimUtil.EFuzziness Fuzziness = default)
+    public unsafe virtual bool WillBeInTransition(BmSDK.BmGame.RAnimUtil.FTransitionId Id, float DeltaSeconds, BmSDK.BmGame.RAnimUtil.EFuzziness Fuzziness = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.WillBeInTransition", true);
         byte* paramsPtr = stackalloc byte[16];
@@ -1028,7 +1095,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: IsInTransition
     /// </summary>
-    public unsafe virtual bool IsInTransition(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id, BmSDK.BmGame.RAnimUtil.EFuzziness Fuzziness = default)
+    public unsafe virtual bool IsInTransition(BmSDK.BmGame.RAnimUtil.FTransitionId Id, BmSDK.BmGame.RAnimUtil.EFuzziness Fuzziness = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.IsInTransition", true);
         byte* paramsPtr = stackalloc byte[12];
@@ -1067,7 +1134,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: IsInAnyAutomaticTransition
     /// </summary>
-    public unsafe virtual bool IsInAnyAutomaticTransition(BmSDK.BmGame.RAnimUtil.EFuzziness Fuzziness, out BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Transition)
+    public unsafe virtual bool IsInAnyAutomaticTransition(BmSDK.BmGame.RAnimUtil.EFuzziness Fuzziness, out BmSDK.BmGame.RAnimUtil.FTransitionId Transition)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.IsInAnyAutomaticTransition", true);
         byte* paramsPtr = stackalloc byte[12];
@@ -1080,7 +1147,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Transition = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId>(paramsPtr + 4);
+        Transition = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAnimUtil.FTransitionId>(paramsPtr + 4);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
     }
 
@@ -1274,13 +1341,14 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: PlayWeaponOverlay
     /// </summary>
-    public unsafe virtual BmSDK.BmGame.RAnimUtil_OverlayPlayer.FOverlayId PlayWeaponOverlay(BmSDK.FName OverlayName, BmSDK.BmGame.RAnimConfig.FCustomAnimConfig OverrideAnim = default, float StartTime = default)
+    public unsafe virtual BmSDK.BmGame.RAnimUtil_OverlayPlayer.FOverlayId PlayWeaponOverlay(BmSDK.FName OverlayName, BmSDK.BmGame.RAnimConfig.FCustomAnimConfig OverrideAnim = default, float StartTime = default, bool Loop = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.PlayWeaponOverlay", true);
-        byte* paramsPtr = stackalloc byte[60];
+        byte* paramsPtr = stackalloc byte[64];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OverlayName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OverrideAnim, paramsPtr + 8);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(StartTime, paramsPtr + 48);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Loop, paramsPtr + 52);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1289,7 +1357,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAnimUtil_OverlayPlayer.FOverlayId>(paramsPtr + 52);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAnimUtil_OverlayPlayer.FOverlayId>(paramsPtr + 56);
     }
 
     /// <summary>
@@ -1769,10 +1837,10 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: MoveTo
     /// </summary>
-    public unsafe virtual void MoveTo(System.Numerics.Vector3 Position, BmSDK.BmGame.RAnimUtil.EAbsoluteOrRelative Space)
+    public unsafe virtual bool MoveTo(System.Numerics.Vector3 Position, BmSDK.BmGame.RAnimUtil.EAbsoluteOrRelative Space)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.MoveTo", true);
-        byte* paramsPtr = stackalloc byte[13];
+        byte* paramsPtr = stackalloc byte[20];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Position, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Space, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
@@ -1783,7 +1851,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return;
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 16);
     }
 
     /// <summary>
@@ -1951,6 +2019,26 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: IsInIdleStance
+    /// </summary>
+    public unsafe virtual bool IsInIdleStance(BmSDK.FName Stance, BmSDK.BmGame.RAnimUtil.EFuzziness Fuzziness = default)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.IsInIdleStance", true);
+        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Stance, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Fuzziness, paramsPtr + 8);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
     }
 
     /// <summary>
@@ -2430,7 +2518,7 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// <summary>
     /// Function: ChangePose
     /// </summary>
-    public unsafe virtual BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId ChangePose(BmSDK.BmGame.RAnimNode_Pose.FPoseDescription Input, BmSDK.BmGame.RAnimNode_Pose.FPreviousPoseDescription PreviousInput)
+    public unsafe virtual BmSDK.BmGame.RAnimUtil.FTransitionId ChangePose(BmSDK.BmGame.RAnimNode_Pose.FPoseDescription Input, BmSDK.BmGame.RAnimNode_Pose.FPreviousPoseDescription PreviousInput)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.ChangePose", true);
         byte* paramsPtr = stackalloc byte[336];
@@ -2444,13 +2532,13 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId>(paramsPtr + 332);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAnimUtil.FTransitionId>(paramsPtr + 332);
     }
 
     /// <summary>
     /// Function: DummyOnPlayedQueuedTransition
     /// </summary>
-    public unsafe virtual void DummyOnPlayedQueuedTransition(BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Id)
+    public unsafe virtual void DummyOnPlayedQueuedTransition(BmSDK.BmGame.RAnimUtil.FTransitionId Id)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAnimNode_Pose.DummyOnPlayedQueuedTransition", true);
         byte* paramsPtr = stackalloc byte[4];
@@ -3283,63 +3371,63 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// StructProperty: IdleOverlays
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil_OverlayPlayer.FOverlayPlayer IdleOverlays
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_OverlayPlayer.FOverlayPlayer>(Ptr + 2028);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_OverlayPlayer.FOverlayPlayer>(Ptr + 2044);
 
     /// <summary>
     /// StructProperty: AdditiveOverlays
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil_OverlayPlayer.FAdditiveOverlayPlayer AdditiveOverlays
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_OverlayPlayer.FAdditiveOverlayPlayer>(Ptr + 2360);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_OverlayPlayer.FAdditiveOverlayPlayer>(Ptr + 2392);
 
     /// <summary>
     /// StructProperty: RandomIdleOverlays
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil_OverlayPlayer.FRandomOverlayPlayer RandomIdleOverlays
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_OverlayPlayer.FRandomOverlayPlayer>(Ptr + 2780);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_OverlayPlayer.FRandomOverlayPlayer>(Ptr + 2812);
 
     /// <summary>
     /// StructProperty: AnimConstants
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil.FAnimConstants AnimConstants
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FAnimConstants>(Ptr + 2820);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FAnimConstants>(Ptr + 2852);
 
     /// <summary>
     /// StructProperty: AnimOutput
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil_AnimOutput.FAnimOutput AnimOutput
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_AnimOutput.FAnimOutput>(Ptr + 3312);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_AnimOutput.FAnimOutput>(Ptr + 3344);
 
     /// <summary>
     /// StructProperty: AdditiveAnimOutput
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil_AdditiveAnimOutput.FAdditiveAnimOutput AdditiveAnimOutput
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_AdditiveAnimOutput.FAdditiveAnimOutput>(Ptr + 6288);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_AdditiveAnimOutput.FAdditiveAnimOutput>(Ptr + 6320);
 
     /// <summary>
     /// StructProperty: AimingOutputInput
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil_AimingOutput.FAimingOutputInput AimingOutputInput
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_AimingOutput.FAimingOutputInput>(Ptr + 9392);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_AimingOutput.FAimingOutputInput>(Ptr + 9424);
 
     /// <summary>
     /// StructProperty: AimingOutput
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil_AimingOutput.FAimingOutput AimingOutput
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_AimingOutput.FAimingOutput>(Ptr + 9404);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_AimingOutput.FAimingOutput>(Ptr + 9436);
 
     /// <summary>
     /// StructProperty: NotifyThoughts
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil.FPersistentThoughts NotifyThoughts
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FPersistentThoughts>(Ptr + 9476);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FPersistentThoughts>(Ptr + 9512);
 
     /// <summary>
     /// ArrayProperty: TransientNotifyThoughts
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.Actor.FThought> TransientNotifyThoughts
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor.FThought>>(Ptr + 9488); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9488); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor.FThought>>(Ptr + 9524); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9524); }
     }
 
     /// <summary>
@@ -3347,8 +3435,8 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.SkeletalMeshComponent PreviousSkelComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 9500); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9500); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 9536); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9536); }
     }
 
     /// <summary>
@@ -3356,8 +3444,8 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.SkeletalMesh PreviousSkeletalMesh
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMesh>(Ptr + 9504); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9504); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMesh>(Ptr + 9540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9540); }
     }
 
     /// <summary>
@@ -3365,23 +3453,23 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.PhysicsAsset PreviousPhysicsAsset
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PhysicsAsset>(Ptr + 9508); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9508); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PhysicsAsset>(Ptr + 9544); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9544); }
     }
 
     /// <summary>
     /// StructProperty: PreviousRotation
     /// </summary>
     public unsafe ref BmSDK.Rotator PreviousRotation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 9512);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 9548);
 
     /// <summary>
     /// ObjectProperty: MirrorConfig
     /// </summary>
     public unsafe BmSDK.BmGame.RMirrorConfig MirrorConfig
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RMirrorConfig>(Ptr + 9524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9524); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RMirrorConfig>(Ptr + 9560); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9560); }
     }
 
     /// <summary>
@@ -3389,44 +3477,44 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.BmGame.RAimingBoneConfig AimingBoneConfig
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAimingBoneConfig>(Ptr + 9528); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9528); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAimingBoneConfig>(Ptr + 9564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9564); }
     }
 
     /// <summary>
     /// StructProperty: Breathing
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimNode_Pose.FBreathingState Breathing
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimNode_Pose.FBreathingState>(Ptr + 9532);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimNode_Pose.FBreathingState>(Ptr + 9568);
 
     /// <summary>
     /// StructProperty: HeadMatrix
     /// </summary>
     public unsafe ref BmSDK.GameObject.FMatrix HeadMatrix
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FMatrix>(Ptr + 9552);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FMatrix>(Ptr + 9584);
 
     /// <summary>
     /// FloatProperty: GlobalTimeScale
     /// </summary>
     public unsafe float GlobalTimeScale
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 9616); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9616); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 9648); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9648); }
     }
 
     /// <summary>
     /// StructProperty: PoseLog
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil.FPersistentThoughts PoseLog
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FPersistentThoughts>(Ptr + 9620);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FPersistentThoughts>(Ptr + 9652);
 
     /// <summary>
     /// ArrayProperty: Skeleton_1_AfterBlend
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.GameObject.FBoneAtom> Skeleton_1_AfterBlend
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FBoneAtom>>(Ptr + 9632); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9632); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FBoneAtom>>(Ptr + 9664); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9664); }
     }
 
     /// <summary>
@@ -3434,8 +3522,8 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.GameObject.FBoneAtom> Skeleton_2_AfterAiming
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FBoneAtom>>(Ptr + 9644); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9644); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FBoneAtom>>(Ptr + 9676); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9676); }
     }
 
     /// <summary>
@@ -3443,8 +3531,8 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.GameObject.FBoneAtom> Skeleton_3_AfterAdditive
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FBoneAtom>>(Ptr + 9656); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9656); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FBoneAtom>>(Ptr + 9688); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9688); }
     }
 
     /// <summary>
@@ -3452,28 +3540,37 @@ public partial class RAnimNode_Pose : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.GameObject.FBoneAtom> Skeleton_4_AfterFixup
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FBoneAtom>>(Ptr + 9668); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9668); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FBoneAtom>>(Ptr + 9700); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9700); }
     }
 
     /// <summary>
     /// StructProperty: NotifyAnim
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimUtil.FNotifyAnim NotifyAnim
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FNotifyAnim>(Ptr + 9680);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FNotifyAnim>(Ptr + 9712);
 
     /// <summary>
     /// StructProperty: GlobalAdditiveAnim
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAnimNode_Pose.FGlobalAdditiveAnimState GlobalAdditiveAnim
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimNode_Pose.FGlobalAdditiveAnimState>(Ptr + 9700);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimNode_Pose.FGlobalAdditiveAnimState>(Ptr + 9732);
+
+    /// <summary>
+    /// ObjectProperty: AnimLinkNotifies
+    /// </summary>
+    public unsafe BmSDK.BmGame.MAnimLinkNotifies AnimLinkNotifies
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MAnimLinkNotifies>(Ptr + 9752); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9752); }
+    }
 
     /// <summary>
     /// DelegateProperty: __DummyOnPlayedQueuedTransition__Delegate
     /// </summary>
     public unsafe System.IntPtr __DummyOnPlayedQueuedTransition__Delegate
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 9720); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9720); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 9756); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9756); }
     }
 }

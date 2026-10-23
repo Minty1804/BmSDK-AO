@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponBruceWayneChains<br/>
-/// (size = 960)
+/// (size = 976)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponBruceWayneChains : BmSDK.BmGame.RBMWeapon, BmSDK.IGameObject
@@ -84,7 +84,7 @@ public partial class RBMWeaponBruceWayneChains : BmSDK.BmGame.RBMWeapon, BmSDK.I
     public unsafe override BmSDK.BmGame.RWeaponConfig CreateWeaponConfig(BmSDK.GameObject NewOwner)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMWeaponBruceWayneChains.CreateWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[7016];
+        byte* paramsPtr = stackalloc byte[7056];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RWeaponConfig>(paramsPtr + 4);

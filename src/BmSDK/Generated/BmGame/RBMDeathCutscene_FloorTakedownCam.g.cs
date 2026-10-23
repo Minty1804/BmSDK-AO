@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMDeathCutscene_FloorTakedownCam<br/>
-/// (size = 196)
+/// (size = 200)
 /// (flags = 18)
 /// </summary>
 public partial class RBMDeathCutscene_FloorTakedownCam : BmSDK.BmGame.RBMDeathCutscene_Cam, BmSDK.IGameObject
@@ -211,6 +211,15 @@ public partial class RBMDeathCutscene_FloorTakedownCam : BmSDK.BmGame.RBMDeathCu
     }
 
     /// <summary>
+    /// BoolProperty: bInSlowMo
+    /// </summary>
+    public unsafe bool bInSlowMo
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 176) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 176); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 176); }
+    }
+
+    /// <summary>
     /// FloatProperty: ExitTimer
     /// </summary>
     public unsafe float ExitTimer
@@ -224,4 +233,13 @@ public partial class RBMDeathCutscene_FloorTakedownCam : BmSDK.BmGame.RBMDeathCu
     /// </summary>
     public unsafe ref System.Numerics.Vector3 NextPos
         => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 184);
+
+    /// <summary>
+    /// ObjectProperty: PlayerPawn
+    /// </summary>
+    public unsafe BmSDK.BmGame.RPawnPlayerCombat PlayerPawn
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayerCombat>(Ptr + 196); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 196); }
+    }
 }

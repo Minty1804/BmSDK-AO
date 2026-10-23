@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionFresnel<br/>
-/// (size = 124)
+/// (size = 164)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionFresnel : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -83,13 +83,13 @@ public partial class MaterialExpressionFresnel : BmSDK.Engine.MaterialExpression
     /// </summary>
     public unsafe float Exponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 92); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 
     /// <summary>
     /// StructProperty: Normal
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Normal
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 96);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 120);
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAudioPoint_DisplayCase<br/>
-/// (size = 1948)
+/// (size = 2016)
 /// (flags = 8389174)
 /// </summary>
 public partial class RAudioPoint_DisplayCase : BmSDK.BmGame.RAudioPointController, BmSDK.IGameObject

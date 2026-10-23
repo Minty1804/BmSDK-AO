@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionBlurTextureSampleParameter<br/>
-/// (size = 176)
+/// (size = 244)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionBlurTextureSampleParameter : BmSDK.Engine.MaterialExpressionBlurTextureSample, BmSDK.IGameObject
@@ -83,13 +83,13 @@ public partial class MaterialExpressionBlurTextureSampleParameter : BmSDK.Engine
     /// </summary>
     public unsafe BmSDK.FName ParameterName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 164); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 164); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 220); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
     }
 
     /// <summary>
     /// StructProperty: ExpressionGUID
     /// </summary>
     public unsafe ref BmSDK.GameObject.FGuid ExpressionGUID
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FGuid>(Ptr + 172);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FGuid>(Ptr + 228);
 }

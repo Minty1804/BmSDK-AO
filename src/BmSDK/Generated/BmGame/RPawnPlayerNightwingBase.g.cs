@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RPawnPlayerNightwingBase<br/>
-/// (size = 6012)
+/// (size = 6388)
 /// (flags = 144703670)
 /// </summary>
 public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.IGameObject
@@ -145,8 +145,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe BmSDK.FName TargetClass
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 5956); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5956); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 6332); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6332); }
     }
 
     /// <summary>
@@ -154,8 +154,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe bool GettingTarget
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5964) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5964); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5964); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6340) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6340); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 6340); }
     }
 
     /// <summary>
@@ -163,8 +163,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe int RicochetRay
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5968); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5968); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6344); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6344); }
     }
 
     /// <summary>
@@ -172,8 +172,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe int RicochetNumRays
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5972); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5972); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6348); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6348); }
     }
 
     /// <summary>
@@ -181,8 +181,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe float RicochetMaxRange
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5976); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5976); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6352); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6352); }
     }
 
     /// <summary>
@@ -190,8 +190,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe int RicochetMaxBounces
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5980); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5980); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6356); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6356); }
     }
 
     /// <summary>
@@ -199,8 +199,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe float RicochetMaxAngle
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5984); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5984); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6360); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6360); }
     }
 
     /// <summary>
@@ -208,8 +208,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe int RicochetMaxExtraTargets
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5988); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5988); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6364); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6364); }
     }
 
     /// <summary>
@@ -217,8 +217,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe float RicochetExtraTargetMaxDist
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5992); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5992); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6368); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6368); }
     }
 
     /// <summary>
@@ -226,8 +226,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RPawnPlayerNightwingBase.FNwStickBouncePoint> RicochetBouncePoints
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RPawnPlayerNightwingBase.FNwStickBouncePoint>>(Ptr + 5996); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5996); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RPawnPlayerNightwingBase.FNwStickBouncePoint>>(Ptr + 6372); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6372); }
     }
 
     /// <summary>
@@ -235,8 +235,8 @@ public partial class RPawnPlayerNightwingBase : BmSDK.BmGame.RPawnPlayer, BmSDK.
     /// </summary>
     public unsafe int RicochetNumTargets
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6008); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6008); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6384); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6384); }
     }
 
     /// <summary>

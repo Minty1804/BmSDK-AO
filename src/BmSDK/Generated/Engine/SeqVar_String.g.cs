@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqVar_String<br/>
-/// (size = 140)
+/// (size = 144)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqVar_String : BmSDK.Engine.SequenceVariable, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqVar_String : BmSDK.Engine.SequenceVariable, BmSDK.IGameO
     /// </summary>
     public unsafe BmSDK.FString StrValue
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 128); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
     }
 }

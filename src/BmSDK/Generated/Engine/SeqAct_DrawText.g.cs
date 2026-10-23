@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_DrawText<br/>
-/// (size = 264)
+/// (size = 284)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_DrawText : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -94,8 +94,8 @@ public partial class SeqAct_DrawText : BmSDK.Engine.SequenceAction, BmSDK.IGameO
     /// </summary>
     public unsafe float DisplayTimeSeconds
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -103,13 +103,13 @@ public partial class SeqAct_DrawText : BmSDK.Engine.SequenceAction, BmSDK.IGameO
     /// </summary>
     public unsafe bool bDisplayOnObject
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 208); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 228); }
     }
 
     /// <summary>
     /// StructProperty: DrawTextInfo
     /// </summary>
     public unsafe ref BmSDK.Engine.HUD.FKismetDrawTextInfo DrawTextInfo
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FKismetDrawTextInfo>(Ptr + 212);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FKismetDrawTextInfo>(Ptr + 232);
 }

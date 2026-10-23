@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: InteractiveFoliageComponent<br/>
-/// (size = 480)
+/// (size = 544)
 /// (flags = 2290094226)
 /// </summary>
 public partial class InteractiveFoliageComponent : BmSDK.Engine.StaticMeshComponent, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class InteractiveFoliageComponent : BmSDK.Engine.StaticMeshCompon
     /// </summary>
     public unsafe System.IntPtr FoliageSceneProxy
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
     }
 }

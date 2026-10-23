@@ -460,24 +460,6 @@ public partial class ApexDestructibleAsset : BmSDK.Engine.ApexAsset, BmSDK.IGame
     }
 
     /// <summary>
-    /// StructProperty: MApexAsset
-    /// </summary>
-    public unsafe System.IntPtr MApexAsset
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 92); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: Materials
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.Engine.MaterialInterface> Materials
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.MaterialInterface>>(Ptr + 96); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 96); }
-    }
-
-    /// <summary>
     /// ArrayProperty: FractureMaterials
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.FractureMaterial> FractureMaterials

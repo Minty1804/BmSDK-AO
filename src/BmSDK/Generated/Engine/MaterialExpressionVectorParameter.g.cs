@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionVectorParameter<br/>
-/// (size = 120)
+/// (size = 156)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionVectorParameter : BmSDK.Engine.MaterialExpressionParameter, BmSDK.IGameObject
@@ -82,5 +82,5 @@ public partial class MaterialExpressionVectorParameter : BmSDK.Engine.MaterialEx
     /// StructProperty: DefaultValue
     /// </summary>
     public unsafe ref BmSDK.GameObject.FLinearColor DefaultValue
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FLinearColor>(Ptr + 104);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FLinearColor>(Ptr + 140);
 }

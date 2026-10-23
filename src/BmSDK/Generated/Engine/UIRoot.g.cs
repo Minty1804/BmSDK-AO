@@ -79,7 +79,7 @@ public partial class UIRoot : BmSDK.StateObject, BmSDK.IGameObject
     public unsafe static bool GetDataStoreStringValue(BmSDK.FString InDataStoreMarkup, out BmSDK.FString OutStringValue, BmSDK.Engine.LocalPlayer OwnerPlayer = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.UIRoot.GetDataStoreStringValue", true);
-        byte* paramsPtr = stackalloc byte[124];
+        byte* paramsPtr = stackalloc byte[160];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(InDataStoreMarkup, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OwnerPlayer, paramsPtr + 24);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -93,9 +93,9 @@ public partial class UIRoot : BmSDK.StateObject, BmSDK.IGameObject
     public unsafe static bool GetDataStoreFieldValue(BmSDK.FString InDataStoreMarkup, out BmSDK.Engine.UIRoot.FUIProviderFieldValue OutFieldValue, BmSDK.Engine.LocalPlayer OwnerPlayer = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.UIRoot.GetDataStoreFieldValue", true);
-        byte* paramsPtr = stackalloc byte[108];
+        byte* paramsPtr = stackalloc byte[144];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(InDataStoreMarkup, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(OwnerPlayer, paramsPtr + 100);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(OwnerPlayer, paramsPtr + 136);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -105,7 +105,7 @@ public partial class UIRoot : BmSDK.StateObject, BmSDK.IGameObject
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
         OutFieldValue = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.UIRoot.FUIProviderFieldValue>(paramsPtr + 12);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 104);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 140);
     }
 
     /// <summary>
@@ -114,7 +114,7 @@ public partial class UIRoot : BmSDK.StateObject, BmSDK.IGameObject
     public unsafe static bool SetDataStoreStringValue(BmSDK.FString InDataStoreMarkup, BmSDK.FString InStringValue, BmSDK.Engine.LocalPlayer OwnerPlayer = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.UIRoot.SetDataStoreStringValue", true);
-        byte* paramsPtr = stackalloc byte[120];
+        byte* paramsPtr = stackalloc byte[156];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(InDataStoreMarkup, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(InStringValue, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OwnerPlayer, paramsPtr + 24);
@@ -128,9 +128,9 @@ public partial class UIRoot : BmSDK.StateObject, BmSDK.IGameObject
     public unsafe static bool SetDataStoreFieldValue(BmSDK.FString InDataStoreMarkup, out BmSDK.Engine.UIRoot.FUIProviderFieldValue InFieldValue, BmSDK.Engine.LocalPlayer OwnerPlayer = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.UIRoot.SetDataStoreFieldValue", true);
-        byte* paramsPtr = stackalloc byte[108];
+        byte* paramsPtr = stackalloc byte[144];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(InDataStoreMarkup, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(OwnerPlayer, paramsPtr + 100);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(OwnerPlayer, paramsPtr + 136);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -140,7 +140,7 @@ public partial class UIRoot : BmSDK.StateObject, BmSDK.IGameObject
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
         InFieldValue = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.UIRoot.FUIProviderFieldValue>(paramsPtr + 12);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 104);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 140);
     }
 
     /// <summary>
@@ -494,7 +494,7 @@ public partial class UIRoot : BmSDK.StateObject, BmSDK.IGameObject
     /// <summary>
     /// Struct: FUIProviderFieldValue
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 88)]
+    [StructLayout(LayoutKind.Explicit, Size = 124)]
     public partial record struct FUIProviderFieldValue
     {
         /// <summary>
@@ -502,15 +502,15 @@ public partial class UIRoot : BmSDK.StateObject, BmSDK.IGameObject
         /// </summary>
         public unsafe System.IntPtr CustomStringNode
         {
-            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 84); }; }
-            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 84); }; }
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 120); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }; }
         }
     }
 
     /// <summary>
     /// Struct: FUIProviderScriptFieldValue
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 84)]
+    [StructLayout(LayoutKind.Explicit, Size = 120)]
     public partial record struct FUIProviderScriptFieldValue
     {
         /// <summary>
@@ -581,8 +581,8 @@ public partial class UIRoot : BmSDK.StateObject, BmSDK.IGameObject
         /// </summary>
         public unsafe BmSDK.Engine.UIRoot.FTextureCoordinates AtlasCoordinates
         {
-            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.UIRoot.FTextureCoordinates>(Ptr + 68); }; }
-            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 68); }; }
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.UIRoot.FTextureCoordinates>(Ptr + 104); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }; }
         }
     }
 

@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_BatmanRedirectVenom<br/>
-/// (size = 680)
-/// (flags = 8388626)
+/// (size = 704)
+/// (flags = 41943058)
 /// </summary>
 public partial class RCombatMove_BatmanRedirectVenom : BmSDK.BmGame.RCombatMove_BatmanRedirect, BmSDK.IGameObject
 {
@@ -78,25 +78,4 @@ public partial class RCombatMove_BatmanRedirectVenom : BmSDK.BmGame.RCombatMove_
         where TComponent : class, Framework.IScriptComponent<RCombatMove_BatmanRedirectVenom>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
-    /// <summary>
-    /// Function: SetBlockActorsOff
-    /// </summary>
-    public unsafe virtual void SetBlockActorsOff()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RCombatMove_BatmanRedirectVenom.SetBlockActorsOff", true);
-        byte* paramsPtr = stackalloc byte[0];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: CanRedirect
-    /// </summary>
-    public unsafe override bool CanRedirect()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RCombatMove_BatmanRedirectVenom.CanRedirect", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
-    }
 }

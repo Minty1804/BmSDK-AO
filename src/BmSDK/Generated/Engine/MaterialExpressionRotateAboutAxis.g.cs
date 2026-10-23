@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionRotateAboutAxis<br/>
-/// (size = 176)
+/// (size = 248)
 /// (flags = 134217874)
 /// </summary>
 public partial class MaterialExpressionRotateAboutAxis : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,17 +82,17 @@ public partial class MaterialExpressionRotateAboutAxis : BmSDK.Engine.MaterialEx
     /// StructProperty: NormalizedRotationAxisAndAngle
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput NormalizedRotationAxisAndAngle
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// StructProperty: PositionOnAxis
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput PositionOnAxis
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 120);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 160);
 
     /// <summary>
     /// StructProperty: Position
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Position
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 148);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 204);
 }

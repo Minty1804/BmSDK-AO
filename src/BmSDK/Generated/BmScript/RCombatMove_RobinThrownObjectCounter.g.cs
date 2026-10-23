@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RCombatMove_RobinThrownObjectCounter<br/>
-/// (size = 560)
+/// (size = 584)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_RobinThrownObjectCounter : BmSDK.BmGame.RCombatMove_BatmanThrownObjectCounter, BmSDK.IGameObject

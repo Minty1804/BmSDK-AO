@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAudioHarleyHeadPointBase<br/>
-/// (size = 540)
+/// (size = 576)
 /// (flags = 142606994)
 /// </summary>
 public partial class RAudioHarleyHeadPointBase : BmSDK.BmGame.RAudioPoint, BmSDK.BmGame.RSecretInterface, BmSDK.IGameObject
@@ -112,22 +112,22 @@ public partial class RAudioHarleyHeadPointBase : BmSDK.BmGame.RAudioPoint, BmSDK
     }
 
     /// <summary>
-    /// Function: GetSecretZone
+    /// Function: GetSecretGroup
     /// </summary>
-    public unsafe virtual byte GetSecretZone()
+    public unsafe virtual BmSDK.FString GetSecretGroup()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAudioHarleyHeadPointBase.GetSecretZone", true);
-        byte* paramsPtr = stackalloc byte[1];
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAudioHarleyHeadPointBase.GetSecretGroup", true);
+        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<byte>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 0);
     }
 
     /// <summary>
-    /// Function: GetSecretPickupIndex
+    /// Function: GetSecretIndex
     /// </summary>
-    public unsafe virtual int GetSecretPickupIndex()
+    public unsafe virtual int GetSecretIndex()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAudioHarleyHeadPointBase.GetSecretPickupIndex", true);
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAudioHarleyHeadPointBase.GetSecretIndex", true);
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
@@ -171,8 +171,8 @@ public partial class RAudioHarleyHeadPointBase : BmSDK.BmGame.RAudioPoint, BmSDK
     /// </summary>
     public unsafe System.IntPtr VfTable_IRSecretInterface
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 516); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 544); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 544); }
     }
 
     /// <summary>
@@ -180,17 +180,17 @@ public partial class RAudioHarleyHeadPointBase : BmSDK.BmGame.RAudioPoint, BmSDK
     /// </summary>
     public unsafe int Index
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 520); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 548); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 548); }
     }
 
     /// <summary>
-    /// ByteProperty: Zone
+    /// StrProperty: SecretGroup
     /// </summary>
-    public unsafe BmSDK.BmGame.RPersistentData.ERiddlerLocationName Zone
+    public unsafe BmSDK.FString SecretGroup
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.ERiddlerLocationName>(Ptr + 524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 552); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 552); }
     }
 
     /// <summary>
@@ -198,8 +198,8 @@ public partial class RAudioHarleyHeadPointBase : BmSDK.BmGame.RAudioPoint, BmSDK
     /// </summary>
     public unsafe int SecretX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 528); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 528); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
     }
 
     /// <summary>
@@ -207,8 +207,8 @@ public partial class RAudioHarleyHeadPointBase : BmSDK.BmGame.RAudioPoint, BmSDK
     /// </summary>
     public unsafe int SecretY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 532); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 532); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 568); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
     }
 
     /// <summary>
@@ -216,7 +216,7 @@ public partial class RAudioHarleyHeadPointBase : BmSDK.BmGame.RAudioPoint, BmSDK
     /// </summary>
     public unsafe bool bUseSecretLocation
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 536) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 536); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 536); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 572) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 572); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 572); }
     }
 }

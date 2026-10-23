@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: LightMapTexture2D<br/>
-/// (size = 332)
+/// (size = 364)
 /// (flags = 268435584)
 /// </summary>
 public partial class LightMapTexture2D : BmSDK.Engine.Texture2D, BmSDK.IGameObject

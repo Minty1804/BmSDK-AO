@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_Counter<br/>
-/// (size = 145)
+/// (size = 157)
 /// (flags = 134217874)
 /// </summary>
 public partial class RDmgType_Counter : BmSDK.BmGame.RDmgType_Strike, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class RDmgType_Counter : BmSDK.BmGame.RDmgType_Strike, BmSDK.IGam
     /// </summary>
     public unsafe int AlignmentPad
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 140); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 152); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 152); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class RDmgType_Counter : BmSDK.BmGame.RDmgType_Strike, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.BmGame.RPawnPlayerCombat.CounterStrength CounterStrength
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayerCombat.CounterStrength>(Ptr + 144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayerCombat.CounterStrength>(Ptr + 156); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 156); }
     }
 }

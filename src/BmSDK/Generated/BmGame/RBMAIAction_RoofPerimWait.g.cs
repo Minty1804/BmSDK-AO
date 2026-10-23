@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_RoofPerimWait<br/>
-/// (size = 600)
+/// (size = 624)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_RoofPerimWait : BmSDK.BmGame.RBMAIAction_PatrolWaitBase, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSlideVolume<br/>
-/// (size = 508)
+/// (size = 532)
 /// (flags = 8389138)
 /// </summary>
 public partial class RSlideVolume : BmSDK.BmGame.REvadeOverrideVolume, BmSDK.IGameObject
@@ -116,37 +116,37 @@ public partial class RSlideVolume : BmSDK.BmGame.REvadeOverrideVolume, BmSDK.IGa
     /// <summary>
     /// InlineArray{ObjectProperty}: SlideDirection
     /// </summary>
-    public InlineArray<BmSDK.BmGame.RDummyTarget> SlideDirection => new(2, Ptr + 484, 4, this);
+    public InlineArray<BmSDK.BmGame.RDummyTarget> SlideDirection => new(2, Ptr + 508, 4, this);
 
     /// <summary>
     /// ObjectProperty: SlideDirection
     /// </summary>
     public unsafe BmSDK.BmGame.RDummyTarget SlideDirection_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDummyTarget>(Ptr + 484); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDummyTarget>(Ptr + 508); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 508); }
     }
     /// <summary>
     /// ObjectProperty: SlideDirection
     /// </summary>
     public unsafe BmSDK.BmGame.RDummyTarget SlideDirection_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDummyTarget>(Ptr + 488); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDummyTarget>(Ptr + 512); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 512); }
     }
 
     /// <summary>
     /// StructProperty: RelativeToRotationSlideDirection
     /// </summary>
     public unsafe ref BmSDK.Rotator RelativeToRotationSlideDirection
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 492);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 516);
 
     /// <summary>
     /// BoolProperty: bUseRelativeToRotationSlideDirection
     /// </summary>
     public unsafe bool bUseRelativeToRotationSlideDirection
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 504) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 504); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 504); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 528) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 528); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 528); }
     }
 }

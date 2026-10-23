@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_UnlockAchievement<br/>
-/// (size = 205)
+/// (size = 225)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_UnlockAchievement : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RSeqAct_UnlockAchievement : BmSDK.Engine.SequenceAction, Bm
     /// </summary>
     public unsafe BmSDK.BmGame.RGameInfo.EAchievementID AchievementId
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EAchievementID>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EAchievementID>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

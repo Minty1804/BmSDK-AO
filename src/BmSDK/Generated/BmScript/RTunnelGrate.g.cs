@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RTunnelGrate<br/>
-/// (size = 584)
+/// (size = 600)
 /// (flags = 8389138)
 /// </summary>
 public partial class RTunnelGrate : BmSDK.BmScript.RTunnelGrateShared, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RFootstepVolume<br/>
-/// (size = 496)
+/// (size = 520)
 /// (flags = 142606994)
 /// </summary>
 public partial class RFootstepVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
@@ -121,8 +121,8 @@ public partial class RFootstepVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe float valueToSet
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 472); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
     }
 
     /// <summary>
@@ -130,8 +130,8 @@ public partial class RFootstepVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.AkParameterName nameToSet
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkParameterName>(Ptr + 476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkParameterName>(Ptr + 500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
     }
 
     /// <summary>
@@ -139,8 +139,8 @@ public partial class RFootstepVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RPawn> PawnList
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RPawn>>(Ptr + 480); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RPawn>>(Ptr + 504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
     }
 
     /// <summary>
@@ -148,7 +148,7 @@ public partial class RFootstepVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.AkParameterName SettingName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkParameterName>(Ptr + 492); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkParameterName>(Ptr + 516); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
     }
 }

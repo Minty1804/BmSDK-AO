@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_ForceSubtitle<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 134226066)
 /// </summary>
 public partial class RSeqAct_ForceSubtitle : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -124,7 +124,7 @@ public partial class RSeqAct_ForceSubtitle : BmSDK.Engine.SequenceAction, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.RDialogueLine Subtitle
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RDialogueLine>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RDialogueLine>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

@@ -1032,6 +1032,19 @@ public partial class GameObject : BmSDK.IGameObject
     }
 
     /// <summary>
+    /// Function: vect2d
+    /// </summary>
+    public unsafe static System.Numerics.Vector2 vect2d(float InX, float InY)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Core.Object.vect2d", true);
+        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(InX, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(InY, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector2>(paramsPtr + 8);
+    }
+
+    /// <summary>
     /// Function: GetMappedRangeValue
     /// </summary>
     public unsafe static float GetMappedRangeValue(System.Numerics.Vector2 InputRange, System.Numerics.Vector2 OutputRange, float Value)
@@ -1500,6 +1513,18 @@ public partial class GameObject : BmSDK.IGameObject
         funcManaged.FunctionFlags = oldFlags;
         Pieces = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 12);
         return;
+    }
+
+    /// <summary>
+    /// Function: GetRightMost
+    /// </summary>
+    public unsafe static BmSDK.FString GetRightMost(BmSDK.FString Text)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Core.Object.GetRightMost", true);
+        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Text, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 12);
     }
 
     /// <summary>
@@ -4813,24 +4838,8 @@ public partial class GameObject : BmSDK.IGameObject
     /// <summary>
     /// Struct: FGuid
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 4)]
-    public partial record struct FGuid
-    {
-        /// <summary>
-        /// StructProperty: A
-        /// </summary>
-        public unsafe System.IntPtr A
-        {
-            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 0); }; }
-            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 0); }; }
-        }
-    }
-
-    /// <summary>
-    /// Struct: FGuidImplementation
-    /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = 16)]
-    public partial record struct FGuidImplementation
+    public partial record struct FGuid
     {
         /// <summary>
         /// IntProperty: A

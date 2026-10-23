@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMPathNode_GapJumpProxy<br/>
-/// (size = 680)
+/// (size = 716)
 /// (flags = 142606994)
 /// </summary>
 public partial class RBMPathNode_GapJumpProxy : BmSDK.BmGame.RBMPathNode_VariablePositionTraverseProxy, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSpecialMoveConfig_HazardStumble<br/>
-/// (size = 348)
+/// (size = 356)
 /// (flags = 4114)
 /// </summary>
 public partial class RSpecialMoveConfig_HazardStumble : BmSDK.BmGame.RSpecialMoveConfig_RelativeAnimMove, BmSDK.IGameObject

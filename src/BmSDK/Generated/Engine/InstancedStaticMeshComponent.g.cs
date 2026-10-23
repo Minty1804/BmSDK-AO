@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: InstancedStaticMeshComponent<br/>
-/// (size = 524)
+/// (size = 588)
 /// (flags = 2290094226)
 /// </summary>
 public partial class InstancedStaticMeshComponent : BmSDK.Engine.StaticMeshComponent, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class InstancedStaticMeshComponent : BmSDK.Engine.StaticMeshCompo
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent.FInstancedStaticMeshInstanceData> PerInstanceData
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent.FInstancedStaticMeshInstanceData>>(Ptr + 476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent.FInstancedStaticMeshInstanceData>>(Ptr + 540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
     }
 
     /// <summary>
@@ -92,8 +92,8 @@ public partial class InstancedStaticMeshComponent : BmSDK.Engine.StaticMeshCompo
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent.FInstancedStaticMeshInstanceData> PerInstanceSMData
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent.FInstancedStaticMeshInstanceData>>(Ptr + 488); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent.FInstancedStaticMeshInstanceData>>(Ptr + 552); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 552); }
     }
 
     /// <summary>
@@ -101,8 +101,8 @@ public partial class InstancedStaticMeshComponent : BmSDK.Engine.StaticMeshCompo
     /// </summary>
     public unsafe int NumPendingLightmaps
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 500); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
     }
 
     /// <summary>
@@ -110,8 +110,8 @@ public partial class InstancedStaticMeshComponent : BmSDK.Engine.StaticMeshCompo
     /// </summary>
     public unsafe int ComponentJoinKey
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 504); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 568); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
     }
 
     /// <summary>
@@ -119,8 +119,8 @@ public partial class InstancedStaticMeshComponent : BmSDK.Engine.StaticMeshCompo
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent.FInstancedStaticMeshMappingInfo> CachedMappings
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent.FInstancedStaticMeshMappingInfo>>(Ptr + 508); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 508); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent.FInstancedStaticMeshMappingInfo>>(Ptr + 572); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
     }
 
     /// <summary>
@@ -128,8 +128,8 @@ public partial class InstancedStaticMeshComponent : BmSDK.Engine.StaticMeshCompo
     /// </summary>
     public unsafe int InstancingRandomSeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 520); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 584); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 584); }
     }
 
     /// <summary>

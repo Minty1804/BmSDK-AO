@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RWeakIceBase<br/>
-/// (size = 472)
+/// (size = 496)
 /// (flags = 142606482)
 /// </summary>
 public partial class RWeakIceBase : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -200,23 +200,23 @@ public partial class RWeakIceBase : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.SkeletalMeshComponent SkeletalMeshComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 
     /// <summary>
     /// StructProperty: FData
     /// </summary>
     public unsafe ref BmSDK.BmGame.RWeakIceBase.FFloorData FData
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RWeakIceBase.FFloorData>(Ptr + 432);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RWeakIceBase.FFloorData>(Ptr + 456);
 
     /// <summary>
     /// ObjectProperty: CrackMat
     /// </summary>
     public unsafe BmSDK.Engine.MaterialInstanceConstant CrackMat
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 464); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 488); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
     }
 
     /// <summary>
@@ -224,7 +224,7 @@ public partial class RWeakIceBase : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float Cracks
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 468); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 468); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 492); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
     }
 }

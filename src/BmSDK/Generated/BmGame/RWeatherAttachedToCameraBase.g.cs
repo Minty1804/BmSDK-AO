@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RWeatherAttachedToCameraBase<br/>
-/// (size = 464)
+/// (size = 488)
 /// (flags = 142606482)
 /// </summary>
 public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -120,8 +120,8 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
     /// </summary>
     public unsafe BmSDK.BmGame.RPlayerController PC
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 
     /// <summary>
@@ -129,8 +129,8 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
     /// </summary>
     public unsafe BmSDK.Engine.RRainComponent RainComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RRainComponent>(Ptr + 432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RRainComponent>(Ptr + 456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
     }
 
     /// <summary>
@@ -138,8 +138,8 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
     /// </summary>
     public unsafe float WetAmount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 436); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
     }
 
     /// <summary>
@@ -147,8 +147,8 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
     /// </summary>
     public unsafe float SnowAmount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 440); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
     }
 
     /// <summary>
@@ -156,8 +156,8 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
     /// </summary>
     public unsafe float SnowBuildTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 444); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 444); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 468); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 468); }
     }
 
     /// <summary>
@@ -165,8 +165,8 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
     /// </summary>
     public unsafe float WetBuildTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 448); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 448); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 472); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
     }
 
     /// <summary>
@@ -174,8 +174,8 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
     /// </summary>
     public unsafe float WetRemoveTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 476); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
     }
 
     /// <summary>
@@ -183,8 +183,8 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
     /// </summary>
     public unsafe float SnowVolumeKillTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 456); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 480); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
     }
 
     /// <summary>
@@ -192,7 +192,7 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
     /// </summary>
     public unsafe float WetVolumeKillTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 460); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
     }
 }

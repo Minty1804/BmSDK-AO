@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqEvent_UsedDoorDuringGlobalLock<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 18)
 /// </summary>
 public partial class RSeqEvent_UsedDoorDuringGlobalLock : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject

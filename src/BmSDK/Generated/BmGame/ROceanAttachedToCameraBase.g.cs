@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: ROceanAttachedToCameraBase<br/>
-/// (size = 436)
+/// (size = 460)
 /// (flags = 142606482)
 /// </summary>
 public partial class ROceanAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -120,8 +120,8 @@ public partial class ROceanAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.BmGame.RPlayerController PC
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 
     /// <summary>
@@ -129,7 +129,7 @@ public partial class ROceanAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.Engine.ROceanComponent OceanComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ROceanComponent>(Ptr + 432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ROceanComponent>(Ptr + 456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
     }
 }

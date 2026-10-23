@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqEvt_PressurePad<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 18)
 /// </summary>
 public partial class RSeqEvt_PressurePad : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject

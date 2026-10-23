@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSwingingDirectorCamera<br/>
-/// (size = 940)
+/// (size = 984)
 /// (flags = 10486290)
 /// </summary>
 public partial class RSwingingDirectorCamera : BmSDK.BmGame.RLineLauncherDirectorCamera, BmSDK.IGameObject

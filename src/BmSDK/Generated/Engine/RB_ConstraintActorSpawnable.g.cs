@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: RB_ConstraintActorSpawnable<br/>
-/// (size = 456)
+/// (size = 480)
 /// (flags = 10485778)
 /// </summary>
 public partial class RB_ConstraintActorSpawnable : BmSDK.Engine.RB_ConstraintActor, BmSDK.IGameObject

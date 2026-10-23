@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionFrac<br/>
-/// (size = 120)
+/// (size = 160)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionFrac : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,5 +82,5 @@ public partial class MaterialExpressionFrac : BmSDK.Engine.MaterialExpression, B
     /// StructProperty: Input
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Input
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 }

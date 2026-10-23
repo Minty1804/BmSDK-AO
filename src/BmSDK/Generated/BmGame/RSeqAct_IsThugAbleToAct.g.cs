@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_IsThugAbleToAct<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_IsThugAbleToAct : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -117,7 +117,7 @@ public partial class RSeqAct_IsThugAbleToAct : BmSDK.Engine.SequenceAction, BmSD
     /// </summary>
     public unsafe BmSDK.Engine.Actor BadGuy
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

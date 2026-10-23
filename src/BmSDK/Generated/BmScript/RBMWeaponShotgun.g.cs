@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponShotgun<br/>
-/// (size = 1120)
+/// (size = 1148)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponShotgun : BmSDK.BmScript.RBMWeaponRifle, BmSDK.IGameObject
@@ -130,7 +130,7 @@ public partial class RBMWeaponShotgun : BmSDK.BmScript.RBMWeaponRifle, BmSDK.IGa
     /// </summary>
     public unsafe float BuckSpreadShotDeviance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1116); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1116); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1144); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1144); }
     }
 }

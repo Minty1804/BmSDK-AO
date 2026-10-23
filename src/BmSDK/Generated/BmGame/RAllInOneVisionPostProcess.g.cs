@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAllInOneVisionPostProcess<br/>
-/// (size = 128)
+/// (size = 160)
 /// (flags = 18)
 /// </summary>
 public partial class RAllInOneVisionPostProcess : BmSDK.BmGame.RViewPostProcess, BmSDK.IGameObject

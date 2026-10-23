@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_CommJam<br/>
-/// (size = 576)
+/// (size = 600)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_CommJam : BmSDK.BmGame.RBMAIAction, BmSDK.IGameObject
@@ -115,6 +115,6 @@ public partial class RBMAIAction_CommJam : BmSDK.BmGame.RBMAIAction, BmSDK.IGame
     /// <summary>
     /// StructProperty: CommJamAnimID
     /// </summary>
-    public unsafe ref BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId CommJamAnimID
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId>(Ptr + 572);
+    public unsafe ref BmSDK.BmGame.RAnimUtil.FTransitionId CommJamAnimID
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FTransitionId>(Ptr + 596);
 }

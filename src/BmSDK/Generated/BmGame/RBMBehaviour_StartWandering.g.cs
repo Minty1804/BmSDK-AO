@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_StartWandering<br/>
-/// (size = 404)
+/// (size = 424)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_StartWandering : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject
@@ -106,8 +106,8 @@ public partial class RBMBehaviour_StartWandering : BmSDK.BmGame.RBMBehaviour, Bm
     /// </summary>
     public unsafe float TimeSinceTriedToWander
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 396); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 396); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 416); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 416); }
     }
 
     /// <summary>
@@ -115,7 +115,7 @@ public partial class RBMBehaviour_StartWandering : BmSDK.BmGame.RBMBehaviour, Bm
     /// </summary>
     public unsafe int WanderAttempts
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 400); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 400); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 420); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 420); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_ThermalCheck_Cocky<br/>
-/// (size = 616)
+/// (size = 640)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_ThermalCheck_Cocky : BmSDK.BmGame.RBMAIAction_ThermalCheck, BmSDK.IGameObject

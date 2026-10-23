@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RBMSeqAct_PlaySpeech<br/>
-/// (size = 248)
+/// (size = 268)
 /// (flags = 134226067)
 /// </summary>
 public partial class RBMSeqAct_PlaySpeech : BmSDK.BmGame.RSeqAct_PlaySpeechBase, BmSDK.IGameObject
@@ -145,8 +145,8 @@ public partial class RBMSeqAct_PlaySpeech : BmSDK.BmGame.RSeqAct_PlaySpeechBase,
     /// </summary>
     public unsafe BmSDK.Engine.RDialogueLine DialogueLine
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RDialogueLine>(Ptr + 240); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RDialogueLine>(Ptr + 260); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 260); }
     }
 
     /// <summary>
@@ -154,8 +154,8 @@ public partial class RBMSeqAct_PlaySpeech : BmSDK.BmGame.RSeqAct_PlaySpeechBase,
     /// </summary>
     public unsafe bool bInterruptCurrentSpeech
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 244); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 264); }
     }
 
     /// <summary>
@@ -163,7 +163,7 @@ public partial class RBMSeqAct_PlaySpeech : BmSDK.BmGame.RSeqAct_PlaySpeechBase,
     /// </summary>
     public unsafe bool bBatmanShouldFace
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 244); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 264); }
     }
 }

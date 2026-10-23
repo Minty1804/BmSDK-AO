@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_LineLauncherKick<br/>
-/// (size = 140)
+/// (size = 152)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_LineLauncherKick : BmSDK.BmGame.RDmgType_HeavyStrike, BmSDK.IGameObject

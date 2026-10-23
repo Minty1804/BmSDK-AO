@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCrossLevelVantageProxy<br/>
-/// (size = 428)
+/// (size = 452)
 /// (flags = 8389138)
 /// </summary>
 public partial class RCrossLevelVantageProxy : BmSDK.Engine.Actor, BmSDK.IGameObject

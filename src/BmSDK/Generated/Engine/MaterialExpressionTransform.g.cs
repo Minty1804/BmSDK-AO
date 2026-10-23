@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionTransform<br/>
-/// (size = 122)
+/// (size = 162)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionTransform : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -105,15 +105,15 @@ public partial class MaterialExpressionTransform : BmSDK.Engine.MaterialExpressi
     /// StructProperty: Input
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Input
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// ByteProperty: TransformSourceType
     /// </summary>
     public unsafe BmSDK.Engine.MaterialExpressionTransform.EMaterialVectorCoordTransformSource TransformSourceType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionTransform.EMaterialVectorCoordTransformSource>(Ptr + 120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionTransform.EMaterialVectorCoordTransformSource>(Ptr + 160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
     }
 
     /// <summary>
@@ -121,7 +121,7 @@ public partial class MaterialExpressionTransform : BmSDK.Engine.MaterialExpressi
     /// </summary>
     public unsafe BmSDK.Engine.MaterialExpressionTransform.EMaterialVectorCoordTransform TransformType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionTransform.EMaterialVectorCoordTransform>(Ptr + 121); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 121); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionTransform.EMaterialVectorCoordTransform>(Ptr + 161); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 161); }
     }
 }

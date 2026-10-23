@@ -5,7 +5,7 @@ namespace BmSDK.GFxUI;
 
 /// <summary>
 /// Class: GFxEvent_FSCommand<br/>
-/// (size = 248)
+/// (size = 268)
 /// (flags = 134217874)
 /// </summary>
 public partial class GFxEvent_FSCommand : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class GFxEvent_FSCommand : BmSDK.Engine.SequenceEvent, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie Movie
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
     }
 
     /// <summary>
@@ -92,8 +92,8 @@ public partial class GFxEvent_FSCommand : BmSDK.Engine.SequenceEvent, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.FString FSCommand
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 232); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 252); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 252); }
     }
 
     /// <summary>
@@ -101,7 +101,7 @@ public partial class GFxEvent_FSCommand : BmSDK.Engine.SequenceEvent, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.GFxUI.GFxFSCmdHandler_Kismet Handler
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxFSCmdHandler_Kismet>(Ptr + 244); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxFSCmdHandler_Kismet>(Ptr + 264); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 264); }
     }
 }

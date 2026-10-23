@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: NavMeshBoundsVolume<br/>
-/// (size = 472)
+/// (size = 496)
 /// (flags = 8389138)
 /// </summary>
 public partial class NavMeshBoundsVolume : BmSDK.Engine.Volume, BmSDK.IGameObject

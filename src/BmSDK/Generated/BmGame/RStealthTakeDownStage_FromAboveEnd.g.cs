@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_FromAboveEnd<br/>
-/// (size = 1044)
+/// (size = 1088)
 /// (flags = 8388626)
 /// </summary>
 public partial class RStealthTakeDownStage_FromAboveEnd : BmSDK.BmGame.RStealthTakeDownStage, BmSDK.IGameObject
@@ -163,5 +163,5 @@ public partial class RStealthTakeDownStage_FromAboveEnd : BmSDK.BmGame.RStealthT
     /// StructProperty: GrappleLocation
     /// </summary>
     public unsafe ref System.Numerics.Vector3 GrappleLocation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1032);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1076);
 }

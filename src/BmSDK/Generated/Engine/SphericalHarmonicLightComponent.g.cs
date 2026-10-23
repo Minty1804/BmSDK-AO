@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SphericalHarmonicLightComponent<br/>
-/// (size = 564)
+/// (size = 580)
 /// (flags = 144707730)
 /// </summary>
 public partial class SphericalHarmonicLightComponent : BmSDK.Engine.LightComponent, BmSDK.IGameObject
@@ -82,14 +82,14 @@ public partial class SphericalHarmonicLightComponent : BmSDK.Engine.LightCompone
     /// StructProperty: WorldSpaceIncidentLighting
     /// </summary>
     public unsafe ref BmSDK.GameObject.FSHVectorRGB WorldSpaceIncidentLighting
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FSHVectorRGB>(Ptr + 416);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FSHVectorRGB>(Ptr + 432);
 
     /// <summary>
     /// BoolProperty: bRenderBeforeModShadows
     /// </summary>
     public unsafe bool bRenderBeforeModShadows
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 560) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 560); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 560); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 576) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 576); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 576); }
     }
 }

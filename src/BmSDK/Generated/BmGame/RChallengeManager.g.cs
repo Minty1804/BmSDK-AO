@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RChallengeManager<br/>
-/// (size = 264)
-/// (flags = 134217874)
+/// (size = 356)
+/// (flags = 134217878)
 /// </summary>
 public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
 {
@@ -79,14 +79,266 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
+    /// Function: UpdateFriendsBeatenPredator
+    /// </summary>
+    public unsafe virtual void UpdateFriendsBeatenPredator(int Score, int Medals)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.UpdateFriendsBeatenPredator", true);
+        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Score, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Medals, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ProcessSingleChallengeUnlockCondition
+    /// </summary>
+    public unsafe virtual void ProcessSingleChallengeUnlockCondition(BmSDK.BmGame.RGameInfo.FChallengeUnlockCondition cuc)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.ProcessSingleChallengeUnlockCondition", true);
+        byte* paramsPtr = stackalloc byte[48];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(cuc, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ProcessChallengeUnlockConditions
+    /// </summary>
+    public unsafe virtual void ProcessChallengeUnlockConditions(int activatedChallengeId)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.ProcessChallengeUnlockConditions", true);
+        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(activatedChallengeId, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: GetUnlockedChallengeData
+    /// </summary>
+    public unsafe virtual BmSDK.BmGame.RPersistentOptions.FUnlockedChallengeData GetUnlockedChallengeData(int ChallengeID, int CharacterId)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.GetUnlockedChallengeData", true);
+        byte* paramsPtr = stackalloc byte[64];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ChallengeID, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CharacterId, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentOptions.FUnlockedChallengeData>(paramsPtr + 8);
+    }
+
+    /// <summary>
+    /// Function: GetNextTargetInfo
+    /// </summary>
+    public unsafe virtual bool GetNextTargetInfo(BmSDK.BmGame.RPersistentOptions.FUnlockedChallengeData ucd, out BmSDK.FString FriendName, out int FriendScore, out int FriendMedal)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.GetNextTargetInfo", true);
+        byte* paramsPtr = stackalloc byte[48];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ucd, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        FriendName = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 24);
+        FriendScore = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 36);
+        FriendMedal = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 40);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 44);
+    }
+
+    /// <summary>
+    /// Function: GetFriendLeaderInfo
+    /// </summary>
+    public unsafe virtual bool GetFriendLeaderInfo(BmSDK.BmGame.RPersistentOptions.FUnlockedChallengeData ucd, out BmSDK.FString FriendName, out int FriendScore, out int FriendMedal)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.GetFriendLeaderInfo", true);
+        byte* paramsPtr = stackalloc byte[48];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ucd, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        FriendName = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 24);
+        FriendScore = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 36);
+        FriendMedal = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 40);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 44);
+    }
+
+    /// <summary>
+    /// Function: GetPredatorScore
+    /// </summary>
+    public unsafe virtual int GetPredatorScore(int Medals, int Score)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.GetPredatorScore", true);
+        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Medals, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Score, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+    }
+
+    /// <summary>
+    /// Function: PopulateFriendChallengeInformation
+    /// </summary>
+    public unsafe virtual void PopulateFriendChallengeInformation(int ChallengeID, BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FFriendChallengeScore> inFriendChallengeInformation, bool isRankedChallenge)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.PopulateFriendChallengeInformation", true);
+        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ChallengeID, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(inFriendChallengeInformation, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(isRankedChallenge, paramsPtr + 16);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: PopulateMyBestScoreChallengeInformation
+    /// </summary>
+    public unsafe virtual void PopulateMyBestScoreChallengeInformation(int ChallengeID)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.PopulateMyBestScoreChallengeInformation", true);
+        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ChallengeID, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: UpdateFriendToBeat
+    /// </summary>
+    public unsafe virtual void UpdateFriendToBeat(bool show = default)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.UpdateFriendToBeat", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(show, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: EraseAllLeaderBoards
+    /// </summary>
+    public unsafe virtual void EraseAllLeaderBoards()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.EraseAllLeaderBoards", true);
+        byte* paramsPtr = stackalloc byte[72];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: FetchCombatTrainingGoalInfo
+    /// </summary>
+    public unsafe virtual int FetchCombatTrainingGoalInfo(int ChallengeID, out BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining> Goals)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.FetchCombatTrainingGoalInfo", true);
+        byte* paramsPtr = stackalloc byte[36];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ChallengeID, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        Goals = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining>>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 16);
+    }
+
+    /// <summary>
+    /// Function: FetchPredatorGoalInfo
+    /// </summary>
+    public unsafe virtual int FetchPredatorGoalInfo(int ChallengeID, int CharacterId, out BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge> Goals)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.FetchPredatorGoalInfo", true);
+        byte* paramsPtr = stackalloc byte[52];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ChallengeID, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CharacterId, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        Goals = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 20);
+    }
+
+    /// <summary>
+    /// Function: FetchCombatGoalInfo
+    /// </summary>
+    public unsafe virtual int FetchCombatGoalInfo(int ChallengeID, int CharacterId, out BmSDK.TArray<int> Goals)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.FetchCombatGoalInfo", true);
+        byte* paramsPtr = stackalloc byte[52];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ChallengeID, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CharacterId, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        Goals = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 20);
+    }
+
+    /// <summary>
+    /// Function: GetChallengeLeaderboardId
+    /// </summary>
+    public unsafe virtual int GetChallengeLeaderboardId(int ChallengeID, int CharacterId)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.GetChallengeLeaderboardId", true);
+        byte* paramsPtr = stackalloc byte[64];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ChallengeID, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CharacterId, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+    }
+
+    /// <summary>
+    /// Function: IsTrainingRoundComplete
+    /// </summary>
+    public unsafe virtual bool IsTrainingRoundComplete()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.IsTrainingRoundComplete", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: DestroyCombatTrainingController
+    /// </summary>
+    public unsafe virtual void DestroyCombatTrainingController()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.DestroyCombatTrainingController", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: InitCombatTrainingController
+    /// </summary>
+    public unsafe virtual void InitCombatTrainingController(BmSDK.BmGame.MCombatTrainingChallengeSettings CTSettings)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.InitCombatTrainingController", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CTSettings, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: DestroyTrainingManager
+    /// </summary>
+    public unsafe virtual void DestroyTrainingManager()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.DestroyTrainingManager", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: CreateTrainingManager
+    /// </summary>
+    public unsafe virtual void CreateTrainingManager()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.CreateTrainingManager", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: GetCurrentInfo
     /// </summary>
-    public unsafe virtual void GetCurrentInfo(out BmSDK.BmGame.RChallengeManager.EPlayableCharacters outCharacter, out int outChallengeID, out byte bOutPredator)
+    public unsafe virtual void GetCurrentInfo(out BmSDK.BmGame.RGameInfo.EPlayableCharacters outCharacter, out int outChallengeID, out byte bOutPredator)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.GetCurrentInfo", true);
         byte* paramsPtr = stackalloc byte[9];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        outCharacter = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RChallengeManager.EPlayableCharacters>(paramsPtr + 0);
+        outCharacter = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EPlayableCharacters>(paramsPtr + 0);
         outChallengeID = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
         bOutPredator = BmSDK.Framework.MarshalUtil.ToManaged<byte>(paramsPtr + 8);
         return;
@@ -114,24 +366,24 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: PlayableCharactersNameToEnum
     /// </summary>
-    public unsafe virtual BmSDK.BmGame.RChallengeManager.EPlayableCharacters PlayableCharactersNameToEnum(BmSDK.FString CharName)
+    public unsafe virtual BmSDK.BmGame.RGameInfo.EPlayableCharacters PlayableCharactersNameToEnum(BmSDK.FString CharName)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.PlayableCharactersNameToEnum", true);
         byte* paramsPtr = stackalloc byte[36];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CharName, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RChallengeManager.EPlayableCharacters>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EPlayableCharacters>(paramsPtr + 12);
     }
 
     /// <summary>
     /// Function: GetCharacter
     /// </summary>
-    public unsafe virtual BmSDK.BmGame.RChallengeManager.EPlayableCharacters GetCharacter()
+    public unsafe virtual BmSDK.BmGame.RGameInfo.EPlayableCharacters GetCharacter()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.GetCharacter", true);
         byte* paramsPtr = stackalloc byte[1];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RChallengeManager.EPlayableCharacters>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EPlayableCharacters>(paramsPtr + 0);
     }
 
     /// <summary>
@@ -153,7 +405,7 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     public unsafe virtual void Dump()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.Dump", true);
-        byte* paramsPtr = stackalloc byte[12];
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -341,6 +593,17 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// Function: SetActiveWave
+    /// </summary>
+    public unsafe virtual void SetActiveWave()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.SetActiveWave", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: SetActiveRound
     /// </summary>
     public unsafe virtual void SetActiveRound(int Round)
@@ -366,12 +629,12 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
-    /// Function: AddPredatorMedalAction
+    /// Function: AddPredatorMedalActionPred
     /// </summary>
-    public unsafe virtual void AddPredatorMedalAction(BmSDK.BmGame.RPlayerController RPC, BmSDK.BmGame.RGameInfo.EGameAction Action)
+    public unsafe virtual void AddPredatorMedalActionPred(BmSDK.BmGame.RPlayerController RPC, BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge Action)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.AddPredatorMedalAction", true);
-        byte* paramsPtr = stackalloc byte[20];
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.AddPredatorMedalActionPred", true);
+        byte* paramsPtr = stackalloc byte[32];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RPC, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Action, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -379,11 +642,11 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
-    /// Function: AddPredatorAction
+    /// Function: AddPredatorActionPred
     /// </summary>
-    public unsafe virtual void AddPredatorAction(BmSDK.BmGame.RPlayerController RPC, BmSDK.BmGame.RGameInfo.EGameAction Action)
+    public unsafe virtual void AddPredatorActionPred(BmSDK.BmGame.RPlayerController RPC, BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge Action)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.AddPredatorAction", true);
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.AddPredatorActionPred", true);
         byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RPC, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Action, paramsPtr + 4);
@@ -405,13 +668,12 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: BuildChallengeList
     /// </summary>
-    public unsafe virtual void BuildChallengeList(int selected, bool bInRanked, BmSDK.BmGame.RChallengeGoalDefinitions GoalDefs)
+    public unsafe virtual void BuildChallengeList(int selected, bool bInRanked)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.BuildChallengeList", true);
-        byte* paramsPtr = stackalloc byte[56];
+        byte* paramsPtr = stackalloc byte[72];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(selected, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bInRanked, paramsPtr + 4);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(GoalDefs, paramsPtr + 8);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -419,12 +681,12 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: FilloutChallengeMatch
     /// </summary>
-    public unsafe virtual BmSDK.BmGame.RChallengeManager.FChallengeMatch FilloutChallengeMatch(int inID, BmSDK.BmGame.RChallengeGoalDefinitions GoalDefs)
+    public unsafe virtual BmSDK.BmGame.RChallengeManager.FChallengeMatch FilloutChallengeMatch(int inID, int CharacterId)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.FilloutChallengeMatch", true);
-        byte* paramsPtr = stackalloc byte[88];
+        byte* paramsPtr = stackalloc byte[128];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(inID, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(GoalDefs, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CharacterId, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RChallengeManager.FChallengeMatch>(paramsPtr + 8);
     }
@@ -443,13 +705,14 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: IsPredatorMap
     /// </summary>
-    public unsafe virtual bool IsPredatorMap(int Id)
+    public unsafe virtual bool IsPredatorMap(int Id, int CharacterId)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.IsPredatorMap", true);
-        byte* paramsPtr = stackalloc byte[16];
+        byte* paramsPtr = stackalloc byte[20];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CharacterId, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
     }
 
     /// <summary>
@@ -490,25 +753,38 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: GetCampaignIDs
     /// </summary>
-    public unsafe virtual BmSDK.TArray<int> GetCampaignIDs(int Id)
+    public unsafe virtual BmSDK.TArray<int> GetCampaignIDs(int Id, int CharacterId)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.GetCampaignIDs", true);
-        byte* paramsPtr = stackalloc byte[40];
+        byte* paramsPtr = stackalloc byte[44];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CharacterId, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(paramsPtr + 8);
     }
 
     /// <summary>
     /// Function: GetChallengeMapIndex
     /// </summary>
-    public unsafe virtual int GetChallengeMapIndex(int Id)
+    public unsafe virtual int GetChallengeMapIndex(int Id, int CharacterId)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.GetChallengeMapIndex", true);
-        byte* paramsPtr = stackalloc byte[16];
+        byte* paramsPtr = stackalloc byte[20];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CharacterId, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+    }
+
+    /// <summary>
+    /// Function: GetGRI
+    /// </summary>
+    public unsafe virtual BmSDK.BmGame.RGameRI GetGRI()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RChallengeManager.GetGRI", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameRI>(paramsPtr + 0);
     }
 
     /// <summary>
@@ -523,6 +799,40 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// Struct: FFriendChallengeScore
+    /// </summary>
+    [StructLayout(LayoutKind.Explicit, Size = 20)]
+    public partial record struct FFriendChallengeScore
+    {
+        /// <summary>
+        /// StrProperty: NickName
+        /// </summary>
+        public unsafe BmSDK.FString NickName
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 0); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 0); }; }
+        }
+
+        /// <summary>
+        /// IntProperty: Score
+        /// </summary>
+        public unsafe int Score
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 12); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 12); }; }
+        }
+
+        /// <summary>
+        /// IntProperty: Medal
+        /// </summary>
+        public unsafe int Medal
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 16); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 16); }; }
+        }
+    }
+
+    /// <summary>
     /// Struct: FChallengeStatText
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = 16)]
@@ -531,9 +841,9 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
         /// <summary>
         /// ByteProperty: GameAction
         /// </summary>
-        public unsafe BmSDK.BmGame.RGameInfo.EGameAction GameAction
+        public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge GameAction
         {
-            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 0); }; }
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 0); }; }
             set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 0); }; }
         }
 
@@ -550,7 +860,7 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Struct: FChallengeMatch
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 36)]
+    [StructLayout(LayoutKind.Explicit, Size = 56)]
     public partial record struct FChallengeMatch
     {
         /// <summary>
@@ -572,12 +882,30 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
         }
 
         /// <summary>
+        /// IntProperty: ImageId
+        /// </summary>
+        public unsafe int ImageId
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4); }; }
+        }
+
+        /// <summary>
+        /// IntProperty: CharacterId
+        /// </summary>
+        public unsafe int CharacterId
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 8); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 8); }; }
+        }
+
+        /// <summary>
         /// IntProperty: LeaderboardId
         /// </summary>
         public unsafe int LeaderboardId
         {
-            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4); }; }
-            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4); }; }
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 12); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 12); }; }
         }
 
         /// <summary>
@@ -585,8 +913,17 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
         /// </summary>
         public unsafe bool bPredator
         {
-            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 8) & 1) != 0; }; }
-            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 8); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 8); }; }
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 16) & 1) != 0; }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 16); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 16); }; }
+        }
+
+        /// <summary>
+        /// BoolProperty: bCombatTraining
+        /// </summary>
+        public unsafe bool bCombatTraining
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 16) & 2) != 0; }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 16); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 16); }; }
         }
 
         /// <summary>
@@ -594,279 +931,27 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
         /// </summary>
         public unsafe BmSDK.TArray<int> ChallengeScores
         {
-            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(Ptr + 12); }; }
-            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 12); }; }
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(Ptr + 20); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 20); }; }
         }
 
         /// <summary>
         /// ArrayProperty: ChallengeActions
         /// </summary>
-        public unsafe BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction> ChallengeActions
+        public unsafe BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge> ChallengeActions
         {
-            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction>>(Ptr + 24); }; }
-            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 24); }; }
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>>(Ptr + 32); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 32); }; }
         }
-    }
 
-    /// <summary>
-    /// ArrayProperty: CharScreenPkgRefs
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.GameObject> CharScreenPkgRefs
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject>>(Ptr + 44); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 44); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: MapScreenBasePkgRefs
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.GameObject> MapScreenBasePkgRefs
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject>>(Ptr + 56); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 56); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: MapScreenPkgRefs
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.GameObject> MapScreenPkgRefs
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject>>(Ptr + 68); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 68); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: ModifiersUnlockedForCustom
-    /// </summary>
-    public unsafe BmSDK.TArray<bool> ModifiersUnlockedForCustom
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<bool>>(Ptr + 80); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 80); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: MasterModifierList
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers> MasterModifierList
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers>>(Ptr + 92); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: CampaignModifiersUsed
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers> CampaignModifiersUsed
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers>>(Ptr + 104); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: ModifiersCurrentlyActive
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers> ModifiersCurrentlyActive
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers>>(Ptr + 116); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
-    }
-
-    /// <summary>
-    /// BoolProperty: FreeMedalIsActive
-    /// </summary>
-    public unsafe bool FreeMedalIsActive
-    {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 128) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 128); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 128); }
-    }
-
-    /// <summary>
-    /// BoolProperty: bRanked
-    /// </summary>
-    public unsafe bool bRanked
-    {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 128) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 128); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 128); }
-    }
-
-    /// <summary>
-    /// BoolProperty: bCurrentMapIsDLC
-    /// </summary>
-    public unsafe bool bCurrentMapIsDLC
-    {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 128) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 128); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 128); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: CampaignMedalsEarned
-    /// </summary>
-    public unsafe BmSDK.TArray<byte> CampaignMedalsEarned
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<byte>>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: Rounds
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FChallengeMatch> Rounds
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FChallengeMatch>>(Ptr + 144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
-    }
-
-    /// <summary>
-    /// StrProperty: CurrentFullCharacterName
-    /// </summary>
-    public unsafe BmSDK.FString CurrentFullCharacterName
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 156); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 156); }
-    }
-
-    /// <summary>
-    /// StrProperty: CurrentCharacterName
-    /// </summary>
-    public unsafe BmSDK.FString CurrentCharacterName
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 168); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 168); }
-    }
-
-    /// <summary>
-    /// ByteProperty: CurrentCharacter
-    /// </summary>
-    public unsafe BmSDK.BmGame.RChallengeManager.EPlayableCharacters CurrentCharacter
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RChallengeManager.EPlayableCharacters>(Ptr + 180); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 180); }
-    }
-
-    /// <summary>
-    /// ByteProperty: CurrentChallengeMode
-    /// </summary>
-    public unsafe BmSDK.BmGame.RPersistentOptions.ChallengeMode CurrentChallengeMode
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentOptions.ChallengeMode>(Ptr + 181); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 181); }
-    }
-
-    /// <summary>
-    /// ByteProperty: CampaignPackId
-    /// </summary>
-    public unsafe byte CampaignPackId
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<byte>(Ptr + 182); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 182); }
-    }
-
-    /// <summary>
-    /// IntProperty: CampaignId
-    /// </summary>
-    public unsafe int CampaignId
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 184); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 184); }
-    }
-
-    /// <summary>
-    /// IntProperty: CurrentChallengeId
-    /// </summary>
-    public unsafe int CurrentChallengeId
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 188); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 188); }
-    }
-
-    /// <summary>
-    /// IntProperty: CurrentLeaderboardId
-    /// </summary>
-    public unsafe int CurrentLeaderboardId
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 192); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 192); }
-    }
-
-    /// <summary>
-    /// StrProperty: SelectedMapURL
-    /// </summary>
-    public unsafe BmSDK.FString SelectedMapURL
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 196); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 196); }
-    }
-
-    /// <summary>
-    /// IntProperty: CurrentRound
-    /// </summary>
-    public unsafe int CurrentRound
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
-    }
-
-    /// <summary>
-    /// IntProperty: CurrentRetrysLeft
-    /// </summary>
-    public unsafe int CurrentRetrysLeft
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 212); }
-    }
-
-    /// <summary>
-    /// IntProperty: CombatRound
-    /// </summary>
-    public unsafe int CombatRound
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 216); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 216); }
-    }
-
-    /// <summary>
-    /// IntProperty: DumpCount
-    /// </summary>
-    public unsafe int DumpCount
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: PredatorStatsEvents
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.FString> PredatorStatsEvents
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(Ptr + 224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: PredatorStatsTimes
-    /// </summary>
-    public unsafe BmSDK.TArray<float> PredatorStatsTimes
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<float>>(Ptr + 236); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: ChallengeStatActions
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FChallengeStatText> ChallengeStatActions
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FChallengeStatText>>(Ptr + 248); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
-    }
-
-    /// <summary>
-    /// IntProperty: BestCachedRating
-    /// </summary>
-    public unsafe int BestCachedRating
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 260); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 260); }
+        /// <summary>
+        /// ArrayProperty: TrainingActions
+        /// </summary>
+        public unsafe BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining> TrainingActions
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining>>(Ptr + 44); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 44); }; }
+        }
     }
 
     /// <summary>
@@ -997,18 +1082,554 @@ public partial class RChallengeManager : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
-    /// Enum: EPlayableCharacters
+    /// Struct: FCombatTrainingGoals
     /// </summary>
-    public enum EPlayableCharacters : byte
+    [StructLayout(LayoutKind.Explicit, Size = 12)]
+    public partial record struct FCombatTrainingGoals
     {
-        PLR_Batman = 0,
-        PLR_Catwoman = 1,
-        PLR_Robin = 2,
-        PLR_NightWing = 3,
-        PLR_Extra1 = 4,
-        PLR_Extra2 = 5,
-        PLR_Extra3 = 6,
-        PLR_Extra4 = 7,
-        PLR_MAX = 8,
+        /// <summary>
+        /// IntProperty: ChallengeID
+        /// </summary>
+        public unsafe int ChallengeID
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 0); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 0); }; }
+        }
+
+        /// <summary>
+        /// IntProperty: LeaderboardId
+        /// </summary>
+        public unsafe int LeaderboardId
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4); }; }
+        }
+
+        /// <summary>
+        /// ByteProperty: trainingActionRound1
+        /// </summary>
+        public unsafe BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining trainingActionRound1
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining>(Ptr + 8); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 8); }; }
+        }
+
+        /// <summary>
+        /// ByteProperty: trainingActionRound2
+        /// </summary>
+        public unsafe BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining trainingActionRound2
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining>(Ptr + 9); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 9); }; }
+        }
+
+        /// <summary>
+        /// ByteProperty: trainingActionRound3
+        /// </summary>
+        public unsafe BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining trainingActionRound3
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining>(Ptr + 10); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 10); }; }
+        }
+
+        /// <summary>
+        /// ByteProperty: trainingActionRound4
+        /// </summary>
+        public unsafe BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining trainingActionRound4
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_CombatTraining>(Ptr + 11); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 11); }; }
+        }
+    }
+
+    /// <summary>
+    /// Struct: FPredatorChallengeGoals
+    /// </summary>
+    [StructLayout(LayoutKind.Explicit, Size = 24)]
+    public partial record struct FPredatorChallengeGoals
+    {
+        /// <summary>
+        /// IntProperty: ChallengeID
+        /// </summary>
+        public unsafe int ChallengeID
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 0); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 0); }; }
+        }
+
+        /// <summary>
+        /// ByteProperty: CharacterId
+        /// </summary>
+        public unsafe BmSDK.BmGame.RGameInfo.EPlayableCharacters CharacterId
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EPlayableCharacters>(Ptr + 4); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4); }; }
+        }
+
+        /// <summary>
+        /// IntProperty: LeaderboardId
+        /// </summary>
+        public unsafe int LeaderboardId
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 8); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 8); }; }
+        }
+
+        /// <summary>
+        /// ArrayProperty: PredatorChallengeActions
+        /// </summary>
+        public unsafe BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge> PredatorChallengeActions
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>>(Ptr + 12); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 12); }; }
+        }
+    }
+
+    /// <summary>
+    /// ArrayProperty: CombatChallengeDefinitions
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FCombatChallengeGoals> CombatChallengeDefinitions
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FCombatChallengeGoals>>(Ptr + 44); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 44); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: PredatorChallengeDefinitions
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FPredatorChallengeGoals> PredatorChallengeDefinitions
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FPredatorChallengeGoals>>(Ptr + 56); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 56); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: CombatTrainingDefinitions
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FCombatTrainingGoals> CombatTrainingDefinitions
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FCombatTrainingGoals>>(Ptr + 68); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: CombatTrainingController
+    /// </summary>
+    public unsafe BmSDK.BmGame.MCombatTrainingChallengeController CombatTrainingController
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MCombatTrainingChallengeController>(Ptr + 80); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 80); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: CombatTrainingChallenges
+    /// </summary>
+    public unsafe BmSDK.BmGame.MCombatTrainingChallengeSettings CombatTrainingChallenges
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MCombatTrainingChallengeSettings>(Ptr + 84); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 84); }
+    }
+
+    /// <summary>
+    /// StrProperty: RefByName
+    /// </summary>
+    public unsafe BmSDK.FString RefByName
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 88); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 88); }
+    }
+
+    /// <summary>
+    /// BoolProperty: LoadingStarted
+    /// </summary>
+    public unsafe bool LoadingStarted
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
+    }
+
+    /// <summary>
+    /// BoolProperty: LoadingDone
+    /// </summary>
+    public unsafe bool LoadingDone
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
+    }
+
+    /// <summary>
+    /// BoolProperty: FreeMedalIsActive
+    /// </summary>
+    public unsafe bool FreeMedalIsActive
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bRanked
+    /// </summary>
+    public unsafe bool bRanked
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bCurrentMapIsDLC
+    /// </summary>
+    public unsafe bool bCurrentMapIsDLC
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
+    }
+
+    /// <summary>
+    /// BoolProperty: hasBeatOwnBestScore
+    /// </summary>
+    public unsafe bool hasBeatOwnBestScore
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: CharScreenPkgRefs
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.GameObject> CharScreenPkgRefs
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject>>(Ptr + 104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: MapScreenBasePkgRefs
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.GameObject> MapScreenBasePkgRefs
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject>>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: MapScreenPkgRefs
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.GameObject> MapScreenPkgRefs
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject>>(Ptr + 128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: ModifiersUnlockedForCustom
+    /// </summary>
+    public unsafe BmSDK.TArray<bool> ModifiersUnlockedForCustom
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<bool>>(Ptr + 140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: MasterModifierList
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers> MasterModifierList
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers>>(Ptr + 152); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 152); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: CampaignModifiersUsed
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers> CampaignModifiersUsed
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers>>(Ptr + 164); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 164); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: ModifiersCurrentlyActive
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers> ModifiersCurrentlyActive
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGameInfo.EChallengeModifiers>>(Ptr + 176); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 176); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: CampaignMedalsEarned
+    /// </summary>
+    public unsafe BmSDK.TArray<byte> CampaignMedalsEarned
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<byte>>(Ptr + 188); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 188); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: Rounds
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FChallengeMatch> Rounds
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FChallengeMatch>>(Ptr + 200); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 200); }
+    }
+
+    /// <summary>
+    /// StrProperty: CurrentFullCharacterName
+    /// </summary>
+    public unsafe BmSDK.FString CurrentFullCharacterName
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 212); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 212); }
+    }
+
+    /// <summary>
+    /// StrProperty: CurrentCharacterName
+    /// </summary>
+    public unsafe BmSDK.FString CurrentCharacterName
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+    }
+
+    /// <summary>
+    /// ByteProperty: CurrentCharacter
+    /// </summary>
+    public unsafe BmSDK.BmGame.RGameInfo.EPlayableCharacters CurrentCharacter
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EPlayableCharacters>(Ptr + 236); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
+    }
+
+    /// <summary>
+    /// ByteProperty: CurrentChallengeMode
+    /// </summary>
+    public unsafe BmSDK.BmGame.RPersistentOptions.ChallengeMode CurrentChallengeMode
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentOptions.ChallengeMode>(Ptr + 237); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 237); }
+    }
+
+    /// <summary>
+    /// ByteProperty: CampaignPackId
+    /// </summary>
+    public unsafe byte CampaignPackId
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<byte>(Ptr + 238); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 238); }
+    }
+
+    /// <summary>
+    /// IntProperty: CampaignId
+    /// </summary>
+    public unsafe int CampaignId
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
+    }
+
+    /// <summary>
+    /// IntProperty: CurrentChallengeId
+    /// </summary>
+    public unsafe int CurrentChallengeId
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
+    }
+
+    /// <summary>
+    /// IntProperty: CurrentLeaderboardId
+    /// </summary>
+    public unsafe int CurrentLeaderboardId
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
+    }
+
+    /// <summary>
+    /// StrProperty: SelectedMapURL
+    /// </summary>
+    public unsafe BmSDK.FString SelectedMapURL
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 252); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 252); }
+    }
+
+    /// <summary>
+    /// IntProperty: CurrentRound
+    /// </summary>
+    public unsafe int CurrentRound
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 264); }
+    }
+
+    /// <summary>
+    /// IntProperty: CurrentRetrysLeft
+    /// </summary>
+    public unsafe int CurrentRetrysLeft
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 268); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 268); }
+    }
+
+    /// <summary>
+    /// IntProperty: CombatRound
+    /// </summary>
+    public unsafe int CombatRound
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 272); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 272); }
+    }
+
+    /// <summary>
+    /// IntProperty: DumpCount
+    /// </summary>
+    public unsafe int DumpCount
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 276); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 276); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: PredatorStatsEvents
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.FString> PredatorStatsEvents
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(Ptr + 280); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 280); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: PredatorStatsTimes
+    /// </summary>
+    public unsafe BmSDK.TArray<float> PredatorStatsTimes
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<float>>(Ptr + 292); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 292); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: ChallengeStatActions
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FChallengeStatText> ChallengeStatActions
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FChallengeStatText>>(Ptr + 304); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 304); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: FriendChallengeInformation
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FFriendChallengeScore> FriendChallengeInformation
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RChallengeManager.FFriendChallengeScore>>(Ptr + 316); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 316); }
+    }
+
+    /// <summary>
+    /// IntProperty: friendIndexToCheck
+    /// </summary>
+    public unsafe int friendIndexToCheck
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 328); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 328); }
+    }
+
+    /// <summary>
+    /// IntProperty: myBestScore
+    /// </summary>
+    public unsafe int myBestScore
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 332); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 332); }
+    }
+
+    /// <summary>
+    /// IntProperty: myBestMedals
+    /// </summary>
+    public unsafe int myBestMedals
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 336); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 336); }
+    }
+
+    /// <summary>
+    /// IntProperty: numFriendsBeat
+    /// </summary>
+    public unsafe int numFriendsBeat
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 340); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 340); }
+    }
+
+    /// <summary>
+    /// IntProperty: BeatOwnScoreBonusXP
+    /// </summary>
+    public unsafe int BeatOwnScoreBonusXP
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 344); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 344); }
+    }
+
+    /// <summary>
+    /// IntProperty: BeatFriendScoreBonusXP
+    /// </summary>
+    public unsafe int BeatFriendScoreBonusXP
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 348); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 348); }
+    }
+
+    /// <summary>
+    /// IntProperty: BestCachedRating
+    /// </summary>
+    public unsafe int BestCachedRating
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 352); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 352); }
+    }
+
+    /// <summary>
+    /// Struct: FCombatChallengeGoals
+    /// </summary>
+    [StructLayout(LayoutKind.Explicit, Size = 24)]
+    public partial record struct FCombatChallengeGoals
+    {
+        /// <summary>
+        /// IntProperty: ChallengeID
+        /// </summary>
+        public unsafe int ChallengeID
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 0); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 0); }; }
+        }
+
+        /// <summary>
+        /// ByteProperty: CharacterId
+        /// </summary>
+        public unsafe BmSDK.BmGame.RGameInfo.EPlayableCharacters CharacterId
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EPlayableCharacters>(Ptr + 4); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4); }; }
+        }
+
+        /// <summary>
+        /// IntProperty: LeaderboardId
+        /// </summary>
+        public unsafe int LeaderboardId
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 8); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 8); }; }
+        }
+
+        /// <summary>
+        /// ArrayProperty: ChallengeScores
+        /// </summary>
+        public unsafe BmSDK.TArray<int> ChallengeScores
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(Ptr + 12); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 12); }; }
+        }
     }
 }

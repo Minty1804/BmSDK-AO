@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: AnimNotify_Footstep<br/>
-/// (size = 48)
+/// (size = 44)
 /// (flags = 167784594)
 /// </summary>
 public partial class AnimNotify_Footstep : BmSDK.Engine.AnimNotify, BmSDK.IGameObject
@@ -78,12 +78,4 @@ public partial class AnimNotify_Footstep : BmSDK.Engine.AnimNotify, BmSDK.IGameO
         where TComponent : class, Framework.IScriptComponent<AnimNotify_Footstep>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
-    /// <summary>
-    /// IntProperty: FootDown
-    /// </summary>
-    public unsafe int FootDown
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 44); }
-    }
 }

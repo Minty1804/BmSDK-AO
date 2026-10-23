@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_VillainDropHeavyObject<br/>
-/// (size = 472)
+/// (size = 496)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_VillainDropHeavyObject : BmSDK.BmGame.RCombatMove, BmSDK.IGameObject
@@ -129,13 +129,13 @@ public partial class RCombatMove_VillainDropHeavyObject : BmSDK.BmGame.RCombatMo
     /// </summary>
     public unsafe BmSDK.BmGame.RPawnVillain Villain
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(Ptr + 464); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(Ptr + 488); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
     }
 
     /// <summary>
     /// StructProperty: DropTransitionID
     /// </summary>
-    public unsafe ref BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId DropTransitionID
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId>(Ptr + 468);
+    public unsafe ref BmSDK.BmGame.RAnimUtil.FTransitionId DropTransitionID
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FTransitionId>(Ptr + 492);
 }

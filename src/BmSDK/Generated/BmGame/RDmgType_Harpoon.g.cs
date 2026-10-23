@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_Harpoon<br/>
-/// (size = 120)
+/// (size = 132)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_Harpoon : BmSDK.BmGame.RDmgType_Batarang, BmSDK.IGameObject

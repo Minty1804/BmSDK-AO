@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: ParticleModuleOrientationAxisLock<br/>
-/// (size = 57)
+/// (size = 72)
 /// (flags = 134221970)
 /// </summary>
 public partial class ParticleModuleOrientationAxisLock : BmSDK.Engine.ParticleModuleOrientationBase, BmSDK.IGameObject
@@ -88,6 +88,12 @@ public partial class ParticleModuleOrientationAxisLock : BmSDK.Engine.ParticleMo
     }
 
     /// <summary>
+    /// StructProperty: SurfaceHitNormal
+    /// </summary>
+    public unsafe ref System.Numerics.Vector3 SurfaceHitNormal
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 60);
+
+    /// <summary>
     /// Enum: EParticleAxisLock
     /// </summary>
     public enum EParticleAxisLock : byte
@@ -102,6 +108,7 @@ public partial class ParticleModuleOrientationAxisLock : BmSDK.Engine.ParticleMo
         EPAL_ROTATE_X = 7,
         EPAL_ROTATE_Y = 8,
         EPAL_ROTATE_Z = 9,
-        EPAL_MAX = 10,
+        EPAL_SURFACE_NORMAL = 10,
+        EPAL_MAX = 11,
     }
 }

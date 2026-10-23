@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAEC_Search_CornerGroup<br/>
-/// (size = 456)
+/// (size = 484)
 /// (flags = 8388626)
 /// </summary>
 public partial class RAEC_Search_CornerGroup : BmSDK.BmGame.RAEC_SubGroup, BmSDK.IGameObject
@@ -110,7 +110,7 @@ public partial class RAEC_Search_CornerGroup : BmSDK.BmGame.RAEC_SubGroup, BmSDK
     /// </summary>
     public unsafe BmSDK.BmGame.RAEC_Search_Sub_CornerLead LeaderSubAEC
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAEC_Search_Sub_CornerLead>(Ptr + 452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAEC_Search_Sub_CornerLead>(Ptr + 480); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
     }
 }

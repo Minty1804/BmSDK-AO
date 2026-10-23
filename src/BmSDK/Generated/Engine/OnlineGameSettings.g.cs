@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: OnlineGameSettings<br/>
-/// (size = 156)
+/// (size = 192)
 /// (flags = 134217906)
 /// </summary>
 public partial class OnlineGameSettings : BmSDK.Engine.Settings, BmSDK.IGameObject
@@ -269,8 +269,8 @@ public partial class OnlineGameSettings : BmSDK.Engine.Settings, BmSDK.IGameObje
     /// </summary>
     public unsafe int PingInMs
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 140); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 176); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 176); }
     }
 
     /// <summary>
@@ -278,8 +278,8 @@ public partial class OnlineGameSettings : BmSDK.Engine.Settings, BmSDK.IGameObje
     /// </summary>
     public unsafe float MatchQuality
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 180); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 180); }
     }
 
     /// <summary>
@@ -287,8 +287,8 @@ public partial class OnlineGameSettings : BmSDK.Engine.Settings, BmSDK.IGameObje
     /// </summary>
     public unsafe BmSDK.Engine.OnlineSubsystem.EOnlineGameState GameState
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.OnlineSubsystem.EOnlineGameState>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.OnlineSubsystem.EOnlineGameState>(Ptr + 184); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 184); }
     }
 
     /// <summary>
@@ -296,7 +296,7 @@ public partial class OnlineGameSettings : BmSDK.Engine.Settings, BmSDK.IGameObje
     /// </summary>
     public unsafe int BuildUniqueId
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 152); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 152); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 188); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 188); }
     }
 }

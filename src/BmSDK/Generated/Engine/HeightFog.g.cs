@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: HeightFog<br/>
-/// (size = 436)
+/// (size = 460)
 /// (flags = 8389138)
 /// </summary>
 public partial class HeightFog : BmSDK.Engine.Info, BmSDK.IGameObject
@@ -118,8 +118,8 @@ public partial class HeightFog : BmSDK.Engine.Info, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.HeightFogComponent Component
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.HeightFogComponent>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.HeightFogComponent>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 
     /// <summary>
@@ -127,7 +127,7 @@ public partial class HeightFog : BmSDK.Engine.Info, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bEnabled
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 432); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 456); }
     }
 }

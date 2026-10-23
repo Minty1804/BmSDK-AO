@@ -18,27 +18,27 @@ public partial interface RDisruptableInterface : BmSDK.Interface
     /// <summary>
     /// Function: GetNumFakePasswordsToUse
     /// </summary>
-    public unsafe int GetNumFakePasswordsToUse();
+    public unsafe int GetNumFakePasswordsToUse(int CurrentStage);
 
     /// <summary>
     /// Function: GetFakePassword
     /// </summary>
-    public unsafe BmSDK.FString GetFakePassword(int Index);
+    public unsafe BmSDK.FString GetFakePassword(int CurrentStage, int Index);
 
     /// <summary>
     /// Function: GetPassword
     /// </summary>
-    public unsafe BmSDK.FString GetPassword(int Index);
+    public unsafe BmSDK.FString GetPassword(int CurrentStage, int Index);
 
     /// <summary>
     /// Function: GetFakePasswordArrayLength
     /// </summary>
-    public unsafe int GetFakePasswordArrayLength();
+    public unsafe int GetFakePasswordArrayLength(int CurrentStage);
 
     /// <summary>
     /// Function: GetPasswordArrayLength
     /// </summary>
-    public unsafe int GetPasswordArrayLength();
+    public unsafe int GetPasswordArrayLength(int CurrentStage);
 
     /// <summary>
     /// Function: GetResonatorMinigameStringReference
@@ -49,11 +49,6 @@ public partial interface RDisruptableInterface : BmSDK.Interface
     /// Function: GetResonatorWinScreenStringReference
     /// </summary>
     public unsafe BmSDK.FString GetResonatorWinScreenStringReference();
-
-    /// <summary>
-    /// Function: GetRawDifficulty
-    /// </summary>
-    public unsafe int GetRawDifficulty();
 
     /// <summary>
     /// Function: GetHackingTargetType
@@ -96,21 +91,6 @@ public partial interface RDisruptableInterface : BmSDK.Interface
     public unsafe bool RequiresHighSecurityResonator();
 
     /// <summary>
-    /// Function: GetDifficultyLevel
-    /// </summary>
-    public unsafe int GetDifficultyLevel();
-
-    /// <summary>
-    /// Function: HasMultipleStages
-    /// </summary>
-    public unsafe bool HasMultipleStages();
-
-    /// <summary>
-    /// Function: StartResonatorMiniGame
-    /// </summary>
-    public unsafe void StartResonatorMiniGame();
-
-    /// <summary>
     /// Function: FailedToDisrupt
     /// </summary>
     public unsafe void FailedToDisrupt();
@@ -136,11 +116,6 @@ public partial interface RDisruptableInterface : BmSDK.Interface
     public unsafe void SuccessfullyDisrupted();
 
     /// <summary>
-    /// Function: GetDifficulty
-    /// </summary>
-    public unsafe void GetDifficulty(out float Threshold, out float BuildUpTime, out float LeftMaxAngVelocity, out float RightMaxAngVelocity, int DifficultyMod = default);
-
-    /// <summary>
     /// Enum: DisruptableObjectTargetType
     /// </summary>
     public enum DisruptableObjectTargetType : byte
@@ -161,7 +136,8 @@ public partial interface RDisruptableInterface : BmSDK.Interface
         DOTT_DeadshotPda = 13,
         DOTT_RiddlerBarrier = 14,
         DOTT_RiddlerElectricFloor = 15,
-        DOTT_MAX = 16,
+        DOTT_DefuseBomb = 16,
+        DOTT_MAX = 17,
     }
 
     /// <summary>
@@ -173,6 +149,8 @@ public partial interface RDisruptableInterface : BmSDK.Interface
         DONT_TygerMcpMainframe = 1,
         DONT_RiddlerMatrix = 2,
         DONT_MobileElectronicDevice = 3,
-        DONT_MAX = 4,
+        DONT_PenguinSecurityNetwork = 4,
+        DONT_SionisCodes = 5,
+        DONT_MAX = 6,
     }
 }

@@ -707,7 +707,9 @@ public partial class EngineTypes : BmSDK.GameObject, BmSDK.IGameObject
         MTM_FlatTessellation = 1,
         MTM_PNTriangles = 2,
         MTM_PhongTessellation = 3,
-        MTM_MAX = 4,
+        MTM_SmoothTessellation = 4,
+        MTM_SnowTessellation = 5,
+        MTM_MAX = 6,
     }
 
     /// <summary>
@@ -737,7 +739,8 @@ public partial class EngineTypes : BmSDK.GameObject, BmSDK.IGameObject
         BLEND_SoftMasked = 5,
         BLEND_AlphaComposite = 6,
         BLEND_DitheredTranslucent = 7,
-        BLEND_MAX = 8,
+        BLEND_Ice = 8,
+        BLEND_MAX = 9,
     }
 
     /// <summary>

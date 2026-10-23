@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: AmbientPlus3DirectionalLightComponent<br/>
-/// (size = 496)
+/// (size = 672)
 /// (flags = 144707730)
 /// </summary>
 public partial class AmbientPlus3DirectionalLightComponent : BmSDK.Engine.LightComponent, BmSDK.IGameObject
@@ -83,55 +83,61 @@ public partial class AmbientPlus3DirectionalLightComponent : BmSDK.Engine.LightC
     /// </summary>
     public unsafe bool bRenderBeforeModShadows
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 408) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 408); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 408); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 432); }
     }
 
     /// <summary>
     /// InlineArray{StructProperty}: LightDirections
     /// </summary>
-    public InlineArray<System.Numerics.Vector3> LightDirections => new(3, Ptr + 412, 12, this);
+    public InlineArray<System.Numerics.Vector3> LightDirections => new(3, Ptr + 436, 12, this);
 
     /// <summary>
     /// StructProperty: LightDirections
     /// </summary>
     public unsafe ref System.Numerics.Vector3 LightDirections_0
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 412);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 436);
     /// <summary>
     /// StructProperty: LightDirections
     /// </summary>
     public unsafe ref System.Numerics.Vector3 LightDirections_1
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 424);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 448);
     /// <summary>
     /// StructProperty: LightDirections
     /// </summary>
     public unsafe ref System.Numerics.Vector3 LightDirections_2
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 436);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 460);
 
     /// <summary>
     /// InlineArray{StructProperty}: LightColours
     /// </summary>
-    public InlineArray<System.Numerics.Vector3> LightColours => new(3, Ptr + 448, 12, this);
+    public InlineArray<System.Numerics.Vector3> LightColours => new(3, Ptr + 472, 12, this);
 
     /// <summary>
     /// StructProperty: LightColours
     /// </summary>
     public unsafe ref System.Numerics.Vector3 LightColours_0
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 448);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 472);
     /// <summary>
     /// StructProperty: LightColours
     /// </summary>
     public unsafe ref System.Numerics.Vector3 LightColours_1
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 460);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 484);
     /// <summary>
     /// StructProperty: LightColours
     /// </summary>
     public unsafe ref System.Numerics.Vector3 LightColours_2
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 472);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 496);
 
     /// <summary>
     /// StructProperty: Ambient
     /// </summary>
     public unsafe ref System.Numerics.Vector3 Ambient
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 484);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 508);
+
+    /// <summary>
+    /// StructProperty: WorldSpaceIncidentLighting
+    /// </summary>
+    public unsafe ref BmSDK.GameObject.FSHVectorRGB WorldSpaceIncidentLighting
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FSHVectorRGB>(Ptr + 528);
 }

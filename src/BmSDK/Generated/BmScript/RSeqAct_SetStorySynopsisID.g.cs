@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_SetStorySynopsisID<br/>
-/// (size = 208)
+/// (size = 225)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_SetStorySynopsisID : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -101,11 +101,11 @@ public partial class RSeqAct_SetStorySynopsisID : BmSDK.Engine.SequenceAction, B
     }
 
     /// <summary>
-    /// IntProperty: ToValue
+    /// ByteProperty: ToValue
     /// </summary>
-    public unsafe int ToValue
+    public unsafe BmSDK.BmGame.RPersistentData.EStorySynopsisId ToValue
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EStorySynopsisId>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

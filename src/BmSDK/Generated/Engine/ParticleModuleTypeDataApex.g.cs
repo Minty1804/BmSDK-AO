@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: ParticleModuleTypeDataApex<br/>
-/// (size = 112)
+/// (size = 124)
 /// (flags = 134230162)
 /// </summary>
 public partial class ParticleModuleTypeDataApex : BmSDK.Engine.ParticleModuleTypeDataBase, BmSDK.IGameObject
@@ -77,6 +77,31 @@ public partial class ParticleModuleTypeDataApex : BmSDK.Engine.ParticleModuleTyp
     public void DetachScriptComponents<TComponent>()
         where TComponent : class, Framework.IScriptComponent<ParticleModuleTypeDataApex>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// Struct: FApexLODAsset
+    /// </summary>
+    [StructLayout(LayoutKind.Explicit, Size = 8)]
+    public partial record struct FApexLODAsset
+    {
+        /// <summary>
+        /// ObjectProperty: IOFXAsset
+        /// </summary>
+        public unsafe BmSDK.Engine.ApexGenericAsset IOFXAsset
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ApexGenericAsset>(Ptr + 0); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 0); }; }
+        }
+
+        /// <summary>
+        /// ObjectProperty: EmitterAsset
+        /// </summary>
+        public unsafe BmSDK.Engine.ApexGenericAsset EmitterAsset
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ApexGenericAsset>(Ptr + 4); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4); }; }
+        }
+    }
 
     /// <summary>
     /// ObjectProperty: ApexIOFX
@@ -160,11 +185,20 @@ public partial class ParticleModuleTypeDataApex : BmSDK.Engine.ParticleModuleTyp
     }
 
     /// <summary>
-    /// StructProperty: EmitterInstance
+    /// StructProperty: ApexCustomParamHandler
     /// </summary>
-    public unsafe System.IntPtr EmitterInstance
+    public unsafe System.IntPtr ApexCustomParamHandler
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 108); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 108); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: ApexLODAssets
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.Engine.ParticleModuleTypeDataApex.FApexLODAsset> ApexLODAssets
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.ParticleModuleTypeDataApex.FApexLODAsset>>(Ptr + 112); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 112); }
     }
 }

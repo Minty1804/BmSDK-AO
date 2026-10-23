@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAEC_Casualty_Sub_Tyger<br/>
-/// (size = 460)
+/// (size = 484)
 /// (flags = 8388626)
 /// </summary>
 public partial class RAEC_Casualty_Sub_Tyger : BmSDK.BmGame.RAEC_Casualty_Sub_Solo, BmSDK.IGameObject
@@ -92,7 +92,7 @@ public partial class RAEC_Casualty_Sub_Tyger : BmSDK.BmGame.RAEC_Casualty_Sub_So
     /// <summary>
     /// Function: AssignCasualty
     /// </summary>
-    public unsafe override void AssignCasualty(BmSDK.BmGame.RPawnVillain NewCas)
+    public unsafe override void AssignCasualty(BmSDK.BmGame.RBMPawnAI NewCas)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAEC_Casualty_Sub_Tyger.AssignCasualty", true);
         byte* paramsPtr = stackalloc byte[12];

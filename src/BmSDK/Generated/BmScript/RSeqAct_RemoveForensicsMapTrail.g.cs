@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_RemoveForensicsMapTrail<br/>
-/// (size = 216)
+/// (size = 236)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_RemoveForensicsMapTrail : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -105,7 +105,7 @@ public partial class RSeqAct_RemoveForensicsMapTrail : BmSDK.Engine.SequenceActi
     /// </summary>
     public unsafe BmSDK.FString EvidenceTrailName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

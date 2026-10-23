@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: TriggerVolume<br/>
-/// (size = 472)
+/// (size = 496)
 /// (flags = 142606994)
 /// </summary>
 public partial class TriggerVolume : BmSDK.Engine.Volume, BmSDK.IGameObject

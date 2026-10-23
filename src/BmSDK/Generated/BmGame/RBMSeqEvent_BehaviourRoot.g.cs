@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RBMSeqEvent_BehaviourRoot<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 134217875)
 /// </summary>
 public partial class RBMSeqEvent_BehaviourRoot : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject

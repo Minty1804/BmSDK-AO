@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponCrowdPipe<br/>
-/// (size = 960)
+/// (size = 976)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponCrowdPipe : BmSDK.BmGame.RBMWeapon, BmSDK.IGameObject

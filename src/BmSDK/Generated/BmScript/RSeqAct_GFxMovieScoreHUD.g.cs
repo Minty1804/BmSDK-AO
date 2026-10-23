@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_GFxMovieScoreHUD<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_GFxMovieScoreHUD : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RSeqAct_GFxMovieScoreHUD : BmSDK.Engine.SequenceAction, BmS
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie TheMovieInstance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

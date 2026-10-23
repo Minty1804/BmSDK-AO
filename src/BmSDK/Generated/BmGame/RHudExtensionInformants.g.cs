@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionInformants<br/>
-/// (size = 244)
+/// (size = 188)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -104,6 +104,19 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     }
 
     /// <summary>
+    /// Function: InitialsePinkneyScan
+    /// </summary>
+    public unsafe virtual void InitialsePinkneyScan(bool new_pickup, int plaqueIndex)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionInformants.InitialsePinkneyScan", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(new_pickup, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(plaqueIndex, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: InitialisePickupScan
     /// </summary>
     public unsafe virtual void InitialisePickupScan(bool new_pickup)
@@ -155,12 +168,13 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// <summary>
     /// Function: InitialiseInformants
     /// </summary>
-    public unsafe virtual void InitialiseInformants(int num_subjects, int informant_index)
+    public unsafe virtual void InitialiseInformants(int num_subjects, int informant_index, BmSDK.FString informant_text)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionInformants.InitialiseInformants", true);
-        byte* paramsPtr = stackalloc byte[8];
+        byte* paramsPtr = stackalloc byte[20];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(num_subjects, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(informant_index, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(informant_text, paramsPtr + 8);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -195,8 +209,8 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie MovieInfo
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
     }
 
     /// <summary>
@@ -204,8 +218,8 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// </summary>
     public unsafe BmSDK.TArray<float> ReticlePositionsX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<float>>(Ptr + 136); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<float>>(Ptr + 104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
     }
 
     /// <summary>
@@ -213,8 +227,8 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// </summary>
     public unsafe BmSDK.TArray<float> ReticlePositionsY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<float>>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<float>>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 
     /// <summary>
@@ -222,8 +236,8 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// </summary>
     public unsafe BmSDK.TArray<int> ReticlesActive
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(Ptr + 160); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(Ptr + 128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
     }
 
     /// <summary>
@@ -231,8 +245,8 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// </summary>
     public unsafe int InformantIndex
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 172); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 172); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
     }
 
     /// <summary>
@@ -240,8 +254,8 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// </summary>
     public unsafe int NumSubjects
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 176); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 176); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 144); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
     }
 
     /// <summary>
@@ -249,8 +263,8 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// </summary>
     public unsafe bool bHasAbortedScan
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 180) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 180); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 180); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 148) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 148); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 148); }
     }
 
     /// <summary>
@@ -258,8 +272,8 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// </summary>
     public unsafe BmSDK.FString CachedVariable_ReticlePositionsX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 184); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 184); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 152); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 152); }
     }
 
     /// <summary>
@@ -267,8 +281,8 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// </summary>
     public unsafe BmSDK.FString CachedVariable_ReticlePositionsY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 196); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 196); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 164); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 164); }
     }
 
     /// <summary>
@@ -276,25 +290,7 @@ public partial class RHudExtensionInformants : BmSDK.BmGame.RHudExtension, BmSDK
     /// </summary>
     public unsafe BmSDK.FString CachedVariable_ReticlesActive
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_DetailsSet
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_DetailsSet
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetPickupLocation
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetPickupLocation
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 232); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 176); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 176); }
     }
 }

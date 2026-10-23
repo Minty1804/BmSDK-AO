@@ -5,7 +5,7 @@ namespace BmSDK.AkAudio;
 
 /// <summary>
 /// Class: SeqAct_AkMusicTrigger<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_AkMusicTrigger : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqAct_AkMusicTrigger : BmSDK.Engine.SequenceAction, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.AkTriggerName MusicTriggerName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkTriggerName>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkTriggerName>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqEvent_DroneGrapplePointFound<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 33554450)
 /// </summary>
 public partial class RSeqEvent_DroneGrapplePointFound : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject

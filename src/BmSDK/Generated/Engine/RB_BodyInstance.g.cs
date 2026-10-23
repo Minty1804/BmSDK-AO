@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: RB_BodyInstance<br/>
-/// (size = 164)
+/// (size = 160)
 /// (flags = 142606482)
 /// </summary>
 public partial class RB_BodyInstance : BmSDK.GameObject, BmSDK.IGameObject
@@ -849,21 +849,12 @@ public partial class RB_BodyInstance : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
-    /// FloatProperty: LastEffectPlayedTime
-    /// </summary>
-    public unsafe float LastEffectPlayedTime
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 128); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
-    }
-
-    /// <summary>
     /// ObjectProperty: PhysMaterialOverride
     /// </summary>
     public unsafe BmSDK.Engine.PhysicalMaterial PhysMaterialOverride
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PhysicalMaterial>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PhysicalMaterial>(Ptr + 128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
     }
 
     /// <summary>
@@ -871,8 +862,8 @@ public partial class RB_BodyInstance : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe float ContactReportForceThreshold
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 136); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
     }
 
     /// <summary>
@@ -880,8 +871,8 @@ public partial class RB_BodyInstance : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe float InstanceMassScale
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 140); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 136); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
     }
 
     /// <summary>
@@ -889,8 +880,8 @@ public partial class RB_BodyInstance : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe float InstanceDampingScale
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
     }
 
     /// <summary>
@@ -898,13 +889,13 @@ public partial class RB_BodyInstance : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe float DampingRampupProportion
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 144); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
     }
 
     /// <summary>
     /// StructProperty: RBSyncOffet
     /// </summary>
     public unsafe ref System.Numerics.Vector3 RBSyncOffet
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 152);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 148);
 }

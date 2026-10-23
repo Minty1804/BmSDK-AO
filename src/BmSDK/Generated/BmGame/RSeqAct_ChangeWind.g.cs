@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_ChangeWind<br/>
-/// (size = 224)
+/// (size = 264)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_ChangeWind : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -93,5 +93,5 @@ public partial class RSeqAct_ChangeWind : BmSDK.Engine.SequenceAction, BmSDK.IGa
     /// StructProperty: NewWindState
     /// </summary>
     public unsafe ref BmSDK.BmGame.RGameInfo.FRBasicWindConfig NewWindState
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RGameInfo.FRBasicWindConfig>(Ptr + 204);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RGameInfo.FRBasicWindConfig>(Ptr + 224);
 }

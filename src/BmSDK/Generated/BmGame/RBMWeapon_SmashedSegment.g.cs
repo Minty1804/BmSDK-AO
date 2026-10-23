@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMWeapon_SmashedSegment<br/>
-/// (size = 700)
+/// (size = 732)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMWeapon_SmashedSegment : BmSDK.Engine.KActorSpawnable, BmSDK.IGameObject

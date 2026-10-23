@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RRadioCWViewPostProcess<br/>
-/// (size = 128)
-/// (flags = 18)
+/// (size = 160)
+/// (flags = 33554450)
 /// </summary>
 public partial class RRadioCWViewPostProcess : BmSDK.BmGame.RViewPostProcess, BmSDK.IGameObject
 {

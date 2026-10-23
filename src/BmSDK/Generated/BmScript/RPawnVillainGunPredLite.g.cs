@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPawnVillainGunPredLite<br/>
-/// (size = 3612)
+/// (size = 4080)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnVillainGunPredLite : BmSDK.BmGame.RPawnVillainGunPredBase, BmSDK.IGameObject
@@ -84,7 +84,7 @@ public partial class RPawnVillainGunPredLite : BmSDK.BmGame.RPawnVillainGunPredB
     public unsafe virtual BmSDK.BmGame.RWeaponConfig CreateLitePredPanicWeaponConfig(BmSDK.GameObject NewOwner, BmSDK.Engine.AnimSet AnimSet1, BmSDK.Engine.AnimSet AnimSet2, BmSDK.Engine.AnimSet AnimSet3, BmSDK.Engine.AnimSet AnimSet4, BmSDK.Engine.AnimSet TurnAnimSet2)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGunPredLite.CreateLitePredPanicWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[1124];
+        byte* paramsPtr = stackalloc byte[1004];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet1, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet2, paramsPtr + 8);

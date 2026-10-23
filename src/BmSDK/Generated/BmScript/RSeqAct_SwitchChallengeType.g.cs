@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_SwitchChallengeType<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_SwitchChallengeType : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

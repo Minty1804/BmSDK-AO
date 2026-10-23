@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_BatmanFastEvade<br/>
-/// (size = 536)
+/// (size = 560)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_BatmanFastEvade : BmSDK.BmGame.RCombatMove_BatmanEvade, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RCombatMove_BatmanFastEvade : BmSDK.BmGame.RCombatMove_Batm
     /// </summary>
     public unsafe BmSDK.Engine.AnimSet BatsAnimSet
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 532); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 532); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 556); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 556); }
     }
 }

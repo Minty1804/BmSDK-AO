@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDynamicBlockingVolume<br/>
-/// (size = 484)
+/// (size = 508)
 /// (flags = 142606994)
 /// </summary>
 public partial class RDynamicBlockingVolume : BmSDK.BmGame.RBlockingVolume, BmSDK.IGameObject

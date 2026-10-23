@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_StandingTalk<br/>
-/// (size = 404)
+/// (size = 424)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_StandingTalk : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject
@@ -106,8 +106,8 @@ public partial class RBMBehaviour_StandingTalk : BmSDK.BmGame.RBMBehaviour, BmSD
     /// </summary>
     public unsafe BmSDK.Engine.Actor Subject
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 396); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 396); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 416); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 416); }
     }
 
     /// <summary>
@@ -115,7 +115,7 @@ public partial class RBMBehaviour_StandingTalk : BmSDK.BmGame.RBMBehaviour, BmSD
     /// </summary>
     public unsafe float StartTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 400); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 400); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 420); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 420); }
     }
 }

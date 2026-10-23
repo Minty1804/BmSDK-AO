@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqEvent_GunLockerAlarmOff<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 18)
 /// </summary>
 public partial class RSeqEvent_GunLockerAlarmOff : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject

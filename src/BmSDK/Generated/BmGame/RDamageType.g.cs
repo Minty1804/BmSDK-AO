@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDamageType<br/>
-/// (size = 120)
+/// (size = 132)
 /// (flags = 134217874)
 /// </summary>
 public partial class RDamageType : BmSDK.Engine.DamageType, BmSDK.IGameObject
@@ -77,6 +77,18 @@ public partial class RDamageType : BmSDK.Engine.DamageType, BmSDK.IGameObject
     public void DetachScriptComponents<TComponent>()
         where TComponent : class, Framework.IScriptComponent<RDamageType>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// Function: ShouldDisarmOnFirstHit
+    /// </summary>
+    public unsafe static bool ShouldDisarmOnFirstHit(BmSDK.BmGame.RBMWeapon currWpn)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDamageType.ShouldDisarmOnFirstHit", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(currWpn, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+    }
 
     /// <summary>
     /// Enum: EBatmanArmourType
@@ -342,6 +354,42 @@ public partial class RDamageType : BmSDK.Engine.DamageType, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// BoolProperty: bTurnPawnIntoIce
+    /// </summary>
+    public unsafe bool bTurnPawnIntoIce
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84) & 268435456) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84); var newMask = value ? (currentMask | 268435456) : (currentMask & ~268435456); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 84); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bDisableInStasis
+    /// </summary>
+    public unsafe bool bDisableInStasis
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84) & 536870912) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84); var newMask = value ? (currentMask | 536870912) : (currentMask & ~536870912); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 84); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bCanRepel
+    /// </summary>
+    public unsafe bool bCanRepel
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84) & 1073741824) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84); var newMask = value ? (currentMask | 1073741824) : (currentMask & ~1073741824); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 84); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bHasShortStunTime
+    /// </summary>
+    public unsafe bool bHasShortStunTime
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84) & -2147483648) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84); var newMask = value ? (currentMask | -2147483648) : (currentMask & ~-2147483648); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 84); }
+    }
+
+    /// <summary>
     /// IntProperty: ForceDamageEffectsAmount
     /// </summary>
     public unsafe int ForceDamageEffectsAmount
@@ -405,12 +453,21 @@ public partial class RDamageType : BmSDK.Engine.DamageType, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// ByteProperty: KOGameActionPred
+    /// </summary>
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge KOGameActionPred
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 113); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 113); }
+    }
+
+    /// <summary>
     /// ByteProperty: MoveType
     /// </summary>
     public unsafe BmSDK.BmGame.RGameInfo.EComboMoveType MoveType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EComboMoveType>(Ptr + 113); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 113); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EComboMoveType>(Ptr + 114); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 114); }
     }
 
     /// <summary>
@@ -418,8 +475,17 @@ public partial class RDamageType : BmSDK.Engine.DamageType, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.BmGame.RDamageType.EBatmanArmourType ArmourType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDamageType.EBatmanArmourType>(Ptr + 114); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 114); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDamageType.EBatmanArmourType>(Ptr + 115); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 115); }
+    }
+
+    /// <summary>
+    /// ByteProperty: SpeechEmoteType
+    /// </summary>
+    public unsafe BmSDK.BmGame.RAnimNotify_Emote.EEmoteType SpeechEmoteType
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAnimNotify_Emote.EEmoteType>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 
     /// <summary>
@@ -427,7 +493,25 @@ public partial class RDamageType : BmSDK.Engine.DamageType, BmSDK.IGameObject
     /// </summary>
     public unsafe int Priority
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 116); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+    }
+
+    /// <summary>
+    /// FloatProperty: RagdollP2PCollMinSpeed
+    /// </summary>
+    public unsafe float RagdollP2PCollMinSpeed
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 124); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 124); }
+    }
+
+    /// <summary>
+    /// FloatProperty: RagdollP2PCollMaxSpeed
+    /// </summary>
+    public unsafe float RagdollP2PCollMaxSpeed
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
     }
 }

@@ -79,12 +79,21 @@ public partial class InterpTrackParticleReplay : BmSDK.Engine.InterpTrack, BmSDK
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
-    /// ArrayProperty: TrackKeys
+    /// BoolProperty: bSnapshotStartEvidenceKeyPointEconomicalFrame
     /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.Engine.InterpTrackParticleReplay.FParticleReplayTrackKey> TrackKeys
+    public unsafe bool bSnapshotStartEvidenceKeyPointEconomicalFrame
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.InterpTrackParticleReplay.FParticleReplayTrackKey>>(Ptr + 112); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 112); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 112) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 112); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 112); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bSnapshotEndEvidenceKeyPointEconomicalFrame
+    /// </summary>
+    public unsafe bool bSnapshotEndEvidenceKeyPointEconomicalFrame
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 112) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 112); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 112); }
     }
 
     /// <summary>
@@ -92,8 +101,17 @@ public partial class InterpTrackParticleReplay : BmSDK.Engine.InterpTrack, BmSDK
     /// </summary>
     public unsafe bool bIsCapturingReplay
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 124) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 124); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 124); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 112) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 112); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 112); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: TrackKeys
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.Engine.InterpTrackParticleReplay.FParticleReplayTrackKey> TrackKeys
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.InterpTrackParticleReplay.FParticleReplayTrackKey>>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 
     /// <summary>
@@ -108,7 +126,7 @@ public partial class InterpTrackParticleReplay : BmSDK.Engine.InterpTrack, BmSDK
     /// <summary>
     /// Struct: FParticleReplayTrackKey
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 12)]
+    [StructLayout(LayoutKind.Explicit, Size = 16)]
     public partial record struct FParticleReplayTrackKey
     {
         /// <summary>
@@ -136,6 +154,15 @@ public partial class InterpTrackParticleReplay : BmSDK.Engine.InterpTrack, BmSDK
         {
             get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 8); }; }
             set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 8); }; }
+        }
+
+        /// <summary>
+        /// BoolProperty: bEconomicalReplay
+        /// </summary>
+        public unsafe bool bEconomicalReplay
+        {
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 12) & 1) != 0; }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 12); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 12); }; }
         }
     }
 }

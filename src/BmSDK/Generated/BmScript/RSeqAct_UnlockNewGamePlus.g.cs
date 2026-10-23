@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_UnlockNewGamePlus<br/>
-/// (size = 204)
-/// (flags = 8210)
+/// (size = 227)
+/// (flags = 8214)
 /// </summary>
 public partial class RSeqAct_UnlockNewGamePlus : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
 {
@@ -98,5 +98,32 @@ public partial class RSeqAct_UnlockNewGamePlus : BmSDK.Engine.SequenceAction, Bm
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
+    }
+
+    /// <summary>
+    /// ByteProperty: CompleteGameNormalUnlock
+    /// </summary>
+    public unsafe BmSDK.BmGame.RPersistentData.EConceptArt CompleteGameNormalUnlock
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EConceptArt>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+    }
+
+    /// <summary>
+    /// ByteProperty: CompleteGameNGPlusUnlock
+    /// </summary>
+    public unsafe BmSDK.BmGame.RPersistentData.EConceptArt CompleteGameNGPlusUnlock
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EConceptArt>(Ptr + 225); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 225); }
+    }
+
+    /// <summary>
+    /// ByteProperty: CompleteGameIABUnlock
+    /// </summary>
+    public unsafe BmSDK.BmGame.RPersistentData.EConceptArt CompleteGameIABUnlock
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EConceptArt>(Ptr + 226); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 226); }
     }
 }

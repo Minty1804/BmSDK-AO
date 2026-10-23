@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RGrundyRopeComponent<br/>
-/// (size = 512)
-/// (flags = 2157969426)
+/// (size = 548)
+/// (flags = 2191523858)
 /// </summary>
 public partial class RGrundyRopeComponent : BmSDK.BmGame.RRope2Component, BmSDK.IGameObject
 {

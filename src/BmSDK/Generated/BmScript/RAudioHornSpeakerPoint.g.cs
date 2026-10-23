@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RAudioHornSpeakerPoint<br/>
-/// (size = 516)
+/// (size = 544)
 /// (flags = 8389138)
 /// </summary>
 public partial class RAudioHornSpeakerPoint : BmSDK.BmGame.RAudioPoint, BmSDK.IGameObject

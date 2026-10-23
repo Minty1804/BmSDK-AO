@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_AlertPredThugs<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_AlertPredThugs : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -105,7 +105,7 @@ public partial class RSeqAct_AlertPredThugs : BmSDK.Engine.SequenceAction, BmSDK
     /// </summary>
     public unsafe BmSDK.BmGame.RPredatorVolume PredVolume
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPredatorVolume>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPredatorVolume>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

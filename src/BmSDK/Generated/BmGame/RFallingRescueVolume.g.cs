@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RFallingRescueVolume<br/>
-/// (size = 536)
+/// (size = 564)
 /// (flags = 8389138)
 /// </summary>
 public partial class RFallingRescueVolume : BmSDK.BmGame.RKillVolume, BmSDK.IGameObject

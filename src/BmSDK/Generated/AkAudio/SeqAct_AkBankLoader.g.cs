@@ -5,7 +5,7 @@ namespace BmSDK.AkAudio;
 
 /// <summary>
 /// Class: SeqAct_AkBankLoader<br/>
-/// (size = 212)
+/// (size = 232)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_AkBankLoader : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class SeqAct_AkBankLoader : BmSDK.Engine.SequenceAction, BmSDK.IG
     /// </summary>
     public unsafe BmSDK.Engine.AkBank SoundBank
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkBank>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkBank>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class SeqAct_AkBankLoader : BmSDK.Engine.SequenceAction, BmSDK.IG
     /// </summary>
     public unsafe bool IsBankLoaded
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 208); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 228); }
     }
 }

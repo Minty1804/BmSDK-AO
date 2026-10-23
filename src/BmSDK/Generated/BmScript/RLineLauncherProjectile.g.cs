@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RLineLauncherProjectile<br/>
-/// (size = 556)
+/// (size = 580)
 /// (flags = 8388626)
 /// </summary>
 public partial class RLineLauncherProjectile : BmSDK.BmGame.RProjectileWithRope, BmSDK.IGameObject

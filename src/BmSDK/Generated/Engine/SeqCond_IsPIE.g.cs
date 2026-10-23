@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqCond_IsPIE<br/>
-/// (size = 180)
+/// (size = 200)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqCond_IsPIE : BmSDK.Engine.SequenceCondition, BmSDK.IGameObject

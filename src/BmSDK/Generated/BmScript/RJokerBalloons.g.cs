@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RJokerBalloons<br/>
-/// (size = 800)
+/// (size = 820)
 /// (flags = 8389138)
 /// </summary>
 public partial class RJokerBalloons : BmSDK.BmGame.RJokerBalloonsBase, BmSDK.BmGame.RBatarangableInterface, BmSDK.IGameObject
@@ -81,11 +81,11 @@ public partial class RJokerBalloons : BmSDK.BmGame.RJokerBalloonsBase, BmSDK.BmG
     /// <summary>
     /// Function: SetToDamageStageMesh
     /// </summary>
-    public unsafe override void SetToDamageStageMesh(int stage)
+    public unsafe override void SetToDamageStageMesh(int Stage)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RJokerBalloons.SetToDamageStageMesh", true);
-        byte* paramsPtr = stackalloc byte[8];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(stage, paramsPtr + 0);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Stage, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

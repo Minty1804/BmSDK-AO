@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: SeqVar_Character<br/>
-/// (size = 160)
+/// (size = 164)
 /// (flags = 134217875)
 /// </summary>
 public partial class SeqVar_Character : BmSDK.Engine.SeqVar_Object, BmSDK.IGameObject
@@ -78,7 +78,7 @@ public partial class SeqVar_Character : BmSDK.Engine.SeqVar_Object, BmSDK.IGameO
     /// </summary>
     public unsafe BmSDK.Class PawnClass
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 156); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 156); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
     }
 }

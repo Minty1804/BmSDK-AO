@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: ROverheadWireEnd<br/>
-/// (size = 444)
+/// (size = 468)
 /// (flags = 8389138)
 /// </summary>
 public partial class ROverheadWireEnd : BmSDK.BmGame.ROverheadWireEndBase, BmSDK.IGameObject

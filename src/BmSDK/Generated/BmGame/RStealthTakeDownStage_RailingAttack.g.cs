@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_RailingAttack<br/>
-/// (size = 1128)
+/// (size = 1172)
 /// (flags = 142606482)
 /// </summary>
 public partial class RStealthTakeDownStage_RailingAttack : BmSDK.BmGame.RStealthTakeDownStage, BmSDK.IGameObject
@@ -95,7 +95,7 @@ public partial class RStealthTakeDownStage_RailingAttack : BmSDK.BmGame.RStealth
     public unsafe static float GetRopeLength(System.Numerics.Vector3 RopeTopPoint, BmSDK.BmGame.RPawnPlayer Attacker)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RStealthTakeDownStage_RailingAttack.GetRopeLength", true);
-        byte* paramsPtr = stackalloc byte[92];
+        byte* paramsPtr = stackalloc byte[96];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RopeTopPoint, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Attacker, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -186,21 +186,21 @@ public partial class RStealthTakeDownStage_RailingAttack : BmSDK.BmGame.RStealth
     /// StructProperty: RopeAttachPoint
     /// </summary>
     public unsafe ref System.Numerics.Vector3 RopeAttachPoint
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1032);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1076);
 
     /// <summary>
     /// StructProperty: RopeRenderAttachPoint
     /// </summary>
     public unsafe ref System.Numerics.Vector3 RopeRenderAttachPoint
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1044);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1088);
 
     /// <summary>
     /// BoolProperty: AttachRope
     /// </summary>
     public unsafe bool AttachRope
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1056) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1056); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1056); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1100) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1100); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1100); }
     }
 
     /// <summary>
@@ -208,8 +208,8 @@ public partial class RStealthTakeDownStage_RailingAttack : BmSDK.BmGame.RStealth
     /// </summary>
     public unsafe bool bAttachRopeToFeet
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1056) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1056); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1056); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1100) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1100); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1100); }
     }
 
     /// <summary>
@@ -217,8 +217,8 @@ public partial class RStealthTakeDownStage_RailingAttack : BmSDK.BmGame.RStealth
     /// </summary>
     public unsafe bool DisableCutRope
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1056) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1056); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1056); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1100) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1100); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1100); }
     }
 
     /// <summary>
@@ -226,8 +226,8 @@ public partial class RStealthTakeDownStage_RailingAttack : BmSDK.BmGame.RStealth
     /// </summary>
     public unsafe float RopeLength
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1060); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1060); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1104); }
     }
 
     /// <summary>
@@ -235,8 +235,8 @@ public partial class RStealthTakeDownStage_RailingAttack : BmSDK.BmGame.RStealth
     /// </summary>
     public unsafe BmSDK.FName RopeBoneAttachName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 1064); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1064); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 1108); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1108); }
     }
 
     /// <summary>
@@ -244,43 +244,43 @@ public partial class RStealthTakeDownStage_RailingAttack : BmSDK.BmGame.RStealth
     /// </summary>
     public unsafe float RopeAttachConnectionDistance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1072); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1072); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1116); }
     }
 
     /// <summary>
     /// StructProperty: RopePelvisAttachPoint
     /// </summary>
     public unsafe ref System.Numerics.Vector3 RopePelvisAttachPoint
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1076);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1120);
 
     /// <summary>
     /// ArrayProperty: RopeExtraAttachConnections
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RRopeComponent.FRopeExtraAttachConnection> RopeExtraAttachConnections
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RRopeComponent.FRopeExtraAttachConnection>>(Ptr + 1088); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1088); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RRopeComponent.FRopeExtraAttachConnection>>(Ptr + 1132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1132); }
     }
 
     /// <summary>
     /// StructProperty: RopeRenderStartOffset
     /// </summary>
     public unsafe ref System.Numerics.Vector3 RopeRenderStartOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1100);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1144);
 
     /// <summary>
     /// StructProperty: RopePhysStartOffset
     /// </summary>
     public unsafe ref System.Numerics.Vector3 RopePhysStartOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1112);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1156);
 
     /// <summary>
     /// ObjectProperty: HangRope
     /// </summary>
     public unsafe BmSDK.BmGame.RStringUpRope HangRope
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RStringUpRope>(Ptr + 1124); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1124); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RStringUpRope>(Ptr + 1168); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1168); }
     }
 }

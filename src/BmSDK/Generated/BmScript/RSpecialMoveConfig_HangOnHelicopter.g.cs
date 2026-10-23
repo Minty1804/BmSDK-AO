@@ -8,7 +8,7 @@ namespace BmSDK.BmScript;
 /// (size = 380)
 /// (flags = 4114)
 /// </summary>
-public partial class RSpecialMoveConfig_HangOnHelicopter : BmSDK.BmGame.RSpecialMoveConfig, BmSDK.IGameObject
+public partial class RSpecialMoveConfig_HangOnHelicopter : BmSDK.BmScript.MSpecialMoveConfig_HangOn, BmSDK.IGameObject
 {
     static BmSDK.Class s_staticClass = null;
     public static BmSDK.Class StaticClass()
@@ -79,6 +79,69 @@ public partial class RSpecialMoveConfig_HangOnHelicopter : BmSDK.BmGame.RSpecial
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
+    /// ArrayProperty: GlideOut
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.BmScript.RSpecialMoveConfig_HangOnHelicopter.FGlideOutAnim> GlideOut
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmScript.RSpecialMoveConfig_HangOnHelicopter.FGlideOutAnim>>(Ptr + 320); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 320); }
+    }
+
+    /// <summary>
+    /// NameProperty: RemoveControlModule
+    /// </summary>
+    public unsafe BmSDK.FName RemoveControlModule
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 332); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 332); }
+    }
+
+    /// <summary>
+    /// NameProperty: GForceFwdAnim
+    /// </summary>
+    public unsafe BmSDK.FName GForceFwdAnim
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 340); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 340); }
+    }
+
+    /// <summary>
+    /// NameProperty: GForceLeftAnim
+    /// </summary>
+    public unsafe BmSDK.FName GForceLeftAnim
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 348); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 348); }
+    }
+
+    /// <summary>
+    /// NameProperty: GForceRightAnim
+    /// </summary>
+    public unsafe BmSDK.FName GForceRightAnim
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 356); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 356); }
+    }
+
+    /// <summary>
+    /// NameProperty: GForceBackAnim
+    /// </summary>
+    public unsafe BmSDK.FName GForceBackAnim
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 364); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 364); }
+    }
+
+    /// <summary>
+    /// NameProperty: RemoveControlModuleCamera
+    /// </summary>
+    public unsafe BmSDK.FName RemoveControlModuleCamera
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 372); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 372); }
+    }
+
+    /// <summary>
     /// Struct: FGlideOutAnim
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = 76)]
@@ -119,95 +182,5 @@ public partial class RSpecialMoveConfig_HangOnHelicopter : BmSDK.BmGame.RSpecial
             get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72); }; }
             set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 72); }; }
         }
-    }
-
-    /// <summary>
-    /// NameProperty: GrappleIn
-    /// </summary>
-    public unsafe BmSDK.FName GrappleIn
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 296); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 296); }
-    }
-
-    /// <summary>
-    /// NameProperty: HelicopterIdle
-    /// </summary>
-    public unsafe BmSDK.FName HelicopterIdle
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 304); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 304); }
-    }
-
-    /// <summary>
-    /// NameProperty: DropOff
-    /// </summary>
-    public unsafe BmSDK.FName DropOff
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 312); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 312); }
-    }
-
-    /// <summary>
-    /// NameProperty: RemoveControlModule
-    /// </summary>
-    public unsafe BmSDK.FName RemoveControlModule
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 320); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 320); }
-    }
-
-    /// <summary>
-    /// NameProperty: GForceFwdAnim
-    /// </summary>
-    public unsafe BmSDK.FName GForceFwdAnim
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 328); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 328); }
-    }
-
-    /// <summary>
-    /// NameProperty: GForceLeftAnim
-    /// </summary>
-    public unsafe BmSDK.FName GForceLeftAnim
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 336); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 336); }
-    }
-
-    /// <summary>
-    /// NameProperty: GForceRightAnim
-    /// </summary>
-    public unsafe BmSDK.FName GForceRightAnim
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 344); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 344); }
-    }
-
-    /// <summary>
-    /// NameProperty: GForceBackAnim
-    /// </summary>
-    public unsafe BmSDK.FName GForceBackAnim
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 352); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 352); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: GlideOut
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.BmScript.RSpecialMoveConfig_HangOnHelicopter.FGlideOutAnim> GlideOut
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmScript.RSpecialMoveConfig_HangOnHelicopter.FGlideOutAnim>>(Ptr + 360); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 360); }
-    }
-
-    /// <summary>
-    /// NameProperty: RemoveControlModuleCamera
-    /// </summary>
-    public unsafe BmSDK.FName RemoveControlModuleCamera
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 372); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 372); }
     }
 }

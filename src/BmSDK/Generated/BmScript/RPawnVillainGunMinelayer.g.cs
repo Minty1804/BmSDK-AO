@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPawnVillainGunMinelayer<br/>
-/// (size = 3656)
+/// (size = 4124)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnVillainGunMinelayer : BmSDK.BmScript.RPawnVillainGun, BmSDK.IGameObject
@@ -140,7 +140,7 @@ public partial class RPawnVillainGunMinelayer : BmSDK.BmScript.RPawnVillainGun, 
     /// </summary>
     public unsafe BmSDK.Engine.StaticMeshComponent GrabMineMeshStandard
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 3652); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3652); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 4120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4120); }
     }
 }

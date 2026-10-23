@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RAudioTVPoint<br/>
-/// (size = 516)
+/// (size = 544)
 /// (flags = 8389138)
 /// </summary>
 public partial class RAudioTVPoint : BmSDK.BmGame.RAudioPoint, BmSDK.IGameObject

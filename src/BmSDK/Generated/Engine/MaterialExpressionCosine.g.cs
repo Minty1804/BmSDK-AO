@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionCosine<br/>
-/// (size = 124)
+/// (size = 164)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionCosine : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,14 +82,14 @@ public partial class MaterialExpressionCosine : BmSDK.Engine.MaterialExpression,
     /// StructProperty: Input
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Input
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// FloatProperty: Period
     /// </summary>
     public unsafe float Period
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
     }
 }

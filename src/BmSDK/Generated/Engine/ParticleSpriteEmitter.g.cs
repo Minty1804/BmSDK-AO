@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: ParticleSpriteEmitter<br/>
-/// (size = 104)
+/// (size = 108)
 /// (flags = 136327314)
 /// </summary>
 public partial class ParticleSpriteEmitter : BmSDK.Engine.ParticleEmitter, BmSDK.IGameObject

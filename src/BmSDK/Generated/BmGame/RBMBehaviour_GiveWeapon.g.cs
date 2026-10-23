@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_GiveWeapon<br/>
-/// (size = 400)
+/// (size = 420)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_GiveWeapon : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RBMBehaviour_GiveWeapon : BmSDK.BmGame.RBMBehaviour, BmSDK.
     /// </summary>
     public unsafe BmSDK.Class WeaponType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 396); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 396); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 416); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 416); }
     }
 }

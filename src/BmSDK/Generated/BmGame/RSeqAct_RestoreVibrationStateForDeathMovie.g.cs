@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_RestoreVibrationStateForDeathMovie<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_RestoreVibrationStateForDeathMovie : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RSeqAct_RestoreVibrationStateForDeathMovie : BmSDK.Engine.S
     /// </summary>
     public unsafe BmSDK.BmGame.RPlayerController Player
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtension<br/>
-/// (size = 132)
+/// (size = 100)
 /// (flags = 134217874)
 /// </summary>
 public partial class RHudExtension : BmSDK.GameObject, BmSDK.IGameObject
@@ -134,6 +134,28 @@ public partial class RHudExtension : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// Function: PostAdvance
+    /// </summary>
+    public unsafe virtual void PostAdvance()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtension.PostAdvance", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: GetLocalMovieRoot
+    /// </summary>
+    public unsafe virtual BmSDK.GFxUI.GFxObject GetLocalMovieRoot()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtension.GetLocalMovieRoot", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe virtual bool Init(BmSDK.BmGame.RPlayerController _RPC, BmSDK.FString _ExtensionName, BmSDK.FString _ExtensionPath)
@@ -220,38 +242,20 @@ public partial class RHudExtension : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
-    /// StrProperty: LocalRootString
+    /// ObjectProperty: LocalRootCached
     /// </summary>
-    public unsafe BmSDK.FString LocalRootString
+    public unsafe BmSDK.GFxUI.GFxObject LocalRootCached
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 84); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(Ptr + 84); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 84); }
     }
 
     /// <summary>
-    /// StrProperty: CachedFunction_Show
+    /// StrProperty: LocalRootStringPath
     /// </summary>
-    public unsafe BmSDK.FString CachedFunction_Show
+    public unsafe BmSDK.FString LocalRootStringPath
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 96); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 96); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_Hide
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_Hide
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 108); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 108); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_RequestQuit
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_RequestQuit
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 88); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 88); }
     }
 }

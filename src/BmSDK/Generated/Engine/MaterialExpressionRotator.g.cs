@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionRotator<br/>
-/// (size = 160)
+/// (size = 216)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionRotator : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,21 +82,21 @@ public partial class MaterialExpressionRotator : BmSDK.Engine.MaterialExpression
     /// StructProperty: Coordinate
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Coordinate
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// StructProperty: Time
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Time
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 120);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 160);
 
     /// <summary>
     /// FloatProperty: CenterX
     /// </summary>
     public unsafe float CenterX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 204); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
     }
 
     /// <summary>
@@ -104,8 +104,8 @@ public partial class MaterialExpressionRotator : BmSDK.Engine.MaterialExpression
     /// </summary>
     public unsafe float CenterY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 152); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 152); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 208); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
     }
 
     /// <summary>
@@ -113,7 +113,7 @@ public partial class MaterialExpressionRotator : BmSDK.Engine.MaterialExpression
     /// </summary>
     public unsafe float Speed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 156); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 156); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 212); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 212); }
     }
 }

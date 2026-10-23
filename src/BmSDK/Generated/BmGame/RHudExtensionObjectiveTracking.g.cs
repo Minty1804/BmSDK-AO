@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionObjectiveTracking<br/>
-/// (size = 188)
+/// (size = 120)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionObjectiveTracking : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -145,49 +145,22 @@ public partial class RHudExtensionObjectiveTracking : BmSDK.BmGame.RHudExtension
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie MovieInfo
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
     }
 
     /// <summary>
     /// StructProperty: vScreenPos
     /// </summary>
     public unsafe ref System.Numerics.Vector3 vScreenPos
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 136);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 104);
 
     /// <summary>
     /// FloatProperty: fProximityToBatman
     /// </summary>
     public unsafe float fProximityToBatman
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetReticleScreenLocation
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetReticleScreenLocation
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 152); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 152); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_FirePulse
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_FirePulse
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 164); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 164); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_JustShowDistance
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_JustShowDistance
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 176); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 176); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 }

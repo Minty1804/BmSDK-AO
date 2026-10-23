@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RHarpoonDragBase<br/>
-/// (size = 528)
+/// (size = 552)
 /// (flags = 142606995)
 /// </summary>
 public partial class RHarpoonDragBase : BmSDK.Engine.InterpActor, BmSDK.IGameObject

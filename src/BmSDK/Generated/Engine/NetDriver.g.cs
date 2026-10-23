@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: NetDriver<br/>
-/// (size = 388)
+/// (size = 368)
 /// (flags = 268435597)
 /// </summary>
 public partial class NetDriver : BmSDK.Subsystem, BmSDK.IGameObject

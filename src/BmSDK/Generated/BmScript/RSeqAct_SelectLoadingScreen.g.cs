@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_SelectLoadingScreen<br/>
-/// (size = 216)
+/// (size = 248)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_SelectLoadingScreen : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -95,7 +95,7 @@ public partial class RSeqAct_SelectLoadingScreen : BmSDK.Engine.SequenceAction, 
     public unsafe override void Activated()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSeqAct_SelectLoadingScreen.Activated", true);
-        byte* paramsPtr = stackalloc byte[24];
+        byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -105,7 +105,16 @@ public partial class RSeqAct_SelectLoadingScreen : BmSDK.Engine.SequenceAction, 
     /// </summary>
     public unsafe BmSDK.FString LoadingMovie
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: SwfMovieReferences
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.GFxUI.SwfMovie> SwfMovieReferences
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GFxUI.SwfMovie>>(Ptr + 236); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
     }
 }

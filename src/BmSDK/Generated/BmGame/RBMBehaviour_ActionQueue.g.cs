@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_ActionQueue<br/>
-/// (size = 396)
-/// (flags = 8210)
+/// (size = 416)
+/// (flags = 134226066)
 /// </summary>
 public partial class RBMBehaviour_ActionQueue : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject
 {

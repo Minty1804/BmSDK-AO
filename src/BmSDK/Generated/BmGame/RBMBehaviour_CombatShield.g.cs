@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_CombatShield<br/>
-/// (size = 764)
+/// (size = 820)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_CombatShield : BmSDK.BmGame.RBMBehaviour_CombatAI, BmSDK.IGameObject
@@ -87,6 +87,18 @@ public partial class RBMBehaviour_CombatShield : BmSDK.BmGame.RBMBehaviour_Comba
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: GetAttackPriority
+    /// </summary>
+    public unsafe override int GetAttackPriority(bool bForceAttack)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMBehaviour_CombatShield.GetAttackPriority", true);
+        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bForceAttack, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
     }
 
     /// <summary>

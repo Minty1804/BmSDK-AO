@@ -86,4 +86,31 @@ public partial class PersistentDebugData : BmSDK.GameObject, BmSDK.IGameObject
         get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44) & 1) != 0; }
         set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 44); }
     }
+
+    /// <summary>
+    /// BoolProperty: Debug_ShowKismetWarnings
+    /// </summary>
+    public unsafe bool Debug_ShowKismetWarnings
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 44); }
+    }
+
+    /// <summary>
+    /// BoolProperty: Debug_ShowEngineWarnings
+    /// </summary>
+    public unsafe bool Debug_ShowEngineWarnings
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 44); }
+    }
+
+    /// <summary>
+    /// BoolProperty: Debug_ShowAudioWarnings
+    /// </summary>
+    public unsafe bool Debug_ShowAudioWarnings
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 44); }
+    }
 }

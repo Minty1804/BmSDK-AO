@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SceneCapturePortalComponent<br/>
-/// (size = 152)
+/// (size = 164)
 /// (flags = 134217874)
 /// </summary>
 public partial class SceneCapturePortalComponent : BmSDK.Engine.SceneCaptureComponent, BmSDK.IGameObject
@@ -104,8 +104,8 @@ public partial class SceneCapturePortalComponent : BmSDK.Engine.SceneCaptureComp
     /// </summary>
     public unsafe BmSDK.Engine.TextureRenderTarget2D TextureTarget
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.TextureRenderTarget2D>(Ptr + 140); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.TextureRenderTarget2D>(Ptr + 152); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 152); }
     }
 
     /// <summary>
@@ -113,8 +113,8 @@ public partial class SceneCapturePortalComponent : BmSDK.Engine.SceneCaptureComp
     /// </summary>
     public unsafe float ScaleFOV
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 156); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 156); }
     }
 
     /// <summary>
@@ -122,7 +122,7 @@ public partial class SceneCapturePortalComponent : BmSDK.Engine.SceneCaptureComp
     /// </summary>
     public unsafe BmSDK.Engine.Actor ViewDestination
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
     }
 }

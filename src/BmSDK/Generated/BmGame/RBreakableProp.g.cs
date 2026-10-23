@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBreakableProp<br/>
-/// (size = 752)
+/// (size = 784)
 /// (flags = 142606994)
 /// </summary>
 public partial class RBreakableProp : BmSDK.BmGame.RBreakablePropStatic, BmSDK.IGameObject
@@ -189,11 +189,11 @@ public partial class RBreakableProp : BmSDK.BmGame.RBreakablePropStatic, BmSDK.I
     /// <summary>
     /// Function: SetToDamageStageMesh
     /// </summary>
-    public unsafe override void SetToDamageStageMesh(int stage)
+    public unsafe override void SetToDamageStageMesh(int Stage)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakableProp.SetToDamageStageMesh", true);
         byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(stage, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Stage, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -203,7 +203,7 @@ public partial class RBreakableProp : BmSDK.BmGame.RBreakablePropStatic, BmSDK.I
     /// </summary>
     public unsafe float CollideDamageScale
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 748); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 748); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 780); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 780); }
     }
 }

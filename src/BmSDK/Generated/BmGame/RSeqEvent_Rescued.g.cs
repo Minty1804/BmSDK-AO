@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqEvent_Rescued<br/>
-/// (size = 236)
+/// (size = 256)
 /// (flags = 18)
 /// </summary>
 public partial class RSeqEvent_Rescued : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class RSeqEvent_Rescued : BmSDK.Engine.SequenceEvent, BmSDK.IGame
     /// </summary>
     public unsafe float CustomRange
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class RSeqEvent_Rescued : BmSDK.Engine.SequenceEvent, BmSDK.IGame
     /// </summary>
     public unsafe bool bAllowWhileTalking
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 232); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 252); }
     }
 }

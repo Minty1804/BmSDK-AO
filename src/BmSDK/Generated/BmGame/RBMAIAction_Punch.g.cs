@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_Punch<br/>
-/// (size = 576)
+/// (size = 600)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_Punch : BmSDK.BmGame.RBMAIAction, BmSDK.IGameObject
@@ -117,7 +117,7 @@ public partial class RBMAIAction_Punch : BmSDK.BmGame.RBMAIAction, BmSDK.IGameOb
     /// </summary>
     public unsafe BmSDK.BmGame.RCombatMove_VillainAttack CombatMove_Punch
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCombatMove_VillainAttack>(Ptr + 572); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCombatMove_VillainAttack>(Ptr + 596); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 596); }
     }
 }

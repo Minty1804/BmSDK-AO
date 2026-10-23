@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponPredatorSniperRifle<br/>
-/// (size = 1132)
+/// (size = 1160)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponPredatorSniperRifle : BmSDK.BmScript.RBMWeaponRifle, BmSDK.IGameObject
@@ -107,7 +107,7 @@ public partial class RBMWeaponPredatorSniperRifle : BmSDK.BmScript.RBMWeaponRifl
     public unsafe virtual BmSDK.BmGame.RWeaponConfig CreateSniperWeaponConfig(BmSDK.GameObject NewOwner)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMWeaponPredatorSniperRifle.CreateSniperWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[628];
+        byte* paramsPtr = stackalloc byte[636];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RWeaponConfig>(paramsPtr + 4);
@@ -208,8 +208,8 @@ public partial class RBMWeaponPredatorSniperRifle : BmSDK.BmScript.RBMWeaponRifl
     /// </summary>
     public unsafe BmSDK.Engine.ParticleSystemComponent LaserSight
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 1116); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1116); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 1144); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1144); }
     }
 
     /// <summary>
@@ -217,8 +217,8 @@ public partial class RBMWeaponPredatorSniperRifle : BmSDK.BmScript.RBMWeaponRifl
     /// </summary>
     public unsafe BmSDK.Engine.AkComponent LaserSound
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkComponent>(Ptr + 1120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkComponent>(Ptr + 1148); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1148); }
     }
 
     /// <summary>
@@ -226,8 +226,8 @@ public partial class RBMWeaponPredatorSniperRifle : BmSDK.BmScript.RBMWeaponRifl
     /// </summary>
     public unsafe bool bShowVisibleLaserSight
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1124) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1124); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1124); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1152) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1152); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1152); }
     }
 
     /// <summary>
@@ -235,7 +235,7 @@ public partial class RBMWeaponPredatorSniperRifle : BmSDK.BmScript.RBMWeaponRifl
     /// </summary>
     public unsafe float VisibleTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1128); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1128); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1156); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1156); }
     }
 }

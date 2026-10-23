@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: NxCylindricalForceFieldCapsule<br/>
-/// (size = 540)
+/// (size = 568)
 /// (flags = 142606994)
 /// </summary>
 public partial class NxCylindricalForceFieldCapsule : BmSDK.Engine.NxCylindricalForceField, BmSDK.IGameObject
@@ -101,7 +101,7 @@ public partial class NxCylindricalForceFieldCapsule : BmSDK.Engine.NxCylindrical
     /// </summary>
     public unsafe BmSDK.Engine.DrawCapsuleComponent RenderComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawCapsuleComponent>(Ptr + 536); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 536); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawCapsuleComponent>(Ptr + 564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
     }
 }

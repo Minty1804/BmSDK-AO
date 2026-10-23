@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_ToggleIdleAim<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_ToggleIdleAim : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RSeqAct_ToggleIdleAim : BmSDK.Engine.SequenceAction, BmSDK.
     /// </summary>
     public unsafe BmSDK.BmGame.RSeqVar_IdleConfigAim ICA
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSeqVar_IdleConfigAim>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSeqVar_IdleConfigAim>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

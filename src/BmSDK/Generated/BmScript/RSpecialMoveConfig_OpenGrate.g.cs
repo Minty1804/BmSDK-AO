@@ -291,6 +291,15 @@ public partial class RSpecialMoveConfig_OpenGrate : BmSDK.BmGame.RSpecialMoveCon
     }
 
     /// <summary>
+    /// BoolProperty: bNoStruggleGameplay
+    /// </summary>
+    public unsafe bool bNoStruggleGameplay
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 344) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 344); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 344); }
+    }
+
+    /// <summary>
     /// FloatProperty: StartDistance
     /// </summary>
     public unsafe float StartDistance

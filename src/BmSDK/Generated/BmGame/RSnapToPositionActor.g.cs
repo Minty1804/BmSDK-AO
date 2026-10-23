@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSnapToPositionActor<br/>
-/// (size = 428)
+/// (size = 452)
 /// (flags = 142606482)
 /// </summary>
 public partial class RSnapToPositionActor : BmSDK.Engine.Actor, BmSDK.IGameObject

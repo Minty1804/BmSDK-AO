@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_PatrolWalk<br/>
-/// (size = 604)
+/// (size = 628)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_PatrolWalk : BmSDK.BmGame.RBMAIAction_BaseMove, BmSDK.IGameObject
@@ -151,14 +151,14 @@ public partial class RBMAIAction_PatrolWalk : BmSDK.BmGame.RBMAIAction_BaseMove,
     /// StructProperty: GoalPos
     /// </summary>
     public unsafe ref System.Numerics.Vector3 GoalPos
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 580);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 604);
 
     /// <summary>
     /// ArrayProperty: GoalPosList
     /// </summary>
     public unsafe BmSDK.TArray<System.Numerics.Vector3> GoalPosList
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.Numerics.Vector3>>(Ptr + 592); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 592); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.Numerics.Vector3>>(Ptr + 616); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 616); }
     }
 }

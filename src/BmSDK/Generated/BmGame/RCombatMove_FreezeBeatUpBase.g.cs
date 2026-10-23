@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_FreezeBeatUpBase<br/>
-/// (size = 1036)
+/// (size = 1076)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_FreezeBeatUpBase : BmSDK.BmGame.RCombatMove_BatmanStrike, BmSDK.IGameObject

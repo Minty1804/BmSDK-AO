@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionMagicUVs<br/>
-/// (size = 124)
+/// (size = 164)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionMagicUVs : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,14 +82,14 @@ public partial class MaterialExpressionMagicUVs : BmSDK.Engine.MaterialExpressio
     /// StructProperty: Scale
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Scale
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// FloatProperty: DefaultScale
     /// </summary>
     public unsafe float DefaultScale
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
     }
 }

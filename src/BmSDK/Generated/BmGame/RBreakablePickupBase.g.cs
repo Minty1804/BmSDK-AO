@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBreakablePickupBase<br/>
-/// (size = 800)
+/// (size = 817)
 /// (flags = 142606994)
 /// </summary>
 public partial class RBreakablePickupBase : BmSDK.BmGame.RBreakableProp, BmSDK.BmGame.RSecretInterface, BmSDK.IGameObject
@@ -81,11 +81,11 @@ public partial class RBreakablePickupBase : BmSDK.BmGame.RBreakableProp, BmSDK.B
     /// <summary>
     /// Function: SetToDamageStageMesh
     /// </summary>
-    public unsafe override void SetToDamageStageMesh(int stage)
+    public unsafe override void SetToDamageStageMesh(int Stage)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePickupBase.SetToDamageStageMesh", true);
         byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(stage, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Stage, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -135,22 +135,22 @@ public partial class RBreakablePickupBase : BmSDK.BmGame.RBreakableProp, BmSDK.B
     }
 
     /// <summary>
-    /// Function: GetSecretZone
+    /// Function: GetSecretGroup
     /// </summary>
-    public unsafe virtual byte GetSecretZone()
+    public unsafe virtual BmSDK.FString GetSecretGroup()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePickupBase.GetSecretZone", true);
-        byte* paramsPtr = stackalloc byte[1];
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePickupBase.GetSecretGroup", true);
+        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<byte>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 0);
     }
 
     /// <summary>
-    /// Function: GetSecretPickupIndex
+    /// Function: GetSecretIndex
     /// </summary>
-    public unsafe virtual int GetSecretPickupIndex()
+    public unsafe virtual int GetSecretIndex()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePickupBase.GetSecretPickupIndex", true);
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePickupBase.GetSecretIndex", true);
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
@@ -190,21 +190,32 @@ public partial class RBreakablePickupBase : BmSDK.BmGame.RBreakableProp, BmSDK.B
     }
 
     /// <summary>
+    /// Function: GetPickedUpName
+    /// </summary>
+    public unsafe virtual BmSDK.FString GetPickedUpName()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePickupBase.GetPickedUpName", true);
+        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// StructProperty: VfTable_IRSecretInterface
     /// </summary>
     public unsafe System.IntPtr VfTable_IRSecretInterface
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 752); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 752); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 784); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 784); }
     }
 
     /// <summary>
-    /// ByteProperty: Zone
+    /// StrProperty: SecretGroup
     /// </summary>
-    public unsafe BmSDK.BmGame.RPersistentData.ERiddlerLocationName Zone
+    public unsafe BmSDK.FString SecretGroup
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.ERiddlerLocationName>(Ptr + 756); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 756); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 788); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 788); }
     }
 
     /// <summary>
@@ -212,8 +223,8 @@ public partial class RBreakablePickupBase : BmSDK.BmGame.RBreakableProp, BmSDK.B
     /// </summary>
     public unsafe int Index
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 760); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 760); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 800); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 800); }
     }
 
     /// <summary>
@@ -221,8 +232,8 @@ public partial class RBreakablePickupBase : BmSDK.BmGame.RBreakableProp, BmSDK.B
     /// </summary>
     public unsafe int SecretX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 764); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 764); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 804); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 804); }
     }
 
     /// <summary>
@@ -230,8 +241,8 @@ public partial class RBreakablePickupBase : BmSDK.BmGame.RBreakableProp, BmSDK.B
     /// </summary>
     public unsafe int SecretY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 768); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 768); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 808); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 808); }
     }
 
     /// <summary>
@@ -239,25 +250,16 @@ public partial class RBreakablePickupBase : BmSDK.BmGame.RBreakableProp, BmSDK.B
     /// </summary>
     public unsafe bool bUseSecretLocation
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 772) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 772); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 772); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 812) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 812); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 812); }
     }
 
     /// <summary>
-    /// StrProperty: pickupUniqueName
+    /// ByteProperty: Zone
     /// </summary>
-    public unsafe BmSDK.FString pickupUniqueName
+    public unsafe BmSDK.BmGame.RPersistentData.ERiddlerLocationName Zone
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 776); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 776); }
-    }
-
-    /// <summary>
-    /// StrProperty: locatedFlagName
-    /// </summary>
-    public unsafe BmSDK.FString locatedFlagName
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 788); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 788); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.ERiddlerLocationName>(Ptr + 816); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 816); }
     }
 }

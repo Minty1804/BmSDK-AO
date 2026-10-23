@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_RasSwordAttack<br/>
-/// (size = 516)
-/// (flags = 8388626)
+/// (size = 508)
+/// (flags = 41943058)
 /// </summary>
 public partial class RCombatMove_RasSwordAttack : BmSDK.BmGame.RCombatMove_RasAttack, BmSDK.IGameObject
 {

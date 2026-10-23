@@ -5,7 +5,7 @@ namespace BmSDK;
 
 /// <summary>
 /// Class: LinkerSave<br/>
-/// (size = 488)
+/// (size = 500)
 /// (flags = 268435592)
 /// </summary>
 public partial class LinkerSave : BmSDK.Linker, BmSDK.IGameObject

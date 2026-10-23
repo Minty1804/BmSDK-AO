@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_PatrolWait<br/>
-/// (size = 600)
+/// (size = 624)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_PatrolWait : BmSDK.BmGame.RBMAIAction_PatrolWaitBase, BmSDK.IGameObject

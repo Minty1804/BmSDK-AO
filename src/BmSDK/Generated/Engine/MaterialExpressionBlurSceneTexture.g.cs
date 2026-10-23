@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionBlurSceneTexture<br/>
-/// (size = 164)
+/// (size = 220)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionBlurSceneTexture : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -100,21 +100,21 @@ public partial class MaterialExpressionBlurSceneTexture : BmSDK.Engine.MaterialE
     /// StructProperty: Coordinates
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Coordinates
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// StructProperty: SampleRadius
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput SampleRadius
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 120);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 160);
 
     /// <summary>
     /// ByteProperty: BlurSceneTextureType
     /// </summary>
     public unsafe BmSDK.Engine.MaterialExpressionBlurSceneTexture.EBlurSceneTextureType BlurSceneTextureType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionBlurSceneTexture.EBlurSceneTextureType>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionBlurSceneTexture.EBlurSceneTextureType>(Ptr + 204); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
     }
 
     /// <summary>
@@ -122,8 +122,8 @@ public partial class MaterialExpressionBlurSceneTexture : BmSDK.Engine.MaterialE
     /// </summary>
     public unsafe BmSDK.Engine.MaterialExpressionBlurSceneTexture.ESampleBlurSceneType SampleBlurSceneType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionBlurSceneTexture.ESampleBlurSceneType>(Ptr + 149); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 149); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionBlurSceneTexture.ESampleBlurSceneType>(Ptr + 205); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 205); }
     }
 
     /// <summary>
@@ -131,8 +131,8 @@ public partial class MaterialExpressionBlurSceneTexture : BmSDK.Engine.MaterialE
     /// </summary>
     public unsafe bool ScreenAlign
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 152) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 152); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 152); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 208); }
     }
 
     /// <summary>
@@ -140,8 +140,8 @@ public partial class MaterialExpressionBlurSceneTexture : BmSDK.Engine.MaterialE
     /// </summary>
     public unsafe int SampleNum
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 156); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 156); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 212); }
     }
 
     /// <summary>
@@ -149,7 +149,7 @@ public partial class MaterialExpressionBlurSceneTexture : BmSDK.Engine.MaterialE
     /// </summary>
     public unsafe float SampleRadiusDefault
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 160); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 216); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 216); }
     }
 }

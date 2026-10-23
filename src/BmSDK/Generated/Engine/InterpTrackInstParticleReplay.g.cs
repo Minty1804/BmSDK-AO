@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: InterpTrackInstParticleReplay<br/>
-/// (size = 48)
+/// (size = 52)
 /// (flags = 134217874)
 /// </summary>
 public partial class InterpTrackInstParticleReplay : BmSDK.Engine.InterpTrackInst, BmSDK.IGameObject
@@ -85,5 +85,14 @@ public partial class InterpTrackInstParticleReplay : BmSDK.Engine.InterpTrackIns
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 44); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 44); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bIsCapturingReplay
+    /// </summary>
+    public unsafe bool bIsCapturingReplay
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 48) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 48); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 48); }
     }
 }

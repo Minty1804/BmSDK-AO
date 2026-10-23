@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RMagneticObjectForceField<br/>
-/// (size = 516)
+/// (size = 544)
 /// (flags = 142606994)
 /// </summary>
 public partial class RMagneticObjectForceField : BmSDK.Engine.NxRadialForceField, BmSDK.IGameObject
@@ -103,7 +103,7 @@ public partial class RMagneticObjectForceField : BmSDK.Engine.NxRadialForceField
     /// </summary>
     public unsafe float FieldStrengthMultiplier
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 512); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 512); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
     }
 }

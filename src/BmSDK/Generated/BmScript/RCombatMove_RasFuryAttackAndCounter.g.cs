@@ -4,11 +4,11 @@
 namespace BmSDK.BmScript;
 
 /// <summary>
-/// Class: RCombatMove_RasFuryAttackAndCounter<br/>
-/// (size = 688)
-/// (flags = 8388626)
+/// ABSTRACT Class: RCombatMove_RasFuryAttackAndCounter<br/>
+/// (size = 680)
+/// (flags = 8388627)
 /// </summary>
-public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatMove_RasAttack, BmSDK.IGameObject
+public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatMove_VillainAttack, BmSDK.IGameObject
 {
     static BmSDK.Class s_staticClass = null;
     public static BmSDK.Class StaticClass()
@@ -27,11 +27,6 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     public static RCombatMove_RasFuryAttackAndCounter DefaultObject => (RCombatMove_RasFuryAttackAndCounter)StaticClass().DefaultObject;
 
     internal RCombatMove_RasFuryAttackAndCounter() { }
-
-    /// <summary>
-    /// Constructs a new RCombatMove_RasFuryAttackAndCounter
-    /// </summary>
-    public RCombatMove_RasFuryAttackAndCounter(System.Numerics.Vector3 Location = default, BmSDK.Rotator Rotation = default, BmSDK.Engine.Actor Template = null, BmSDK.GameObject Owner = null, BmSDK.GameObject Instigator = null, BmSDK.Engine.Level Level = null) : base(BmSDK.Framework.Game.SpawnActorInternal(StaticClass(), default, Location, Rotation, Template, Owner, Instigator, Level)) { }
 
     /// <summary>
     /// Constructs a new wrapper instance from the given object pointer.
@@ -84,7 +79,7 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     public unsafe virtual void StartCamera()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RCombatMove_RasFuryAttackAndCounter.StartCamera", true);
-        byte* paramsPtr = stackalloc byte[8];
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -262,30 +257,7 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     public unsafe virtual void DamagePlayer()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RCombatMove_RasFuryAttackAndCounter.DamagePlayer", true);
-        byte* paramsPtr = stackalloc byte[244];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: TurnOffHighlight
-    /// </summary>
-    public unsafe override void TurnOffHighlight(bool bSuccess = default)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RCombatMove_RasFuryAttackAndCounter.TurnOffHighlight", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(bSuccess, paramsPtr + 0);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: TurnOnHighlight
-    /// </summary>
-    public unsafe override void TurnOnHighlight()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RCombatMove_RasFuryAttackAndCounter.TurnOnHighlight", true);
-        byte* paramsPtr = stackalloc byte[0];
+        byte* paramsPtr = stackalloc byte[256];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -304,12 +276,12 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// <summary>
     /// Function: TriggerCounterAttempted
     /// </summary>
-    public unsafe override void TriggerCounterAttempted()
+    public unsafe override bool TriggerCounterAttempted()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RCombatMove_RasFuryAttackAndCounter.TriggerCounterAttempted", true);
-        byte* paramsPtr = stackalloc byte[0];
+        byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
     }
 
     /// <summary>
@@ -362,17 +334,6 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     }
 
     /// <summary>
-    /// Function: IsAttacking
-    /// </summary>
-    public unsafe override bool IsAttacking()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RCombatMove_RasFuryAttackAndCounter.IsAttacking", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
-    }
-
-    /// <summary>
     /// Function: GetJumpFromLocation
     /// </summary>
     public unsafe virtual System.Numerics.Vector3 GetJumpFromLocation()
@@ -422,22 +383,22 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// <summary>
     /// StructProperty: VillainAnimID
     /// </summary>
-    public unsafe ref BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId VillainAnimID
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId>(Ptr + 516);
+    public unsafe ref BmSDK.BmGame.RAnimUtil.FTransitionId VillainAnimID
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FTransitionId>(Ptr + 508);
 
     /// <summary>
     /// StructProperty: TargetAnimID
     /// </summary>
-    public unsafe ref BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId TargetAnimID
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId>(Ptr + 520);
+    public unsafe ref BmSDK.BmGame.RAnimUtil.FTransitionId TargetAnimID
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FTransitionId>(Ptr + 512);
 
     /// <summary>
     /// ObjectProperty: VillainCounterAnimSet
     /// </summary>
     public unsafe BmSDK.Engine.AnimSet VillainCounterAnimSet
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 516); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
     }
 
     /// <summary>
@@ -445,8 +406,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe BmSDK.Engine.AnimSet TargetCounterAnimSet
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 528); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 528); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 520); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
     }
 
     /// <summary>
@@ -454,23 +415,23 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmScript.RCombatMove_RasFuryAttackAndCounter.FAttackInfo> AttackInfoList
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmScript.RCombatMove_RasFuryAttackAndCounter.FAttackInfo>>(Ptr + 532); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 532); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmScript.RCombatMove_RasFuryAttackAndCounter.FAttackInfo>>(Ptr + 524); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
     }
 
     /// <summary>
     /// StructProperty: CurrentAttack
     /// </summary>
     public unsafe ref BmSDK.BmScript.RCombatMove_RasFuryAttackAndCounter.FAttackInfo CurrentAttack
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmScript.RCombatMove_RasFuryAttackAndCounter.FAttackInfo>(Ptr + 544);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmScript.RCombatMove_RasFuryAttackAndCounter.FAttackInfo>(Ptr + 536);
 
     /// <summary>
     /// IntProperty: NumAttacks
     /// </summary>
     public unsafe int NumAttacks
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 560); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 560); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 552); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 552); }
     }
 
     /// <summary>
@@ -478,8 +439,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe int NumCountered
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 564); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 556); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 556); }
     }
 
     /// <summary>
@@ -487,8 +448,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe int NumToCounter
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 568); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 560); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 560); }
     }
 
     /// <summary>
@@ -496,8 +457,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe float JumpInSlowMoSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 572); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
     }
 
     /// <summary>
@@ -505,8 +466,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe float ButtonBashSpeedReq
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 576); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 568); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
     }
 
     /// <summary>
@@ -514,23 +475,23 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe float LastPressTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 580); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 580); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 572); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
     }
 
     /// <summary>
     /// StructProperty: AnimPos
     /// </summary>
     public unsafe ref System.Numerics.Vector3 AnimPos
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 584);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 576);
 
     /// <summary>
     /// FloatProperty: AnimYaw
     /// </summary>
     public unsafe float AnimYaw
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 596); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 596); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 588); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 588); }
     }
 
     /// <summary>
@@ -538,8 +499,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe bool bChoke
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 600); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 592); }
     }
 
     /// <summary>
@@ -547,8 +508,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe bool bJumpInCountered
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 600); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 592); }
     }
 
     /// <summary>
@@ -556,8 +517,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe bool bBMSuccess
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 600); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 592); }
     }
 
     /// <summary>
@@ -565,8 +526,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe bool bDoSmokeBomb
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 600); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 592); }
     }
 
     /// <summary>
@@ -574,8 +535,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe BmSDK.FName CounterIn
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 604); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 604); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 596); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 596); }
     }
 
     /// <summary>
@@ -583,8 +544,8 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe float GlobalGameSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 612); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 612); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 604); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 604); }
     }
 
     /// <summary>
@@ -592,22 +553,22 @@ public partial class RCombatMove_RasFuryAttackAndCounter : BmSDK.BmGame.RCombatM
     /// </summary>
     public unsafe float MaxGameSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 616); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 616); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 608); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 608); }
     }
 
     /// <summary>
     /// StructProperty: CameraDOFSettings
     /// </summary>
     public unsafe ref BmSDK.BmGame.RDOFManager.FDofStruct CameraDOFSettings
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RDOFManager.FDofStruct>(Ptr + 620);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RDOFManager.FDofStruct>(Ptr + 612);
 
     /// <summary>
     /// FloatProperty: MinYawDiffDeg
     /// </summary>
     public unsafe float MinYawDiffDeg
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 684); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 684); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 676); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 676); }
     }
 }

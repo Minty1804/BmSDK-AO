@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPredatorSpecialMovePoint<br/>
-/// (size = 440)
+/// (size = 464)
 /// (flags = 8388626)
 /// </summary>
 public partial class RPredatorSpecialMovePoint : BmSDK.BmGame.RPredatorSpecialMovePointBase, BmSDK.IGameObject
@@ -119,8 +119,8 @@ public partial class RPredatorSpecialMovePoint : BmSDK.BmGame.RPredatorSpecialMo
     /// </summary>
     public unsafe BmSDK.BmGame.RPawnVillain LockedBy
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(Ptr + 432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(Ptr + 456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
     }
 
     /// <summary>
@@ -128,7 +128,7 @@ public partial class RPredatorSpecialMovePoint : BmSDK.BmGame.RPredatorSpecialMo
     /// </summary>
     public unsafe float LastUseTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 436); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_ReverseChokeSuccess<br/>
-/// (size = 1032)
+/// (size = 1076)
 /// (flags = 8388626)
 /// </summary>
 public partial class RStealthTakeDownStage_ReverseChokeSuccess : BmSDK.BmGame.RStealthTakeDownStage, BmSDK.IGameObject

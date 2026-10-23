@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDialogueLocationVolume<br/>
-/// (size = 484)
+/// (size = 508)
 /// (flags = 8389138)
 /// </summary>
 public partial class RDialogueLocationVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class RDialogueLocationVolume : BmSDK.Engine.Volume, BmSDK.IGameO
     /// </summary>
     public unsafe BmSDK.FString DialogueTag
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 472); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
     }
 }

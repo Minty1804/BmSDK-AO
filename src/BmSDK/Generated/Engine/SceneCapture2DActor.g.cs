@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SceneCapture2DActor<br/>
-/// (size = 440)
+/// (size = 468)
 /// (flags = 142606994)
 /// </summary>
 public partial class SceneCapture2DActor : BmSDK.Engine.SceneCaptureActor, BmSDK.IGameObject
@@ -83,7 +83,16 @@ public partial class SceneCapture2DActor : BmSDK.Engine.SceneCaptureActor, BmSDK
     /// </summary>
     public unsafe BmSDK.Engine.DrawFrustumComponent DrawFrustum
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawFrustumComponent>(Ptr + 436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 436); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawFrustumComponent>(Ptr + 460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
+    }
+
+    /// <summary>
+    /// ComponentProperty: DrawOrthoFrustum
+    /// </summary>
+    public unsafe BmSDK.Engine.DrawBoxComponent DrawOrthoFrustum
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawBoxComponent>(Ptr + 464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
     }
 }

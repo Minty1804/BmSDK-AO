@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAEC_LiteFindCas<br/>
-/// (size = 460)
+/// (size = 484)
 /// (flags = 8388626)
 /// </summary>
 public partial class RAEC_LiteFindCas : BmSDK.BmGame.RAlertEventCoordinatorBase, BmSDK.IGameObject
@@ -92,7 +92,7 @@ public partial class RAEC_LiteFindCas : BmSDK.BmGame.RAlertEventCoordinatorBase,
     /// <summary>
     /// Function: SetCas
     /// </summary>
-    public unsafe virtual void SetCas(BmSDK.BmGame.RPawnVillain NewCas)
+    public unsafe virtual void SetCas(BmSDK.BmGame.RBMPawnAI NewCas)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAEC_LiteFindCas.SetCas", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -129,20 +129,6 @@ public partial class RAEC_LiteFindCas : BmSDK.BmGame.RAlertEventCoordinatorBase,
     }
 
     /// <summary>
-    /// Function: StartChild
-    /// </summary>
-    public unsafe virtual bool StartChild(BmSDK.BmGame.RBMAIController NewCon, int NewPriority, bool bForceClaim = default)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAEC_LiteFindCas.StartChild", true);
-        byte* paramsPtr = stackalloc byte[16];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(NewCon, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(NewPriority, paramsPtr + 4);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(bForceClaim, paramsPtr + 8);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
-    }
-
-    /// <summary>
     /// Function: Tick
     /// </summary>
     public unsafe override void Tick(float DeltaTime)
@@ -167,20 +153,11 @@ public partial class RAEC_LiteFindCas : BmSDK.BmGame.RAlertEventCoordinatorBase,
     }
 
     /// <summary>
-    /// ObjectProperty: FindCasCon
-    /// </summary>
-    public unsafe BmSDK.BmGame.RBMAIController FindCasCon
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMAIController>(Ptr + 452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
-    }
-
-    /// <summary>
     /// ObjectProperty: Casualty
     /// </summary>
-    public unsafe BmSDK.BmGame.RPawnVillain Casualty
+    public unsafe BmSDK.BmGame.RBMPawnAI Casualty
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(Ptr + 456); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMPawnAI>(Ptr + 480); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
     }
 }

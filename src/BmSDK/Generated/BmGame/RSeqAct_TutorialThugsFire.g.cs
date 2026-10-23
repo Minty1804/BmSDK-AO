@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_TutorialThugsFire<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_TutorialThugsFire : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

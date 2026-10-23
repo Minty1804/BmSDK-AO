@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_Ocean<br/>
-/// (size = 344)
+/// (size = 364)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_Ocean : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -104,14 +104,14 @@ public partial class RSeqAct_Ocean : BmSDK.Engine.SequenceAction, BmSDK.IGameObj
     /// StructProperty: OceanSettings
     /// </summary>
     public unsafe ref BmSDK.Engine.ROceanComponent.FRockOceanSettings OceanSettings
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.ROceanComponent.FRockOceanSettings>(Ptr + 204);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.ROceanComponent.FRockOceanSettings>(Ptr + 224);
 
     /// <summary>
     /// ObjectProperty: OceanBaseMesh
     /// </summary>
     public unsafe BmSDK.Engine.StaticMesh OceanBaseMesh
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMesh>(Ptr + 340); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 340); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMesh>(Ptr + 360); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 360); }
     }
 }

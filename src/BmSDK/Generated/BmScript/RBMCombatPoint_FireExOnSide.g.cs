@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMCombatPoint_FireExOnSide<br/>
-/// (size = 536)
+/// (size = 560)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBMCombatPoint_FireExOnSide : BmSDK.BmScript.RBMCombatPoint_FireExUpright, BmSDK.IGameObject

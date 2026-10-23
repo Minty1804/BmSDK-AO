@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_PlayAnimOnTranitionDoor<br/>
-/// (size = 236)
+/// (size = 256)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_PlayAnimOnTranitionDoor : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -95,7 +95,7 @@ public partial class RSeqAct_PlayAnimOnTranitionDoor : BmSDK.Engine.SequenceActi
     public unsafe override void Activated()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSeqAct_PlayAnimOnTranitionDoor.Activated", true);
-        byte* paramsPtr = stackalloc byte[8];
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -103,10 +103,10 @@ public partial class RSeqAct_PlayAnimOnTranitionDoor : BmSDK.Engine.SequenceActi
     /// <summary>
     /// ObjectProperty: Door
     /// </summary>
-    public unsafe BmSDK.BmGame.RLevelTransition Door
+    public unsafe BmSDK.BmGame.RLevelTransitionDoorBase Door
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RLevelTransition>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RLevelTransitionDoorBase>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -114,8 +114,8 @@ public partial class RSeqAct_PlayAnimOnTranitionDoor : BmSDK.Engine.SequenceActi
     /// </summary>
     public unsafe BmSDK.FString AnimName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
     }
 
     /// <summary>
@@ -123,8 +123,8 @@ public partial class RSeqAct_PlayAnimOnTranitionDoor : BmSDK.Engine.SequenceActi
     /// </summary>
     public unsafe BmSDK.FString DoubleDoorAnimName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 
     /// <summary>
@@ -132,7 +132,7 @@ public partial class RSeqAct_PlayAnimOnTranitionDoor : BmSDK.Engine.SequenceActi
     /// </summary>
     public unsafe bool bLooping
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 232); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 252); }
     }
 }

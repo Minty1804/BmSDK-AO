@@ -11,11 +11,6 @@ namespace BmSDK.BmGame;
 public partial interface REvidenceInterface : BmSDK.Interface
 {
     /// <summary>
-    /// Function: GetEvidenceIndex
-    /// </summary>
-    public unsafe int GetEvidenceIndex();
-
-    /// <summary>
     /// Function: SetMovieScanned
     /// </summary>
     public unsafe void SetMovieScanned();
@@ -23,17 +18,7 @@ public partial interface REvidenceInterface : BmSDK.Interface
     /// <summary>
     /// Function: GetSelf
     /// </summary>
-    public unsafe BmSDK.GameObject GetSelf();
-
-    /// <summary>
-    /// Function: GetEvidenceInfo
-    /// </summary>
-    public unsafe BmSDK.BmGame.REvidence GetEvidenceInfo();
-
-    /// <summary>
-    /// Function: CanBeScanned
-    /// </summary>
-    public unsafe bool CanBeScanned();
+    public unsafe BmSDK.Engine.Actor GetSelf();
 
     /// <summary>
     /// Function: GetLocation

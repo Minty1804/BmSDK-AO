@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RLevelTransitionDoubleDoors<br/>
-/// (size = 744)
+/// (size = 772)
 /// (flags = 8389138)
 /// </summary>
 public partial class RLevelTransitionDoubleDoors : BmSDK.BmGame.RLevelTransitionDoorBase, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: GameplayEventsWriter<br/>
-/// (size = 324)
+/// (size = 360)
 /// (flags = 134217874)
 /// </summary>
 public partial class GameplayEventsWriter : BmSDK.Engine.GameplayEvents, BmSDK.IGameObject
@@ -250,12 +250,12 @@ public partial class GameplayEventsWriter : BmSDK.Engine.GameplayEvents, BmSDK.I
     public unsafe virtual void LogPlayerLoginChange(int EventID, BmSDK.Engine.Controller Player, BmSDK.FString PlayerName, BmSDK.Engine.OnlineSubsystem.FUniqueNetId PlayerID, bool bSplitScreen)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.GameplayEventsWriter.LogPlayerLoginChange", true);
-        byte* paramsPtr = stackalloc byte[32];
+        byte* paramsPtr = stackalloc byte[68];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(EventID, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Player, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PlayerName, paramsPtr + 8);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PlayerID, paramsPtr + 20);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(bSplitScreen, paramsPtr + 28);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bSplitScreen, paramsPtr + 64);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -682,7 +682,7 @@ public partial class GameplayEventsWriter : BmSDK.Engine.GameplayEvents, BmSDK.I
     /// </summary>
     public unsafe BmSDK.Engine.GameInfo Game
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.GameInfo>(Ptr + 320); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 320); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.GameInfo>(Ptr + 356); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 356); }
     }
 }

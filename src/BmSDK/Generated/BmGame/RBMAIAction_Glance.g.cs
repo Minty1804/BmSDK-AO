@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_Glance<br/>
-/// (size = 584)
+/// (size = 608)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_Glance : BmSDK.BmGame.RBMAIAction, BmSDK.IGameObject
@@ -127,5 +127,5 @@ public partial class RBMAIAction_Glance : BmSDK.BmGame.RBMAIAction, BmSDK.IGameO
     /// StructProperty: TargetRot
     /// </summary>
     public unsafe ref BmSDK.Rotator TargetRot
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 572);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 596);
 }

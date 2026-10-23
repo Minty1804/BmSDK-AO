@@ -6,7 +6,7 @@ namespace BmSDK.BmGame;
 /// <summary>
 /// Class: RAnimNotify_Foley<br/>
 /// (size = 44)
-/// (flags = 134230162)
+/// (flags = 167784594)
 /// </summary>
 public partial class RAnimNotify_Foley : BmSDK.Engine.AnimNotify, BmSDK.IGameObject
 {

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RStealthTakedownStage_AerialAttackArmouredFail<br/>
-/// (size = 1036)
+/// (size = 1080)
 /// (flags = 8388626)
 /// </summary>
 public partial class RStealthTakedownStage_AerialAttackArmouredFail : BmSDK.BmScript.RStealthTakedownStage_ArmouredFail, BmSDK.IGameObject

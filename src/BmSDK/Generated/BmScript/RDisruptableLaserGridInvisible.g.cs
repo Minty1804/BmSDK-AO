@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RDisruptableLaserGridInvisible<br/>
-/// (size = 628)
+/// (size = 652)
 /// (flags = 8389138)
 /// </summary>
 public partial class RDisruptableLaserGridInvisible : BmSDK.BmScript.RDisruptableLaserGrid, BmSDK.IGameObject

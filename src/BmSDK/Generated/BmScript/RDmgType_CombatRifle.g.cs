@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RDmgType_CombatRifle<br/>
-/// (size = 124)
+/// (size = 136)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_CombatRifle : BmSDK.BmGame.RDmgType_Rifle, BmSDK.IGameObject

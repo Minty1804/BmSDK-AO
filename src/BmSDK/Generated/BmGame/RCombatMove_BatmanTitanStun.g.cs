@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_BatmanTitanStun<br/>
-/// (size = 876)
-/// (flags = 8388626)
+/// (size = 932)
+/// (flags = 8388630)
 /// </summary>
 public partial class RCombatMove_BatmanTitanStun : BmSDK.BmGame.RCombatMove_BatmanTitanCounter, BmSDK.IGameObject
 {

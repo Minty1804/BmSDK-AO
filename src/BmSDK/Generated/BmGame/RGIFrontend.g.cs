@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RGIFrontend<br/>
-/// (size = 1468)
+/// (size = 1648)
 /// (flags = 142606518)
 /// </summary>
 public partial class RGIFrontend : BmSDK.BmGame.RGameInfo, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class RGIFrontend : BmSDK.BmGame.RGameInfo, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RGIFrontend.FCharacterItem> TheCharacterList
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGIFrontend.FCharacterItem>>(Ptr + 1456); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1456); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RGIFrontend.FCharacterItem>>(Ptr + 1636); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1636); }
     }
 
     /// <summary>

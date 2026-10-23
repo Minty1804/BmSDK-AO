@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SpotLight<br/>
-/// (size = 444)
+/// (size = 468)
 /// (flags = 142606994)
 /// </summary>
 public partial class SpotLight : BmSDK.Engine.Light, BmSDK.IGameObject

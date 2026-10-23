@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionNormalCombine<br/>
-/// (size = 148)
+/// (size = 204)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionNormalCombine : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,11 +82,11 @@ public partial class MaterialExpressionNormalCombine : BmSDK.Engine.MaterialExpr
     /// StructProperty: X
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput X
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// StructProperty: Y
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Y
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 120);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 160);
 }

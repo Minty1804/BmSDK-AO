@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_CheckOutcastFlag<br/>
-/// (size = 408)
+/// (size = 428)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_CheckOutcastFlag : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject
@@ -107,7 +107,7 @@ public partial class RBMBehaviour_CheckOutcastFlag : BmSDK.BmGame.RBMBehaviour, 
     /// </summary>
     public unsafe BmSDK.FString StoredFlagName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 396); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 396); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 416); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 416); }
     }
 }

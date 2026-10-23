@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RFuseBoxSwitch<br/>
-/// (size = 572)
+/// (size = 748)
 /// (flags = 8389138)
 /// </summary>
 public partial class RFuseBoxSwitch : BmSDK.BmGame.RInteractableItem, BmSDK.IGameObject
@@ -124,7 +124,7 @@ public partial class RFuseBoxSwitch : BmSDK.BmGame.RInteractableItem, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.Engine.StaticMeshComponent BrokenMesh1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 568); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 744); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 744); }
     }
 }

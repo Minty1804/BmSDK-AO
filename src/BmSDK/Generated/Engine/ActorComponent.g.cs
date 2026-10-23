@@ -204,27 +204,27 @@ public partial class ActorComponent : BmSDK.Component, BmSDK.IGameObject
     }
 
     /// <summary>
-    /// BoolProperty: bNeedsReattach
+    /// BoolProperty: bDisableTick
     /// </summary>
-    public unsafe bool bNeedsReattach
+    public unsafe bool bDisableTick
     {
         get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 64) & 4) != 0; }
         set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 64); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 64); }
     }
 
     /// <summary>
-    /// BoolProperty: bNeedsUpdateTransform
+    /// BoolProperty: bNeedsReattach
     /// </summary>
-    public unsafe bool bNeedsUpdateTransform
+    public unsafe bool bNeedsReattach
     {
         get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 64) & 8) != 0; }
         set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 64); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 64); }
     }
 
     /// <summary>
-    /// BoolProperty: bDisableTick
+    /// BoolProperty: bNeedsUpdateTransform
     /// </summary>
-    public unsafe bool bDisableTick
+    public unsafe bool bNeedsUpdateTransform
     {
         get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 64) & 16) != 0; }
         set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 64); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 64); }

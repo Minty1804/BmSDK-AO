@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_GetLocationAndRotation<br/>
-/// (size = 248)
+/// (size = 268)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_GetLocationAndRotation : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -93,26 +93,26 @@ public partial class SeqAct_GetLocationAndRotation : BmSDK.Engine.SequenceAction
     /// StructProperty: Location
     /// </summary>
     public unsafe ref System.Numerics.Vector3 Location
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 204);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 224);
 
     /// <summary>
     /// StructProperty: RotationVector
     /// </summary>
     public unsafe ref System.Numerics.Vector3 RotationVector
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 216);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 236);
 
     /// <summary>
     /// StructProperty: Rotation
     /// </summary>
     public unsafe ref System.Numerics.Vector3 Rotation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 228);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 248);
 
     /// <summary>
     /// NameProperty: SocketOrBoneName
     /// </summary>
     public unsafe BmSDK.FName SocketOrBoneName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 240); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 260); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 260); }
     }
 }

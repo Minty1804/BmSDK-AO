@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_Interrogation<br/>
-/// (size = 396)
+/// (size = 416)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_Interrogation : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject

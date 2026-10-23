@@ -378,21 +378,12 @@ public partial class DynamicLightEnvironmentComponent : BmSDK.Engine.LightEnviro
     }
 
     /// <summary>
-    /// BoolProperty: bRecieveStaticModulatedShadows
-    /// </summary>
-    public unsafe bool bRecieveStaticModulatedShadows
-    {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 176) & 131072) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 176); var newMask = value ? (currentMask | 131072) : (currentMask & ~131072); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 176); }
-    }
-
-    /// <summary>
     /// BoolProperty: WaitingForDeferredReset
     /// </summary>
     public unsafe bool WaitingForDeferredReset
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 176) & 262144) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 176); var newMask = value ? (currentMask | 262144) : (currentMask & ~262144); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 176); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 176) & 131072) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 176); var newMask = value ? (currentMask | 131072) : (currentMask & ~131072); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 176); }
     }
 
     /// <summary>
@@ -555,6 +546,7 @@ public partial class DynamicLightEnvironmentComponent : BmSDK.Engine.LightEnviro
     {
         DLEC_Unmolested = 0,
         DLEC_APlus3D = 1,
-        DLEC_MAX = 2,
+        DLEC_APlus3D_Irradiance = 2,
+        DLEC_MAX = 3,
     }
 }

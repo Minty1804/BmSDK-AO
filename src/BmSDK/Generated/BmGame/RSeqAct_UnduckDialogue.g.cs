@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_UnduckDialogue<br/>
-/// (size = 220)
+/// (size = 240)
 /// (flags = 134226066)
 /// </summary>
 public partial class RSeqAct_UnduckDialogue : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject

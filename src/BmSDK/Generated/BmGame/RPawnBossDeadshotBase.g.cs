@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RPawnBossDeadshotBase<br/>
-/// (size = 3564)
-/// (flags = 10485815)
+/// (size = 4004)
+/// (flags = 44040247)
 /// </summary>
 public partial class RPawnBossDeadshotBase : BmSDK.BmGame.RPawnVillainThug, BmSDK.IGameObject
 {
@@ -73,14 +73,4 @@ public partial class RPawnBossDeadshotBase : BmSDK.BmGame.RPawnVillainThug, BmSD
         where TComponent : class, Framework.IScriptComponent<RPawnBossDeadshotBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
-    /// <summary>
-    /// Function: JammerGadgetUsed
-    /// </summary>
-    public unsafe virtual void JammerGadgetUsed()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPawnBossDeadshotBase.JammerGadgetUsed", true);
-        byte* paramsPtr = stackalloc byte[0];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
 }

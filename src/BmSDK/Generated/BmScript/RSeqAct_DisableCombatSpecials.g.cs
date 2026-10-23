@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_DisableCombatSpecials<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_DisableCombatSpecials : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

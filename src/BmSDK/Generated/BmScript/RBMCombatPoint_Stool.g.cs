@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMCombatPoint_Stool<br/>
-/// (size = 516)
+/// (size = 540)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBMCombatPoint_Stool : BmSDK.BmGame.RBMCombatPoint_EnvironmentWeapon, BmSDK.IGameObject

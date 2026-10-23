@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SpeedTree<br/>
-/// (size = 100)
+/// (size = 112)
 /// (flags = 134217874)
 /// </summary>
 public partial class SpeedTree : BmSDK.GameObject, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSpecialMoveInstance_VantageGrapple<br/>
-/// (size = 652)
+/// (size = 676)
 /// (flags = 8388626)
 /// </summary>
 public partial class RSpecialMoveInstance_VantageGrapple : BmSDK.BmGame.RSpecialMoveInstance_RelativeAnimMove, BmSDK.IGameObject

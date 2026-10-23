@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionCustomTexture<br/>
-/// (size = 96)
+/// (size = 120)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionCustomTexture : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class MaterialExpressionCustomTexture : BmSDK.Engine.MaterialExpr
     /// </summary>
     public unsafe BmSDK.Engine.Texture Texture
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture>(Ptr + 92); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 }

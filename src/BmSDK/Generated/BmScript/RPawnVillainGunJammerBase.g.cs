@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// ABSTRACT Class: RPawnVillainGunJammerBase<br/>
-/// (size = 3676)
+/// (size = 4144)
 /// (flags = 10485815)
 /// </summary>
 public partial class RPawnVillainGunJammerBase : BmSDK.BmScript.RPawnVillainGun, BmSDK.IGameObject
@@ -74,15 +74,25 @@ public partial class RPawnVillainGunJammerBase : BmSDK.BmScript.RPawnVillainGun,
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
+    /// Function: CanSendJammerToHud
+    /// </summary>
+    public unsafe override bool CanSendJammerToHud()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGunJammerBase.CanSendJammerToHud", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: GetJammerLocation
     /// </summary>
-    public unsafe override bool GetJammerLocation(out System.Numerics.Vector3 JammerLocation)
+    public unsafe override System.Numerics.Vector3 GetJammerLocation()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGunJammerBase.GetJammerLocation", true);
-        byte* paramsPtr = stackalloc byte[16];
+        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        JammerLocation = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 0);
     }
 
     /// <summary>
@@ -148,8 +158,8 @@ public partial class RPawnVillainGunJammerBase : BmSDK.BmScript.RPawnVillainGun,
     /// </summary>
     public unsafe int JammerIndex
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3652); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3652); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4120); }
     }
 
     /// <summary>
@@ -157,8 +167,8 @@ public partial class RPawnVillainGunJammerBase : BmSDK.BmScript.RPawnVillainGun,
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie TheMovieInstance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 3656); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3656); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 4124); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4124); }
     }
 
     /// <summary>
@@ -166,8 +176,8 @@ public partial class RPawnVillainGunJammerBase : BmSDK.BmScript.RPawnVillainGun,
     /// </summary>
     public unsafe BmSDK.Engine.ParticleSystemComponent jammerFX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 3660); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3660); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 4128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4128); }
     }
 
     /// <summary>
@@ -175,7 +185,7 @@ public partial class RPawnVillainGunJammerBase : BmSDK.BmScript.RPawnVillainGun,
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.MaterialInstanceConstant> jammerMaterialConstants
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.MaterialInstanceConstant>>(Ptr + 3664); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3664); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.MaterialInstanceConstant>>(Ptr + 4132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4132); }
     }
 }

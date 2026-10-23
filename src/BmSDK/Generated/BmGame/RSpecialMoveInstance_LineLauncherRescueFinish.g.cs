@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSpecialMoveInstance_LineLauncherRescueFinish<br/>
-/// (size = 660)
+/// (size = 684)
 /// (flags = 8388626)
 /// </summary>
 public partial class RSpecialMoveInstance_LineLauncherRescueFinish : BmSDK.BmGame.RSpecialMoveInstance_RelativeAnimMove, BmSDK.IGameObject
@@ -129,8 +129,8 @@ public partial class RSpecialMoveInstance_LineLauncherRescueFinish : BmSDK.BmGam
     /// </summary>
     public unsafe BmSDK.BmGame.RBMPawnAI GrabbedHostage
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMPawnAI>(Ptr + 652); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 652); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMPawnAI>(Ptr + 676); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 676); }
     }
 
     /// <summary>
@@ -138,7 +138,7 @@ public partial class RSpecialMoveInstance_LineLauncherRescueFinish : BmSDK.BmGam
     /// </summary>
     public unsafe BmSDK.BmGame.RBMBehaviour ControlledBehaviour
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMBehaviour>(Ptr + 656); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 656); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMBehaviour>(Ptr + 680); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 680); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_FallingCasDodge<br/>
-/// (size = 588)
+/// (size = 612)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_FallingCasDodge : BmSDK.BmGame.RBMAIAction, BmSDK.IGameObject
@@ -128,11 +128,11 @@ public partial class RBMAIAction_FallingCasDodge : BmSDK.BmGame.RBMAIAction, BmS
     /// StructProperty: StartleLoc
     /// </summary>
     public unsafe ref System.Numerics.Vector3 StartleLoc
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 572);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 596);
 
     /// <summary>
     /// StructProperty: StartleAnimID
     /// </summary>
-    public unsafe ref BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId StartleAnimID
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId>(Ptr + 584);
+    public unsafe ref BmSDK.BmGame.RAnimUtil.FTransitionId StartleAnimID
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FTransitionId>(Ptr + 608);
 }

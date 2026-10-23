@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionBossHud<br/>
-/// (size = 172)
+/// (size = 116)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionBossHud : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -279,30 +279,12 @@ public partial class RHudExtensionBossHud : BmSDK.BmGame.RHudExtension, BmSDK.IG
     }
 
     /// <summary>
-    /// StrProperty: CachedFunction_SetDMMLevel
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetDMMLevel
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetTelemetryInformation
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetTelemetryInformation
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
-    }
-
-    /// <summary>
     /// BoolProperty: bInvestigateModeActive
     /// </summary>
     public unsafe bool bInvestigateModeActive
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 156) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 156); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 156); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
     }
 
     /// <summary>
@@ -310,8 +292,8 @@ public partial class RHudExtensionBossHud : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe bool ShowPlayerHealthWhenBossHealthFirstShown
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 156) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 156); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 156); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
     }
 
     /// <summary>
@@ -319,7 +301,7 @@ public partial class RHudExtensionBossHud : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe BmSDK.FString CurrentTelemetryMessage
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 160); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
     }
 }

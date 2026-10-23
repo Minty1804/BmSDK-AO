@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: ForcedReachSpec<br/>
-/// (size = 104)
+/// (size = 116)
 /// (flags = 134217874)
 /// </summary>
 public partial class ForcedReachSpec : BmSDK.Engine.ReachSpec, BmSDK.IGameObject

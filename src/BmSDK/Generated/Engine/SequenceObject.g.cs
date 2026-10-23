@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: SequenceObject<br/>
-/// (size = 120)
+/// (size = 124)
 /// (flags = 134217875)
 /// </summary>
 public partial class SequenceObject : BmSDK.StateObject, BmSDK.IGameObject
@@ -280,5 +280,14 @@ public partial class SequenceObject : BmSDK.StateObject, BmSDK.IGameObject
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 116); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: PIESequenceObject
+    /// </summary>
+    public unsafe BmSDK.Engine.SequenceObject PIESequenceObject
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SequenceObject>(Ptr + 120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
     }
 }

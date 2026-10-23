@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: NxTornadoAngularForceFieldCapsule<br/>
-/// (size = 544)
+/// (size = 572)
 /// (flags = 142606994)
 /// </summary>
 public partial class NxTornadoAngularForceFieldCapsule : BmSDK.Engine.NxTornadoAngularForceField, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class NxTornadoAngularForceFieldCapsule : BmSDK.Engine.NxTornadoA
     /// </summary>
     public unsafe BmSDK.Engine.DrawCapsuleComponent RenderComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawCapsuleComponent>(Ptr + 540); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawCapsuleComponent>(Ptr + 568); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
     }
 }

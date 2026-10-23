@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMCombatThrownObject_CinematicBatarang<br/>
-/// (size = 528)
+/// (size = 556)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMCombatThrownObject_CinematicBatarang : BmSDK.BmScript.RSkeletalMeshActorSpawnable, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_AerialJump<br/>
-/// (size = 140)
+/// (size = 152)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_AerialJump : BmSDK.BmGame.RDmgType_Strike, BmSDK.IGameObject

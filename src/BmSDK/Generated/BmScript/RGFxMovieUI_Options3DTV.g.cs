@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGFxMovieUI_Options3DTV<br/>
-/// (size = 660)
-/// (flags = 18)
+/// (size = 816)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieUI_Options3DTV : BmSDK.BmGame.RGFxMovieUI, BmSDK.IGameObject
 {

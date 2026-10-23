@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RPawnFriendly<br/>
-/// (size = 2748)
+/// (size = 3368)
 /// (flags = 144703670)
 /// </summary>
 public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInteractInterface, BmSDK.Engine.Interface_NavMeshPathObstacle, BmSDK.IGameObject
@@ -211,7 +211,7 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     public unsafe virtual BmSDK.BmGame.RWeaponConfig CreateFriendlyWeaponConfig(BmSDK.GameObject NewOwner, BmSDK.TArray<BmSDK.Engine.AnimSet> AnimSets)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPawnFriendly.CreateFriendlyWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[712];
+        byte* paramsPtr = stackalloc byte[728];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSets, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -228,6 +228,17 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CheckingPawn, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+    }
+
+    /// <summary>
+    /// Function: GetOverrideInteractIcon
+    /// </summary>
+    public unsafe virtual BmSDK.BmGame.RHUDPrompt.EControlIcon GetOverrideInteractIcon()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPawnFriendly.GetOverrideInteractIcon", true);
+        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RHUDPrompt.EControlIcon>(paramsPtr + 0);
     }
 
     /// <summary>
@@ -332,6 +343,17 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     }
 
     /// <summary>
+    /// Function: InteractionRequiresMoveInput
+    /// </summary>
+    public unsafe virtual bool InteractionRequiresMoveInput()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPawnFriendly.InteractionRequiresMoveInput", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: MustBeCrouched
     /// </summary>
     public unsafe virtual bool MustBeCrouched()
@@ -370,7 +392,7 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     public unsafe virtual bool IsActive(BmSDK.BmGame.RPlayerController PC)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPawnFriendly.IsActive", true);
-        byte* paramsPtr = stackalloc byte[40];
+        byte* paramsPtr = stackalloc byte[44];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PC, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
@@ -459,8 +481,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe System.IntPtr VfTable_IInterface_NavMeshPathObstacle
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 2700); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2700); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 3320); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3320); }
     }
 
     /// <summary>
@@ -468,8 +490,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe bool bNeedsRescuing
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2704) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2704); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 2704); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3324) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3324); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 3324); }
     }
 
     /// <summary>
@@ -477,8 +499,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe bool bUseCounterForRescue
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2704) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2704); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 2704); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3324) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3324); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 3324); }
     }
 
     /// <summary>
@@ -486,8 +508,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe bool bThugsCanGrabForHostageSituation
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2704) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2704); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 2704); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3324) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3324); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 3324); }
     }
 
     /// <summary>
@@ -495,8 +517,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe BmSDK.FString RescueText
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 2708); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2708); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 3328); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3328); }
     }
 
     /// <summary>
@@ -504,8 +526,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe BmSDK.Engine.AnimSet HostageAttackerAnimSet
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 2720); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2720); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 3340); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3340); }
     }
 
     /// <summary>
@@ -513,8 +535,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe BmSDK.Engine.AnimSet HostageVictimAnimSet
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 2724); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2724); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 3344); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3344); }
     }
 
     /// <summary>
@@ -522,8 +544,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe float CustomHeightRange
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2728); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2728); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3348); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3348); }
     }
 
     /// <summary>
@@ -531,8 +553,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe float CustomAngleRange
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2732); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2732); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3352); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3352); }
     }
 
     /// <summary>
@@ -540,8 +562,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe BmSDK.BmGame.RPawnPlayer PlayerPawn
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayer>(Ptr + 2736); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2736); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayer>(Ptr + 3356); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3356); }
     }
 
     /// <summary>
@@ -549,8 +571,8 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe float NoSpeakTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2740); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2740); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3360); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3360); }
     }
 
     /// <summary>
@@ -558,7 +580,7 @@ public partial class RPawnFriendly : BmSDK.BmGame.RBMPawnAI, BmSDK.BmGame.RInter
     /// </summary>
     public unsafe int NoPromptTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2744); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2744); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3364); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3364); }
     }
 }

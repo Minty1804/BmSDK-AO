@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionConstantBiasScale<br/>
-/// (size = 128)
+/// (size = 168)
 /// (flags = 134217874)
 /// </summary>
 public partial class MaterialExpressionConstantBiasScale : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,15 +82,15 @@ public partial class MaterialExpressionConstantBiasScale : BmSDK.Engine.Material
     /// StructProperty: Input
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Input
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// FloatProperty: Bias
     /// </summary>
     public unsafe float Bias
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
     }
 
     /// <summary>
@@ -98,7 +98,7 @@ public partial class MaterialExpressionConstantBiasScale : BmSDK.Engine.Material
     /// </summary>
     public unsafe float Scale
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 124); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 124); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 164); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 164); }
     }
 }

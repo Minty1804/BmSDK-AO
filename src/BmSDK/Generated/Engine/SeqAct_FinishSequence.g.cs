@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_FinishSequence<br/>
-/// (size = 216)
+/// (size = 236)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_FinishSequence : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqAct_FinishSequence : BmSDK.Engine.SequenceAction, BmSDK.
     /// </summary>
     public unsafe BmSDK.FString OutputLabel
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

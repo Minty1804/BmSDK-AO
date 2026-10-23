@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: BrushComponent<br/>
-/// (size = 488)
+/// (size = 524)
 /// (flags = 2155884946)
 /// </summary>
 public partial class BrushComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGameObject
@@ -99,38 +99,38 @@ public partial class BrushComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.Engine.Model Brush
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Model>(Ptr + 404); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 404); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Model>(Ptr + 440); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
     }
 
     /// <summary>
     /// StructProperty: BrushAggGeom
     /// </summary>
     public unsafe ref BmSDK.Engine.KMeshProps.FKAggregateGeom BrushAggGeom
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.KMeshProps.FKAggregateGeom>(Ptr + 408);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.KMeshProps.FKAggregateGeom>(Ptr + 444);
 
     /// <summary>
     /// StructProperty: BrushPhysDesc
     /// </summary>
     public unsafe System.IntPtr BrushPhysDesc
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 464); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
     }
 
     /// <summary>
     /// StructProperty: CachedPhysBrushData
     /// </summary>
     public unsafe ref BmSDK.Engine.BrushComponent.FKCachedConvexData_Mirror CachedPhysBrushData
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.BrushComponent.FKCachedConvexData_Mirror>(Ptr + 468);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.BrushComponent.FKCachedConvexData_Mirror>(Ptr + 504);
 
     /// <summary>
     /// IntProperty: CachedPhysBrushDataVersion
     /// </summary>
     public unsafe int CachedPhysBrushDataVersion
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 480); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
     }
 
     /// <summary>
@@ -138,7 +138,7 @@ public partial class BrushComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGa
     /// </summary>
     public unsafe bool bBlockComplexCollisionTrace
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 484) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 484); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 484); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 520) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 520); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 520); }
     }
 }

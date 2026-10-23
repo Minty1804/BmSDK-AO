@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAEC_Attack_AllGuard<br/>
-/// (size = 472)
+/// (size = 500)
 /// (flags = 8388626)
 /// </summary>
 public partial class RAEC_Attack_AllGuard : BmSDK.BmGame.RAEC_Attack_Base, BmSDK.IGameObject
@@ -107,7 +107,7 @@ public partial class RAEC_Attack_AllGuard : BmSDK.BmGame.RAEC_Attack_Base, BmSDK
     public unsafe override void ThugEscapedTakedown(BmSDK.BmGame.RBMAIController NewMember)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAEC_Attack_AllGuard.ThugEscapedTakedown", true);
-        byte* paramsPtr = stackalloc byte[8];
+        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewMember, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
@@ -212,11 +212,33 @@ public partial class RAEC_Attack_AllGuard : BmSDK.BmGame.RAEC_Attack_Base, BmSDK
     }
 
     /// <summary>
+    /// Function: GetChaseChild
+    /// </summary>
+    public unsafe override BmSDK.BmGame.RAEC_Attack_Chase GetChaseChild()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAEC_Attack_AllGuard.GetChaseChild", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAEC_Attack_Chase>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: GetConvergeChild
+    /// </summary>
+    public unsafe override BmSDK.BmGame.RAEC_Attack_Converge GetConvergeChild()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAEC_Attack_AllGuard.GetConvergeChild", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAEC_Attack_Converge>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// ObjectProperty: StartleChild
     /// </summary>
     public unsafe BmSDK.BmGame.RAEC_Attack_Startle StartleChild
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAEC_Attack_Startle>(Ptr + 468); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 468); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAEC_Attack_Startle>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
     }
 }

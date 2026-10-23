@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: BrushShape<br/>
-/// (size = 464)
+/// (size = 488)
 /// (flags = 142606994)
 /// </summary>
 public partial class BrushShape : BmSDK.Engine.Brush, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: Vehicle<br/>
-/// (size = 1092)
+/// (size = 1116)
 /// (flags = 142609079)
 /// </summary>
 public partial class Vehicle : BmSDK.Engine.Pawn, BmSDK.IGameObject

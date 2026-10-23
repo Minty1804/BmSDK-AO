@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAnimNotify_SimultaneousCounterHit<br/>
-/// (size = 112)
+/// (size = 116)
 /// (flags = 134230162)
 /// </summary>
 public partial class RAnimNotify_SimultaneousCounterHit : BmSDK.Engine.AnimNotify, BmSDK.IGameObject
@@ -81,6 +81,6 @@ public partial class RAnimNotify_SimultaneousCounterHit : BmSDK.Engine.AnimNotif
     /// <summary>
     /// StructProperty: SimultaneousCounterInfo
     /// </summary>
-    public unsafe ref BmSDK.BmGame.RPawnPlayerCombat.FSimultaneousCounterInfo SimultaneousCounterInfo
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RPawnPlayerCombat.FSimultaneousCounterInfo>(Ptr + 44);
+    public unsafe ref BmSDK.BmGame.RPawnCombat.FSimultaneousCounterInfo SimultaneousCounterInfo
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RPawnCombat.FSimultaneousCounterInfo>(Ptr + 44);
 }

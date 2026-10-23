@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: RadialBlurActor<br/>
-/// (size = 432)
+/// (size = 456)
 /// (flags = 8389138)
 /// </summary>
 public partial class RadialBlurActor : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class RadialBlurActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.RadialBlurComponent RadialBlur
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RadialBlurComponent>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RadialBlurComponent>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 }

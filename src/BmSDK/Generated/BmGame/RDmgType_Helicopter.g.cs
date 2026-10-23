@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_Helicopter<br/>
-/// (size = 124)
+/// (size = 136)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_Helicopter : BmSDK.BmGame.RDmgType_Ranged, BmSDK.IGameObject

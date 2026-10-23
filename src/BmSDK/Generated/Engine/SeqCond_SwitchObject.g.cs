@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqCond_SwitchObject<br/>
-/// (size = 192)
+/// (size = 212)
 /// (flags = 134218386)
 /// </summary>
 public partial class SeqCond_SwitchObject : BmSDK.Engine.SeqCond_SwitchBase, BmSDK.IGameObject
@@ -130,8 +130,8 @@ public partial class SeqCond_SwitchObject : BmSDK.Engine.SeqCond_SwitchBase, BmS
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.SeqCond_SwitchObject.FSwitchObjectCase> SupportedValues
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.SeqCond_SwitchObject.FSwitchObjectCase>>(Ptr + 180); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 180); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.SeqCond_SwitchObject.FSwitchObjectCase>>(Ptr + 200); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 200); }
     }
 
     /// <summary>

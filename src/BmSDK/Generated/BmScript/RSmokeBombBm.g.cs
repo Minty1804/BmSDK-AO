@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSmokeBombBm<br/>
-/// (size = 1340)
+/// (size = 1392)
 /// (flags = 8388658)
 /// </summary>
 public partial class RSmokeBombBm : BmSDK.BmGame.RSmokeBomb, BmSDK.IGameObject
@@ -78,4 +78,42 @@ public partial class RSmokeBombBm : BmSDK.BmGame.RSmokeBomb, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<RSmokeBombBm>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    /// <summary>
+    /// Function: AimAndDrawHUD
+    /// </summary>
+    public unsafe override void AimAndDrawHUD(BmSDK.Engine.HUD H)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSmokeBombBm.AimAndDrawHUD", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(H, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// ObjectProperty: RegularTargetMarker
+    /// </summary>
+    public unsafe BmSDK.Engine.ParticleSystem RegularTargetMarker
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 1380); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1380); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: UpgradedRadiusTargetMarker
+    /// </summary>
+    public unsafe BmSDK.Engine.ParticleSystem UpgradedRadiusTargetMarker
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 1384); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1384); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bLastUsedUpgradedEffect
+    /// </summary>
+    public unsafe bool bLastUsedUpgradedEffect
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1388) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1388); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1388); }
+    }
 }

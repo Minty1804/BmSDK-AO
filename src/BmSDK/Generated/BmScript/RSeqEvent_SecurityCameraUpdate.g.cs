@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqEvent_SecurityCameraUpdate<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 18)
 /// </summary>
 public partial class RSeqEvent_SecurityCameraUpdate : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject

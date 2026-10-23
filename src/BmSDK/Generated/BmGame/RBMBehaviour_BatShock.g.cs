@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_BatShock<br/>
-/// (size = 424)
+/// (size = 444)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_BatShock : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject
@@ -105,15 +105,15 @@ public partial class RBMBehaviour_BatShock : BmSDK.BmGame.RBMBehaviour, BmSDK.IG
     /// StructProperty: ThreatLoc
     /// </summary>
     public unsafe ref System.Numerics.Vector3 ThreatLoc
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 396);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 416);
 
     /// <summary>
     /// FloatProperty: ThreatYaw
     /// </summary>
     public unsafe float ThreatYaw
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 408); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 408); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 428); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
     }
 
     /// <summary>
@@ -121,8 +121,8 @@ public partial class RBMBehaviour_BatShock : BmSDK.BmGame.RBMBehaviour, BmSDK.IG
     /// </summary>
     public unsafe BmSDK.FName StartleName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 412); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 412); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 432); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
     }
 
     /// <summary>
@@ -130,7 +130,7 @@ public partial class RBMBehaviour_BatShock : BmSDK.BmGame.RBMBehaviour, BmSDK.IG
     /// </summary>
     public unsafe bool bPauseStarted
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 420) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 420); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 420); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 440) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 440); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 440); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RForensicDnaSplatStatic<br/>
-/// (size = 516)
+/// (size = 586)
 /// (flags = 142606994)
 /// </summary>
 public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.REvidenceInterface, BmSDK.BmGame.RXrayInterface, BmSDK.IGameObject
@@ -95,7 +95,7 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     public unsafe virtual void show(float _show, int ShowMode = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.show", true);
-        byte* paramsPtr = stackalloc byte[12];
+        byte* paramsPtr = stackalloc byte[8];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(_show, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ShowMode, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -109,6 +109,28 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.InitialiseDna", true);
         byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: Destroyed
+    /// </summary>
+    public unsafe override void Destroyed()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.Destroyed", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: PreStreamOut
+    /// </summary>
+    public unsafe override void PreStreamOut()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.PreStreamOut", true);
+        byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -130,7 +152,7 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     public unsafe virtual void SetInXrayMode(bool On, bool bForceOff)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.SetInXrayMode", true);
-        byte* paramsPtr = stackalloc byte[8];
+        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(On, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bForceOff, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -138,36 +160,25 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     }
 
     /// <summary>
-    /// Function: CanBeScanned
+    /// Function: SetScannedMaterial
     /// </summary>
-    public unsafe virtual bool CanBeScanned()
+    public unsafe virtual void SetScannedMaterial()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.CanBeScanned", true);
-        byte* paramsPtr = stackalloc byte[4];
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.SetScannedMaterial", true);
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return;
     }
 
     /// <summary>
     /// Function: GetSelf
     /// </summary>
-    public unsafe virtual BmSDK.GameObject GetSelf()
+    public unsafe virtual BmSDK.Engine.Actor GetSelf()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.GetSelf", true);
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GameObject>(paramsPtr + 0);
-    }
-
-    /// <summary>
-    /// Function: GetEvidenceInfo
-    /// </summary>
-    public unsafe virtual BmSDK.BmGame.REvidence GetEvidenceInfo()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.GetEvidenceInfo", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.REvidence>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(paramsPtr + 0);
     }
 
     /// <summary>
@@ -182,25 +193,69 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     }
 
     /// <summary>
-    /// Function: RegisterEvidence
+    /// Function: GetTimelineSelected
     /// </summary>
-    public unsafe virtual void RegisterEvidence()
+    public unsafe virtual bool GetTimelineSelected()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.RegisterEvidence", true);
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.GetTimelineSelected", true);
         byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: SetTimelineSelected
+    /// </summary>
+    public unsafe virtual void SetTimelineSelected(bool isSelected)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.SetTimelineSelected", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(isSelected, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
     /// <summary>
-    /// Function: GetEvidenceIndex
+    /// Function: OnToggle
     /// </summary>
-    public unsafe virtual int GetEvidenceIndex()
+    public unsafe virtual void OnToggle(BmSDK.Engine.SeqAct_Toggle Action)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.GetEvidenceIndex", true);
-        byte* paramsPtr = stackalloc byte[4];
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStatic.OnToggle", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Action, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return;
+    }
+
+    /// <summary>
+    /// Enum: EvidenceScanType
+    /// </summary>
+    public enum EvidenceScanType : byte
+    {
+        EST_SimpleScan = 0,
+        EST_Reconstruct = 1,
+        EST_AutoComplete = 2,
+        EST_Trail = 3,
+        EST_DownloadScan = 4,
+        EST_MAX = 5,
+    }
+
+    /// <summary>
+    /// Enum: ForensicEvidenceType
+    /// </summary>
+    public enum ForensicEvidenceType : byte
+    {
+        FET_None = 0,
+        FET_BulletImpact = 1,
+        FET_ChemicalAnalysis = 2,
+        FET_DigitalData = 3,
+        FET_DNA = 4,
+        FET_FingerPrints = 5,
+        FET_Impact = 6,
+        FET_PhysicalAnalysis = 7,
+        FET_ShellCasingGeneric = 8,
+        FET_UnknownCharacter = 9,
+        FET_MAX = 10,
     }
 
     /// <summary>
@@ -208,8 +263,8 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     /// </summary>
     public unsafe System.IntPtr VfTable_IREvidenceInterface
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 
     /// <summary>
@@ -217,32 +272,17 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     /// </summary>
     public unsafe BmSDK.Engine.MaterialInstanceConstant Material
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
     }
-
-    /// <summary>
-    /// NameProperty: ParamName
-    /// </summary>
-    public unsafe BmSDK.FName ParamName
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 436); }
-    }
-
-    /// <summary>
-    /// StructProperty: CurrentShowLevel
-    /// </summary>
-    public unsafe ref System.Numerics.Vector3 CurrentShowLevel
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 444);
 
     /// <summary>
     /// ObjectProperty: EvidenceInfo
     /// </summary>
     public unsafe BmSDK.BmGame.REvidence EvidenceInfo
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.REvidence>(Ptr + 456); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.REvidence>(Ptr + 460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
     }
 
     /// <summary>
@@ -250,8 +290,8 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     /// </summary>
     public unsafe int EvidenceFound
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 460); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
     }
 
     /// <summary>
@@ -259,68 +299,89 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     /// </summary>
     public unsafe float CurrentLevel
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 464); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
-    }
-
-    /// <summary>
-    /// ObjectProperty: RPC
-    /// </summary>
-    public unsafe BmSDK.BmGame.RPlayerController RPC
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 468); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 468); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 468); }
     }
 
     /// <summary>
-    /// ComponentProperty: ParticleFX
+    /// StrProperty: EvidenceName
     /// </summary>
-    public unsafe BmSDK.Engine.ParticleSystemComponent ParticleFX
+    public unsafe BmSDK.FString EvidenceName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 472); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
     }
 
     /// <summary>
-    /// ComponentProperty: AlwaysOnParticleFX
+    /// StrProperty: LocalizedName
     /// </summary>
-    public unsafe BmSDK.Engine.ParticleSystemComponent AlwaysOnParticleFX
+    public unsafe BmSDK.FString LocalizedName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
     }
-
-    /// <summary>
-    /// StructProperty: ParticleOffset
-    /// </summary>
-    public unsafe ref System.Numerics.Vector3 ParticleOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 480);
 
     /// <summary>
     /// ComponentProperty: StaticMeshComponent
     /// </summary>
     public unsafe BmSDK.Engine.StaticMeshComponent StaticMeshComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 492); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
-    }
-
-    /// <summary>
-    /// FloatProperty: OverScan
-    /// </summary>
-    public unsafe float OverScan
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 496); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 496); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
     }
 
     /// <summary>
-    /// IntProperty: EvidenceIndex
+    /// StrProperty: LogEntryTitle
     /// </summary>
-    public unsafe int EvidenceIndex
+    public unsafe BmSDK.FString LogEntryTitle
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 500); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 500); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
+    }
+
+    /// <summary>
+    /// StrProperty: LogEntryData
+    /// </summary>
+    public unsafe BmSDK.FString LogEntryData
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 512); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 512); }
+    }
+
+    /// <summary>
+    /// BoolProperty: IsLogEntryImportant
+    /// </summary>
+    public unsafe bool IsLogEntryImportant
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 524); }
+    }
+
+    /// <summary>
+    /// BoolProperty: mIsActive
+    /// </summary>
+    public unsafe bool mIsActive
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 524); }
+    }
+
+    /// <summary>
+    /// BoolProperty: mIsBonusItem
+    /// </summary>
+    public unsafe bool mIsBonusItem
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 524); }
+    }
+
+    /// <summary>
+    /// BoolProperty: mIsTimelineSelected
+    /// </summary>
+    public unsafe bool mIsTimelineSelected
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 524); }
     }
 
     /// <summary>
@@ -328,8 +389,89 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     /// </summary>
     public unsafe bool bRevealed
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 504) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 504); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 504); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 524); }
+    }
+
+    /// <summary>
+    /// BoolProperty: mHasBeenScanned
+    /// </summary>
+    public unsafe bool mHasBeenScanned
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 524); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 524); }
+    }
+
+    /// <summary>
+    /// FloatProperty: OverScan
+    /// </summary>
+    public unsafe float OverScan
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 528); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 528); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: mNotScannedMaterial
+    /// </summary>
+    public unsafe BmSDK.Engine.MaterialInterface mNotScannedMaterial
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInterface>(Ptr + 532); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 532); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: mScannedMaterial
+    /// </summary>
+    public unsafe BmSDK.Engine.MaterialInterface mScannedMaterial
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInterface>(Ptr + 536); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 536); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: OldMaterials
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.Engine.MaterialInterface> OldMaterials
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.MaterialInterface>>(Ptr + 540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: mBaseEvidenceLink
+    /// </summary>
+    public unsafe BmSDK.BmGame.MEvidenceLinkBase mBaseEvidenceLink
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MEvidenceLinkBase>(Ptr + 552); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 552); }
+    }
+
+    /// <summary>
+    /// IntProperty: mSimpleScanTimelineMarker
+    /// </summary>
+    public unsafe int mSimpleScanTimelineMarker
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 556); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 556); }
+    }
+
+    /// <summary>
+    /// FloatProperty: mScanTimeToDownloadData
+    /// </summary>
+    public unsafe float mScanTimeToDownloadData
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 560); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 560); }
+    }
+
+    /// <summary>
+    /// FloatProperty: mPreScanTimeToDownloadData
+    /// </summary>
+    public unsafe float mPreScanTimeToDownloadData
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
     }
 
     /// <summary>
@@ -337,8 +479,8 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     /// </summary>
     public unsafe float RevealedPerc
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 508); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 508); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 568); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
     }
 
     /// <summary>
@@ -346,7 +488,43 @@ public partial class RForensicDnaSplatStatic : BmSDK.Engine.Actor, BmSDK.BmGame.
     /// </summary>
     public unsafe float OldRevealedPerc
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 512); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 512); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 572); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
+    }
+
+    /// <summary>
+    /// IntProperty: mForensicEvidenceIndex
+    /// </summary>
+    public unsafe int mForensicEvidenceIndex
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 576); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: mCrimeVolume
+    /// </summary>
+    public unsafe BmSDK.BmGame.RCrimeSceneBase mCrimeVolume
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCrimeSceneBase>(Ptr + 580); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 580); }
+    }
+
+    /// <summary>
+    /// ByteProperty: mForensicEvidenceType
+    /// </summary>
+    public unsafe BmSDK.BmGame.RForensicDnaSplatStatic.ForensicEvidenceType mForensicEvidenceType
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RForensicDnaSplatStatic.ForensicEvidenceType>(Ptr + 584); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 584); }
+    }
+
+    /// <summary>
+    /// ByteProperty: mEvidenceScanType
+    /// </summary>
+    public unsafe BmSDK.BmGame.RForensicDnaSplatStatic.EvidenceScanType mEvidenceScanType
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RForensicDnaSplatStatic.EvidenceScanType>(Ptr + 585); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 585); }
     }
 }

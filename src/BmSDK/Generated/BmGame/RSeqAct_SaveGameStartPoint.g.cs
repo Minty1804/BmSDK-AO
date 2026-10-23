@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_SaveGameStartPoint<br/>
-/// (size = 212)
+/// (size = 232)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_SaveGameStartPoint : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -105,8 +105,8 @@ public partial class RSeqAct_SaveGameStartPoint : BmSDK.Engine.SequenceAction, B
     /// </summary>
     public unsafe int AddToGamePercentage
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -114,7 +114,7 @@ public partial class RSeqAct_SaveGameStartPoint : BmSDK.Engine.SequenceAction, B
     /// </summary>
     public unsafe int SetGamePercentage
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
     }
 }

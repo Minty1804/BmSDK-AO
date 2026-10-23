@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: GFxMovieHudMenu<br/>
-/// (size = 444)
-/// (flags = 18)
+/// (size = 484)
+/// (flags = 22)
 /// </summary>
 public partial class GFxMovieHudMenu : BmSDK.GFxUI.GFxMoviePlayer, BmSDK.IGameObject
 {

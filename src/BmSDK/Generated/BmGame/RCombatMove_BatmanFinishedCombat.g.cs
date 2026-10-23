@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_BatmanFinishedCombat<br/>
-/// (size = 468)
+/// (size = 500)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_BatmanFinishedCombat : BmSDK.BmGame.RCombatMove, BmSDK.IGameObject
@@ -90,6 +90,18 @@ public partial class RCombatMove_BatmanFinishedCombat : BmSDK.BmGame.RCombatMove
     }
 
     /// <summary>
+    /// Function: CombatToStandCallback
+    /// </summary>
+    public unsafe virtual void CombatToStandCallback(BmSDK.BmGame.RAnimUtil.FTransitionId QueuedID)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RCombatMove_BatmanFinishedCombat.CombatToStandCallback", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(QueuedID, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: Initialise
     /// </summary>
     public unsafe override void Initialise()
@@ -105,7 +117,22 @@ public partial class RCombatMove_BatmanFinishedCombat : BmSDK.BmGame.RCombatMove
     /// </summary>
     public unsafe BmSDK.BmGame.RPawnPlayerCombat Batman
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayerCombat>(Ptr + 464); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayerCombat>(Ptr + 488); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
+    }
+
+    /// <summary>
+    /// StructProperty: FinisherAnimID
+    /// </summary>
+    public unsafe ref BmSDK.BmGame.RAnimUtil.FTransitionId FinisherAnimID
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FTransitionId>(Ptr + 492);
+
+    /// <summary>
+    /// ObjectProperty: PawnPlayer
+    /// </summary>
+    public unsafe BmSDK.BmGame.RPawnPlayer PawnPlayer
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayer>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
     }
 }

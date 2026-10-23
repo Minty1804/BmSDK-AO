@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_UpdateTurret<br/>
-/// (size = 216)
+/// (size = 236)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_UpdateTurret : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -105,8 +105,8 @@ public partial class RSeqAct_UpdateTurret : BmSDK.Engine.SequenceAction, BmSDK.I
     /// </summary>
     public unsafe BmSDK.BmScript.RTurret Turret
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RTurret>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RTurret>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -114,8 +114,8 @@ public partial class RSeqAct_UpdateTurret : BmSDK.Engine.SequenceAction, BmSDK.I
     /// </summary>
     public unsafe BmSDK.Engine.TriggerVolume Volume
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.TriggerVolume>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.TriggerVolume>(Ptr + 228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
     }
 
     /// <summary>
@@ -123,7 +123,7 @@ public partial class RSeqAct_UpdateTurret : BmSDK.Engine.SequenceAction, BmSDK.I
     /// </summary>
     public unsafe BmSDK.Engine.Actor VolumeToucher
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 212); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 212); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 232); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
     }
 }

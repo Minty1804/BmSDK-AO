@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_ShootGen<br/>
-/// (size = 580)
+/// (size = 604)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_ShootGen : BmSDK.BmGame.RBMAIAction, BmSDK.IGameObject
@@ -129,8 +129,8 @@ public partial class RBMAIAction_ShootGen : BmSDK.BmGame.RBMAIAction, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.BmGame.RMagneticSurfaceSMBase TargetGenerator
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RMagneticSurfaceSMBase>(Ptr + 572); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RMagneticSurfaceSMBase>(Ptr + 596); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 596); }
     }
 
     /// <summary>
@@ -138,7 +138,7 @@ public partial class RBMAIAction_ShootGen : BmSDK.BmGame.RBMAIAction, BmSDK.IGam
     /// </summary>
     public unsafe float WaitTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 576); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 600); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 600); }
     }
 }

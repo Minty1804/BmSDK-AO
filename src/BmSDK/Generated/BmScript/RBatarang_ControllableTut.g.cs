@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBatarang_ControllableTut<br/>
-/// (size = 1364)
+/// (size = 1416)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBatarang_ControllableTut : BmSDK.BmScript.RBatarang_Controllable, BmSDK.IGameObject
@@ -118,8 +118,8 @@ public partial class RBatarang_ControllableTut : BmSDK.BmScript.RBatarang_Contro
     /// </summary>
     public unsafe bool bLaunched
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1352) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1352); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1352); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1404) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1404); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1404); }
     }
 
     /// <summary>
@@ -127,8 +127,8 @@ public partial class RBatarang_ControllableTut : BmSDK.BmScript.RBatarang_Contro
     /// </summary>
     public unsafe float Range
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1356); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1356); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1408); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1408); }
     }
 
     /// <summary>
@@ -136,7 +136,7 @@ public partial class RBatarang_ControllableTut : BmSDK.BmScript.RBatarang_Contro
     /// </summary>
     public unsafe BmSDK.BmGame.RBMWeapon BmWeapon
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMWeapon>(Ptr + 1360); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1360); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMWeapon>(Ptr + 1412); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1412); }
     }
 }

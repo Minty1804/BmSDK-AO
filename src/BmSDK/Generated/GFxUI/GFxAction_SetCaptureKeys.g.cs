@@ -5,7 +5,7 @@ namespace BmSDK.GFxUI;
 
 /// <summary>
 /// Class: GFxAction_SetCaptureKeys<br/>
-/// (size = 220)
+/// (size = 240)
 /// (flags = 134226066)
 /// </summary>
 public partial class GFxAction_SetCaptureKeys : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class GFxAction_SetCaptureKeys : BmSDK.Engine.SequenceAction, BmS
     /// </summary>
     public unsafe BmSDK.GFxUI.GFxMoviePlayer Movie
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxMoviePlayer>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxMoviePlayer>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class GFxAction_SetCaptureKeys : BmSDK.Engine.SequenceAction, BmS
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.FName> CaptureKeys
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(Ptr + 228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
     }
 }

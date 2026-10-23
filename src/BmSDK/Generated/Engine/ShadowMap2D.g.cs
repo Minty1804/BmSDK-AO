@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: ShadowMap2D<br/>
-/// (size = 80)
+/// (size = 88)
 /// (flags = 8389010)
 /// </summary>
 public partial class ShadowMap2D : BmSDK.GameObject, BmSDK.IGameObject
@@ -106,21 +106,12 @@ public partial class ShadowMap2D : BmSDK.GameObject, BmSDK.IGameObject
         => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FGuid>(Ptr + 64);
 
     /// <summary>
-    /// BoolProperty: bIsShadowFactorTexture
-    /// </summary>
-    public unsafe bool bIsShadowFactorTexture
-    {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
-    }
-
-    /// <summary>
     /// ComponentProperty: Component
     /// </summary>
     public unsafe BmSDK.Engine.InstancedStaticMeshComponent Component
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.InstancedStaticMeshComponent>(Ptr + 72); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 72); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.InstancedStaticMeshComponent>(Ptr + 80); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 80); }
     }
 
     /// <summary>
@@ -128,7 +119,7 @@ public partial class ShadowMap2D : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe int InstanceIndex
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 76); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 76); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 84); }
     }
 }

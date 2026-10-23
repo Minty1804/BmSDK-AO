@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_WallStrike<br/>
-/// (size = 140)
+/// (size = 152)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_WallStrike : BmSDK.BmGame.RDmgType_HeavyStrike, BmSDK.IGameObject

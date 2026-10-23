@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionLensFlareSourceDistance<br/>
-/// (size = 92)
+/// (size = 116)
 /// (flags = 134217874)
 /// </summary>
 public partial class MaterialExpressionLensFlareSourceDistance : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject

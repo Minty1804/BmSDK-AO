@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqEvent_EvidenceFlagSet<br/>
-/// (size = 228)
-/// (flags = 134217874)
+/// (size = 248)
+/// (flags = 167772306)
 /// </summary>
 public partial class RSeqEvent_EvidenceFlagSet : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject
 {
@@ -78,27 +78,4 @@ public partial class RSeqEvent_EvidenceFlagSet : BmSDK.Engine.SequenceEvent, BmS
         where TComponent : class, Framework.IScriptComponent<RSeqEvent_EvidenceFlagSet>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
-    /// <summary>
-    /// Function: GetObjClassVersion
-    /// </summary>
-    public unsafe static int GetObjClassVersion()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RSeqEvent_EvidenceFlagSet.GetObjClassVersion", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
-    }
-
-    /// <summary>
-    /// Function: Handle
-    /// </summary>
-    public unsafe virtual bool Handle(BmSDK.Engine.Actor InOriginator, int typeNo)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RSeqEvent_EvidenceFlagSet.Handle", true);
-        byte* paramsPtr = stackalloc byte[32];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(InOriginator, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(typeNo, paramsPtr + 4);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
-    }
 }

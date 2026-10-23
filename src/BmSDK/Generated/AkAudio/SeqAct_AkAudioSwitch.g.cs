@@ -5,7 +5,7 @@ namespace BmSDK.AkAudio;
 
 /// <summary>
 /// Class: SeqAct_AkAudioSwitch<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_AkAudioSwitch : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqAct_AkAudioSwitch : BmSDK.Engine.SequenceAction, BmSDK.I
     /// </summary>
     public unsafe BmSDK.Engine.AkSwitchName SwitchName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkSwitchName>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkSwitchName>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

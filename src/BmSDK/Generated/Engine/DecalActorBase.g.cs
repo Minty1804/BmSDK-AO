@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: DecalActorBase<br/>
-/// (size = 432)
+/// (size = 456)
 /// (flags = 142606483)
 /// </summary>
 public partial class DecalActorBase : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -78,7 +78,7 @@ public partial class DecalActorBase : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.DecalComponent Decal
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DecalComponent>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DecalComponent>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 }

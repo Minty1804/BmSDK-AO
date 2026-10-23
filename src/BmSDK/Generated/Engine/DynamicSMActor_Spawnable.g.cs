@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: DynamicSMActor_Spawnable<br/>
-/// (size = 484)
+/// (size = 508)
 /// (flags = 8388626)
 /// </summary>
 public partial class DynamicSMActor_Spawnable : BmSDK.Engine.DynamicSMActor, BmSDK.IGameObject

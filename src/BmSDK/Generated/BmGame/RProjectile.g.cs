@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RProjectile<br/>
-/// (size = 504)
+/// (size = 556)
 /// (flags = 142606483)
 /// </summary>
 public partial class RProjectile : BmSDK.Engine.Projectile, BmSDK.IGameObject
@@ -74,6 +74,21 @@ public partial class RProjectile : BmSDK.Engine.Projectile, BmSDK.IGameObject
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
+    /// Function: SpawnHitEffectsOnMaterial
+    /// </summary>
+    public unsafe virtual void SpawnHitEffectsOnMaterial(BmSDK.BmGame.RPhysicalMaterialProperty PhysMat, BmSDK.Engine.Actor.FImpactInfo Impact, BmSDK.FName ImpactType, bool bPlaySound)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RProjectile.SpawnHitEffectsOnMaterial", true);
+        byte* paramsPtr = stackalloc byte[104];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(PhysMat, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Impact, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ImpactType, paramsPtr + 92);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bPlaySound, paramsPtr + 100);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: SpawnHitEffects
     /// </summary>
     public unsafe virtual void SpawnHitEffects(System.Numerics.Vector3 HitLocation, System.Numerics.Vector3 HitVelocity, BmSDK.FName ImpactType, bool bPlaySound = default)
@@ -105,8 +120,8 @@ public partial class RProjectile : BmSDK.Engine.Projectile, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent TrackingSoundPlay
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 488); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
     }
 
     /// <summary>
@@ -114,8 +129,8 @@ public partial class RProjectile : BmSDK.Engine.Projectile, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent TrackingSoundLoop
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 492); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 544); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 544); }
     }
 
     /// <summary>
@@ -123,8 +138,8 @@ public partial class RProjectile : BmSDK.Engine.Projectile, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent TrackingSoundStop
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 496); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 548); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 548); }
     }
 
     /// <summary>
@@ -132,7 +147,7 @@ public partial class RProjectile : BmSDK.Engine.Projectile, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bUnderWater
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 500) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 500); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 500); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 552) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 552); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 552); }
     }
 }

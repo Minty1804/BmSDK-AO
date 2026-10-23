@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_Grundy<br/>
-/// (size = 120)
-/// (flags = 18)
+/// (size = 132)
+/// (flags = 33554450)
 /// </summary>
 public partial class RDmgType_Grundy : BmSDK.BmGame.RDmgType_NoXP, BmSDK.IGameObject
 {

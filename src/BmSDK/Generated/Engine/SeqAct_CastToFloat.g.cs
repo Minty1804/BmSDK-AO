@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_CastToFloat<br/>
-/// (size = 212)
+/// (size = 232)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_CastToFloat : BmSDK.Engine.SeqAct_SetSequenceVariable, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class SeqAct_CastToFloat : BmSDK.Engine.SeqAct_SetSequenceVariabl
     /// </summary>
     public unsafe int Value
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class SeqAct_CastToFloat : BmSDK.Engine.SeqAct_SetSequenceVariabl
     /// </summary>
     public unsafe float FloatResult
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
     }
 }

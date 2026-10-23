@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionSphereMask<br/>
-/// (size = 156)
+/// (size = 212)
 /// (flags = 134217874)
 /// </summary>
 public partial class MaterialExpressionSphereMask : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,21 +82,21 @@ public partial class MaterialExpressionSphereMask : BmSDK.Engine.MaterialExpress
     /// StructProperty: A
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput A
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// StructProperty: B
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput B
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 120);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 160);
 
     /// <summary>
     /// FloatProperty: AttenuationRadius
     /// </summary>
     public unsafe float AttenuationRadius
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 204); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ public partial class MaterialExpressionSphereMask : BmSDK.Engine.MaterialExpress
     /// </summary>
     public unsafe float HardnessPercent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 152); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 152); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 208); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
     }
 }

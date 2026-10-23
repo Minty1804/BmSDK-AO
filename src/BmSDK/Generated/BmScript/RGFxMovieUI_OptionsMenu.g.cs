@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGFxMovieUI_OptionsMenu<br/>
-/// (size = 660)
-/// (flags = 18)
+/// (size = 816)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieUI_OptionsMenu : BmSDK.BmGame.RGFxMovieUI, BmSDK.IGameObject
 {
@@ -141,12 +141,13 @@ public partial class RGFxMovieUI_OptionsMenu : BmSDK.BmGame.RGFxMovieUI, BmSDK.I
     /// </summary>
     public enum OptionsMenuItems : byte
     {
-        MMI_None = 0,
-        MMI_OptionsGame = 1,
-        MMI_OptionsAudio = 2,
-        MMI_OptionsControls = 3,
-        MMI_Options3D = 4,
-        MMI_OptionsBenchmark = 5,
-        MMI_MAX = 6,
+        OMI_None = 0,
+        OMI_OptionsGame = 1,
+        OMI_OptionsVideo = 2,
+        OMI_OptionsAudio = 3,
+        OMI_OptionsControls = 4,
+        OMI_Options3D = 5,
+        OMI_OptionsBenchmark = 6,
+        OMI_MAX = 7,
     }
 }

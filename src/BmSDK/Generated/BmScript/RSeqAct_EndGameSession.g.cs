@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_EndGameSession<br/>
-/// (size = 205)
+/// (size = 225)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_EndGameSession : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RSeqAct_EndGameSession : BmSDK.Engine.SequenceAction, BmSDK
     /// </summary>
     public unsafe BmSDK.BmGame.RGameInfo.EGS_Reason The_Reason
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGS_Reason>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGS_Reason>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

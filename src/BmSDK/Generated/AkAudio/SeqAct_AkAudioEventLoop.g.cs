@@ -5,7 +5,7 @@ namespace BmSDK.AkAudio;
 
 /// <summary>
 /// Class: SeqAct_AkAudioEventLoop<br/>
-/// (size = 224)
+/// (size = 244)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_AkAudioEventLoop : BmSDK.AkAudio.SeqAct_AkAudioEvent, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqAct_AkAudioEventLoop : BmSDK.AkAudio.SeqAct_AkAudioEvent
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.AkWwise.FAkSoundHandle> SoundHandles
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.AkWwise.FAkSoundHandle>>(Ptr + 212); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 212); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.AkWwise.FAkSoundHandle>>(Ptr + 232); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
     }
 }

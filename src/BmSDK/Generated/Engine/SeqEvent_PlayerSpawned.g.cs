@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqEvent_PlayerSpawned<br/>
-/// (size = 232)
+/// (size = 252)
 /// (flags = 18)
 /// </summary>
 public partial class SeqEvent_PlayerSpawned : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqEvent_PlayerSpawned : BmSDK.Engine.SequenceEvent, BmSDK.
     /// </summary>
     public unsafe BmSDK.GameObject SpawnPoint
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GameObject>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GameObject>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
     }
 }

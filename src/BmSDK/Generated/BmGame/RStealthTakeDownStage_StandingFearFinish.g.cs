@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_StandingFearFinish<br/>
-/// (size = 1032)
+/// (size = 1076)
 /// (flags = 8388626)
 /// </summary>
 public partial class RStealthTakeDownStage_StandingFearFinish : BmSDK.BmGame.RStealthTakeDownStage, BmSDK.IGameObject

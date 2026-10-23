@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAnimNotify_Emote<br/>
-/// (size = 69)
+/// (size = 92)
 /// (flags = 134230162)
 /// </summary>
 public partial class RAnimNotify_Emote : BmSDK.BmGame.RAnimNotify_Script, BmSDK.IGameObject
@@ -88,27 +88,76 @@ public partial class RAnimNotify_Emote : BmSDK.BmGame.RAnimNotify_Script, BmSDK.
     }
 
     /// <summary>
+    /// StrProperty: EmotePackage
+    /// </summary>
+    public unsafe BmSDK.FString EmotePackage
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 72); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 72); }
+    }
+
+    /// <summary>
+    /// IntProperty: EmoteProbability
+    /// </summary>
+    public unsafe int EmoteProbability
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 84); }
+    }
+
+    /// <summary>
+    /// BoolProperty: CanPlayDuringMatinee
+    /// </summary>
+    public unsafe bool CanPlayDuringMatinee
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 88) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 88); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 88); }
+    }
+
+    /// <summary>
     /// Enum: EEmoteType
     /// </summary>
     public enum EEmoteType : byte
     {
-        Emote_Dazed = 0,
-        Emote_ExertLight = 1,
-        Emote_ExertMed = 2,
-        Emote_Fall = 3,
-        Emote_HurtCollapse = 4,
-        Emote_HurtLight = 5,
-        Emote_HurtMed = 6,
-        Emote_HurtStrong = 7,
-        Emote_HurtPassout = 8,
-        Emote_Kicked = 9,
-        Emote_Punched = 10,
-        Emote_Laugh = 11,
-        Emote_Muffled = 12,
-        Emote_RoarAngry = 13,
-        Emote_RoarThrown = 14,
-        Emote_StopMuffle = 15,
-        Emote_StopAll = 16,
-        Emote_MAX = 17,
+        Emote_AttackLight = 0,
+        Emote_AttackMed = 1,
+        Emote_AttackStrong = 2,
+        Emote_AttackEpic = 3,
+        Emote_Chocke = 4,
+        Emote_Climb = 5,
+        Emote_Collapse = 6,
+        Emote_Cough = 7,
+        Emote_Dazed = 8,
+        Emote_Dodge = 9,
+        Emote_ExertLight = 10,
+        Emote_ExertMed = 11,
+        Emote_ExertPickup = 12,
+        Emote_ExertStrong = 13,
+        Emote_Fall = 14,
+        Emote_Giggle = 15,
+        Emote_Growl = 16,
+        Emote_HurtCollapse = 17,
+        Emote_HurtFunny = 18,
+        Emote_HurtHard = 19,
+        Emote_HurtLight = 20,
+        Emote_HurtMed = 21,
+        Emote_HurtPassout = 22,
+        Emote_HurtStrong = 23,
+        Emote_Kicked = 24,
+        Emote_Punched = 25,
+        Emote_Laugh = 26,
+        Emote_Jump = 27,
+        Emote_JumpLong = 28,
+        Emote_Muffled = 29,
+        Emote_RoarAngry = 30,
+        Emote_RoarThrown = 31,
+        Emote_Pull = 32,
+        Emote_Thrown = 33,
+        Emote_BiteThrow1 = 34,
+        Emote_BiteThrow2 = 35,
+        Emote_BitingGrowl = 36,
+        Emote_StopMuffle = 37,
+        Emote_StopAll = 38,
+        Emote_MAX = 39,
     }
 }

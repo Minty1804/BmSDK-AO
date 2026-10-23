@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_PenguinRocketExplosion<br/>
-/// (size = 120)
+/// (size = 132)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_PenguinRocketExplosion : BmSDK.BmGame.RDmgType_BombExplosion, BmSDK.IGameObject

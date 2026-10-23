@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBatarangProjectileRb_Controllable<br/>
-/// (size = 1092)
+/// (size = 1156)
 /// (flags = 8388630)
 /// </summary>
 public partial class RBatarangProjectileRb_Controllable : BmSDK.BmGame.RBatarangProjectile_Controllable, BmSDK.IGameObject

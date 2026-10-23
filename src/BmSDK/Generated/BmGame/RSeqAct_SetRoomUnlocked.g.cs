@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_SetRoomUnlocked<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 134226066)
 /// </summary>
 public partial class RSeqAct_SetRoomUnlocked : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -112,11 +112,11 @@ public partial class RSeqAct_SetRoomUnlocked : BmSDK.Engine.SequenceAction, BmSD
     }
 
     /// <summary>
-    /// ObjectProperty: CSA
+    /// ObjectProperty: mCrimeSceneVolume
     /// </summary>
-    public unsafe BmSDK.BmGame.RCrimeSceneAsset CSA
+    public unsafe BmSDK.BmGame.RCrimeSceneBase mCrimeSceneVolume
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCrimeSceneAsset>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCrimeSceneBase>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

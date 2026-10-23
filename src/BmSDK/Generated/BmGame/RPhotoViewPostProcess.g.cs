@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RPhotoViewPostProcess<br/>
-/// (size = 128)
+/// (size = 160)
 /// (flags = 18)
 /// </summary>
 public partial class RPhotoViewPostProcess : BmSDK.BmGame.RViewPostProcess, BmSDK.IGameObject

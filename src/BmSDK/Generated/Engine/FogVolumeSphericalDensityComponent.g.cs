@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: FogVolumeSphericalDensityComponent<br/>
-/// (size = 160)
+/// (size = 168)
 /// (flags = 142618770)
 /// </summary>
 public partial class FogVolumeSphericalDensityComponent : BmSDK.Engine.FogVolumeDensityComponent, BmSDK.IGameObject
@@ -97,18 +97,45 @@ public partial class FogVolumeSphericalDensityComponent : BmSDK.Engine.FogVolume
     }
 
     /// <summary>
+    /// BoolProperty: bFadeWithDistance
+    /// </summary>
+    public unsafe bool bFadeWithDistance
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 136) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 136); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 136); }
+    }
+
+    /// <summary>
+    /// FloatProperty: FadeDistanceStart
+    /// </summary>
+    public unsafe float FadeDistanceStart
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
+    }
+
+    /// <summary>
+    /// FloatProperty: FadeDistanceEnd
+    /// </summary>
+    public unsafe float FadeDistanceEnd
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 144); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
+    }
+
+    /// <summary>
     /// StructProperty: SphereCenter
     /// </summary>
     public unsafe ref System.Numerics.Vector3 SphereCenter
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 140);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 148);
 
     /// <summary>
     /// FloatProperty: SphereRadius
     /// </summary>
     public unsafe float SphereRadius
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 152); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 152); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
     }
 
     /// <summary>
@@ -116,7 +143,7 @@ public partial class FogVolumeSphericalDensityComponent : BmSDK.Engine.FogVolume
     /// </summary>
     public unsafe BmSDK.Engine.DrawLightRadiusComponent PreviewSphereRadius
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawLightRadiusComponent>(Ptr + 156); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 156); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawLightRadiusComponent>(Ptr + 164); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 164); }
     }
 }

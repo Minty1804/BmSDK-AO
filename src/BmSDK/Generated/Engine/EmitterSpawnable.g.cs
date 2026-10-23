@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: EmitterSpawnable<br/>
-/// (size = 444)
+/// (size = 468)
 /// (flags = 8388626)
 /// </summary>
 public partial class EmitterSpawnable : BmSDK.Engine.Emitter, BmSDK.IGameObject
@@ -108,7 +108,7 @@ public partial class EmitterSpawnable : BmSDK.Engine.Emitter, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.ParticleSystem ParticleTemplate
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 440); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
     }
 }

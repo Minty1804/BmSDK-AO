@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_SetBlockRigidBody<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_SetBlockRigidBody : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.AkAudio;
 
 /// <summary>
 /// Class: SeqAct_AkMusicResumeAutoStates<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_AkMusicResumeAutoStates : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

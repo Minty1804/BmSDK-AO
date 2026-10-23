@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RPawnVillainVenom<br/>
-/// (size = 3560)
+/// (size = 3996)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnVillainVenom : BmSDK.BmGame.RPawnVillain, BmSDK.IGameObject

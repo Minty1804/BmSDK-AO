@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: CameraAnim<br/>
-/// (size = 488)
+/// (size = 508)
 /// (flags = 134217874)
 /// </summary>
 public partial class CameraAnim : BmSDK.GameObject, BmSDK.IGameObject
@@ -113,8 +113,8 @@ public partial class CameraAnim : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe float BasePPSettingsAlpha
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 480); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
     }
 
     /// <summary>
@@ -122,7 +122,7 @@ public partial class CameraAnim : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe float BaseFOV
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 484); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
     }
 }

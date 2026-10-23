@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_RunningBlockBreaker<br/>
-/// (size = 140)
+/// (size = 152)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_RunningBlockBreaker : BmSDK.BmGame.RDmgType_BlockBreaker, BmSDK.IGameObject

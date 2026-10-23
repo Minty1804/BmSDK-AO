@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_DodgeFallingCasualty<br/>
-/// (size = 432)
+/// (size = 452)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_DodgeFallingCasualty : BmSDK.BmGame.RBMBehaviour_Startle, BmSDK.IGameObject

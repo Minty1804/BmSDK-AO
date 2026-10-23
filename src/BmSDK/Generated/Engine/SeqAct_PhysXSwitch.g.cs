@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_PhysXSwitch<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_PhysXSwitch : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

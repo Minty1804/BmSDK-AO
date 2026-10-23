@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_OpenBackScreen<br/>
-/// (size = 244)
+/// (size = 264)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_OpenBackScreen : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -95,7 +95,7 @@ public partial class RSeqAct_OpenBackScreen : BmSDK.Engine.SequenceAction, BmSDK
     public unsafe override void Activated()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSeqAct_OpenBackScreen.Activated", true);
-        byte* paramsPtr = stackalloc byte[28];
+        byte* paramsPtr = stackalloc byte[20];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -103,10 +103,10 @@ public partial class RSeqAct_OpenBackScreen : BmSDK.Engine.SequenceAction, BmSDK
     /// <summary>
     /// ByteProperty: _TheScreen
     /// </summary>
-    public unsafe BmSDK.BmGame.RGFxMovieBackScreen.BackScreenType _TheScreen
+    public unsafe BmSDK.BmGame.RPlayerController.BackScreenType _TheScreen
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGFxMovieBackScreen.BackScreenType>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController.BackScreenType>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -114,8 +114,8 @@ public partial class RSeqAct_OpenBackScreen : BmSDK.Engine.SequenceAction, BmSDK
     /// </summary>
     public unsafe BmSDK.BmScript.RSeqAct_OpenBackScreen.EMapParamType Map_ParamType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RSeqAct_OpenBackScreen.EMapParamType>(Ptr + 205); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 205); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RSeqAct_OpenBackScreen.EMapParamType>(Ptr + 225); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 225); }
     }
 
     /// <summary>
@@ -123,8 +123,17 @@ public partial class RSeqAct_OpenBackScreen : BmSDK.Engine.SequenceAction, BmSDK
     /// </summary>
     public unsafe BmSDK.BmGame.RPersistentData.EProgressCharacter Map_FilterCharacter
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EProgressCharacter>(Ptr + 206); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 206); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EProgressCharacter>(Ptr + 226); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 226); }
+    }
+
+    /// <summary>
+    /// ByteProperty: criminalToLoad
+    /// </summary>
+    public unsafe BmSDK.BmGame.MMostWantedSystem.E_MostWantedCriminal criminalToLoad
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MMostWantedSystem.E_MostWantedCriminal>(Ptr + 227); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 227); }
     }
 
     /// <summary>
@@ -132,8 +141,8 @@ public partial class RSeqAct_OpenBackScreen : BmSDK.Engine.SequenceAction, BmSDK
     /// </summary>
     public unsafe BmSDK.BmGame.RPersistentData.EProgressCharacter Progress_Character
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EProgressCharacter>(Ptr + 207); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 207); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EProgressCharacter>(Ptr + 228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
     }
 
     /// <summary>
@@ -141,8 +150,8 @@ public partial class RSeqAct_OpenBackScreen : BmSDK.Engine.SequenceAction, BmSDK
     /// </summary>
     public unsafe BmSDK.BmGame.RPersistentData.EBioCharacter Bio_Character
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EBioCharacter>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EBioCharacter>(Ptr + 229); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 229); }
     }
 
     /// <summary>
@@ -150,35 +159,26 @@ public partial class RSeqAct_OpenBackScreen : BmSDK.Engine.SequenceAction, BmSDK
     /// </summary>
     public unsafe BmSDK.BmScript.RSeqAct_OpenBackScreen.EBioPageType Bio_PageId
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RSeqAct_OpenBackScreen.EBioPageType>(Ptr + 209); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 209); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RSeqAct_OpenBackScreen.EBioPageType>(Ptr + 230); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 230); }
     }
 
     /// <summary>
-    /// StrProperty: Map_Script
+    /// BoolProperty: Force_OpenWorld
     /// </summary>
-    public unsafe BmSDK.FString Map_Script
+    public unsafe bool Force_OpenWorld
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 212); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 212); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 232); }
     }
 
     /// <summary>
-    /// StrProperty: Map_Objective
+    /// BoolProperty: bDoHqReveal
     /// </summary>
-    public unsafe BmSDK.FString Map_Objective
+    public unsafe bool bDoHqReveal
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
-    }
-
-    /// <summary>
-    /// IntProperty: Bio_TapeId
-    /// </summary>
-    public unsafe int Bio_TapeId
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 236); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 232); }
     }
 
     /// <summary>
@@ -186,8 +186,8 @@ public partial class RSeqAct_OpenBackScreen : BmSDK.Engine.SequenceAction, BmSDK
     /// </summary>
     public unsafe bool Bio_bAutoPlay
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 240); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 232); }
     }
 
     /// <summary>
@@ -195,8 +195,35 @@ public partial class RSeqAct_OpenBackScreen : BmSDK.Engine.SequenceAction, BmSDK
     /// </summary>
     public unsafe bool ReenablePlayerBackscreenUse
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 240); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 232); }
+    }
+
+    /// <summary>
+    /// StrProperty: Map_Script
+    /// </summary>
+    public unsafe BmSDK.FString Map_Script
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 236); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
+    }
+
+    /// <summary>
+    /// StrProperty: Map_Objective
+    /// </summary>
+    public unsafe BmSDK.FString Map_Objective
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
+    }
+
+    /// <summary>
+    /// IntProperty: Bio_TapeId
+    /// </summary>
+    public unsafe int Bio_TapeId
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 260); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 260); }
     }
 
     /// <summary>

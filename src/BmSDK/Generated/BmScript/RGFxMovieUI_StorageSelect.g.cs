@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGFxMovieUI_StorageSelect<br/>
-/// (size = 664)
-/// (flags = 18)
+/// (size = 820)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieUI_StorageSelect : BmSDK.BmGame.RGFxMovieUI, BmSDK.IGameObject
 {
@@ -152,7 +152,7 @@ public partial class RGFxMovieUI_StorageSelect : BmSDK.BmGame.RGFxMovieUI, BmSDK
     /// </summary>
     public unsafe int TickState
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 660); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 660); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 816); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 816); }
     }
 }

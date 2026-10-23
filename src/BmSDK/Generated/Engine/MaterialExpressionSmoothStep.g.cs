@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionSmoothStep<br/>
-/// (size = 176)
+/// (size = 248)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionSmoothStep : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,17 +82,17 @@ public partial class MaterialExpressionSmoothStep : BmSDK.Engine.MaterialExpress
     /// StructProperty: Input
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Input
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// StructProperty: Min
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Min
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 120);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 160);
 
     /// <summary>
     /// StructProperty: Max
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Max
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 148);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 204);
 }

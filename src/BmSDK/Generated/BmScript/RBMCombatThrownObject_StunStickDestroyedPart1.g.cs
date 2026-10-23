@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMCombatThrownObject_StunStickDestroyedPart1<br/>
-/// (size = 736)
+/// (size = 796)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBMCombatThrownObject_StunStickDestroyedPart1 : BmSDK.BmGame.RBMCombatThrownObject, BmSDK.IGameObject
@@ -149,8 +149,8 @@ public partial class RBMCombatThrownObject_StunStickDestroyedPart1 : BmSDK.BmGam
     /// </summary>
     public unsafe BmSDK.Engine.ParticleSystemComponent StunStickFX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 720); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 720); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 780); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 780); }
     }
 
     /// <summary>
@@ -158,8 +158,8 @@ public partial class RBMCombatThrownObject_StunStickDestroyedPart1 : BmSDK.BmGam
     /// </summary>
     public unsafe BmSDK.Engine.AkComponent SSSound
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkComponent>(Ptr + 724); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 724); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkComponent>(Ptr + 784); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 784); }
     }
 
     /// <summary>
@@ -167,8 +167,8 @@ public partial class RBMCombatThrownObject_StunStickDestroyedPart1 : BmSDK.BmGam
     /// </summary>
     public unsafe BmSDK.Engine.PointLightComponent ElectricLight
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PointLightComponent>(Ptr + 728); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 728); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PointLightComponent>(Ptr + 788); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 788); }
     }
 
     /// <summary>
@@ -176,7 +176,7 @@ public partial class RBMCombatThrownObject_StunStickDestroyedPart1 : BmSDK.BmGam
     /// </summary>
     public unsafe bool bOn
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 732) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 732); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 732); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 792) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 792); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 792); }
     }
 }

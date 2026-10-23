@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionRobotScan<br/>
-/// (size = 164)
+/// (size = 108)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionRobotScan : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -165,30 +165,12 @@ public partial class RHudExtensionRobotScan : BmSDK.BmGame.RHudExtension, BmSDK.
     }
 
     /// <summary>
-    /// StrProperty: CachedFunction_SetReticlePosition
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetReticlePosition
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetPercentageComplete
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetPercentageComplete
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
-    }
-
-    /// <summary>
     /// IntProperty: PreviousPercentageInt
     /// </summary>
     public unsafe int PreviousPercentageInt
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 156); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 156); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
     }
 
     /// <summary>
@@ -196,7 +178,7 @@ public partial class RHudExtensionRobotScan : BmSDK.BmGame.RHudExtension, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent ScanUnitSound
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 160); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
     }
 }

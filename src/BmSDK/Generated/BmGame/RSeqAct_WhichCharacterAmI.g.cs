@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_WhichCharacterAmI<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_WhichCharacterAmI : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

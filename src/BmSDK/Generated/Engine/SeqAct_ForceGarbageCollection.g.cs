@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_ForceGarbageCollection<br/>
-/// (size = 220)
+/// (size = 240)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_ForceGarbageCollection : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject

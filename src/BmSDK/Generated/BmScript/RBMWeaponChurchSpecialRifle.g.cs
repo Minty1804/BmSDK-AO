@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponChurchSpecialRifle<br/>
-/// (size = 1112)
+/// (size = 1132)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponChurchSpecialRifle : BmSDK.BmGame.RBMWeaponRanged, BmSDK.IGameObject
@@ -118,7 +118,7 @@ public partial class RBMWeaponChurchSpecialRifle : BmSDK.BmGame.RBMWeaponRanged,
     public unsafe virtual BmSDK.BmGame.RWeaponConfig CreateBasicGunWeaponConfig(BmSDK.GameObject NewOwner, BmSDK.Engine.AnimSet AnimSet1, BmSDK.Engine.AnimSet AnimSet2, BmSDK.Engine.AnimSet AnimSet3, BmSDK.Engine.AnimSet AnimSet4 = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMWeaponChurchSpecialRifle.CreateBasicGunWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[2556];
+        byte* paramsPtr = stackalloc byte[2460];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet1, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet2, paramsPtr + 8);
@@ -155,7 +155,7 @@ public partial class RBMWeaponChurchSpecialRifle : BmSDK.BmGame.RBMWeaponRanged,
     /// </summary>
     public unsafe BmSDK.FName ReloadAnimName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 1104); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1104); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 1124); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1124); }
     }
 }

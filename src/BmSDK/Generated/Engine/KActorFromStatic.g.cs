@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: KActorFromStatic<br/>
-/// (size = 704)
+/// (size = 736)
 /// (flags = 142606490)
 /// </summary>
 public partial class KActorFromStatic : BmSDK.Engine.KActor, BmSDK.IGameObject
@@ -250,8 +250,8 @@ public partial class KActorFromStatic : BmSDK.Engine.KActor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.Actor MyStaticMeshActor
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 696); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 696); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 728); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 728); }
     }
 
     /// <summary>
@@ -259,7 +259,7 @@ public partial class KActorFromStatic : BmSDK.Engine.KActor, BmSDK.IGameObject
     /// </summary>
     public unsafe float MaxImpulseSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 700); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 700); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 732); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 732); }
     }
 }

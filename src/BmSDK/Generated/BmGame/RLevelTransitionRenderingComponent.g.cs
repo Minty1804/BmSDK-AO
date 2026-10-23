@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RLevelTransitionRenderingComponent<br/>
-/// (size = 404)
+/// (size = 444)
 /// (flags = 2290094226)
 /// </summary>
 public partial class RLevelTransitionRenderingComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGameObject
@@ -78,4 +78,12 @@ public partial class RLevelTransitionRenderingComponent : BmSDK.Engine.Primitive
         where TComponent : class, Framework.IScriptComponent<RLevelTransitionRenderingComponent>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    /// <summary>
+    /// BoolProperty: bSkipFrustrumCull
+    /// </summary>
+    public unsafe bool bSkipFrustrumCull
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 440) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 440); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 440); }
+    }
 }

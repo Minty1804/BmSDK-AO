@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_ChangeCape<br/>
-/// (size = 272)
+/// (size = 292)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_ChangeCape : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -105,11 +105,11 @@ public partial class RSeqAct_ChangeCape : BmSDK.Engine.SequenceAction, BmSDK.IGa
     /// StructProperty: StateChangeData
     /// </summary>
     public unsafe ref BmSDK.BmGame.RPhysUtil.FCapeStateChangeData StateChangeData
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RPhysUtil.FCapeStateChangeData>(Ptr + 204);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RPhysUtil.FCapeStateChangeData>(Ptr + 224);
 
     /// <summary>
     /// StructProperty: CapeChangeData
     /// </summary>
     public unsafe ref BmSDK.BmGame.RPhysUtil.FCapeChangeData CapeChangeData
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RPhysUtil.FCapeChangeData>(Ptr + 264);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RPhysUtil.FCapeChangeData>(Ptr + 284);
 }

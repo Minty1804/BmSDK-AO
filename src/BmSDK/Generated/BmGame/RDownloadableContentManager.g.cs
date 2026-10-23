@@ -112,6 +112,17 @@ public partial class RDownloadableContentManager : BmSDK.Engine.DownloadableCont
     }
 
     /// <summary>
+    /// Function: ForceReloadDLC
+    /// </summary>
+    public unsafe override void ForceReloadDLC()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDownloadableContentManager.ForceReloadDLC", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: IsScanInProgress
     /// </summary>
     public unsafe virtual bool IsScanInProgress()
@@ -138,5 +149,14 @@ public partial class RDownloadableContentManager : BmSDK.Engine.DownloadableCont
     {
         get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 216) & 2) != 0; }
         set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 216); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 216); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bCachedNewDLCMessage
+    /// </summary>
+    public unsafe bool bCachedNewDLCMessage
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 216) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 216); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 216); }
     }
 }

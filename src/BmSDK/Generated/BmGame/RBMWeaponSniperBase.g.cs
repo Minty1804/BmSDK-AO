@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RBMWeaponSniperBase<br/>
-/// (size = 1104)
+/// (size = 1124)
 /// (flags = 8388659)
 /// </summary>
 public partial class RBMWeaponSniperBase : BmSDK.BmGame.RBMWeaponRanged, BmSDK.IGameObject

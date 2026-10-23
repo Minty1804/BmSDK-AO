@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSpecialMoveConfig_RelativeAnimMoveSkippable<br/>
-/// (size = 352)
+/// (size = 360)
 /// (flags = 4114)
 /// </summary>
 public partial class RSpecialMoveConfig_RelativeAnimMoveSkippable : BmSDK.BmGame.RSpecialMoveConfig_RelativeAnimMove, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class RSpecialMoveConfig_RelativeAnimMoveSkippable : BmSDK.BmGame
     /// </summary>
     public unsafe float UnskippableTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 348); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 348); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 356); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 356); }
     }
 }

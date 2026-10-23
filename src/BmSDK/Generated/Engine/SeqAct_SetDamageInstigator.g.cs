@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_SetDamageInstigator<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 8210)
 /// </summary>
 public partial class SeqAct_SetDamageInstigator : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqAct_SetDamageInstigator : BmSDK.Engine.SequenceAction, B
     /// </summary>
     public unsafe BmSDK.Engine.Actor DamageInstigator
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RPatrolPoint_LitePred<br/>
-/// (size = 464)
+/// (size = 488)
 /// (flags = 142606994)
 /// </summary>
 public partial class RPatrolPoint_LitePred : BmSDK.BmGame.RPatrolPoint, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RPatrolPoint_LitePred : BmSDK.BmGame.RPatrolPoint, BmSDK.IG
     /// </summary>
     public unsafe int PatrolID
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 460); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
     }
 }

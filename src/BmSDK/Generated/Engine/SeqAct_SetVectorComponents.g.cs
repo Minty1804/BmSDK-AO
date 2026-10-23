@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_SetVectorComponents<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_SetVectorComponents : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -82,15 +82,15 @@ public partial class SeqAct_SetVectorComponents : BmSDK.Engine.SequenceAction, B
     /// StructProperty: OutVector
     /// </summary>
     public unsafe ref System.Numerics.Vector3 OutVector
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 204);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 224);
 
     /// <summary>
     /// FloatProperty: X
     /// </summary>
     public unsafe float X
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 216); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 216); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 236); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
     }
 
     /// <summary>
@@ -98,8 +98,8 @@ public partial class SeqAct_SetVectorComponents : BmSDK.Engine.SequenceAction, B
     /// </summary>
     public unsafe float Y
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 
     /// <summary>
@@ -107,7 +107,7 @@ public partial class SeqAct_SetVectorComponents : BmSDK.Engine.SequenceAction, B
     /// </summary>
     public unsafe float Z
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
     }
 }

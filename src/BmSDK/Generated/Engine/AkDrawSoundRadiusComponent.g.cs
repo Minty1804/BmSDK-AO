@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: AkDrawSoundRadiusComponent<br/>
-/// (size = 428)
+/// (size = 464)
 /// (flags = 2290102418)
 /// </summary>
 public partial class AkDrawSoundRadiusComponent : BmSDK.Engine.DrawSphereComponent, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class AkDrawSoundRadiusComponent : BmSDK.Engine.DrawSphereCompone
     /// </summary>
     public unsafe float DrawScale
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 424); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 424); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
     }
 }

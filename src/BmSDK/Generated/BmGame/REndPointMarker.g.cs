@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: REndPointMarker<br/>
-/// (size = 428)
+/// (size = 452)
 /// (flags = 142606994)
 /// </summary>
 public partial class REndPointMarker : BmSDK.Engine.Actor, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RHarpoonTriggerMoveable<br/>
-/// (size = 480)
+/// (size = 524)
 /// (flags = 8389138)
 /// </summary>
 public partial class RHarpoonTriggerMoveable : BmSDK.BmScript.RHarpoonTrigger, BmSDK.IGameObject
@@ -106,7 +106,7 @@ public partial class RHarpoonTriggerMoveable : BmSDK.BmScript.RHarpoonTrigger, B
     /// </summary>
     public unsafe bool bDontGoPhysics
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 476) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 476); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 476); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 520) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 520); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 520); }
     }
 }

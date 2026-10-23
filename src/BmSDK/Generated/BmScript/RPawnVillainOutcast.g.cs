@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPawnVillainOutcast<br/>
-/// (size = 3564)
+/// (size = 4008)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnVillainOutcast : BmSDK.BmGame.RPawnVillainThug, BmSDK.IGameObject
@@ -81,12 +81,13 @@ public partial class RPawnVillainOutcast : BmSDK.BmGame.RPawnVillainThug, BmSDK.
     /// <summary>
     /// Function: ImmuneToBatarang
     /// </summary>
-    public unsafe override bool ImmuneToBatarang()
+    public unsafe override bool ImmuneToBatarang(BmSDK.Class dmgType)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainOutcast.ImmuneToBatarang", true);
-        byte* paramsPtr = stackalloc byte[4];
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(dmgType, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
     }
 
     /// <summary>
@@ -107,10 +108,42 @@ public partial class RPawnVillainOutcast : BmSDK.BmGame.RPawnVillainThug, BmSDK.
     public unsafe virtual BmSDK.BmGame.RWeaponConfig CreateOutcastWeaponConfig(BmSDK.GameObject NewOwner, BmSDK.Engine.AnimSet AnimSet1)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainOutcast.CreateOutcastWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[3828];
+        byte* paramsPtr = stackalloc byte[3876];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet1, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RWeaponConfig>(paramsPtr + 8);
+    }
+
+    /// <summary>
+    /// Function: GoBackWandering
+    /// </summary>
+    public unsafe virtual void GoBackWandering()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainOutcast.GoBackWandering", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: StasisStateChanged
+    /// </summary>
+    public unsafe override void StasisStateChanged(bool bIsInStasis)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainOutcast.StasisStateChanged", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bIsInStasis, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// FloatProperty: StasisStartTime
+    /// </summary>
+    public unsafe float StasisStartTime
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4004); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4004); }
     }
 }

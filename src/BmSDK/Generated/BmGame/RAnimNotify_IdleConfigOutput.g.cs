@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAnimNotify_IdleConfigOutput<br/>
-/// (size = 80)
+/// (size = 92)
 /// (flags = 134230162)
 /// </summary>
 public partial class RAnimNotify_IdleConfigOutput : BmSDK.Engine.AnimNotify_Script, BmSDK.IGameObject
@@ -89,7 +89,7 @@ public partial class RAnimNotify_IdleConfigOutput : BmSDK.Engine.AnimNotify_Scri
     /// </summary>
     public unsafe BmSDK.FName KismetOutputName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 72); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 72); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 84); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 84); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_PlayerInFinalBlowCam<br/>
-/// (size = 220)
+/// (size = 240)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_PlayerInFinalBlowCam : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject

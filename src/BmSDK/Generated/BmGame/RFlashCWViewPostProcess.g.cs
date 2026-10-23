@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RFlashCWViewPostProcess<br/>
-/// (size = 128)
-/// (flags = 18)
+/// (size = 160)
+/// (flags = 33554450)
 /// </summary>
 public partial class RFlashCWViewPostProcess : BmSDK.BmGame.RViewPostProcess, BmSDK.IGameObject
 {

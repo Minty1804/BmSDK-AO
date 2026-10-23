@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionScanner<br/>
-/// (size = 148)
+/// (size = 108)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionScanner : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -101,6 +101,17 @@ public partial class RHudExtensionScanner : BmSDK.BmGame.RHudExtension, BmSDK.IG
     }
 
     /// <summary>
+    /// Function: GetMaster
+    /// </summary>
+    public unsafe virtual BmSDK.GFxUI.GFxObject GetMaster()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionScanner.GetMaster", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe override bool Init(BmSDK.BmGame.RPlayerController _RPC, BmSDK.FString _ExtensionName, BmSDK.FString _ExtensionPath)
@@ -119,16 +130,16 @@ public partial class RHudExtensionScanner : BmSDK.BmGame.RHudExtension, BmSDK.IG
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie MovieInfo
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
     }
 
     /// <summary>
-    /// StrProperty: CachedFunction_SetScannerPosition
+    /// ObjectProperty: MasterCached
     /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetScannerPosition
+    public unsafe BmSDK.GFxUI.GFxObject MasterCached
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 136); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(Ptr + 104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
     }
 }

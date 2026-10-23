@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_StreamInTextures<br/>
-/// (size = 264)
+/// (size = 284)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_StreamInTextures : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject
@@ -94,8 +94,8 @@ public partial class SeqAct_StreamInTextures : BmSDK.Engine.SeqAct_Latent, BmSDK
     /// </summary>
     public unsafe bool bLocationBased
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 220) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 220); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 220); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 240); }
     }
 
     /// <summary>
@@ -103,8 +103,8 @@ public partial class SeqAct_StreamInTextures : BmSDK.Engine.SeqAct_Latent, BmSDK
     /// </summary>
     public unsafe bool bStreamingActive
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 220) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 220); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 220); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 240); }
     }
 
     /// <summary>
@@ -112,8 +112,8 @@ public partial class SeqAct_StreamInTextures : BmSDK.Engine.SeqAct_Latent, BmSDK
     /// </summary>
     public unsafe float Seconds
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
     }
 
     /// <summary>
@@ -121,8 +121,8 @@ public partial class SeqAct_StreamInTextures : BmSDK.Engine.SeqAct_Latent, BmSDK
     /// </summary>
     public unsafe float StopTimestamp
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
     }
 
     /// <summary>
@@ -130,8 +130,8 @@ public partial class SeqAct_StreamInTextures : BmSDK.Engine.SeqAct_Latent, BmSDK
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.GameObject> LocationActors
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject>>(Ptr + 232); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject>>(Ptr + 252); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 252); }
     }
 
     /// <summary>
@@ -139,22 +139,22 @@ public partial class SeqAct_StreamInTextures : BmSDK.Engine.SeqAct_Latent, BmSDK
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.MaterialInterface> ForceMaterials
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.MaterialInterface>>(Ptr + 244); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.MaterialInterface>>(Ptr + 264); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 264); }
     }
 
     /// <summary>
     /// StructProperty: CinematicTextureGroups
     /// </summary>
     public unsafe ref BmSDK.Engine.Texture.FTextureGroupContainer CinematicTextureGroups
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.Texture.FTextureGroupContainer>(Ptr + 256);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.Texture.FTextureGroupContainer>(Ptr + 276);
 
     /// <summary>
     /// IntProperty: SelectedCinematicTextureGroups
     /// </summary>
     public unsafe int SelectedCinematicTextureGroups
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 260); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 260); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 280); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 280); }
     }
 }

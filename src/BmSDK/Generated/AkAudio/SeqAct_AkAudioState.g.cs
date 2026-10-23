@@ -5,7 +5,7 @@ namespace BmSDK.AkAudio;
 
 /// <summary>
 /// Class: SeqAct_AkAudioState<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_AkAudioState : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqAct_AkAudioState : BmSDK.Engine.SequenceAction, BmSDK.IG
     /// </summary>
     public unsafe BmSDK.Engine.AkStateName StateName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkStateName>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkStateName>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

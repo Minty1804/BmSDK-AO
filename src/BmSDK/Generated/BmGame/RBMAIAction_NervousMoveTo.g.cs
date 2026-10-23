@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_NervousMoveTo<br/>
-/// (size = 592)
+/// (size = 616)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_NervousMoveTo : BmSDK.BmGame.RBMAIAction_BaseMove, BmSDK.IGameObject
@@ -129,5 +129,5 @@ public partial class RBMAIAction_NervousMoveTo : BmSDK.BmGame.RBMAIAction_BaseMo
     /// StructProperty: GoalPos
     /// </summary>
     public unsafe ref System.Numerics.Vector3 GoalPos
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 580);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 604);
 }

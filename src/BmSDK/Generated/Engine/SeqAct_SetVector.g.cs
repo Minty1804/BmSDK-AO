@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_SetVector<br/>
-/// (size = 216)
+/// (size = 236)
 /// (flags = 8210)
 /// </summary>
 public partial class SeqAct_SetVector : BmSDK.Engine.SeqAct_SetSequenceVariable, BmSDK.IGameObject
@@ -93,5 +93,5 @@ public partial class SeqAct_SetVector : BmSDK.Engine.SeqAct_SetSequenceVariable,
     /// StructProperty: DefaultValue
     /// </summary>
     public unsafe ref System.Numerics.Vector3 DefaultValue
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 204);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 224);
 }

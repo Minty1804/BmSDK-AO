@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionPlatformConstant<br/>
-/// (size = 104)
+/// (size = 128)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionPlatformConstant : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class MaterialExpressionPlatformConstant : BmSDK.Engine.MaterialE
     /// </summary>
     public unsafe float PC
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 92); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 
     /// <summary>
@@ -92,8 +92,8 @@ public partial class MaterialExpressionPlatformConstant : BmSDK.Engine.MaterialE
     /// </summary>
     public unsafe float Ps3
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 96); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 96); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
     }
 
     /// <summary>
@@ -101,7 +101,7 @@ public partial class MaterialExpressionPlatformConstant : BmSDK.Engine.MaterialE
     /// </summary>
     public unsafe float XBox
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 100); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 124); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 124); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: ROceanAttachedToCamera<br/>
-/// (size = 456)
+/// (size = 480)
 /// (flags = 8389138)
 /// </summary>
 public partial class ROceanAttachedToCamera : BmSDK.BmGame.ROceanAttachedToCameraBase, BmSDK.IGameObject
@@ -129,15 +129,15 @@ public partial class ROceanAttachedToCamera : BmSDK.BmGame.ROceanAttachedToCamer
     /// StructProperty: CameraPos
     /// </summary>
     public unsafe ref System.Numerics.Vector3 CameraPos
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 436);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 460);
 
     /// <summary>
     /// ComponentProperty: OceanBaseMesh
     /// </summary>
     public unsafe BmSDK.Engine.StaticMeshComponent OceanBaseMesh
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 448); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 448); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 472); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
     }
 
     /// <summary>
@@ -145,7 +145,7 @@ public partial class ROceanAttachedToCamera : BmSDK.BmGame.ROceanAttachedToCamer
     /// </summary>
     public unsafe int UpdateStage
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 476); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
     }
 }

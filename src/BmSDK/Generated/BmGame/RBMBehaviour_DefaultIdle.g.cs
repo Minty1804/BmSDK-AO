@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_DefaultIdle<br/>
-/// (size = 432)
+/// (size = 452)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_DefaultIdle : BmSDK.BmGame.RBMBehaviour_Idle, BmSDK.IGameObject

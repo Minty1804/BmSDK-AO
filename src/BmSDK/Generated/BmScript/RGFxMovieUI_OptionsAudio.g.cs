@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGFxMovieUI_OptionsAudio<br/>
-/// (size = 660)
-/// (flags = 18)
+/// (size = 816)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieUI_OptionsAudio : BmSDK.BmGame.RGFxMovieUI, BmSDK.IGameObject
 {
@@ -142,10 +142,11 @@ public partial class RGFxMovieUI_OptionsAudio : BmSDK.BmGame.RGFxMovieUI, BmSDK.
     public enum GOMenuItem : byte
     {
         AOMI_None = 0,
-        AOMI_Subtitles = 1,
-        AOMI_VolumeSFX = 2,
-        AOMI_VolumeBGM = 3,
-        AOMI_VolumeDLG = 4,
-        AOMI_MAX = 5,
+        AOMI_Output = 1,
+        AOMI_Subtitles = 2,
+        AOMI_VolumeSFX = 3,
+        AOMI_VolumeBGM = 4,
+        AOMI_VolumeDLG = 5,
+        AOMI_MAX = 6,
     }
 }

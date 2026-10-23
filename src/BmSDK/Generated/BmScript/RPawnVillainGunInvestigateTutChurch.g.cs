@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPawnVillainGunInvestigateTutChurch<br/>
-/// (size = 3604)
+/// (size = 4072)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnVillainGunInvestigateTutChurch : BmSDK.BmGame.RPawnVillainGunBase, BmSDK.IGameObject
@@ -77,6 +77,30 @@ public partial class RPawnVillainGunInvestigateTutChurch : BmSDK.BmGame.RPawnVil
     public void DetachScriptComponents<TComponent>()
         where TComponent : class, Framework.IScriptComponent<RPawnVillainGunInvestigateTutChurch>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// Function: PlayHitReaction
+    /// </summary>
+    public unsafe override void PlayHitReaction(BmSDK.BmGame.RPawnCombat.FDamageInfo DmgInfo)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGunInvestigateTutChurch.PlayHitReaction", true);
+        byte* paramsPtr = stackalloc byte[256];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DmgInfo, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: DamagedBy
+    /// </summary>
+    public unsafe override BmSDK.BmGame.RPawnCombat.DamageResult DamagedBy(BmSDK.BmGame.RPawnCombat.FDamageInfo DmgInfo)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGunInvestigateTutChurch.DamagedBy", true);
+        byte* paramsPtr = stackalloc byte[257];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DmgInfo, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCombat.DamageResult>(paramsPtr + 256);
+    }
 
     /// <summary>
     /// Function: CreateWeapon

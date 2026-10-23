@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPawnVillainGunThermal<br/>
-/// (size = 3672)
+/// (size = 4140)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnVillainGunThermal : BmSDK.BmScript.RPawnVillainGun, BmSDK.IGameObject
@@ -77,6 +77,17 @@ public partial class RPawnVillainGunThermal : BmSDK.BmScript.RPawnVillainGun, Bm
     public void DetachScriptComponents<TComponent>()
         where TComponent : class, Framework.IScriptComponent<RPawnVillainGunThermal>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// Function: SetGoodAsDead
+    /// </summary>
+    public unsafe override void SetGoodAsDead()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGunThermal.SetGoodAsDead", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
 
     /// <summary>
     /// Function: GetGargoyleScanFX
@@ -171,8 +182,8 @@ public partial class RPawnVillainGunThermal : BmSDK.BmScript.RPawnVillainGun, Bm
     /// </summary>
     public unsafe BmSDK.FName ThermalSocket
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 3652); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3652); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 4120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4120); }
     }
 
     /// <summary>
@@ -180,8 +191,8 @@ public partial class RPawnVillainGunThermal : BmSDK.BmScript.RPawnVillainGun, Bm
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent VisionOnSFX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 3660); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3660); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 4128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4128); }
     }
 
     /// <summary>
@@ -189,8 +200,8 @@ public partial class RPawnVillainGunThermal : BmSDK.BmScript.RPawnVillainGun, Bm
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent VisionOffSFX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 3664); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3664); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 4132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4132); }
     }
 
     /// <summary>
@@ -198,7 +209,7 @@ public partial class RPawnVillainGunThermal : BmSDK.BmScript.RPawnVillainGun, Bm
     /// </summary>
     public unsafe BmSDK.Engine.ParticleSystem GargoyleScanSystem
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 3668); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3668); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 4136); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4136); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIController_Lunatic<br/>
-/// (size = 1068)
+/// (size = 1104)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIController_Lunatic : BmSDK.BmGame.RBMAIController, BmSDK.IGameObject

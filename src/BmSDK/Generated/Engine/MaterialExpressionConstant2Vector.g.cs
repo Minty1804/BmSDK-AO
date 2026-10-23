@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionConstant2Vector<br/>
-/// (size = 100)
+/// (size = 124)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionConstant2Vector : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class MaterialExpressionConstant2Vector : BmSDK.Engine.MaterialEx
     /// </summary>
     public unsafe float R
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 92); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class MaterialExpressionConstant2Vector : BmSDK.Engine.MaterialEx
     /// </summary>
     public unsafe float G
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 96); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 96); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
     }
 }

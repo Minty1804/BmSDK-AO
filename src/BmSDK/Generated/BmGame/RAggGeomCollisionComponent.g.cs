@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAggGeomCollisionComponent<br/>
-/// (size = 460)
+/// (size = 496)
 /// (flags = 2290090130)
 /// </summary>
 public partial class RAggGeomCollisionComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGameObject
@@ -82,5 +82,5 @@ public partial class RAggGeomCollisionComponent : BmSDK.Engine.PrimitiveComponen
     /// StructProperty: AggGeom
     /// </summary>
     public unsafe ref BmSDK.Engine.KMeshProps.FKAggregateGeom AggGeom
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.KMeshProps.FKAggregateGeom>(Ptr + 404);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.KMeshProps.FKAggregateGeom>(Ptr + 440);
 }

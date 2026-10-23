@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: RB_FixedJointActor<br/>
-/// (size = 456)
+/// (size = 480)
 /// (flags = 10486290)
 /// </summary>
 public partial class RB_FixedJointActor : BmSDK.Engine.RB_ConstraintActor, BmSDK.IGameObject

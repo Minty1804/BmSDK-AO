@@ -126,7 +126,7 @@ public partial class RPathGateComponent : BmSDK.Engine.ActorComponent, BmSDK.IGa
     /// <summary>
     /// Struct: FReachSpecRef
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 16)]
+    [StructLayout(LayoutKind.Explicit, Size = 40)]
     public partial record struct FReachSpecRef
     {
         /// <summary>
@@ -143,8 +143,8 @@ public partial class RPathGateComponent : BmSDK.Engine.ActorComponent, BmSDK.IGa
         /// </summary>
         public unsafe BmSDK.Engine.Actor.FActorReference End
         {
-            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor.FActorReference>(Ptr + 8); }; }
-            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 8); }; }
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor.FActorReference>(Ptr + 20); }; }
+            set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 20); }; }
         }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RUninformedSearchSuppressionVolume<br/>
-/// (size = 472)
+/// (size = 496)
 /// (flags = 142606994)
 /// </summary>
 public partial class RUninformedSearchSuppressionVolume : BmSDK.Engine.Volume, BmSDK.IGameObject

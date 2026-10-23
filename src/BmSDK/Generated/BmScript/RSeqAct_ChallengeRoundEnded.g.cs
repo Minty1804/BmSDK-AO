@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_ChallengeRoundEnded<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_ChallengeRoundEnded : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

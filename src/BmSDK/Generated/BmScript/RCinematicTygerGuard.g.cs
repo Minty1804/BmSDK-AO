@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RCinematicTygerGuard<br/>
-/// (size = 580)
+/// (size = 672)
 /// (flags = 8389138)
 /// </summary>
 public partial class RCinematicTygerGuard : BmSDK.BmGame.RCinematicActor, BmSDK.IGameObject

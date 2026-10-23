@@ -51,6 +51,16 @@ public partial interface RInteractInterface : BmSDK.Interface
     public unsafe bool MustBeCrouched();
 
     /// <summary>
+    /// Function: InteractionRequiresMoveInput
+    /// </summary>
+    public unsafe bool InteractionRequiresMoveInput();
+
+    /// <summary>
+    /// Function: GetOverrideInteractIcon
+    /// </summary>
+    public unsafe BmSDK.BmGame.RHUDPrompt.EControlIcon GetOverrideInteractIcon();
+
+    /// <summary>
     /// Function: IsCounterButton
     /// </summary>
     public unsafe bool IsCounterButton();

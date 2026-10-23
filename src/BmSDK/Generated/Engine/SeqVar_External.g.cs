@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqVar_External<br/>
-/// (size = 144)
+/// (size = 148)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqVar_External : BmSDK.Engine.SequenceVariable, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class SeqVar_External : BmSDK.Engine.SequenceVariable, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.Class ExpectedType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 128); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class SeqVar_External : BmSDK.Engine.SequenceVariable, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.FString VariableLabel
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 136); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RSeqAct_StartCombatChallengeBase<br/>
-/// (size = 220)
+/// (size = 240)
 /// (flags = 8211)
 /// </summary>
 public partial class RSeqAct_StartCombatChallengeBase : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject

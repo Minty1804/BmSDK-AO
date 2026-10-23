@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RCinematic_SpotLightMovable<br/>
-/// (size = 444)
+/// (size = 468)
 /// (flags = 8389138)
 /// </summary>
 public partial class RCinematic_SpotLightMovable : BmSDK.Engine.SpotLightMovable, BmSDK.IGameObject

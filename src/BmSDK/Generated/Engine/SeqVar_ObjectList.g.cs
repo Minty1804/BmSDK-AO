@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqVar_ObjectList<br/>
-/// (size = 168)
+/// (size = 172)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqVar_ObjectList : BmSDK.Engine.SeqVar_Object, BmSDK.IGameObject
@@ -106,7 +106,7 @@ public partial class SeqVar_ObjectList : BmSDK.Engine.SeqVar_Object, BmSDK.IGame
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.GameObject> ObjList
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject>>(Ptr + 156); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 156); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject>>(Ptr + 160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
     }
 }

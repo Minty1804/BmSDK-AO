@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSpecialMoveInstance_HoldLedge<br/>
-/// (size = 576)
+/// (size = 600)
 /// (flags = 8388626)
 /// </summary>
 public partial class RSpecialMoveInstance_HoldLedge : BmSDK.BmGame.RSpecialMoveInstance_ActivePoseTransition, BmSDK.IGameObject

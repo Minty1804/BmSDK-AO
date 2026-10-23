@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: Trigger_Dynamic<br/>
-/// (size = 440)
+/// (size = 464)
 /// (flags = 8389138)
 /// </summary>
 public partial class Trigger_Dynamic : BmSDK.Engine.Trigger, BmSDK.IGameObject

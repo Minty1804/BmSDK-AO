@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCinematicCustomActor<br/>
-/// (size = 580)
+/// (size = 672)
 /// (flags = 8389138)
 /// </summary>
 public partial class RCinematicCustomActor : BmSDK.BmGame.RCinematicActor, BmSDK.IGameObject

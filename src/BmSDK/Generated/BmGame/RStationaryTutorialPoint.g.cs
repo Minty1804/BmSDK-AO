@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStationaryTutorialPoint<br/>
-/// (size = 428)
+/// (size = 452)
 /// (flags = 8389138)
 /// </summary>
 public partial class RStationaryTutorialPoint : BmSDK.Engine.Actor, BmSDK.IGameObject

@@ -79,100 +79,80 @@ public partial class REvidenceLog : BmSDK.GameObject, BmSDK.IGameObject
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
-    /// Function: SetEvidenceAnnounced
-    /// </summary>
-    public unsafe virtual void SetEvidenceAnnounced(BmSDK.GameObject evidence)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.REvidenceLog.SetEvidenceAnnounced", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(evidence, paramsPtr + 0);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: SetEvidenceFound
-    /// </summary>
-    public unsafe virtual bool SetEvidenceFound(BmSDK.GameObject evidence)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.REvidenceLog.SetEvidenceFound", true);
-        byte* paramsPtr = stackalloc byte[8];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(evidence, paramsPtr + 0);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
-    }
-
-    /// <summary>
     /// Function: SetEvidenceScanned
     /// </summary>
     public unsafe virtual bool SetEvidenceScanned(BmSDK.BmGame.REvidenceInterface evidence)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.REvidenceLog.SetEvidenceScanned", true);
-        byte* paramsPtr = stackalloc byte[12];
+        byte* paramsPtr = stackalloc byte[24];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(evidence, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
+    }
+
+    /// <summary>
+    /// Function: ResetEvidenceScanned
+    /// </summary>
+    public unsafe virtual void ResetEvidenceScanned(BmSDK.BmGame.RForensicDnaSplatStatic DNASplat, BmSDK.BmGame.RCrimeSceneBase CrimeVolume)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.REvidenceLog.ResetEvidenceScanned", true);
+        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DNASplat, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CrimeVolume, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
     }
 
     /// <summary>
     /// Function: IsRoomUnlocked
     /// </summary>
-    public unsafe virtual bool IsRoomUnlocked(BmSDK.FName roomName)
+    public unsafe virtual bool IsRoomUnlocked(BmSDK.FString roomName)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.REvidenceLog.IsRoomUnlocked", true);
-        byte* paramsPtr = stackalloc byte[12];
+        byte* paramsPtr = stackalloc byte[16];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(roomName, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
     }
 
     /// <summary>
     /// Function: SetRoomUnlocked
     /// </summary>
-    public unsafe virtual void SetRoomUnlocked(BmSDK.FName roomName, bool bUnLock, BmSDK.BmGame.RPlayerController PC)
+    public unsafe virtual void SetRoomUnlocked(BmSDK.BmGame.RCrimeSceneBase CrimeSceneVolume, bool bUnlock, BmSDK.BmGame.RPlayerController PC)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.REvidenceLog.SetRoomUnlocked", true);
-        byte* paramsPtr = stackalloc byte[16];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(roomName, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(bUnLock, paramsPtr + 8);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(PC, paramsPtr + 12);
+        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CrimeSceneVolume, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bUnlock, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(PC, paramsPtr + 8);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
-    }
-
-    /// <summary>
-    /// Function: RefreshRooms
-    /// </summary>
-    public unsafe virtual void RefreshRooms()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.REvidenceLog.RefreshRooms", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: HasEvidenceBeenFoundAndNotAnnounced
-    /// </summary>
-    public unsafe virtual bool HasEvidenceBeenFoundAndNotAnnounced(BmSDK.GameObject evidence)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.REvidenceLog.HasEvidenceBeenFoundAndNotAnnounced", true);
-        byte* paramsPtr = stackalloc byte[8];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(evidence, paramsPtr + 0);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
     }
 
     /// <summary>
     /// Function: HasEvidenceBeenScanned
     /// </summary>
-    public unsafe virtual bool HasEvidenceBeenScanned(BmSDK.BmGame.REvidence evidence)
+    public unsafe virtual bool HasEvidenceBeenScanned(BmSDK.BmGame.RForensicDnaSplatStatic DNASplat, BmSDK.BmGame.RCrimeSceneBase OverrideVolume = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.REvidenceLog.HasEvidenceBeenScanned", true);
-        byte* paramsPtr = stackalloc byte[8];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(evidence, paramsPtr + 0);
+        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DNASplat, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(OverrideVolume, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
+    }
+
+    /// <summary>
+    /// Function: GetGlobalFlagName
+    /// </summary>
+    public unsafe virtual BmSDK.FString GetGlobalFlagName(BmSDK.BmGame.RForensicDnaSplatStatic DNASplat, BmSDK.BmGame.RCrimeSceneBase OverrideVolume = default)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.REvidenceLog.GetGlobalFlagName", true);
+        byte* paramsPtr = stackalloc byte[56];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DNASplat, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(OverrideVolume, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 8);
     }
 
     /// <summary>

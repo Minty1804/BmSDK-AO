@@ -26,14 +26,14 @@ public partial interface RSecretInterface : BmSDK.Interface
     public unsafe int GetSecretLocationX();
 
     /// <summary>
-    /// Function: GetSecretZone
+    /// Function: GetSecretGroup
     /// </summary>
-    public unsafe byte GetSecretZone();
+    public unsafe BmSDK.FString GetSecretGroup();
 
     /// <summary>
-    /// Function: GetSecretPickupIndex
+    /// Function: GetSecretIndex
     /// </summary>
-    public unsafe int GetSecretPickupIndex();
+    public unsafe int GetSecretIndex();
 
     /// <summary>
     /// Function: GetSecretSubType

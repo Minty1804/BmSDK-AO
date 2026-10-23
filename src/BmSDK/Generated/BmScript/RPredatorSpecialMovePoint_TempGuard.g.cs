@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPredatorSpecialMovePoint_TempGuard<br/>
-/// (size = 464)
+/// (size = 488)
 /// (flags = 8389138)
 /// </summary>
 public partial class RPredatorSpecialMovePoint_TempGuard : BmSDK.BmScript.RPredatorSpecialMovePoint, BmSDK.IGameObject
@@ -131,8 +131,8 @@ public partial class RPredatorSpecialMovePoint_TempGuard : BmSDK.BmScript.RPreda
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.Actor> WatchPoints
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor>>(Ptr + 440); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor>>(Ptr + 464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
     }
 
     /// <summary>
@@ -140,8 +140,8 @@ public partial class RPredatorSpecialMovePoint_TempGuard : BmSDK.BmScript.RPreda
     /// </summary>
     public unsafe float MinUseTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 476); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
     }
 
     /// <summary>
@@ -149,8 +149,8 @@ public partial class RPredatorSpecialMovePoint_TempGuard : BmSDK.BmScript.RPreda
     /// </summary>
     public unsafe float MaxUseTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 456); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 480); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
     }
 
     /// <summary>
@@ -158,7 +158,7 @@ public partial class RPredatorSpecialMovePoint_TempGuard : BmSDK.BmScript.RPreda
     /// </summary>
     public unsafe BmSDK.BmGame.RAEC_Search_Sub_PredatorPoint CurrAEC
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAEC_Search_Sub_PredatorPoint>(Ptr + 460); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAEC_Search_Sub_PredatorPoint>(Ptr + 484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
     }
 }

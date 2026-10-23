@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCharacterViewerCamera<br/>
-/// (size = 968)
+/// (size = 1012)
 /// (flags = 144704146)
 /// </summary>
 public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.IGameObject
@@ -196,8 +196,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe BmSDK.BmGame.RCharacterViewerConfig AutomaticallyUseConfig
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCharacterViewerConfig>(Ptr + 864); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 864); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCharacterViewerConfig>(Ptr + 908); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 908); }
     }
 
     /// <summary>
@@ -205,8 +205,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float FOVSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 868); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 868); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 912); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 912); }
     }
 
     /// <summary>
@@ -214,8 +214,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float RotateSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 872); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 872); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 916); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 916); }
     }
 
     /// <summary>
@@ -223,8 +223,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float HeightSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 876); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 876); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 920); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 920); }
     }
 
     /// <summary>
@@ -232,8 +232,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float AutoRotateSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 880); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 880); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 924); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 924); }
     }
 
     /// <summary>
@@ -241,8 +241,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float AutoRotateBlendOutDuration
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 884); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 884); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 928); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 928); }
     }
 
     /// <summary>
@@ -250,8 +250,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float AutoRotateBlendInDuration
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 888); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 888); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 932); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 932); }
     }
 
     /// <summary>
@@ -259,8 +259,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float AutoRotateIdleDuration
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 892); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 892); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 936); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 936); }
     }
 
     /// <summary>
@@ -268,8 +268,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe BmSDK.BmGame.RCharacterViewerConfig LiveConfig
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCharacterViewerConfig>(Ptr + 896); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 896); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCharacterViewerConfig>(Ptr + 940); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 940); }
     }
 
     /// <summary>
@@ -277,8 +277,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float AutoRotateIdleTimeRemaining
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 900); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 900); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 944); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 944); }
     }
 
     /// <summary>
@@ -286,8 +286,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float AutoRotateWeight
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 904); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 904); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 948); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 948); }
     }
 
     /// <summary>
@@ -295,8 +295,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe bool AutoSwitchPlayerToMe
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 908) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 908); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 908); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 952) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 952); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 952); }
     }
 
     /// <summary>
@@ -304,8 +304,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.Actor> LinkedActors
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor>>(Ptr + 912); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 912); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor>>(Ptr + 956); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 956); }
     }
 
     /// <summary>
@@ -313,8 +313,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RCharacterViewerCamera.FCapturedActorState> CapturedActors
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RCharacterViewerCamera.FCapturedActorState>>(Ptr + 924); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 924); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RCharacterViewerCamera.FCapturedActorState>>(Ptr + 968); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 968); }
     }
 
     /// <summary>
@@ -322,8 +322,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe int InitialYaw
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 936); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 936); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 980); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 980); }
     }
 
     /// <summary>
@@ -331,8 +331,8 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float CurrentHeightControl
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 940); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 940); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 984); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 984); }
     }
 
     /// <summary>
@@ -340,23 +340,23 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float CurrentFOVControl
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 944); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 944); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 988); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 988); }
     }
 
     /// <summary>
     /// StructProperty: CurrentAngleControl
     /// </summary>
     public unsafe ref BmSDK.Rotator CurrentAngleControl
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 948);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 992);
 
     /// <summary>
     /// FloatProperty: ZoomedInHeightSpeedScale
     /// </summary>
     public unsafe float ZoomedInHeightSpeedScale
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 960); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 960); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1004); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1004); }
     }
 
     /// <summary>
@@ -364,7 +364,7 @@ public partial class RCharacterViewerCamera : BmSDK.BmGame.RCameraActor, BmSDK.I
     /// </summary>
     public unsafe float ZoomedOutHeightSpeedScale
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 964); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 964); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1008); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1008); }
     }
 }

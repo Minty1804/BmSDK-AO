@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDebugCameraHUD<br/>
-/// (size = 1076)
+/// (size = 1100)
 /// (flags = 8388638)
 /// </summary>
 public partial class RDebugCameraHUD : BmSDK.Engine.HUD, BmSDK.IGameObject
@@ -84,7 +84,7 @@ public partial class RDebugCameraHUD : BmSDK.Engine.HUD, BmSDK.IGameObject
     public unsafe override void DrawHUD()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDebugCameraHUD.DrawHUD", true);
-        byte* paramsPtr = stackalloc byte[56];
+        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

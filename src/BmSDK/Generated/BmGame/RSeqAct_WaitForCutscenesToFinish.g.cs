@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_WaitForCutscenesToFinish<br/>
-/// (size = 232)
+/// (size = 252)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_WaitForCutscenesToFinish : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject
@@ -117,8 +117,8 @@ public partial class RSeqAct_WaitForCutscenesToFinish : BmSDK.Engine.SeqAct_Late
     /// </summary>
     public unsafe BmSDK.BmGame.RPlayerController CurrController
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 
     /// <summary>
@@ -126,8 +126,8 @@ public partial class RSeqAct_WaitForCutscenesToFinish : BmSDK.Engine.SeqAct_Late
     /// </summary>
     public unsafe float CurrentDelayTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
     }
 
     /// <summary>
@@ -135,7 +135,7 @@ public partial class RSeqAct_WaitForCutscenesToFinish : BmSDK.Engine.SeqAct_Late
     /// </summary>
     public unsafe float DelayTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
     }
 }

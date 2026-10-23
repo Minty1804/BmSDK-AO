@@ -79,6 +79,18 @@ public partial class Input : BmSDK.Engine.Interaction, BmSDK.IGameObject
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
+    /// Function: RemoveBind
+    /// </summary>
+    public unsafe virtual void RemoveBind(BmSDK.FName BindName)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.Input.RemoveBind", true);
+        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(BindName, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: SetBind
     /// </summary>
     public unsafe virtual void SetBind(BmSDK.FName BindName, BmSDK.FString Command)

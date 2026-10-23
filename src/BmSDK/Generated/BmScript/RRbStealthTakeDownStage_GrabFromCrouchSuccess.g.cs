@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RRbStealthTakeDownStage_GrabFromCrouchSuccess<br/>
-/// (size = 1184)
+/// (size = 1228)
 /// (flags = 8388626)
 /// </summary>
 public partial class RRbStealthTakeDownStage_GrabFromCrouchSuccess : BmSDK.BmGame.RStealthTakeDownStage_GrabFromCrouchSuccess, BmSDK.IGameObject

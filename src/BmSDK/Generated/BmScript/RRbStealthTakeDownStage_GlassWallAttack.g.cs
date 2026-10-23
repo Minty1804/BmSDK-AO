@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RRbStealthTakeDownStage_GlassWallAttack<br/>
-/// (size = 1224)
+/// (size = 1268)
 /// (flags = 8388626)
 /// </summary>
 public partial class RRbStealthTakeDownStage_GlassWallAttack : BmSDK.BmGame.RStealthTakeDownStage_GlassWallAttack, BmSDK.IGameObject

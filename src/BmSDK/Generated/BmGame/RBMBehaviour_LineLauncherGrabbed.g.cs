@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_LineLauncherGrabbed<br/>
-/// (size = 400)
+/// (size = 420)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_LineLauncherGrabbed : BmSDK.BmGame.RBMBehaviour_Controlled, BmSDK.IGameObject
@@ -138,7 +138,7 @@ public partial class RBMBehaviour_LineLauncherGrabbed : BmSDK.BmGame.RBMBehaviou
     /// </summary>
     public unsafe BmSDK.BmGame.RBMPawnAI Victim
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMPawnAI>(Ptr + 396); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 396); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMPawnAI>(Ptr + 416); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 416); }
     }
 }

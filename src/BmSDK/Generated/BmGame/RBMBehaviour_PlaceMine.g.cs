@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_PlaceMine<br/>
-/// (size = 400)
+/// (size = 424)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_PlaceMine : BmSDK.BmGame.RBMBehaviour_ActionQueue, BmSDK.IGameObject
@@ -116,7 +116,16 @@ public partial class RBMBehaviour_PlaceMine : BmSDK.BmGame.RBMBehaviour_ActionQu
     /// </summary>
     public unsafe BmSDK.BmGame.RThugMineablePointBase MinePoint
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RThugMineablePointBase>(Ptr + 396); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 396); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RThugMineablePointBase>(Ptr + 416); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 416); }
+    }
+
+    /// <summary>
+    /// FloatProperty: mWaitTime
+    /// </summary>
+    public unsafe float mWaitTime
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 420); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 420); }
     }
 }

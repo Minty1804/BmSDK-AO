@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDisruptableItem<br/>
-/// (size = 568)
+/// (size = 616)
 /// (flags = 8388626)
 /// </summary>
 public partial class RDisruptableItem : BmSDK.BmGame.RDisruptableObjectBase, BmSDK.IGameObject
@@ -116,7 +116,7 @@ public partial class RDisruptableItem : BmSDK.BmGame.RDisruptableObjectBase, BmS
     /// </summary>
     public unsafe float RechargeTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 564); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 612); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 612); }
     }
 }

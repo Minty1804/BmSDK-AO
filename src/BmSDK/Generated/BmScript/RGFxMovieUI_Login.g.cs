@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGFxMovieUI_Login<br/>
-/// (size = 680)
-/// (flags = 18)
+/// (size = 836)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieUI_Login : BmSDK.BmGame.RGFxMovieUI, BmSDK.IGameObject
 {
@@ -186,8 +186,8 @@ public partial class RGFxMovieUI_Login : BmSDK.BmGame.RGFxMovieUI, BmSDK.IGameOb
     /// </summary>
     public unsafe BmSDK.BmGame.RGFxMoviePopupRequester SignInPopup
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGFxMoviePopupRequester>(Ptr + 660); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 660); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGFxMoviePopupRequester>(Ptr + 816); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 816); }
     }
 
     /// <summary>
@@ -195,8 +195,8 @@ public partial class RGFxMovieUI_Login : BmSDK.BmGame.RGFxMovieUI, BmSDK.IGameOb
     /// </summary>
     public unsafe int TickState
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 664); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 664); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 820); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 820); }
     }
 
     /// <summary>
@@ -204,7 +204,7 @@ public partial class RGFxMovieUI_Login : BmSDK.BmGame.RGFxMovieUI, BmSDK.IGameOb
     /// </summary>
     public unsafe BmSDK.FString NextScreen
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 668); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 668); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 824); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 824); }
     }
 }

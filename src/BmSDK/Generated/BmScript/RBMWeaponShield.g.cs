@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponShield<br/>
-/// (size = 960)
+/// (size = 976)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponShield : BmSDK.BmGame.RBMWeaponMelee, BmSDK.IGameObject
@@ -77,6 +77,17 @@ public partial class RBMWeaponShield : BmSDK.BmGame.RBMWeaponMelee, BmSDK.IGameO
     public void DetachScriptComponents<TComponent>()
         where TComponent : class, Framework.IScriptComponent<RBMWeaponShield>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// Function: GetAerialAttackPriorityOverride
+    /// </summary>
+    public unsafe override int GetAerialAttackPriorityOverride()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMWeaponShield.GetAerialAttackPriorityOverride", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+    }
 
     /// <summary>
     /// Function: GetBatClawPriority
@@ -153,7 +164,7 @@ public partial class RBMWeaponShield : BmSDK.BmGame.RBMWeaponMelee, BmSDK.IGameO
     public unsafe static BmSDK.BmGame.RWeaponConfig CreateKnockedBackWeaponConfig(BmSDK.GameObject NewOwner, BmSDK.Engine.AnimSet AnimSet)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMWeaponShield.CreateKnockedBackWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[904];
+        byte* paramsPtr = stackalloc byte[912];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -163,17 +174,14 @@ public partial class RBMWeaponShield : BmSDK.BmGame.RBMWeaponMelee, BmSDK.IGameO
     /// <summary>
     /// Function: CreateCombatWeaponConfig
     /// </summary>
-    public unsafe static BmSDK.BmGame.RWeaponConfig CreateCombatWeaponConfig(BmSDK.GameObject NewOwner, BmSDK.Engine.AnimSet AnimSet1, BmSDK.Engine.AnimSet AnimSet2, BmSDK.Engine.AnimSet AnimSet3, BmSDK.Engine.AnimSet AnimSet4)
+    public unsafe static BmSDK.BmGame.RWeaponConfig CreateCombatWeaponConfig(BmSDK.GameObject NewOwner, BmSDK.TArray<BmSDK.Engine.AnimSet> AnimSets)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMWeaponShield.CreateCombatWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[4928];
+        byte* paramsPtr = stackalloc byte[4840];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet1, paramsPtr + 4);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet2, paramsPtr + 8);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet3, paramsPtr + 12);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet4, paramsPtr + 16);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSets, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RWeaponConfig>(paramsPtr + 20);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RWeaponConfig>(paramsPtr + 16);
     }
 
     /// <summary>

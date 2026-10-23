@@ -5,11 +5,31 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Interface: OnlineSystemInterface<br/>
-/// (size = 104)
+/// (size = 116)
 /// (flags = 16403)
 /// </summary>
 public partial interface OnlineSystemInterface : BmSDK.Interface
 {
+    /// <summary>
+    /// Function: ClearThemeInstallCompleteDelegate
+    /// </summary>
+    public unsafe void ClearThemeInstallCompleteDelegate(System.IntPtr ThemeInstallCompleteDelegate);
+
+    /// <summary>
+    /// Function: AddThemeInstallCompleteDelegate
+    /// </summary>
+    public unsafe void AddThemeInstallCompleteDelegate(System.IntPtr ThemeInstallCompleteDelegate);
+
+    /// <summary>
+    /// Function: InstallTheme
+    /// </summary>
+    public unsafe bool InstallTheme(BmSDK.FString ThemeFilepath);
+
+    /// <summary>
+    /// Function: OnThemeInstallComplete
+    /// </summary>
+    public unsafe void OnThemeInstallComplete(bool bWasSuccessful);
+
     /// <summary>
     /// Function: ClearStorageDeviceChangeDelegate
     /// </summary>
@@ -74,6 +94,11 @@ public partial interface OnlineSystemInterface : BmSDK.Interface
     /// Function: OnExternalUIChange
     /// </summary>
     public unsafe void OnExternalUIChange(bool bIsOpening);
+
+    /// <summary>
+    /// Function: ClearLinkStatusChangeDelegate
+    /// </summary>
+    public unsafe void ClearLinkStatusChangeDelegate(System.IntPtr LinkStatusDelegate);
 
     /// <summary>
     /// Function: AddLinkStatusChangeDelegate

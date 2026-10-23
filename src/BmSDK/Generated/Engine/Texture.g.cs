@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: Texture<br/>
-/// (size = 212)
+/// (size = 224)
 /// (flags = 134217875)
 /// </summary>
 public partial class Texture : BmSDK.Engine.Surface, BmSDK.IGameObject
@@ -445,8 +445,8 @@ public partial class Texture : BmSDK.Engine.Surface, BmSDK.IGameObject
     /// </summary>
     public unsafe float AdjustBrightness
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 184); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 184); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 196); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 196); }
     }
 
     /// <summary>
@@ -454,8 +454,8 @@ public partial class Texture : BmSDK.Engine.Surface, BmSDK.IGameObject
     /// </summary>
     public unsafe float AdjustBrightnessCurve
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 188); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 188); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 200); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 200); }
     }
 
     /// <summary>
@@ -463,8 +463,8 @@ public partial class Texture : BmSDK.Engine.Surface, BmSDK.IGameObject
     /// </summary>
     public unsafe float AdjustVibrance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 192); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 192); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 204); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
     }
 
     /// <summary>
@@ -472,8 +472,8 @@ public partial class Texture : BmSDK.Engine.Surface, BmSDK.IGameObject
     /// </summary>
     public unsafe float AdjustSaturation
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 196); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 196); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 208); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
     }
 
     /// <summary>
@@ -481,8 +481,8 @@ public partial class Texture : BmSDK.Engine.Surface, BmSDK.IGameObject
     /// </summary>
     public unsafe float AdjustRGBCurve
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 200); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 200); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 212); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 212); }
     }
 
     /// <summary>
@@ -490,8 +490,8 @@ public partial class Texture : BmSDK.Engine.Surface, BmSDK.IGameObject
     /// </summary>
     public unsafe float AdjustHue
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 216); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 216); }
     }
 
     /// <summary>
@@ -499,8 +499,8 @@ public partial class Texture : BmSDK.Engine.Surface, BmSDK.IGameObject
     /// </summary>
     public unsafe int InternalFormatLODBias
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 220); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
     }
 
     /// <summary>
@@ -528,7 +528,8 @@ public partial class Texture : BmSDK.Engine.Surface, BmSDK.IGameObject
         TMGS_Blur3 = 17,
         TMGS_Blur4 = 18,
         TMGS_Blur5 = 19,
-        TMGS_MAX = 20,
+        TMGS_CustomMipMap = 20,
+        TMGS_MAX = 21,
     }
 
     /// <summary>

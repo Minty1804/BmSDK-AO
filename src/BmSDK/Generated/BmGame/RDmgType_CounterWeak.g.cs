@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_CounterWeak<br/>
-/// (size = 148)
+/// (size = 160)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_CounterWeak : BmSDK.BmGame.RDmgType_Counter, BmSDK.IGameObject

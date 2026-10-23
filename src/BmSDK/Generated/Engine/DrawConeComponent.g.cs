@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: DrawConeComponent<br/>
-/// (size = 420)
+/// (size = 456)
 /// (flags = 2290102418)
 /// </summary>
 public partial class DrawConeComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGameObject
@@ -82,15 +82,15 @@ public partial class DrawConeComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.
     /// StructProperty: ConeColor
     /// </summary>
     public unsafe ref BmSDK.GameObject.FColor ConeColor
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 404);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 440);
 
     /// <summary>
     /// FloatProperty: ConeRadius
     /// </summary>
     public unsafe float ConeRadius
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 408); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 408); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 444); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 444); }
     }
 
     /// <summary>
@@ -98,8 +98,8 @@ public partial class DrawConeComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.
     /// </summary>
     public unsafe float ConeAngle
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 412); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 412); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 448); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 448); }
     }
 
     /// <summary>
@@ -107,7 +107,7 @@ public partial class DrawConeComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.
     /// </summary>
     public unsafe int ConeSides
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 416); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 416); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 }

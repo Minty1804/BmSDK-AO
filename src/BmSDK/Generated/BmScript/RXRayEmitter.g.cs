@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RXRayEmitter<br/>
-/// (size = 440)
+/// (size = 464)
 /// (flags = 8389138)
 /// </summary>
 public partial class RXRayEmitter : BmSDK.Engine.Emitter, BmSDK.IGameObject

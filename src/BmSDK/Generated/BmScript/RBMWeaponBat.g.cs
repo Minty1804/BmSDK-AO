@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponBat<br/>
-/// (size = 968)
+/// (size = 984)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponBat : BmSDK.BmGame.RBMWeaponPipeBase, BmSDK.IGameObject

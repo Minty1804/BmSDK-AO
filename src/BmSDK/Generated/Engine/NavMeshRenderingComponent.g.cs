@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: NavMeshRenderingComponent<br/>
-/// (size = 404)
+/// (size = 440)
 /// (flags = 2290094226)
 /// </summary>
 public partial class NavMeshRenderingComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGameObject

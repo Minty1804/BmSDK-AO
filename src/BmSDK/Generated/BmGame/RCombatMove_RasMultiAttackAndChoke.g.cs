@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_RasMultiAttackAndChoke<br/>
-/// (size = 792)
-/// (flags = 8388626)
+/// (size = 816)
+/// (flags = 41943058)
 /// </summary>
 public partial class RCombatMove_RasMultiAttackAndChoke : BmSDK.BmGame.RCombatMove_VillainMultiAttackAndCounter, BmSDK.IGameObject
 {

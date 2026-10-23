@@ -5,8 +5,8 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SkyLightComponent<br/>
-/// (size = 416)
-/// (flags = 144707730)
+/// (size = 440)
+/// (flags = 178262162)
 /// </summary>
 public partial class SkyLightComponent : BmSDK.Engine.LightComponent, BmSDK.IGameObject
 {
@@ -83,13 +83,13 @@ public partial class SkyLightComponent : BmSDK.Engine.LightComponent, BmSDK.IGam
     /// </summary>
     public unsafe float LowerBrightness
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 408); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 408); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 432); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
     }
 
     /// <summary>
     /// StructProperty: LowerColor
     /// </summary>
     public unsafe ref BmSDK.GameObject.FColor LowerColor
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 412);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 436);
 }

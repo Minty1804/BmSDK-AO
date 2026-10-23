@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDebugCameraController<br/>
-/// (size = 2032)
+/// (size = 2084)
 /// (flags = 142606486)
 /// </summary>
 public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController, BmSDK.IGameObject
@@ -463,12 +463,23 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     }
 
     /// <summary>
+    /// Function: DrawCameraDebugInfo
+    /// </summary>
+    public unsafe virtual void DrawCameraDebugInfo()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDebugCameraController.DrawCameraDebugInfo", true);
+        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: PlayerTick
     /// </summary>
     public unsafe override void PlayerTick(float DeltaTime)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDebugCameraController.PlayerTick", true);
-        byte* paramsPtr = stackalloc byte[44];
+        byte* paramsPtr = stackalloc byte[48];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
@@ -675,7 +686,7 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     public unsafe override void Pause()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDebugCameraController.Pause", true);
-        byte* paramsPtr = stackalloc byte[4];
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -934,6 +945,17 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     }
 
     /// <summary>
+    /// Function: DebugMenuJumpToTOC
+    /// </summary>
+    public unsafe virtual void DebugMenuJumpToTOC()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDebugCameraController.DebugMenuJumpToTOC", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: DebugMenuNextPage
     /// </summary>
     public unsafe virtual void DebugMenuNextPage()
@@ -950,6 +972,39 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     public unsafe virtual void DebugMenuPrevPage()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDebugCameraController.DebugMenuPrevPage", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ToggleMenuOnTop
+    /// </summary>
+    public unsafe virtual void ToggleMenuOnTop()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDebugCameraController.ToggleMenuOnTop", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ToggleLevelStatsMenu
+    /// </summary>
+    public unsafe virtual void ToggleLevelStatsMenu()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDebugCameraController.ToggleLevelStatsMenu", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ToggleDebugMenuOnCheckPoints
+    /// </summary>
+    public unsafe virtual void ToggleDebugMenuOnCheckPoints()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDebugCameraController.ToggleDebugMenuOnCheckPoints", true);
         byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
@@ -1015,8 +1070,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe BmSDK.BmGame.RDynamicMenu ActiveMenu
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDynamicMenu>(Ptr + 1472); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDynamicMenu>(Ptr + 1500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1500); }
     }
 
     /// <summary>
@@ -1024,8 +1079,17 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe BmSDK.BmGame.RDebugMenu DebugMenu
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDebugMenu>(Ptr + 1476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1476); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDebugMenu>(Ptr + 1504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1504); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: LevelStatsMenu
+    /// </summary>
+    public unsafe BmSDK.BmGame.MLevelStatsMenu LevelStatsMenu
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MLevelStatsMenu>(Ptr + 1508); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1508); }
     }
 
     /// <summary>
@@ -1033,38 +1097,26 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe int SpectatorStepFrame
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1480); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1480); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1512); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1512); }
     }
 
     /// <summary>
-    /// ComponentProperty: LightingTestSphere
+    /// BoolProperty: bUsePlayersOnly
     /// </summary>
-    public unsafe BmSDK.Engine.StaticMeshComponent LightingTestSphere
+    public unsafe bool bUsePlayersOnly
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 1484); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1484); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
-
-    /// <summary>
-    /// StructProperty: LightContainer1
-    /// </summary>
-    public unsafe ref BmSDK.Engine.LightComponent.FLightingChannelContainer LightContainer1
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.LightComponent.FLightingChannelContainer>(Ptr + 1488);
-
-    /// <summary>
-    /// StructProperty: LightContainer2
-    /// </summary>
-    public unsafe ref BmSDK.Engine.LightComponent.FLightingChannelContainer LightContainer2
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.LightComponent.FLightingChannelContainer>(Ptr + 1492);
 
     /// <summary>
     /// BoolProperty: bUsingEnvironmentSphere
     /// </summary>
     public unsafe bool bUsingEnvironmentSphere
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1072,8 +1124,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool bUsingCharacterSphere
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1081,8 +1133,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool LoadedSphere
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1090,8 +1142,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool bShowDialogueInfo
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1099,8 +1151,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool bOverrideDOF
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 16) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1108,8 +1160,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool bOrbitShot
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 32) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 64) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 64) : (currentMask & ~64); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1117,8 +1169,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool bOrbitShotXY
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 64) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 64) : (currentMask & ~64); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 128) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 128) : (currentMask & ~128); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1126,8 +1178,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool CreateRoundShotFolders
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 128) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 128) : (currentMask & ~128); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 256) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 256) : (currentMask & ~256); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1135,8 +1187,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool CreateOrbitShotFolders
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 256) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 256) : (currentMask & ~256); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 512) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 512) : (currentMask & ~512); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1144,8 +1196,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool bSetOrbitPivot
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 512) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 512) : (currentMask & ~512); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 1024) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 1024) : (currentMask & ~1024); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1153,17 +1205,17 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool bOldCollideWorld
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 1024) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 1024) : (currentMask & ~1024); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 2048) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 2048) : (currentMask & ~2048); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
-    /// BoolProperty: bOldOnScreenKismetWarnings
+    /// BoolProperty: bOldDebug_ShowKismetWarnings
     /// </summary>
-    public unsafe bool bOldOnScreenKismetWarnings
+    public unsafe bool bOldDebug_ShowKismetWarnings
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 2048) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 2048) : (currentMask & ~2048); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 4096) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 4096) : (currentMask & ~4096); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
 
     /// <summary>
@@ -1171,17 +1223,38 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe bool bScreenshotMode
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496) & 4096) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1496); var newMask = value ? (currentMask | 4096) : (currentMask & ~4096); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1496); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516) & 8192) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1516); var newMask = value ? (currentMask | 8192) : (currentMask & ~8192); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1516); }
     }
+
+    /// <summary>
+    /// ComponentProperty: LightingTestSphere
+    /// </summary>
+    public unsafe BmSDK.Engine.StaticMeshComponent LightingTestSphere
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 1520); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1520); }
+    }
+
+    /// <summary>
+    /// StructProperty: LightContainer1
+    /// </summary>
+    public unsafe ref BmSDK.Engine.LightComponent.FLightingChannelContainer LightContainer1
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.LightComponent.FLightingChannelContainer>(Ptr + 1524);
+
+    /// <summary>
+    /// StructProperty: LightContainer2
+    /// </summary>
+    public unsafe ref BmSDK.Engine.LightComponent.FLightingChannelContainer LightContainer2
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.LightComponent.FLightingChannelContainer>(Ptr + 1528);
 
     /// <summary>
     /// ComponentProperty: LightEnvironment
     /// </summary>
     public unsafe BmSDK.Engine.DynamicLightEnvironmentComponent LightEnvironment
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DynamicLightEnvironmentComponent>(Ptr + 1500); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1500); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DynamicLightEnvironmentComponent>(Ptr + 1532); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1532); }
     }
 
     /// <summary>
@@ -1189,8 +1262,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe BmSDK.Engine.PlayerController OldMainPlayerController
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PlayerController>(Ptr + 1504); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1504); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PlayerController>(Ptr + 1536); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1536); }
     }
 
     /// <summary>
@@ -1198,8 +1271,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe BmSDK.Engine.PointLightComponent Light
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PointLightComponent>(Ptr + 1508); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1508); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PointLightComponent>(Ptr + 1540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1540); }
     }
 
     /// <summary>
@@ -1207,8 +1280,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe BmSDK.BmGame.RPlayerController RPC
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 1512); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1512); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 1544); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1544); }
     }
 
     /// <summary>
@@ -1216,8 +1289,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe float DesiredZoomSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1516); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1516); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1548); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1548); }
     }
 
     /// <summary>
@@ -1225,8 +1298,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe float CurrentZoomSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1520); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1520); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1552); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1552); }
     }
 
     /// <summary>
@@ -1234,8 +1307,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe float DesiredRollSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1524); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1556); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1556); }
     }
 
     /// <summary>
@@ -1243,8 +1316,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe float CurrentRollSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1528); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1528); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1560); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1560); }
     }
 
     /// <summary>
@@ -1252,8 +1325,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe float RollRemainder
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1532); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1532); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1564); }
     }
 
     /// <summary>
@@ -1261,23 +1334,23 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe int CurrentDialogueCaptureLine
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1536); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1536); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1568); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1568); }
     }
 
     /// <summary>
     /// StructProperty: DOFSettings
     /// </summary>
     public unsafe ref BmSDK.Engine.PostProcessVolume.FPostProcessSettings DOFSettings
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.PostProcessVolume.FPostProcessSettings>(Ptr + 1540);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.PostProcessVolume.FPostProcessSettings>(Ptr + 1572);
 
     /// <summary>
     /// IntProperty: iShotIndex
     /// </summary>
     public unsafe int iShotIndex
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1940); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1940); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1992); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1992); }
     }
 
     /// <summary>
@@ -1285,8 +1358,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe int NumRoundShotsPerTake
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1944); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1944); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1996); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1996); }
     }
 
     /// <summary>
@@ -1294,8 +1367,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe int iRoundshotTake
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1948); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1948); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2000); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2000); }
     }
 
     /// <summary>
@@ -1303,8 +1376,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe int NumOrbitShotsPerTake
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1952); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1952); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2004); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2004); }
     }
 
     /// <summary>
@@ -1312,47 +1385,47 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe int iOrbitShotTake
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1956); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1956); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2008); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2008); }
     }
 
     /// <summary>
     /// StructProperty: OrbitPivot
     /// </summary>
     public unsafe ref System.Numerics.Vector3 OrbitPivot
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1960);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 2012);
 
     /// <summary>
     /// StructProperty: OldCameraPosition
     /// </summary>
     public unsafe ref System.Numerics.Vector3 OldCameraPosition
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1972);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 2024);
 
     /// <summary>
     /// StructProperty: OldCameraRotation
     /// </summary>
     public unsafe ref BmSDK.Rotator OldCameraRotation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 1984);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 2036);
 
     /// <summary>
     /// StructProperty: TrackingOffset
     /// </summary>
     public unsafe ref BmSDK.Rotator TrackingOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 1996);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 2048);
 
     /// <summary>
     /// StructProperty: OrbitOffset
     /// </summary>
     public unsafe ref System.Numerics.Vector3 OrbitOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 2008);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 2060);
 
     /// <summary>
     /// ObjectProperty: TrackingPlayer
     /// </summary>
     public unsafe BmSDK.BmGame.RPawnPlayer TrackingPlayer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayer>(Ptr + 2020); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2020); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayer>(Ptr + 2072); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2072); }
     }
 
     /// <summary>
@@ -1360,8 +1433,8 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe BmSDK.Engine.CameraShake CinematicScreenShake
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.CameraShake>(Ptr + 2024); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2024); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.CameraShake>(Ptr + 2076); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2076); }
     }
 
     /// <summary>
@@ -1369,7 +1442,7 @@ public partial class RDebugCameraController : BmSDK.Engine.DebugCameraController
     /// </summary>
     public unsafe int DebugMenuQualifierCount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2028); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2028); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2080); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2080); }
     }
 }

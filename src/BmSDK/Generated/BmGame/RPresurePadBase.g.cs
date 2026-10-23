@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RPresurePadBase<br/>
-/// (size = 428)
+/// (size = 452)
 /// (flags = 142606483)
 /// </summary>
 public partial class RPresurePadBase : BmSDK.Engine.Actor, BmSDK.IGameObject

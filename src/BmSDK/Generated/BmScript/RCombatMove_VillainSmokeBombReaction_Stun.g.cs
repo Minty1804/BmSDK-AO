@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RCombatMove_VillainSmokeBombReaction_Stun<br/>
-/// (size = 792)
+/// (size = 836)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_VillainSmokeBombReaction_Stun : BmSDK.BmGame.RCombatMove_VillainSmokeBombReaction, BmSDK.IGameObject
@@ -86,6 +86,17 @@ public partial class RCombatMove_VillainSmokeBombReaction_Stun : BmSDK.BmGame.RC
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RCombatMove_VillainSmokeBombReaction_Stun.SetCounterInfo", true);
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bMirrored, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: CanCounterStart
+    /// </summary>
+    public unsafe override void CanCounterStart()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RCombatMove_VillainSmokeBombReaction_Stun.CanCounterStart", true);
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

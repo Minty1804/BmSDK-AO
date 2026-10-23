@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_Ras<br/>
-/// (size = 120)
-/// (flags = 18)
+/// (size = 132)
+/// (flags = 33554450)
 /// </summary>
 public partial class RDmgType_Ras : BmSDK.BmGame.RDamageType, BmSDK.IGameObject
 {

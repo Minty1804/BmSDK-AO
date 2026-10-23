@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MatineeActor<br/>
-/// (size = 608)
+/// (size = 632)
 /// (flags = 142608530)
 /// </summary>
 public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -124,8 +124,8 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.SeqAct_Interp InterpAction
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SeqAct_Interp>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SeqAct_Interp>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 
     /// <summary>
@@ -133,8 +133,8 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bIsPlaying
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 432); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 456); }
     }
 
     /// <summary>
@@ -142,8 +142,8 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bReversePlayback
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 432); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 456); }
     }
 
     /// <summary>
@@ -151,8 +151,8 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bPaused
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 432); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 456); }
     }
 
     /// <summary>
@@ -160,8 +160,8 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool AllAIGroupsInitialized
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 432); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 456); }
     }
 
     /// <summary>
@@ -169,8 +169,8 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float PlayRate
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 436); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
     }
 
     /// <summary>
@@ -178,43 +178,19 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float Position
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 440); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
     }
 
     /// <summary>
     /// InlineArray{NameProperty}: AIGroupNames
     /// </summary>
-    public InlineArray<BmSDK.FName> AIGroupNames => new(10, Ptr + 444, 8, this);
+    public InlineArray<BmSDK.FName> AIGroupNames => new(10, Ptr + 468, 8, this);
 
     /// <summary>
     /// NameProperty: AIGroupNames
     /// </summary>
     public unsafe BmSDK.FName AIGroupNames_0
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 444); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 444); }
-    }
-    /// <summary>
-    /// NameProperty: AIGroupNames
-    /// </summary>
-    public unsafe BmSDK.FName AIGroupNames_1
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
-    }
-    /// <summary>
-    /// NameProperty: AIGroupNames
-    /// </summary>
-    public unsafe BmSDK.FName AIGroupNames_2
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 460); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
-    }
-    /// <summary>
-    /// NameProperty: AIGroupNames
-    /// </summary>
-    public unsafe BmSDK.FName AIGroupNames_3
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 468); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 468); }
@@ -222,7 +198,7 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// NameProperty: AIGroupNames
     /// </summary>
-    public unsafe BmSDK.FName AIGroupNames_4
+    public unsafe BmSDK.FName AIGroupNames_1
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 476); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
@@ -230,7 +206,7 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// NameProperty: AIGroupNames
     /// </summary>
-    public unsafe BmSDK.FName AIGroupNames_5
+    public unsafe BmSDK.FName AIGroupNames_2
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 484); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
@@ -238,7 +214,7 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// NameProperty: AIGroupNames
     /// </summary>
-    public unsafe BmSDK.FName AIGroupNames_6
+    public unsafe BmSDK.FName AIGroupNames_3
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 492); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
@@ -246,7 +222,7 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// NameProperty: AIGroupNames
     /// </summary>
-    public unsafe BmSDK.FName AIGroupNames_7
+    public unsafe BmSDK.FName AIGroupNames_4
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 500); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
@@ -254,7 +230,7 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// NameProperty: AIGroupNames
     /// </summary>
-    public unsafe BmSDK.FName AIGroupNames_8
+    public unsafe BmSDK.FName AIGroupNames_5
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 508); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 508); }
@@ -262,69 +238,45 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// NameProperty: AIGroupNames
     /// </summary>
-    public unsafe BmSDK.FName AIGroupNames_9
+    public unsafe BmSDK.FName AIGroupNames_6
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 516); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
+    }
+    /// <summary>
+    /// NameProperty: AIGroupNames
+    /// </summary>
+    public unsafe BmSDK.FName AIGroupNames_7
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 524); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
+    }
+    /// <summary>
+    /// NameProperty: AIGroupNames
+    /// </summary>
+    public unsafe BmSDK.FName AIGroupNames_8
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 532); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 532); }
+    }
+    /// <summary>
+    /// NameProperty: AIGroupNames
+    /// </summary>
+    public unsafe BmSDK.FName AIGroupNames_9
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
     }
 
     /// <summary>
     /// InlineArray{ObjectProperty}: AIGroupPawns
     /// </summary>
-    public InlineArray<BmSDK.Engine.Pawn> AIGroupPawns => new(10, Ptr + 524, 4, this);
+    public InlineArray<BmSDK.Engine.Pawn> AIGroupPawns => new(10, Ptr + 548, 4, this);
 
     /// <summary>
     /// ObjectProperty: AIGroupPawns
     /// </summary>
     public unsafe BmSDK.Engine.Pawn AIGroupPawns_0
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
-    }
-    /// <summary>
-    /// ObjectProperty: AIGroupPawns
-    /// </summary>
-    public unsafe BmSDK.Engine.Pawn AIGroupPawns_1
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 528); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 528); }
-    }
-    /// <summary>
-    /// ObjectProperty: AIGroupPawns
-    /// </summary>
-    public unsafe BmSDK.Engine.Pawn AIGroupPawns_2
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 532); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 532); }
-    }
-    /// <summary>
-    /// ObjectProperty: AIGroupPawns
-    /// </summary>
-    public unsafe BmSDK.Engine.Pawn AIGroupPawns_3
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 536); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 536); }
-    }
-    /// <summary>
-    /// ObjectProperty: AIGroupPawns
-    /// </summary>
-    public unsafe BmSDK.Engine.Pawn AIGroupPawns_4
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 540); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
-    }
-    /// <summary>
-    /// ObjectProperty: AIGroupPawns
-    /// </summary>
-    public unsafe BmSDK.Engine.Pawn AIGroupPawns_5
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 544); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 544); }
-    }
-    /// <summary>
-    /// ObjectProperty: AIGroupPawns
-    /// </summary>
-    public unsafe BmSDK.Engine.Pawn AIGroupPawns_6
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 548); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 548); }
@@ -332,7 +284,7 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// ObjectProperty: AIGroupPawns
     /// </summary>
-    public unsafe BmSDK.Engine.Pawn AIGroupPawns_7
+    public unsafe BmSDK.Engine.Pawn AIGroupPawns_1
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 552); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 552); }
@@ -340,7 +292,7 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// ObjectProperty: AIGroupPawns
     /// </summary>
-    public unsafe BmSDK.Engine.Pawn AIGroupPawns_8
+    public unsafe BmSDK.Engine.Pawn AIGroupPawns_2
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 556); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 556); }
@@ -348,69 +300,69 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// ObjectProperty: AIGroupPawns
     /// </summary>
-    public unsafe BmSDK.Engine.Pawn AIGroupPawns_9
+    public unsafe BmSDK.Engine.Pawn AIGroupPawns_3
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 560); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 560); }
+    }
+    /// <summary>
+    /// ObjectProperty: AIGroupPawns
+    /// </summary>
+    public unsafe BmSDK.Engine.Pawn AIGroupPawns_4
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
+    }
+    /// <summary>
+    /// ObjectProperty: AIGroupPawns
+    /// </summary>
+    public unsafe BmSDK.Engine.Pawn AIGroupPawns_5
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 568); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
+    }
+    /// <summary>
+    /// ObjectProperty: AIGroupPawns
+    /// </summary>
+    public unsafe BmSDK.Engine.Pawn AIGroupPawns_6
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 572); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
+    }
+    /// <summary>
+    /// ObjectProperty: AIGroupPawns
+    /// </summary>
+    public unsafe BmSDK.Engine.Pawn AIGroupPawns_7
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 576); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
+    }
+    /// <summary>
+    /// ObjectProperty: AIGroupPawns
+    /// </summary>
+    public unsafe BmSDK.Engine.Pawn AIGroupPawns_8
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 580); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 580); }
+    }
+    /// <summary>
+    /// ObjectProperty: AIGroupPawns
+    /// </summary>
+    public unsafe BmSDK.Engine.Pawn AIGroupPawns_9
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 584); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 584); }
     }
 
     /// <summary>
     /// InlineArray{IntProperty}: AIGroupInitStage
     /// </summary>
-    public InlineArray<int> AIGroupInitStage => new(10, Ptr + 564, 4, this);
+    public InlineArray<int> AIGroupInitStage => new(10, Ptr + 588, 4, this);
 
     /// <summary>
     /// IntProperty: AIGroupInitStage
     /// </summary>
     public unsafe int AIGroupInitStage_0
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 564); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
-    }
-    /// <summary>
-    /// IntProperty: AIGroupInitStage
-    /// </summary>
-    public unsafe int AIGroupInitStage_1
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 568); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
-    }
-    /// <summary>
-    /// IntProperty: AIGroupInitStage
-    /// </summary>
-    public unsafe int AIGroupInitStage_2
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 572); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
-    }
-    /// <summary>
-    /// IntProperty: AIGroupInitStage
-    /// </summary>
-    public unsafe int AIGroupInitStage_3
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 576); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
-    }
-    /// <summary>
-    /// IntProperty: AIGroupInitStage
-    /// </summary>
-    public unsafe int AIGroupInitStage_4
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 580); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 580); }
-    }
-    /// <summary>
-    /// IntProperty: AIGroupInitStage
-    /// </summary>
-    public unsafe int AIGroupInitStage_5
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 584); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 584); }
-    }
-    /// <summary>
-    /// IntProperty: AIGroupInitStage
-    /// </summary>
-    public unsafe int AIGroupInitStage_6
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 588); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 588); }
@@ -418,7 +370,7 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// IntProperty: AIGroupInitStage
     /// </summary>
-    public unsafe int AIGroupInitStage_7
+    public unsafe int AIGroupInitStage_1
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 592); }
@@ -426,7 +378,7 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// IntProperty: AIGroupInitStage
     /// </summary>
-    public unsafe int AIGroupInitStage_8
+    public unsafe int AIGroupInitStage_2
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 596); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 596); }
@@ -434,10 +386,58 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// IntProperty: AIGroupInitStage
     /// </summary>
-    public unsafe int AIGroupInitStage_9
+    public unsafe int AIGroupInitStage_3
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 600); }
+    }
+    /// <summary>
+    /// IntProperty: AIGroupInitStage
+    /// </summary>
+    public unsafe int AIGroupInitStage_4
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 604); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 604); }
+    }
+    /// <summary>
+    /// IntProperty: AIGroupInitStage
+    /// </summary>
+    public unsafe int AIGroupInitStage_5
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 608); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 608); }
+    }
+    /// <summary>
+    /// IntProperty: AIGroupInitStage
+    /// </summary>
+    public unsafe int AIGroupInitStage_6
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 612); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 612); }
+    }
+    /// <summary>
+    /// IntProperty: AIGroupInitStage
+    /// </summary>
+    public unsafe int AIGroupInitStage_7
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 616); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 616); }
+    }
+    /// <summary>
+    /// IntProperty: AIGroupInitStage
+    /// </summary>
+    public unsafe int AIGroupInitStage_8
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 620); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 620); }
+    }
+    /// <summary>
+    /// IntProperty: AIGroupInitStage
+    /// </summary>
+    public unsafe int AIGroupInitStage_9
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 624); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 624); }
     }
 
     /// <summary>
@@ -445,7 +445,7 @@ public partial class MatineeActor : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float ClientSidePositionErrorTolerance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 604); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 604); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 628); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 628); }
     }
 }

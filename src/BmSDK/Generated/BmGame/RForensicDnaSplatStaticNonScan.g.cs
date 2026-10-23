@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RForensicDnaSplatStaticNonScan<br/>
-/// (size = 528)
-/// (flags = 142606994)
+/// (size = 588)
+/// (flags = 41943058)
 /// </summary>
 public partial class RForensicDnaSplatStaticNonScan : BmSDK.BmGame.RForensicDnaSplatStatic, BmSDK.IGameObject
 {
@@ -78,65 +78,4 @@ public partial class RForensicDnaSplatStaticNonScan : BmSDK.BmGame.RForensicDnaS
         where TComponent : class, Framework.IScriptComponent<RForensicDnaSplatStaticNonScan>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
-    /// <summary>
-    /// Function: RegisterEvidence
-    /// </summary>
-    public unsafe override void RegisterEvidence()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStaticNonScan.RegisterEvidence", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: show
-    /// </summary>
-    public unsafe override void show(float _show, int ShowMode = default)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStaticNonScan.show", true);
-        byte* paramsPtr = stackalloc byte[12];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(_show, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(ShowMode, paramsPtr + 4);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: CanBeScanned
-    /// </summary>
-    public unsafe override bool CanBeScanned()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RForensicDnaSplatStaticNonScan.CanBeScanned", true);
-        byte* paramsPtr = stackalloc byte[8];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
-    }
-
-    /// <summary>
-    /// BoolProperty: OldEvidenceToBeFiltered
-    /// </summary>
-    public unsafe bool OldEvidenceToBeFiltered
-    {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 516); }
-    }
-
-    /// <summary>
-    /// FloatProperty: RandomFilterOutTimer
-    /// </summary>
-    public unsafe float RandomFilterOutTimer
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 520); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
-    }
-
-    /// <summary>
-    /// FloatProperty: CurrentRandomFilterTimer
-    /// </summary>
-    public unsafe float CurrentRandomFilterTimer
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
-    }
 }

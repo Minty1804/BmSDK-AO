@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RGFxMovieGenericError<br/>
-/// (size = 512)
-/// (flags = 18)
+/// (size = 604)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieGenericError : BmSDK.BmGame.RGFxMovie, BmSDK.IGameObject
 {
@@ -156,8 +156,8 @@ public partial class RGFxMovieGenericError : BmSDK.BmGame.RGFxMovie, BmSDK.IGame
     /// </summary>
     public unsafe BmSDK.BmGame.RGFxMovieGenericError.GE_Type CurrentType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGFxMovieGenericError.GE_Type>(Ptr + 496); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGFxMovieGenericError.GE_Type>(Ptr + 588); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 588); }
     }
 
     /// <summary>
@@ -165,8 +165,8 @@ public partial class RGFxMovieGenericError : BmSDK.BmGame.RGFxMovie, BmSDK.IGame
     /// </summary>
     public unsafe BmSDK.FString LastFocusMovie
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 500); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 592); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 592); }
     }
 
     /// <summary>
@@ -183,6 +183,7 @@ public partial class RGFxMovieGenericError : BmSDK.BmGame.RGFxMovie, BmSDK.IGame
         GE_PS3NotLoggedIn = 6,
         GE_PS3NotConnectedRetry = 7,
         GE_PS3StatsWriteError = 8,
-        GE_MAX = 9,
+        GE_NotLoggedIn_ReturnToMainMenu = 9,
+        GE_MAX = 10,
     }
 }

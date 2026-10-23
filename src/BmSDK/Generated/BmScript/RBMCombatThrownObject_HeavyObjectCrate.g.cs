@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMCombatThrownObject_HeavyObjectCrate<br/>
-/// (size = 728)
+/// (size = 792)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBMCombatThrownObject_HeavyObjectCrate : BmSDK.BmScript.RBMCombatThrownObject_HeavyObject, BmSDK.IGameObject

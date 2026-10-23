@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionWorldNormal<br/>
-/// (size = 92)
+/// (size = 116)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionWorldNormal : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject

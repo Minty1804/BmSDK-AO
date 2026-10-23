@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSpecialMoveInstance_HazardStumble<br/>
-/// (size = 656)
+/// (size = 680)
 /// (flags = 8388626)
 /// </summary>
 public partial class RSpecialMoveInstance_HazardStumble : BmSDK.BmGame.RSpecialMoveInstance_RelativeAnimMove, BmSDK.IGameObject
@@ -95,7 +95,7 @@ public partial class RSpecialMoveInstance_HazardStumble : BmSDK.BmGame.RSpecialM
     /// </summary>
     public unsafe BmSDK.Engine.ForceFeedbackWaveform rumble
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ForceFeedbackWaveform>(Ptr + 652); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 652); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ForceFeedbackWaveform>(Ptr + 676); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 676); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqEvent_RadioStationFound<br/>
-/// (size = 240)
+/// (size = 260)
 /// (flags = 134217874)
 /// </summary>
 public partial class RSeqEvent_RadioStationFound : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject
@@ -107,7 +107,7 @@ public partial class RSeqEvent_RadioStationFound : BmSDK.Engine.SequenceEvent, B
     /// </summary>
     public unsafe BmSDK.FString RadioStationName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RCinematic_DirectionalLight<br/>
-/// (size = 444)
+/// (size = 468)
 /// (flags = 8389138)
 /// </summary>
 public partial class RCinematic_DirectionalLight : BmSDK.Engine.DirectionalLight, BmSDK.IGameObject

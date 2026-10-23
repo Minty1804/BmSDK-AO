@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_BatarangStartle<br/>
-/// (size = 464)
+/// (size = 484)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_BatarangStartle : BmSDK.BmGame.RBMBehaviour_BaseStartle, BmSDK.IGameObject

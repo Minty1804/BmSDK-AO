@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RCharacter_CopBase<br/>
-/// (size = 472)
-/// (flags = 201326739)
+/// (size = 608)
+/// (flags = 100663315)
 /// </summary>
 public partial class RCharacter_CopBase : BmSDK.BmGame.RCharacter, BmSDK.IGameObject
 {
@@ -73,54 +73,4 @@ public partial class RCharacter_CopBase : BmSDK.BmGame.RCharacter, BmSDK.IGameOb
         where TComponent : class, Framework.IScriptComponent<RCharacter_CopBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
-    /// <summary>
-    /// NameProperty: BodyColourName
-    /// </summary>
-    public unsafe BmSDK.FName BodyColourName
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 408); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 408); }
-    }
-
-    /// <summary>
-    /// NameProperty: ShirtPatternName
-    /// </summary>
-    public unsafe BmSDK.FName ShirtPatternName
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 416); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 416); }
-    }
-
-    /// <summary>
-    /// NameProperty: ShirtPatternColourName
-    /// </summary>
-    public unsafe BmSDK.FName ShirtPatternColourName
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 424); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 424); }
-    }
-
-    /// <summary>
-    /// StructProperty: BodyColour
-    /// </summary>
-    public unsafe ref BmSDK.GameObject.FLinearColor BodyColour
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FLinearColor>(Ptr + 432);
-
-    /// <summary>
-    /// ArrayProperty: ShirtPattern
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.GameObject.FLinearColor> ShirtPattern
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FLinearColor>>(Ptr + 448); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 448); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: ShirtPatternColour
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.GameObject.FLinearColor> ShirtPatternColour
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FLinearColor>>(Ptr + 460); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
-    }
 }

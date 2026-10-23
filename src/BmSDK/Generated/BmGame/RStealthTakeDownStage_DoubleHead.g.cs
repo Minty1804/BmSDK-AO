@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_DoubleHead<br/>
-/// (size = 1156)
+/// (size = 1200)
 /// (flags = 8388626)
 /// </summary>
 public partial class RStealthTakeDownStage_DoubleHead : BmSDK.BmGame.RStealthTakeDownStageDoubleBase, BmSDK.IGameObject

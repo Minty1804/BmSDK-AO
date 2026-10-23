@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_VillainHoldingFizzingFireEx<br/>
-/// (size = 468)
+/// (size = 492)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_VillainHoldingFizzingFireEx : BmSDK.BmGame.RCombatMove, BmSDK.IGameObject
@@ -105,7 +105,7 @@ public partial class RCombatMove_VillainHoldingFizzingFireEx : BmSDK.BmGame.RCom
     /// </summary>
     public unsafe BmSDK.BmGame.RPawnCombat Villain
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCombat>(Ptr + 464); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCombat>(Ptr + 488); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
     }
 }

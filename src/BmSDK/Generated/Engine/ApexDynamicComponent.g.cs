@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: ApexDynamicComponent<br/>
-/// (size = 440)
+/// (size = 476)
 /// (flags = 2290094226)
 /// </summary>
 public partial class ApexDynamicComponent : BmSDK.Engine.ApexComponentBase, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class ApexDynamicComponent : BmSDK.Engine.ApexComponentBase, BmSD
     /// </summary>
     public unsafe System.IntPtr ComponentDynamicResources
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 436); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 472); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
     }
 }

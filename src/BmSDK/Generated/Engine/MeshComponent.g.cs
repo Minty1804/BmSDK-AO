@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: MeshComponent<br/>
-/// (size = 416)
+/// (size = 452)
 /// (flags = 2155872659)
 /// </summary>
 public partial class MeshComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGameObject
@@ -241,7 +241,7 @@ public partial class MeshComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGam
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.MaterialInterface> Materials
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.MaterialInterface>>(Ptr + 404); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 404); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.MaterialInterface>>(Ptr + 440); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
     }
 }

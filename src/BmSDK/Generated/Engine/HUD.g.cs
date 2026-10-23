@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: HUD<br/>
-/// (size = 1076)
+/// (size = 1100)
 /// (flags = 142606494)
 /// </summary>
 public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -729,27 +729,27 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// StructProperty: WhiteColor
     /// </summary>
     public unsafe ref BmSDK.GameObject.FColor WhiteColor
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 428);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 452);
 
     /// <summary>
     /// StructProperty: GreenColor
     /// </summary>
     public unsafe ref BmSDK.GameObject.FColor GreenColor
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 432);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 456);
 
     /// <summary>
     /// StructProperty: RedColor
     /// </summary>
     public unsafe ref BmSDK.GameObject.FColor RedColor
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 436);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 460);
 
     /// <summary>
     /// ObjectProperty: PlayerOwner
     /// </summary>
     public unsafe BmSDK.Engine.PlayerController PlayerOwner
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PlayerController>(Ptr + 440); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PlayerController>(Ptr + 464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
     }
 
     /// <summary>
@@ -757,8 +757,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bLostFocusPaused
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 444); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 468); }
     }
 
     /// <summary>
@@ -766,8 +766,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bShowHUD
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 444); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 468); }
     }
 
     /// <summary>
@@ -775,8 +775,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bShowScores
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 444); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 468); }
     }
 
     /// <summary>
@@ -784,8 +784,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bShowDebugInfo
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 444); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 468); }
     }
 
     /// <summary>
@@ -793,8 +793,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bShowBadConnectionAlert
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444) & 16) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 444); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 468); }
     }
 
     /// <summary>
@@ -802,8 +802,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bMessageBeep
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444) & 32) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 444); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 468); }
     }
 
     /// <summary>
@@ -811,8 +811,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bShowOverlays
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444) & 64) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444); var newMask = value ? (currentMask | 64) : (currentMask & ~64); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 444); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468) & 64) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468); var newMask = value ? (currentMask | 64) : (currentMask & ~64); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 468); }
     }
 
     /// <summary>
@@ -820,8 +820,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float HudCanvasScale
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 448); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 448); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 472); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
     }
 
     /// <summary>
@@ -829,8 +829,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.Actor> PostRenderedActors
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor>>(Ptr + 452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor>>(Ptr + 476); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
     }
 
     /// <summary>
@@ -838,23 +838,23 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.HUD.FConsoleMessage> ConsoleMessages
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.HUD.FConsoleMessage>>(Ptr + 464); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.HUD.FConsoleMessage>>(Ptr + 488); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
     }
 
     /// <summary>
     /// StructProperty: ConsoleColor
     /// </summary>
     public unsafe ref BmSDK.GameObject.FColor ConsoleColor
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 476);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 500);
 
     /// <summary>
     /// IntProperty: ConsoleMessageCount
     /// </summary>
     public unsafe int ConsoleMessageCount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 480); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
     }
 
     /// <summary>
@@ -862,8 +862,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe int ConsoleFontSize
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 484); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 508); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 508); }
     }
 
     /// <summary>
@@ -871,8 +871,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe int MessageFontOffset
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 488); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 512); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 512); }
     }
 
     /// <summary>
@@ -880,63 +880,63 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe int MaxHUDAreaMessageCount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 492); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
     }
 
     /// <summary>
     /// InlineArray{StructProperty}: LocalMessages
     /// </summary>
-    public InlineArray<BmSDK.Engine.HUD.FHudLocalizedMessage> LocalMessages => new(8, Ptr + 496, 64, this);
+    public InlineArray<BmSDK.Engine.HUD.FHudLocalizedMessage> LocalMessages => new(8, Ptr + 520, 64, this);
 
     /// <summary>
     /// StructProperty: LocalMessages
     /// </summary>
     public unsafe ref BmSDK.Engine.HUD.FHudLocalizedMessage LocalMessages_0
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 496);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 520);
     /// <summary>
     /// StructProperty: LocalMessages
     /// </summary>
     public unsafe ref BmSDK.Engine.HUD.FHudLocalizedMessage LocalMessages_1
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 560);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 584);
     /// <summary>
     /// StructProperty: LocalMessages
     /// </summary>
     public unsafe ref BmSDK.Engine.HUD.FHudLocalizedMessage LocalMessages_2
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 624);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 648);
     /// <summary>
     /// StructProperty: LocalMessages
     /// </summary>
     public unsafe ref BmSDK.Engine.HUD.FHudLocalizedMessage LocalMessages_3
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 688);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 712);
     /// <summary>
     /// StructProperty: LocalMessages
     /// </summary>
     public unsafe ref BmSDK.Engine.HUD.FHudLocalizedMessage LocalMessages_4
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 752);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 776);
     /// <summary>
     /// StructProperty: LocalMessages
     /// </summary>
     public unsafe ref BmSDK.Engine.HUD.FHudLocalizedMessage LocalMessages_5
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 816);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 840);
     /// <summary>
     /// StructProperty: LocalMessages
     /// </summary>
     public unsafe ref BmSDK.Engine.HUD.FHudLocalizedMessage LocalMessages_6
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 880);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 904);
     /// <summary>
     /// StructProperty: LocalMessages
     /// </summary>
     public unsafe ref BmSDK.Engine.HUD.FHudLocalizedMessage LocalMessages_7
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 944);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.HUD.FHudLocalizedMessage>(Ptr + 968);
 
     /// <summary>
     /// FloatProperty: ConsoleMessagePosX
     /// </summary>
     public unsafe float ConsoleMessagePosX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1008); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1008); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1032); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1032); }
     }
 
     /// <summary>
@@ -944,8 +944,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float ConsoleMessagePosY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1012); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1012); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1036); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1036); }
     }
 
     /// <summary>
@@ -953,8 +953,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.Canvas Canvas
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Canvas>(Ptr + 1016); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1016); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Canvas>(Ptr + 1040); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1040); }
     }
 
     /// <summary>
@@ -962,8 +962,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float LastHUDRenderTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1020); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1020); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1044); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1044); }
     }
 
     /// <summary>
@@ -971,8 +971,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float RenderDelta
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1024); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1024); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1048); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1048); }
     }
 
     /// <summary>
@@ -980,8 +980,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float SizeX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1028); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1028); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1052); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1052); }
     }
 
     /// <summary>
@@ -989,8 +989,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float SizeY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1032); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1032); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1056); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1056); }
     }
 
     /// <summary>
@@ -998,8 +998,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float CenterX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1036); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1036); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1060); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1060); }
     }
 
     /// <summary>
@@ -1007,8 +1007,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float CenterY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1040); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1040); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1064); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1064); }
     }
 
     /// <summary>
@@ -1016,8 +1016,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float RatioX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1044); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1044); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1068); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1068); }
     }
 
     /// <summary>
@@ -1025,8 +1025,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe float RatioY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1048); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1048); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1072); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1072); }
     }
 
     /// <summary>
@@ -1034,8 +1034,8 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.FName> DebugDisplay
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(Ptr + 1052); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1052); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(Ptr + 1076); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1076); }
     }
 
     /// <summary>
@@ -1043,7 +1043,7 @@ public partial class HUD : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.HUD.FKismetDrawTextInfo> KismetTextInfo
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.HUD.FKismetDrawTextInfo>>(Ptr + 1064); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1064); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.HUD.FKismetDrawTextInfo>>(Ptr + 1088); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1088); }
     }
 }

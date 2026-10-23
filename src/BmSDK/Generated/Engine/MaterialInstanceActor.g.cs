@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialInstanceActor<br/>
-/// (size = 432)
+/// (size = 456)
 /// (flags = 142606994)
 /// </summary>
 public partial class MaterialInstanceActor : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class MaterialInstanceActor : BmSDK.Engine.Actor, BmSDK.IGameObje
     /// </summary>
     public unsafe BmSDK.Engine.MaterialInstanceConstant MatInst
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 }

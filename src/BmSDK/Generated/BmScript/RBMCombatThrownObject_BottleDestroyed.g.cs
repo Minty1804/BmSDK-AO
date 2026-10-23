@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMCombatThrownObject_BottleDestroyed<br/>
-/// (size = 720)
+/// (size = 780)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBMCombatThrownObject_BottleDestroyed : BmSDK.BmGame.RBMCombatThrownObject, BmSDK.IGameObject
@@ -78,4 +78,17 @@ public partial class RBMCombatThrownObject_BottleDestroyed : BmSDK.BmGame.RBMCom
         where TComponent : class, Framework.IScriptComponent<RBMCombatThrownObject_BottleDestroyed>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    /// <summary>
+    /// Function: CanBePickedUpBy
+    /// </summary>
+    public unsafe override bool CanBePickedUpBy(BmSDK.BmGame.RBMPawnAI NewUser, bool bInCombat, bool bTaunting)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMCombatThrownObject_BottleDestroyed.CanBePickedUpBy", true);
+        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(NewUser, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bInCombat, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bTaunting, paramsPtr + 8);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
+    }
 }

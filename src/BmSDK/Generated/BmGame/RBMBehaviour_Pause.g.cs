@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_Pause<br/>
-/// (size = 396)
+/// (size = 420)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_Pause : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject
@@ -78,4 +78,12 @@ public partial class RBMBehaviour_Pause : BmSDK.BmGame.RBMBehaviour, BmSDK.IGame
         where TComponent : class, Framework.IScriptComponent<RBMBehaviour_Pause>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    /// <summary>
+    /// FloatProperty: mWaitTime
+    /// </summary>
+    public unsafe float mWaitTime
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 416); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 416); }
+    }
 }

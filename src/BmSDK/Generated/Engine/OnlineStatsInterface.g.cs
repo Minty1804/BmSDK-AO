@@ -66,6 +66,11 @@ public partial interface OnlineStatsInterface : BmSDK.Interface
     public unsafe bool WriteOnlineStats(BmSDK.FName SessionName, BmSDK.Engine.OnlineSubsystem.FUniqueNetId Player, BmSDK.Engine.OnlineStatsWrite StatsWrite);
 
     /// <summary>
+    /// Function: DefineCurrentLeaderboard
+    /// </summary>
+    public unsafe void DefineCurrentLeaderboard(int LeaderboardType, int Level1, int Level2, int Level3);
+
+    /// <summary>
     /// Function: FreeStats
     /// </summary>
     public unsafe void FreeStats(BmSDK.Engine.OnlineStatsRead StatsRead);

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqEvent_Console<br/>
-/// (size = 248)
+/// (size = 268)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqEvent_Console : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class SeqEvent_Console : BmSDK.Engine.SequenceEvent, BmSDK.IGameO
     /// </summary>
     public unsafe BmSDK.FName ConsoleEventName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class SeqEvent_Console : BmSDK.Engine.SequenceEvent, BmSDK.IGameO
     /// </summary>
     public unsafe BmSDK.FString EventDesc
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 236); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 256); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 256); }
     }
 }

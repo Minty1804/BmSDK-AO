@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_EscapeStumble<br/>
-/// (size = 580)
+/// (size = 604)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_EscapeStumble : BmSDK.BmGame.RBMAIAction, BmSDK.IGameObject
@@ -115,15 +115,15 @@ public partial class RBMAIAction_EscapeStumble : BmSDK.BmGame.RBMAIAction, BmSDK
     /// <summary>
     /// StructProperty: StumbleAnimID
     /// </summary>
-    public unsafe ref BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId StumbleAnimID
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId>(Ptr + 572);
+    public unsafe ref BmSDK.BmGame.RAnimUtil.FTransitionId StumbleAnimID
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FTransitionId>(Ptr + 596);
 
     /// <summary>
     /// ObjectProperty: GrabPoint
     /// </summary>
     public unsafe BmSDK.BmGame.RHostageGrabPoint GrabPoint
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RHostageGrabPoint>(Ptr + 576); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RHostageGrabPoint>(Ptr + 600); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 600); }
     }
 }

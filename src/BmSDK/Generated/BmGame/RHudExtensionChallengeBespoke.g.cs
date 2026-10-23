@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionChallengeBespoke<br/>
-/// (size = 136)
+/// (size = 104)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionChallengeBespoke : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -188,7 +188,7 @@ public partial class RHudExtensionChallengeBespoke : BmSDK.BmGame.RHudExtension,
     /// </summary>
     public unsafe bool SuppressDetectiveModeInfo
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 132); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 132); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 100); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_DestroyCombatWeaponPickups<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_DestroyCombatWeaponPickups : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

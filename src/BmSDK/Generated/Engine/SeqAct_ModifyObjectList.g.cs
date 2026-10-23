@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_ModifyObjectList<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_ModifyObjectList : BmSDK.Engine.SeqAct_SetSequenceVariable, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqAct_ModifyObjectList : BmSDK.Engine.SeqAct_SetSequenceVa
     /// </summary>
     public unsafe int ListEntriesCount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

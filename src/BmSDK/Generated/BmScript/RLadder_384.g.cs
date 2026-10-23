@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RLadder_384<br/>
-/// (size = 560)
+/// (size = 572)
 /// (flags = 8389138)
 /// </summary>
 public partial class RLadder_384 : BmSDK.BmGame.RLadder, BmSDK.IGameObject

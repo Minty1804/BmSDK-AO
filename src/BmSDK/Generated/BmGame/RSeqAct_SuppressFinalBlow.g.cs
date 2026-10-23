@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_SuppressFinalBlow<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_SuppressFinalBlow : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

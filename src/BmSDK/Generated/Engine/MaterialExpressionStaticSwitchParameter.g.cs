@@ -5,10 +5,10 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionStaticSwitchParameter<br/>
-/// (size = 168)
+/// (size = 236)
 /// (flags = 134226066)
 /// </summary>
-public partial class MaterialExpressionStaticSwitchParameter : BmSDK.Engine.MaterialExpressionParameter, BmSDK.IGameObject
+public partial class MaterialExpressionStaticSwitchParameter : BmSDK.Engine.MaterialExpressionStaticBoolParameter, BmSDK.IGameObject
 {
     static BmSDK.Class s_staticClass = null;
     public static BmSDK.Class StaticClass()
@@ -79,41 +79,14 @@ public partial class MaterialExpressionStaticSwitchParameter : BmSDK.Engine.Mate
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
-    /// BoolProperty: DefaultValue
-    /// </summary>
-    public unsafe bool DefaultValue
-    {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 104) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 104); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 104); }
-    }
-
-    /// <summary>
-    /// BoolProperty: ExtendedCaptionDisplay
-    /// </summary>
-    public unsafe bool ExtendedCaptionDisplay
-    {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 104) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 104); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 104); }
-    }
-
-    /// <summary>
     /// StructProperty: A
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput A
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 108);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 148);
 
     /// <summary>
     /// StructProperty: B
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput B
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 136);
-
-    /// <summary>
-    /// StructProperty: InstanceOverride
-    /// </summary>
-    public unsafe System.IntPtr InstanceOverride
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 164); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 164); }
-    }
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 192);
 }

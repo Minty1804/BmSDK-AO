@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_GivenPlayerUpgrade<br/>
-/// (size = 216)
+/// (size = 232)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_GivenPlayerUpgrade : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -90,11 +90,38 @@ public partial class RSeqAct_GivenPlayerUpgrade : BmSDK.Engine.SequenceAction, B
     }
 
     /// <summary>
-    /// StrProperty: UnlockFlag
+    /// ByteProperty: UnlockFlag
     /// </summary>
-    public unsafe BmSDK.FString UnlockFlag
+    public unsafe BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility UnlockFlag
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+    }
+
+    /// <summary>
+    /// BoolProperty: CheatUnlockAll
+    /// </summary>
+    public unsafe bool CheatUnlockAll
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 228); }
+    }
+
+    /// <summary>
+    /// BoolProperty: CheatDeathCountGodMode
+    /// </summary>
+    public unsafe bool CheatDeathCountGodMode
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 228); }
+    }
+
+    /// <summary>
+    /// BoolProperty: CheatUseNewControllerMapping
+    /// </summary>
+    public unsafe bool CheatUseNewControllerMapping
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 228); }
     }
 }

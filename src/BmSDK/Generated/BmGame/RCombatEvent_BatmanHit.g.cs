@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatEvent_BatmanHit<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 18)
 /// </summary>
 public partial class RCombatEvent_BatmanHit : BmSDK.BmGame.RCombatEvent, BmSDK.IGameObject

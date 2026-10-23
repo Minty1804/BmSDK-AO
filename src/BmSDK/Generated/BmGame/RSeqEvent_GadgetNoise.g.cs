@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqEvent_GadgetNoise<br/>
-/// (size = 240)
+/// (size = 260)
 /// (flags = 18)
 /// </summary>
 public partial class RSeqEvent_GadgetNoise : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject
@@ -93,5 +93,5 @@ public partial class RSeqEvent_GadgetNoise : BmSDK.Engine.SequenceEvent, BmSDK.I
     /// StructProperty: LocationOfNoise
     /// </summary>
     public unsafe ref System.Numerics.Vector3 LocationOfNoise
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 228);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 248);
 }

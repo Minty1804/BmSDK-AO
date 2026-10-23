@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCinematicCameraActor<br/>
-/// (size = 868)
+/// (size = 908)
 /// (flags = 144704146)
 /// </summary>
 public partial class RCinematicCameraActor : BmSDK.BmGame.RCameraActor, BmSDK.IGameObject
@@ -78,25 +78,4 @@ public partial class RCinematicCameraActor : BmSDK.BmGame.RCameraActor, BmSDK.IG
         where TComponent : class, Framework.IScriptComponent<RCinematicCameraActor>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
-    /// <summary>
-    /// Function: GetCameraView
-    /// </summary>
-    public unsafe override void GetCameraView(float DeltaTime, out BmSDK.GameObject.FTPOV OutPOV)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RCinematicCameraActor.GetCameraView", true);
-        byte* paramsPtr = stackalloc byte[40];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 0);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        OutPOV = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GameObject.FTPOV>(paramsPtr + 4);
-        return;
-    }
-
-    /// <summary>
-    /// BoolProperty: bDoneAspectCheck
-    /// </summary>
-    public unsafe bool bDoneAspectCheck
-    {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 864) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 864); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 864); }
-    }
 }

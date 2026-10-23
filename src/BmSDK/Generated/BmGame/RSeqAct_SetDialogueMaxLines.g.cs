@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_SetDialogueMaxLines<br/>
-/// (size = 224)
+/// (size = 244)
 /// (flags = 134226066)
 /// </summary>
 public partial class RSeqAct_SetDialogueMaxLines : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RSeqAct_SetDialogueMaxLines : BmSDK.Engine.SeqAct_Latent, B
     /// </summary>
     public unsafe int MaxLines
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 }

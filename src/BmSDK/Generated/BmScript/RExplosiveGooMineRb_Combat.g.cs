@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RExplosiveGooMineRb_Combat<br/>
-/// (size = 676)
+/// (size = 708)
 /// (flags = 10486290)
 /// </summary>
 public partial class RExplosiveGooMineRb_Combat : BmSDK.BmScript.RExplosiveGooMineRb, BmSDK.IGameObject

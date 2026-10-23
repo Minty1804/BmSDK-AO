@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RPenguinRocketBase<br/>
-/// (size = 484)
+/// (size = 508)
 /// (flags = 142606483)
 /// </summary>
 public partial class RPenguinRocketBase : BmSDK.Engine.DynamicSMActor, BmSDK.IGameObject

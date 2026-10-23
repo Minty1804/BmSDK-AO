@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_CombatMiniSledgehammer<br/>
-/// (size = 764)
+/// (size = 820)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_CombatMiniSledgehammer : BmSDK.BmGame.RBMBehaviour_CombatPipe, BmSDK.IGameObject

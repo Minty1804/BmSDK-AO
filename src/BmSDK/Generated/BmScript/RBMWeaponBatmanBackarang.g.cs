@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponBatmanBackarang<br/>
-/// (size = 960)
+/// (size = 976)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponBatmanBackarang : BmSDK.BmGame.RBMWeapon, BmSDK.IGameObject
@@ -84,7 +84,7 @@ public partial class RBMWeaponBatmanBackarang : BmSDK.BmGame.RBMWeapon, BmSDK.IG
     public unsafe virtual BmSDK.BmGame.RWeaponConfig CreateCustomWeaponConfig(BmSDK.BmGame.RPawnPlayer PlayerOwner)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMWeaponBatmanBackarang.CreateCustomWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[492];
+        byte* paramsPtr = stackalloc byte[500];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PlayerOwner, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RWeaponConfig>(paramsPtr + 4);

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RBMBehaviour_BaseStartle<br/>
-/// (size = 464)
+/// (size = 484)
 /// (flags = 8211)
 /// </summary>
 public partial class RBMBehaviour_BaseStartle : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject
@@ -123,15 +123,15 @@ public partial class RBMBehaviour_BaseStartle : BmSDK.BmGame.RBMBehaviour, BmSDK
     /// StructProperty: ThreatLocation
     /// </summary>
     public unsafe ref System.Numerics.Vector3 ThreatLocation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 396);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 416);
 
     /// <summary>
     /// FloatProperty: ThreatYaw
     /// </summary>
     public unsafe float ThreatYaw
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 408); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 408); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 428); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
     }
 
     /// <summary>
@@ -139,8 +139,8 @@ public partial class RBMBehaviour_BaseStartle : BmSDK.BmGame.RBMBehaviour, BmSDK
     /// </summary>
     public unsafe BmSDK.FName StartleName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 412); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 412); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 432); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
     }
 
     /// <summary>
@@ -148,8 +148,8 @@ public partial class RBMBehaviour_BaseStartle : BmSDK.BmGame.RBMBehaviour, BmSDK
     /// </summary>
     public unsafe BmSDK.FName EndPose
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 420); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 420); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 440); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
     }
 
     /// <summary>
@@ -157,8 +157,8 @@ public partial class RBMBehaviour_BaseStartle : BmSDK.BmGame.RBMBehaviour, BmSDK
     /// </summary>
     public unsafe bool bPauseStarted
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 428) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 428); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 428); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 448) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 448); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 448); }
     }
 
     /// <summary>
@@ -166,8 +166,8 @@ public partial class RBMBehaviour_BaseStartle : BmSDK.BmGame.RBMBehaviour, BmSDK
     /// </summary>
     public unsafe BmSDK.FName AnimFront
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 
     /// <summary>
@@ -175,8 +175,8 @@ public partial class RBMBehaviour_BaseStartle : BmSDK.BmGame.RBMBehaviour, BmSDK
     /// </summary>
     public unsafe BmSDK.FName AnimBack
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 440); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
     }
 
     /// <summary>
@@ -184,8 +184,8 @@ public partial class RBMBehaviour_BaseStartle : BmSDK.BmGame.RBMBehaviour, BmSDK
     /// </summary>
     public unsafe BmSDK.FName AnimLeft
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 448); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 448); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 468); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 468); }
     }
 
     /// <summary>
@@ -193,7 +193,7 @@ public partial class RBMBehaviour_BaseStartle : BmSDK.BmGame.RBMBehaviour, BmSDK
     /// </summary>
     public unsafe BmSDK.FName AnimRight
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 456); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 476); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: RigidBodyBase<br/>
-/// (size = 428)
+/// (size = 452)
 /// (flags = 142606483)
 /// </summary>
 public partial class RigidBodyBase : BmSDK.Engine.Actor, BmSDK.IGameObject

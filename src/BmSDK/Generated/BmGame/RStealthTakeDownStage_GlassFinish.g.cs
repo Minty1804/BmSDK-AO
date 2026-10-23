@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_GlassFinish<br/>
-/// (size = 1032)
+/// (size = 1076)
 /// (flags = 8388626)
 /// </summary>
 public partial class RStealthTakeDownStage_GlassFinish : BmSDK.BmGame.RStealthTakeDownStage, BmSDK.IGameObject
@@ -119,7 +119,7 @@ public partial class RStealthTakeDownStage_GlassFinish : BmSDK.BmGame.RStealthTa
     public unsafe virtual void GlassFinishSmash()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RStealthTakeDownStage_GlassFinish.GlassFinishSmash", true);
-        byte* paramsPtr = stackalloc byte[260];
+        byte* paramsPtr = stackalloc byte[272];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

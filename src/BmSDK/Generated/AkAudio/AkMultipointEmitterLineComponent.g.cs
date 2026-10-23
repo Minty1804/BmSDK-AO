@@ -5,7 +5,7 @@ namespace BmSDK.AkAudio;
 
 /// <summary>
 /// Class: AkMultipointEmitterLineComponent<br/>
-/// (size = 408)
+/// (size = 444)
 /// (flags = 2290090130)
 /// </summary>
 public partial class AkMultipointEmitterLineComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGameObject
@@ -82,5 +82,5 @@ public partial class AkMultipointEmitterLineComponent : BmSDK.Engine.PrimitiveCo
     /// StructProperty: LineColor
     /// </summary>
     public unsafe ref BmSDK.GameObject.FColor LineColor
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 404);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 440);
 }

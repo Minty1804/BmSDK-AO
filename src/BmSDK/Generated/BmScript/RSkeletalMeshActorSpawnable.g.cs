@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSkeletalMeshActorSpawnable<br/>
-/// (size = 528)
+/// (size = 556)
 /// (flags = 8388626)
 /// </summary>
 public partial class RSkeletalMeshActorSpawnable : BmSDK.BmGame.RSkeletalMeshActor, BmSDK.IGameObject

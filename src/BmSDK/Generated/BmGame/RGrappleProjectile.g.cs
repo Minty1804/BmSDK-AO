@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RGrappleProjectile<br/>
-/// (size = 568)
+/// (size = 592)
 /// (flags = 8388627)
 /// </summary>
 public partial class RGrappleProjectile : BmSDK.BmGame.RProjectileWithRope, BmSDK.IGameObject
@@ -112,5 +112,5 @@ public partial class RGrappleProjectile : BmSDK.BmGame.RProjectileWithRope, BmSD
     /// StructProperty: AttachOffset
     /// </summary>
     public unsafe ref System.Numerics.Vector3 AttachOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 556);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 580);
 }

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionAntialiasedTextureMask<br/>
-/// (size = 141)
+/// (size = 241)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionAntialiasedTextureMask : BmSDK.Engine.MaterialExpressionTextureSampleParameter2D, BmSDK.IGameObject
@@ -95,8 +95,8 @@ public partial class MaterialExpressionAntialiasedTextureMask : BmSDK.Engine.Mat
     /// </summary>
     public unsafe float Threshold
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 136); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 236); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ public partial class MaterialExpressionAntialiasedTextureMask : BmSDK.Engine.Mat
     /// </summary>
     public unsafe BmSDK.Engine.MaterialExpressionAntialiasedTextureMask.ETextureColorChannel Channel
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionAntialiasedTextureMask.ETextureColorChannel>(Ptr + 140); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionAntialiasedTextureMask.ETextureColorChannel>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 }

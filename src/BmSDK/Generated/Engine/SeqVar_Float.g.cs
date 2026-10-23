@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqVar_Float<br/>
-/// (size = 132)
+/// (size = 136)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqVar_Float : BmSDK.Engine.SequenceVariable, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqVar_Float : BmSDK.Engine.SequenceVariable, BmSDK.IGameOb
     /// </summary>
     public unsafe float FloatValue
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 128); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
     }
 }

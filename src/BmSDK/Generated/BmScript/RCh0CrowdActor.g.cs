@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RCh0CrowdActor<br/>
-/// (size = 476)
+/// (size = 508)
 /// (flags = 8389138)
 /// </summary>
 public partial class RCh0CrowdActor : BmSDK.BmGame.RCh0CrowdActorBase, BmSDK.IGameObject
@@ -107,8 +107,8 @@ public partial class RCh0CrowdActor : BmSDK.BmGame.RCh0CrowdActorBase, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.FName AnimToPlay
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
     }
 
     /// <summary>
@@ -116,8 +116,8 @@ public partial class RCh0CrowdActor : BmSDK.BmGame.RCh0CrowdActorBase, BmSDK.IGa
     /// </summary>
     public unsafe bool bApplyOutcastBodyColour
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 460) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 460); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 460); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 492) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 492); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 492); }
     }
 
     /// <summary>
@@ -125,7 +125,7 @@ public partial class RCh0CrowdActor : BmSDK.BmGame.RCh0CrowdActorBase, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.GameObject.FLinearColor> PresetBodyColours
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FLinearColor>>(Ptr + 464); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FLinearColor>>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
     }
 }

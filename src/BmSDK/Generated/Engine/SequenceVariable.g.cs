@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: SequenceVariable<br/>
-/// (size = 128)
+/// (size = 132)
 /// (flags = 134217875)
 /// </summary>
 public partial class SequenceVariable : BmSDK.Engine.SequenceObject, BmSDK.IGameObject
@@ -78,7 +78,7 @@ public partial class SequenceVariable : BmSDK.Engine.SequenceObject, BmSDK.IGame
     /// </summary>
     public unsafe BmSDK.FName VarName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 124); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 124); }
     }
 }

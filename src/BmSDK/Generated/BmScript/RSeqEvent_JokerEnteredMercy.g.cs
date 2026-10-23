@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqEvent_JokerEnteredMercy<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 18)
 /// </summary>
 public partial class RSeqEvent_JokerEnteredMercy : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject

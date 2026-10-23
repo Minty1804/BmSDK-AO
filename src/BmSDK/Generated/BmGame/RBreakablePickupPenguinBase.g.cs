@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBreakablePickupPenguinBase<br/>
-/// (size = 532)
+/// (size = 560)
 /// (flags = 142606994)
 /// </summary>
 public partial class RBreakablePickupPenguinBase : BmSDK.BmGame.RSkeletalMeshActor, BmSDK.BmGame.RSecretInterface, BmSDK.IGameObject
@@ -112,22 +112,22 @@ public partial class RBreakablePickupPenguinBase : BmSDK.BmGame.RSkeletalMeshAct
     }
 
     /// <summary>
-    /// Function: GetSecretZone
+    /// Function: GetSecretGroup
     /// </summary>
-    public unsafe virtual byte GetSecretZone()
+    public unsafe virtual BmSDK.FString GetSecretGroup()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePickupPenguinBase.GetSecretZone", true);
-        byte* paramsPtr = stackalloc byte[1];
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePickupPenguinBase.GetSecretGroup", true);
+        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<byte>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 0);
     }
 
     /// <summary>
-    /// Function: GetSecretPickupIndex
+    /// Function: GetSecretIndex
     /// </summary>
-    public unsafe virtual int GetSecretPickupIndex()
+    public unsafe virtual int GetSecretIndex()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePickupPenguinBase.GetSecretPickupIndex", true);
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePickupPenguinBase.GetSecretIndex", true);
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
@@ -171,7 +171,7 @@ public partial class RBreakablePickupPenguinBase : BmSDK.BmGame.RSkeletalMeshAct
     /// </summary>
     public unsafe System.IntPtr VfTable_IRSecretInterface
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 528); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 528); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 556); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 556); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RPlayerControllerBase<br/>
-/// (size = 1472)
+/// (size = 1516)
 /// (flags = 142606486)
 /// </summary>
 public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSDK.IGameObject
@@ -294,6 +294,28 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     }
 
     /// <summary>
+    /// Function: ExeSwap_SwapToMultiPlayer
+    /// </summary>
+    public unsafe virtual void ExeSwap_SwapToMultiPlayer()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.ExeSwap_SwapToMultiPlayer", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ExeSwap_SwapToSinglePlayer
+    /// </summary>
+    public unsafe virtual void ExeSwap_SwapToSinglePlayer()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.ExeSwap_SwapToSinglePlayer", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: ToggleGfx
     /// </summary>
     public unsafe virtual void ToggleGfx()
@@ -371,6 +393,40 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     public unsafe override void ResetPlayerMovementInput()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.ResetPlayerMovementInput", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ExeSwap_ControllerID
+    /// </summary>
+    public unsafe virtual void ExeSwap_ControllerID(int PlayerID)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.ExeSwap_ControllerID", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(PlayerID, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ExeSwap_HasSwitched
+    /// </summary>
+    public unsafe virtual void ExeSwap_HasSwitched()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.ExeSwap_HasSwitched", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ExeSwap_RoundTrip
+    /// </summary>
+    public unsafe virtual void ExeSwap_RoundTrip()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.ExeSwap_RoundTrip", true);
         byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
@@ -531,6 +587,17 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     }
 
     /// <summary>
+    /// Function: DebugMenuJumpToTOC
+    /// </summary>
+    public unsafe virtual void DebugMenuJumpToTOC()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.DebugMenuJumpToTOC", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: DebugMenuNextPage
     /// </summary>
     public unsafe virtual void DebugMenuNextPage()
@@ -547,6 +614,39 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     public unsafe virtual void DebugMenuPrevPage()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.DebugMenuPrevPage", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ToggleMenuOnTop
+    /// </summary>
+    public unsafe virtual void ToggleMenuOnTop()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.ToggleMenuOnTop", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ToggleLevelStatsMenu
+    /// </summary>
+    public unsafe virtual void ToggleLevelStatsMenu()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.ToggleLevelStatsMenu", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ToggleDebugMenuOnCheckPoints
+    /// </summary>
+    public unsafe virtual void ToggleDebugMenuOnCheckPoints()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerBase.ToggleDebugMenuOnCheckPoints", true);
         byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
@@ -608,57 +708,12 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     }
 
     /// <summary>
-    /// ObjectProperty: ActiveMenu
+    /// BoolProperty: bIsMenuActive
     /// </summary>
-    public unsafe BmSDK.BmGame.RDynamicMenu ActiveMenu
+    public unsafe bool bIsMenuActive
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDynamicMenu>(Ptr + 1424); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1424); }
-    }
-
-    /// <summary>
-    /// ObjectProperty: StoredMenu
-    /// </summary>
-    public unsafe BmSDK.BmGame.RDynamicMenu StoredMenu
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDynamicMenu>(Ptr + 1428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1428); }
-    }
-
-    /// <summary>
-    /// ObjectProperty: DebugMenu
-    /// </summary>
-    public unsafe BmSDK.BmGame.RDebugMenu DebugMenu
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDebugMenu>(Ptr + 1432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1432); }
-    }
-
-    /// <summary>
-    /// ClassProperty: DebugMenuClass
-    /// </summary>
-    public unsafe BmSDK.Class DebugMenuClass
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 1436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1436); }
-    }
-
-    /// <summary>
-    /// ObjectProperty: StoredPawn
-    /// </summary>
-    public unsafe BmSDK.Engine.Pawn StoredPawn
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 1440); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1440); }
-    }
-
-    /// <summary>
-    /// IntProperty: bSpectatorStepFrame
-    /// </summary>
-    public unsafe int bSpectatorStepFrame
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1444); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1444); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1452) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1452); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1452); }
     }
 
     /// <summary>
@@ -666,8 +721,8 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe bool bUnpauseOnGPUProfileExit
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1448); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1452) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1452); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1452); }
     }
 
     /// <summary>
@@ -675,8 +730,8 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe bool bShowSurfaceTypes
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1448); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1452) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1452); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1452); }
     }
 
     /// <summary>
@@ -684,8 +739,8 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe bool bCauseEventSkipCutscene
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1448); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1452) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1452); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1452); }
     }
 
     /// <summary>
@@ -693,8 +748,71 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe bool bInBink
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1448); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1452) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1452); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1452); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: ActiveMenu
+    /// </summary>
+    public unsafe BmSDK.BmGame.RDynamicMenu ActiveMenu
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDynamicMenu>(Ptr + 1456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1456); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: StoredMenu
+    /// </summary>
+    public unsafe BmSDK.BmGame.RDynamicMenu StoredMenu
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDynamicMenu>(Ptr + 1460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1460); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: DebugMenu
+    /// </summary>
+    public unsafe BmSDK.BmGame.RDebugMenu DebugMenu
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDebugMenu>(Ptr + 1464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1464); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: LevelStatsMenu
+    /// </summary>
+    public unsafe BmSDK.BmGame.MLevelStatsMenu LevelStatsMenu
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MLevelStatsMenu>(Ptr + 1468); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1468); }
+    }
+
+    /// <summary>
+    /// ClassProperty: DebugMenuClass
+    /// </summary>
+    public unsafe BmSDK.Class DebugMenuClass
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 1472); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1472); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: StoredPawn
+    /// </summary>
+    public unsafe BmSDK.Engine.Pawn StoredPawn
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Pawn>(Ptr + 1476); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1476); }
+    }
+
+    /// <summary>
+    /// IntProperty: bSpectatorStepFrame
+    /// </summary>
+    public unsafe int bSpectatorStepFrame
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1480); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1480); }
     }
 
     /// <summary>
@@ -702,8 +820,8 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe BmSDK.BmGame.RSeqAct_CinematicMode ActiveCinematicMode
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSeqAct_CinematicMode>(Ptr + 1452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1452); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSeqAct_CinematicMode>(Ptr + 1484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1484); }
     }
 
     /// <summary>
@@ -711,8 +829,35 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.FString> DebugActiveCinematicModes
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(Ptr + 1456); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1456); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(Ptr + 1488); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1488); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: SDExeSwapInstance
+    /// </summary>
+    public unsafe BmSDK.Engine.SDExeSwap SDExeSwapInstance
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SDExeSwap>(Ptr + 1500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1500); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: RGIcached
+    /// </summary>
+    public unsafe BmSDK.BmGame.RGameInfo RGIcached
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo>(Ptr + 1504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1504); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: GRIcached
+    /// </summary>
+    public unsafe BmSDK.BmGame.RGameRI GRIcached
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameRI>(Ptr + 1508); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1508); }
     }
 
     /// <summary>
@@ -720,7 +865,7 @@ public partial class RPlayerControllerBase : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe int DebugMenuQualifierCount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1468); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1468); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1512); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1512); }
     }
 }

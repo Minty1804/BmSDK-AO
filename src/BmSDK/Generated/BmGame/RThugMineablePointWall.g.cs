@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RThugMineablePointWall<br/>
-/// (size = 460)
+/// (size = 484)
 /// (flags = 142606994)
 /// </summary>
 public partial class RThugMineablePointWall : BmSDK.BmGame.RThugMineablePointBase, BmSDK.IGameObject
@@ -93,5 +93,5 @@ public partial class RThugMineablePointWall : BmSDK.BmGame.RThugMineablePointBas
     /// StructProperty: StandPoint
     /// </summary>
     public unsafe ref System.Numerics.Vector3 StandPoint
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 448);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 472);
 }

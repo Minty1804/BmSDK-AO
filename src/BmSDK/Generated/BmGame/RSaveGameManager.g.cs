@@ -226,6 +226,24 @@ public partial class RSaveGameManager : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// Function: IsSaveDataValid
+    /// </summary>
+    public unsafe virtual bool IsSaveDataValid()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RSaveGameManager.IsSaveDataValid", true);
+        byte* paramsPtr = stackalloc byte[4];
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: SetIfSaveDataValidForSlot
     /// </summary>
     public unsafe virtual void SetIfSaveDataValidForSlot()
@@ -298,6 +316,26 @@ public partial class RSaveGameManager : BmSDK.GameObject, BmSDK.IGameObject
         funcManaged.FunctionFlags = oldFlags;
         SaveGames = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RSaveGameManager.FRSaveGameSummaryInfo>>(paramsPtr + 4);
         StartPoints = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RSaveGameManager.FRSaveGameSummaryInfo>>(paramsPtr + 16);
+        return;
+    }
+
+    /// <summary>
+    /// Function: BuildSaveGameFileList
+    /// </summary>
+    public unsafe virtual void BuildSaveGameFileList(BmSDK.BmGame.RPlayerController RPC, out BmSDK.TArray<BmSDK.FString> saveFilesList)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RSaveGameManager.BuildSaveGameFileList", true);
+        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(RPC, paramsPtr + 0);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        saveFilesList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 4);
         return;
     }
 
@@ -423,6 +461,7 @@ public partial class RSaveGameManager : BmSDK.GameObject, BmSDK.IGameObject
         StorySlot_Temp = 1,
         StorySlot_StoryPlus = 2,
         StorySlot_DLC1 = 3,
-        StorySlot_MAX = 4,
+        StorySlot_StoryPlusIAB = 4,
+        StorySlot_MAX = 5,
     }
 }

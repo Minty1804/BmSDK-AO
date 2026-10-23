@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatEvent_CounterHit<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 18)
 /// </summary>
 public partial class RCombatEvent_CounterHit : BmSDK.BmGame.RCombatEvent, BmSDK.IGameObject

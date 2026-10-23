@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RGFxMovieCustom<br/>
-/// (size = 496)
-/// (flags = 18)
+/// (size = 588)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieCustom : BmSDK.BmGame.RGFxMovie, BmSDK.IGameObject
 {

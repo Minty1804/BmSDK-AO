@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: NxForceFieldSpawnable<br/>
-/// (size = 432)
+/// (size = 456)
 /// (flags = 142606482)
 /// </summary>
 public partial class NxForceFieldSpawnable : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -95,7 +95,7 @@ public partial class NxForceFieldSpawnable : BmSDK.Engine.Actor, BmSDK.IGameObje
     /// </summary>
     public unsafe BmSDK.Engine.NxForceFieldComponent ForceFieldComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.NxForceFieldComponent>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.NxForceFieldComponent>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 }

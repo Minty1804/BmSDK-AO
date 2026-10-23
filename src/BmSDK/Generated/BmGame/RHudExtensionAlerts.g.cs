@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionAlerts<br/>
-/// (size = 208)
+/// (size = 128)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionAlerts : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -138,12 +138,48 @@ public partial class RHudExtensionAlerts : BmSDK.BmGame.RHudExtension, BmSDK.IGa
     }
 
     /// <summary>
+    /// Function: HideCrimeInProgressAlert
+    /// </summary>
+    public unsafe virtual void HideCrimeInProgressAlert()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionAlerts.HideCrimeInProgressAlert", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: HideAudioAlert
     /// </summary>
     public unsafe virtual void HideAudioAlert()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionAlerts.HideAudioAlert", true);
         byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: SetCrimeInProgressDetail
+    /// </summary>
+    public unsafe virtual void SetCrimeInProgressDetail(BmSDK.FString GangType)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionAlerts.SetCrimeInProgressDetail", true);
+        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(GangType, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: SetCrimeInProgressAngleAndRange
+    /// </summary>
+    public unsafe virtual void SetCrimeInProgressAngleAndRange(float intercept_angle, int distance_metres)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionAlerts.SetCrimeInProgressAngleAndRange", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(intercept_angle, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(distance_metres, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -200,6 +236,18 @@ public partial class RHudExtensionAlerts : BmSDK.BmGame.RHudExtension, BmSDK.IGa
     }
 
     /// <summary>
+    /// Function: SetAudioFrameCIP
+    /// </summary>
+    public unsafe virtual void SetAudioFrameCIP(BmSDK.FString new_frame)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionAlerts.SetAudioFrameCIP", true);
+        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(new_frame, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: SetAudioFrame
     /// </summary>
     public unsafe virtual void SetAudioFrame(BmSDK.FString new_frame)
@@ -241,8 +289,8 @@ public partial class RHudExtensionAlerts : BmSDK.BmGame.RHudExtension, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie MovieInfo
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
     }
 
     /// <summary>
@@ -250,52 +298,16 @@ public partial class RHudExtensionAlerts : BmSDK.BmGame.RHudExtension, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.FString AudioSurvFrame
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 136); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
     }
 
     /// <summary>
-    /// StrProperty: CachedFunction_SetAudioText
+    /// StrProperty: AudioSurvFrameCIP
     /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetAudioText
+    public unsafe BmSDK.FString AudioSurvFrameCIP
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetInterceptAngle
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetInterceptAngle
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 160); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetTrailText
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetTrailText
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 172); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 172); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetMovieState
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetMovieState
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 184); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 184); }
-    }
-
-    /// <summary>
-    /// StrProperty: CachedFunction_SetPhoneAngle
-    /// </summary>
-    public unsafe BmSDK.FString CachedFunction_SetPhoneAngle
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 196); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 196); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 }

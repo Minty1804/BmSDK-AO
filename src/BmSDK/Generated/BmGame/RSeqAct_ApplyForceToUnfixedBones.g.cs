@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_ApplyForceToUnfixedBones<br/>
-/// (size = 248)
+/// (size = 268)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_ApplyForceToUnfixedBones : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject
@@ -117,8 +117,8 @@ public partial class RSeqAct_ApplyForceToUnfixedBones : BmSDK.Engine.SeqAct_Late
     /// </summary>
     public unsafe BmSDK.BmGame.RPawn NPC
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawn>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawn>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 
     /// <summary>
@@ -126,8 +126,8 @@ public partial class RSeqAct_ApplyForceToUnfixedBones : BmSDK.Engine.SeqAct_Late
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.FName> BoneNames
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(Ptr + 224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(Ptr + 244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
     }
 
     /// <summary>
@@ -135,7 +135,7 @@ public partial class RSeqAct_ApplyForceToUnfixedBones : BmSDK.Engine.SeqAct_Late
     /// </summary>
     public unsafe BmSDK.TArray<System.Numerics.Vector3> ForceVectors
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.Numerics.Vector3>>(Ptr + 236); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.Numerics.Vector3>>(Ptr + 256); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 256); }
     }
 }

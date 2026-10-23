@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: NxGenericForceFieldBox<br/>
-/// (size = 664)
+/// (size = 692)
 /// (flags = 142606994)
 /// </summary>
 public partial class NxGenericForceFieldBox : BmSDK.Engine.NxGenericForceField, BmSDK.IGameObject
@@ -101,13 +101,13 @@ public partial class NxGenericForceFieldBox : BmSDK.Engine.NxGenericForceField, 
     /// </summary>
     public unsafe BmSDK.Engine.DrawBoxComponent RenderComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawBoxComponent>(Ptr + 648); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 648); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawBoxComponent>(Ptr + 676); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 676); }
     }
 
     /// <summary>
     /// StructProperty: BoxExtent
     /// </summary>
     public unsafe ref System.Numerics.Vector3 BoxExtent
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 652);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 680);
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponBlowTorch<br/>
-/// (size = 968)
+/// (size = 984)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponBlowTorch : BmSDK.BmGame.RBMWeaponPipeBase, BmSDK.IGameObject
@@ -84,7 +84,7 @@ public partial class RBMWeaponBlowTorch : BmSDK.BmGame.RBMWeaponPipeBase, BmSDK.
     public unsafe override BmSDK.BmGame.RWeaponConfig CreateWeaponConfig(BmSDK.GameObject NewOwner)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMWeaponBlowTorch.CreateWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[24];
+        byte* paramsPtr = stackalloc byte[36];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RWeaponConfig>(paramsPtr + 4);

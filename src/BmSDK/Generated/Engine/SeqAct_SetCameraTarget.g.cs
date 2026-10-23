@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_SetCameraTarget<br/>
-/// (size = 224)
+/// (size = 244)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_SetCameraTarget : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -105,13 +105,13 @@ public partial class SeqAct_SetCameraTarget : BmSDK.Engine.SequenceAction, BmSDK
     /// </summary>
     public unsafe BmSDK.Engine.Actor CameraTarget
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
     /// StructProperty: TransitionParams
     /// </summary>
     public unsafe ref BmSDK.Engine.Camera.FViewTargetTransitionParams TransitionParams
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.Camera.FViewTargetTransitionParams>(Ptr + 208);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.Camera.FViewTargetTransitionParams>(Ptr + 228);
 }

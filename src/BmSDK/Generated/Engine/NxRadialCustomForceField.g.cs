@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: NxRadialCustomForceField<br/>
-/// (size = 520)
+/// (size = 548)
 /// (flags = 142606994)
 /// </summary>
 public partial class NxRadialCustomForceField : BmSDK.Engine.NxRadialForceField, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class NxRadialCustomForceField : BmSDK.Engine.NxRadialForceField,
     /// </summary>
     public unsafe float SelfRotationStrength
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 512); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 512); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class NxRadialCustomForceField : BmSDK.Engine.NxRadialForceField,
     /// </summary>
     public unsafe System.IntPtr Kernel
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 516); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 544); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 544); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: DynamicAnchor<br/>
-/// (size = 632)
+/// (size = 668)
 /// (flags = 142606482)
 /// </summary>
 public partial class DynamicAnchor : BmSDK.Engine.NavigationPoint, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class DynamicAnchor : BmSDK.Engine.NavigationPoint, BmSDK.IGameOb
     /// </summary>
     public unsafe BmSDK.Engine.Controller CurrentUser
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Controller>(Ptr + 628); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 628); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Controller>(Ptr + 664); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 664); }
     }
 }

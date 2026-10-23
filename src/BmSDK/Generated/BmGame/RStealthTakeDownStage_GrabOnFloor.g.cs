@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_GrabOnFloor<br/>
-/// (size = 1057)
+/// (size = 1101)
 /// (flags = 142606482)
 /// </summary>
 public partial class RStealthTakeDownStage_GrabOnFloor : BmSDK.BmGame.RStealthTakeDownStage, BmSDK.IGameObject
@@ -77,6 +77,17 @@ public partial class RStealthTakeDownStage_GrabOnFloor : BmSDK.BmGame.RStealthTa
     public void DetachScriptComponents<TComponent>()
         where TComponent : class, Framework.IScriptComponent<RStealthTakeDownStage_GrabOnFloor>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// Function: TakeDownHit
+    /// </summary>
+    public unsafe override void TakeDownHit()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RStealthTakeDownStage_GrabOnFloor.TakeDownHit", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
 
     /// <summary>
     /// Function: CanAimGrapple
@@ -158,20 +169,20 @@ public partial class RStealthTakeDownStage_GrabOnFloor : BmSDK.BmGame.RStealthTa
     /// StructProperty: SetReferencePosition
     /// </summary>
     public unsafe ref System.Numerics.Vector3 SetReferencePosition
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1032);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1076);
 
     /// <summary>
     /// StructProperty: SetReferenceRotation
     /// </summary>
     public unsafe ref BmSDK.Rotator SetReferenceRotation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 1044);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 1088);
 
     /// <summary>
     /// ByteProperty: ChallengeGameAction
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction ChallengeGameAction
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge ChallengeGameAction
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 1056); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1056); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 1100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1100); }
     }
 }

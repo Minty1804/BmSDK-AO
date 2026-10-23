@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBatarangRb<br/>
-/// (size = 1292)
+/// (size = 1344)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBatarangRb : BmSDK.BmGame.RBatarang, BmSDK.IGameObject

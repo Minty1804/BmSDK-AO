@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGFxMovieUI_MissionFailed<br/>
-/// (size = 668)
-/// (flags = 18)
+/// (size = 824)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieUI_MissionFailed : BmSDK.BmGame.RGFxMovieUI, BmSDK.IGameObject
 {
@@ -102,6 +102,17 @@ public partial class RGFxMovieUI_MissionFailed : BmSDK.BmGame.RGFxMovieUI, BmSDK
     }
 
     /// <summary>
+    /// Function: OnTick
+    /// </summary>
+    public unsafe override void OnTick()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RGFxMovieUI_MissionFailed.OnTick", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: SetupScreenPrompts
     /// </summary>
     public unsafe override void SetupScreenPrompts()
@@ -125,12 +136,23 @@ public partial class RGFxMovieUI_MissionFailed : BmSDK.BmGame.RGFxMovieUI, BmSDK
     }
 
     /// <summary>
+    /// Function: AutoRetry
+    /// </summary>
+    public unsafe virtual void AutoRetry()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RGFxMovieUI_MissionFailed.AutoRetry", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// IntProperty: pressedId
     /// </summary>
     public unsafe int pressedId
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 660); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 660); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 816); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 816); }
     }
 
     /// <summary>
@@ -138,7 +160,7 @@ public partial class RGFxMovieUI_MissionFailed : BmSDK.BmGame.RGFxMovieUI, BmSDK
     /// </summary>
     public unsafe bool bRetryOption
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 664) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 664); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 664); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 820) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 820); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 820); }
     }
 }

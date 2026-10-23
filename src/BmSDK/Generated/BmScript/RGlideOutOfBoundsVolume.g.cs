@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGlideOutOfBoundsVolume<br/>
-/// (size = 536)
+/// (size = 560)
 /// (flags = 8389138)
 /// </summary>
 public partial class RGlideOutOfBoundsVolume : BmSDK.BmGame.RBlockingVolume, BmSDK.IGameObject
@@ -167,8 +167,8 @@ public partial class RGlideOutOfBoundsVolume : BmSDK.BmGame.RBlockingVolume, BmS
     /// </summary>
     public unsafe BmSDK.BmGame.RSpecialMoveConfig TurnAroundMove
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSpecialMoveConfig>(Ptr + 484); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSpecialMoveConfig>(Ptr + 508); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 508); }
     }
 
     /// <summary>
@@ -176,17 +176,17 @@ public partial class RGlideOutOfBoundsVolume : BmSDK.BmGame.RBlockingVolume, BmS
     /// </summary>
     public unsafe bool PlayGunfireFX
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 488) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 488); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 488); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 512) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 512); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 512); }
     }
 
     /// <summary>
-    /// FloatProperty: GunFireTimer
+    /// FloatProperty: gunFireTimer
     /// </summary>
-    public unsafe float GunFireTimer
+    public unsafe float gunFireTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 492); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 516); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
     }
 
     /// <summary>
@@ -194,28 +194,28 @@ public partial class RGlideOutOfBoundsVolume : BmSDK.BmGame.RBlockingVolume, BmS
     /// </summary>
     public unsafe float PreviousGunFireTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 496); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 520); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
     }
 
     /// <summary>
     /// StructProperty: ImpactLocation
     /// </summary>
     public unsafe ref System.Numerics.Vector3 ImpactLocation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 500);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 524);
 
     /// <summary>
     /// StructProperty: ImpactRotation
     /// </summary>
     public unsafe ref BmSDK.Rotator ImpactRotation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 512);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 536);
 
     /// <summary>
     /// ArrayProperty: GunFireEffects
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmScript.RGlideOutOfBoundsVolume.FGunFireLocator> GunFireEffects
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmScript.RGlideOutOfBoundsVolume.FGunFireLocator>>(Ptr + 524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmScript.RGlideOutOfBoundsVolume.FGunFireLocator>>(Ptr + 548); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 548); }
     }
 }

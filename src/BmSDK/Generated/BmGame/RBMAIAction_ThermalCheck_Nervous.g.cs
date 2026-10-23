@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_ThermalCheck_Nervous<br/>
-/// (size = 616)
+/// (size = 640)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_ThermalCheck_Nervous : BmSDK.BmGame.RBMAIAction_ThermalCheck, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSpecialMoveInstance_PlaceActor<br/>
-/// (size = 680)
+/// (size = 704)
 /// (flags = 142606482)
 /// </summary>
 public partial class RSpecialMoveInstance_PlaceActor : BmSDK.BmGame.RSpecialMoveInstance_RelativeAnimWithAlignment, BmSDK.IGameObject

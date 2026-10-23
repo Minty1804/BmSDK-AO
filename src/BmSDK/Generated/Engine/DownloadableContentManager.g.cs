@@ -165,6 +165,17 @@ public partial class DownloadableContentManager : BmSDK.GameObject, BmSDK.IGameO
     }
 
     /// <summary>
+    /// Function: ForceReloadDLC
+    /// </summary>
+    public unsafe virtual void ForceReloadDLC()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.DownloadableContentManager.ForceReloadDLC", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe virtual void Init()
@@ -181,7 +192,7 @@ public partial class DownloadableContentManager : BmSDK.GameObject, BmSDK.IGameO
     public unsafe virtual void InstallNonPackageFiles(out BmSDK.Engine.OnlineSubsystem.FOnlineContent DLCBundle)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.DownloadableContentManager.InstallNonPackageFiles", true);
-        byte* paramsPtr = stackalloc byte[80];
+        byte* paramsPtr = stackalloc byte[96];
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -200,7 +211,7 @@ public partial class DownloadableContentManager : BmSDK.GameObject, BmSDK.IGameO
     public unsafe virtual void InstallPackages(out BmSDK.Engine.OnlineSubsystem.FOnlineContent DLCBundle)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.DownloadableContentManager.InstallPackages", true);
-        byte* paramsPtr = stackalloc byte[80];
+        byte* paramsPtr = stackalloc byte[96];
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -346,6 +357,26 @@ public partial class DownloadableContentManager : BmSDK.GameObject, BmSDK.IGameO
     }
 
     /// <summary>
+    /// Function: InstallAudioPackDLC
+    /// </summary>
+    public unsafe virtual bool InstallAudioPackDLC(BmSDK.Engine.OnlineSubsystem.FOnlineContent DLCBundle, BmSDK.FString Lang)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.DownloadableContentManager.InstallAudioPackDLC", true);
+        byte* paramsPtr = stackalloc byte[112];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DLCBundle, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Lang, paramsPtr + 96);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 108);
+    }
+
+    /// <summary>
     /// Function: InstallDLCs
     /// </summary>
     public unsafe virtual void InstallDLCs(out BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FOnlineContent> DLCBundles)
@@ -370,7 +401,7 @@ public partial class DownloadableContentManager : BmSDK.GameObject, BmSDK.IGameO
     public unsafe virtual bool InstallDLC(out BmSDK.Engine.OnlineSubsystem.FOnlineContent DLCBundle)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.DownloadableContentManager.InstallDLC", true);
-        byte* paramsPtr = stackalloc byte[84];
+        byte* paramsPtr = stackalloc byte[100];
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -380,7 +411,7 @@ public partial class DownloadableContentManager : BmSDK.GameObject, BmSDK.IGameO
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
         DLCBundle = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.OnlineSubsystem.FOnlineContent>(paramsPtr + 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 80);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 96);
     }
 
     /// <summary>

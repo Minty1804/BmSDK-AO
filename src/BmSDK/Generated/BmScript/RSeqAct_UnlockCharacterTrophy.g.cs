@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_UnlockCharacterTrophy<br/>
-/// (size = 205)
+/// (size = 225)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_UnlockCharacterTrophy : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -79,6 +79,17 @@ public partial class RSeqAct_UnlockCharacterTrophy : BmSDK.Engine.SequenceAction
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
+    /// Function: GetObjClassVersion
+    /// </summary>
+    public unsafe static int GetObjClassVersion()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSeqAct_UnlockCharacterTrophy.GetObjClassVersion", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: Activated
     /// </summary>
     public unsafe override void Activated()
@@ -94,7 +105,7 @@ public partial class RSeqAct_UnlockCharacterTrophy : BmSDK.Engine.SequenceAction
     /// </summary>
     public unsafe BmSDK.BmGame.RPersistentData.ECharacterViewer Character
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.ECharacterViewer>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.ECharacterViewer>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

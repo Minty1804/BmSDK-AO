@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RHidePointLineLauncher_RopeComponent<br/>
-/// (size = 512)
+/// (size = 548)
 /// (flags = 2157969426)
 /// </summary>
 public partial class RHidePointLineLauncher_RopeComponent : BmSDK.BmGame.RHidePointRope_RopeComponent, BmSDK.IGameObject

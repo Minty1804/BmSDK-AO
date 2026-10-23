@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBatarangBm<br/>
-/// (size = 1292)
+/// (size = 1344)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBatarangBm : BmSDK.BmGame.RBatarang, BmSDK.IGameObject
@@ -77,21 +77,6 @@ public partial class RBatarangBm : BmSDK.BmGame.RBatarang, BmSDK.IGameObject
     public void DetachScriptComponents<TComponent>()
         where TComponent : class, Framework.IScriptComponent<RBatarangBm>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
-
-    /// <summary>
-    /// Function: DoAffectCombo
-    /// </summary>
-    public unsafe override void DoAffectCombo(BmSDK.BmGame.RPlayerControllerCombat PC, BmSDK.BmGame.RBatarangProjectile Projectile, BmSDK.Engine.Actor ThisTarget, bool bDodged)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBatarangBm.DoAffectCombo", true);
-        byte* paramsPtr = stackalloc byte[20];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(PC, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(Projectile, paramsPtr + 4);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(ThisTarget, paramsPtr + 8);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(bDodged, paramsPtr + 12);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
 
     /// <summary>
     /// Function: QuickFire

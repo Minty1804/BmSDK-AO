@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAEC_Casualty_Sub_KickCas<br/>
-/// (size = 460)
+/// (size = 484)
 /// (flags = 8388626)
 /// </summary>
 public partial class RAEC_Casualty_Sub_KickCas : BmSDK.BmGame.RAEC_Casualty_Sub_Solo, BmSDK.IGameObject
@@ -92,7 +92,7 @@ public partial class RAEC_Casualty_Sub_KickCas : BmSDK.BmGame.RAEC_Casualty_Sub_
     /// <summary>
     /// Function: AssignCasualtyKick
     /// </summary>
-    public unsafe virtual void AssignCasualtyKick(BmSDK.BmGame.RPawnVillain NewCas, System.Numerics.Vector3 KickLoc, BmSDK.FName KickBone)
+    public unsafe virtual void AssignCasualtyKick(BmSDK.BmGame.RBMPawnAI NewCas, System.Numerics.Vector3 KickLoc, BmSDK.FName KickBone)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAEC_Casualty_Sub_KickCas.AssignCasualtyKick", true);
         byte* paramsPtr = stackalloc byte[36];

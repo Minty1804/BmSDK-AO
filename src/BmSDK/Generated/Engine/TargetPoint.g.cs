@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: TargetPoint<br/>
-/// (size = 440)
+/// (size = 464)
 /// (flags = 142606994)
 /// </summary>
 public partial class TargetPoint : BmSDK.Engine.Keypoint, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class TargetPoint : BmSDK.Engine.Keypoint, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.Texture2D SpawnSpriteTexture
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture2D>(Ptr + 432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture2D>(Ptr + 456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class TargetPoint : BmSDK.Engine.Keypoint, BmSDK.IGameObject
     /// </summary>
     public unsafe int SpawnRefCount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 436); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
     }
 }

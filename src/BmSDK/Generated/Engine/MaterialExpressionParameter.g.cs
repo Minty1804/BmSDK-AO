@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionParameter<br/>
-/// (size = 104)
+/// (size = 140)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionParameter : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -83,13 +83,13 @@ public partial class MaterialExpressionParameter : BmSDK.Engine.MaterialExpressi
     /// </summary>
     public unsafe BmSDK.FName ParameterName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 92); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
     }
 
     /// <summary>
     /// StructProperty: ExpressionGUID
     /// </summary>
     public unsafe ref BmSDK.GameObject.FGuid ExpressionGUID
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FGuid>(Ptr + 100);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FGuid>(Ptr + 124);
 }

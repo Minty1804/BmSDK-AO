@@ -199,6 +199,28 @@ public partial class PhysicsAssetInstance : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// Function: SetRBBoneSprings
+    /// </summary>
+    public unsafe virtual void SetRBBoneSprings(bool bEnable, float InBoneLinearSpring, float InBoneAngularSpring, BmSDK.Engine.PhysicsAssetInstance.EBoneSpringUsagePriority BoneSpringUsagePriority)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.PhysicsAssetInstance.SetRBBoneSprings", true);
+        byte* paramsPtr = stackalloc byte[13];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bEnable, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(InBoneLinearSpring, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(InBoneAngularSpring, paramsPtr + 8);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(BoneSpringUsagePriority, paramsPtr + 12);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return;
+    }
+
+    /// <summary>
     /// Function: SetNamedRBBoneSprings
     /// </summary>
     public unsafe virtual void SetNamedRBBoneSprings(bool bEnable, BmSDK.TArray<BmSDK.FName> BoneNames, float InBoneLinearSpring, float InBoneAngularSpring, BmSDK.Engine.SkeletalMeshComponent SkelMeshComp, BmSDK.Engine.PhysicsAssetInstance.EBoneSpringUsagePriority BoneSpringUsagePriority)

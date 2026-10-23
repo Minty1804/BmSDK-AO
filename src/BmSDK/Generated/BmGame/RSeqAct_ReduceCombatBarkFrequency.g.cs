@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_ReduceCombatBarkFrequency<br/>
-/// (size = 208)
+/// (size = 228)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_ReduceCombatBarkFrequency : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -105,7 +105,7 @@ public partial class RSeqAct_ReduceCombatBarkFrequency : BmSDK.Engine.SequenceAc
     /// </summary>
     public unsafe float TimeBetweenBarkMultiplier
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

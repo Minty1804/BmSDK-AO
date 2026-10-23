@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_DistributeAcrossFrames<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 134226066)
 /// </summary>
 public partial class RSeqAct_DistributeAcrossFrames : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class RSeqAct_DistributeAcrossFrames : BmSDK.Engine.SeqAct_Latent
     /// </summary>
     public unsafe int NextOutputToTrigger
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class RSeqAct_DistributeAcrossFrames : BmSDK.Engine.SeqAct_Latent
     /// </summary>
     public unsafe int LinkCount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
     }
 }

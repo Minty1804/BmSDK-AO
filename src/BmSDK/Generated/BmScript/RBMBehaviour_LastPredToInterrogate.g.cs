@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMBehaviour_LastPredToInterrogate<br/>
-/// (size = 408)
+/// (size = 428)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_LastPredToInterrogate : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject
@@ -183,8 +183,8 @@ public partial class RBMBehaviour_LastPredToInterrogate : BmSDK.BmGame.RBMBehavi
     /// </summary>
     public unsafe bool bQueueSurrender
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 396) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 396); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 396); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 416) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 416); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 416); }
     }
 
     /// <summary>
@@ -192,8 +192,8 @@ public partial class RBMBehaviour_LastPredToInterrogate : BmSDK.BmGame.RBMBehavi
     /// </summary>
     public unsafe BmSDK.BmGame.RAlternateAnimationAndWeaponConfig SurrenderWeaponConfig
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAlternateAnimationAndWeaponConfig>(Ptr + 400); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 400); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAlternateAnimationAndWeaponConfig>(Ptr + 420); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 420); }
     }
 
     /// <summary>
@@ -201,7 +201,7 @@ public partial class RBMBehaviour_LastPredToInterrogate : BmSDK.BmGame.RBMBehavi
     /// </summary>
     public unsafe float TimeTillStanceChange
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 404); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 404); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 424); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 424); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: PortalMarker<br/>
-/// (size = 632)
+/// (size = 668)
 /// (flags = 142606482)
 /// </summary>
 public partial class PortalMarker : BmSDK.Engine.NavigationPoint, BmSDK.IGameObject
@@ -102,7 +102,7 @@ public partial class PortalMarker : BmSDK.Engine.NavigationPoint, BmSDK.IGameObj
     /// </summary>
     public unsafe BmSDK.Engine.PortalTeleporter MyPortal
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PortalTeleporter>(Ptr + 628); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 628); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PortalTeleporter>(Ptr + 664); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 664); }
     }
 }

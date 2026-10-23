@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDisorientationPostProcess<br/>
-/// (size = 128)
+/// (size = 160)
 /// (flags = 18)
 /// </summary>
 public partial class RDisorientationPostProcess : BmSDK.BmGame.RViewPostProcess, BmSDK.IGameObject

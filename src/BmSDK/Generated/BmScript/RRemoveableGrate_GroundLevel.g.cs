@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RRemoveableGrate_GroundLevel<br/>
-/// (size = 768)
+/// (size = 820)
 /// (flags = 10486290)
 /// </summary>
 public partial class RRemoveableGrate_GroundLevel : BmSDK.BmGame.RRemoveableGrate, BmSDK.IGameObject
@@ -79,11 +79,31 @@ public partial class RRemoveableGrate_GroundLevel : BmSDK.BmGame.RRemoveableGrat
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
-    /// ComponentProperty: LightEnvironment
+    /// Function: PostBeginPlay
     /// </summary>
-    public unsafe BmSDK.Engine.DynamicLightEnvironmentComponent LightEnvironment
+    public unsafe override void PostBeginPlay()
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DynamicLightEnvironmentComponent>(Ptr + 764); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 764); }
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RRemoveableGrate_GroundLevel.PostBeginPlay", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// StrProperty: InvestigationDoorInfoTitle
+    /// </summary>
+    public unsafe BmSDK.FString InvestigationDoorInfoTitle
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 796); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 796); }
+    }
+
+    /// <summary>
+    /// StrProperty: InvestigationDoorInfo
+    /// </summary>
+    public unsafe BmSDK.FString InvestigationDoorInfo
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 808); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 808); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RResonatorTunerBm<br/>
-/// (size = 1204)
+/// (size = 1220)
 /// (flags = 8388658)
 /// </summary>
 public partial class RResonatorTunerBm : BmSDK.BmGame.RResonatorTuner, BmSDK.IGameObject
@@ -85,17 +85,6 @@ public partial class RResonatorTunerBm : BmSDK.BmGame.RResonatorTuner, BmSDK.IGa
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RResonatorTunerBm.ConversationReTriggerTimeout", true);
         byte* paramsPtr = stackalloc byte[0];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: PlayCodesNeededDialogue
-    /// </summary>
-    public unsafe override void PlayCodesNeededDialogue()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RResonatorTunerBm.PlayCodesNeededDialogue", true);
-        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqVar_Vector<br/>
-/// (size = 140)
+/// (size = 144)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqVar_Vector : BmSDK.Engine.SequenceVariable, BmSDK.IGameObject
@@ -82,5 +82,5 @@ public partial class SeqVar_Vector : BmSDK.Engine.SequenceVariable, BmSDK.IGameO
     /// StructProperty: VectValue
     /// </summary>
     public unsafe ref System.Numerics.Vector3 VectValue
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 128);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 132);
 }

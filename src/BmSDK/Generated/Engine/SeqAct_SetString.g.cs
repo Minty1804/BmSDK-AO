@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_SetString<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 134226066)
 /// </summary>
 public partial class SeqAct_SetString : BmSDK.Engine.SeqAct_SetSequenceVariable, BmSDK.IGameObject
@@ -94,8 +94,8 @@ public partial class SeqAct_SetString : BmSDK.Engine.SeqAct_SetSequenceVariable,
     /// </summary>
     public unsafe BmSDK.FString Target
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -103,7 +103,7 @@ public partial class SeqAct_SetString : BmSDK.Engine.SeqAct_SetSequenceVariable,
     /// </summary>
     public unsafe BmSDK.FString Value
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 216); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 216); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 236); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
     }
 }

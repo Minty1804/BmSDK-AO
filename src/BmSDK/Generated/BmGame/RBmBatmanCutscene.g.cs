@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBmBatmanCutscene<br/>
-/// (size = 889)
+/// (size = 933)
 /// (flags = 142606994)
 /// </summary>
 public partial class RBmBatmanCutscene : BmSDK.BmGame.RBMCutsceneBase, BmSDK.IGameObject
@@ -97,8 +97,8 @@ public partial class RBmBatmanCutscene : BmSDK.BmGame.RBMCutsceneBase, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.BmGame.RBmBatmanCutscene.BatmanCutsceneType CutsceneType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBmBatmanCutscene.BatmanCutsceneType>(Ptr + 888); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 888); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBmBatmanCutscene.BatmanCutsceneType>(Ptr + 932); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 932); }
     }
 
     /// <summary>
@@ -112,6 +112,8 @@ public partial class RBmBatmanCutscene : BmSDK.BmGame.RBMCutsceneBase, BmSDK.IGa
         BCT_LineLauncherKill = 3,
         BCT_JokerGunCutscene = 4,
         BCT_FallingFinaleCutscene = 5,
-        BCT_MAX = 6,
+        BCT_TightRopeTakeDown = 6,
+        BCT_ZipLineTakeDown = 7,
+        BCT_MAX = 8,
     }
 }

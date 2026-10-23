@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RWaterFlowTargetEditorRenderingComponent<br/>
-/// (size = 404)
+/// (size = 440)
 /// (flags = 2290094226)
 /// </summary>
 public partial class RWaterFlowTargetEditorRenderingComponent : BmSDK.Engine.PrimitiveComponent, BmSDK.IGameObject

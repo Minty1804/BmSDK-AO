@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RRobinGrappleGun<br/>
-/// (size = 1728)
+/// (size = 1756)
 /// (flags = 8388658)
 /// </summary>
 public partial class RRobinGrappleGun : BmSDK.BmGame.RGrappleGun, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBreakableTV_CRT<br/>
-/// (size = 472)
+/// (size = 500)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBreakableTV_CRT : BmSDK.BmGame.RBreakableTV, BmSDK.IGameObject

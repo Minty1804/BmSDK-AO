@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: SceneCaptureComponent<br/>
-/// (size = 140)
+/// (size = 152)
 /// (flags = 134217875)
 /// </summary>
 public partial class SceneCaptureComponent : BmSDK.Engine.ActorComponent, BmSDK.IGameObject
@@ -112,6 +112,16 @@ public partial class SceneCaptureComponent : BmSDK.Engine.ActorComponent, BmSDK.
     }
 
     /// <summary>
+    /// Enum: EActorFilterMode
+    /// </summary>
+    public enum EActorFilterMode : byte
+    {
+        ActorFilterMode_Exclusion = 0,
+        ActorFilterMode_Inclusion = 1,
+        ActorFilterMode_MAX = 2,
+    }
+
+    /// <summary>
     /// Enum: ESceneCaptureViewMode
     /// </summary>
     public enum ESceneCaptureViewMode : byte
@@ -120,7 +130,8 @@ public partial class SceneCaptureComponent : BmSDK.Engine.ActorComponent, BmSDK.
         SceneCapView_Unlit = 1,
         SceneCapView_LitNoShadows = 2,
         SceneCapView_Wire = 3,
-        SceneCapView_MAX = 4,
+        SceneCapView_SnowCapture = 4,
+        SceneCapView_MAX = 5,
     }
 
     /// <summary>
@@ -187,12 +198,21 @@ public partial class SceneCaptureComponent : BmSDK.Engine.ActorComponent, BmSDK.
     }
 
     /// <summary>
+    /// BoolProperty: bIncludePlayerInActorFilterList
+    /// </summary>
+    public unsafe bool bIncludePlayerInActorFilterList
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72) & 128) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72); var newMask = value ? (currentMask | 128) : (currentMask & ~128); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 72); }
+    }
+
+    /// <summary>
     /// BoolProperty: bCaptureEnabled
     /// </summary>
     public unsafe bool bCaptureEnabled
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72) & 128) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72); var newMask = value ? (currentMask | 128) : (currentMask & ~128); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 72); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72) & 256) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72); var newMask = value ? (currentMask | 256) : (currentMask & ~256); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 72); }
     }
 
     /// <summary>
@@ -200,8 +220,26 @@ public partial class SceneCaptureComponent : BmSDK.Engine.ActorComponent, BmSDK.
     /// </summary>
     public unsafe bool bEnabledInXRayMode
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72) & 256) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72); var newMask = value ? (currentMask | 256) : (currentMask & ~256); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 72); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72) & 512) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72); var newMask = value ? (currentMask | 512) : (currentMask & ~512); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 72); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bUpdateDownsampledDepthSurface
+    /// </summary>
+    public unsafe bool bUpdateDownsampledDepthSurface
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72) & 1024) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72); var newMask = value ? (currentMask | 1024) : (currentMask & ~1024); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 72); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bEnableTranslucency
+    /// </summary>
+    public unsafe bool bEnableTranslucency
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72) & 2048) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 72); var newMask = value ? (currentMask | 2048) : (currentMask & ~2048); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 72); }
     }
 
     /// <summary>
@@ -217,6 +255,15 @@ public partial class SceneCaptureComponent : BmSDK.Engine.ActorComponent, BmSDK.
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SceneCaptureComponent.ESceneCaptureViewMode>(Ptr + 80); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 80); }
+    }
+
+    /// <summary>
+    /// ByteProperty: ActorFilterMode
+    /// </summary>
+    public unsafe BmSDK.Engine.SceneCaptureComponent.EActorFilterMode ActorFilterMode
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SceneCaptureComponent.EActorFilterMode>(Ptr + 81); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 81); }
     }
 
     /// <summary>
@@ -283,12 +330,21 @@ public partial class SceneCaptureComponent : BmSDK.Engine.ActorComponent, BmSDK.
     }
 
     /// <summary>
+    /// ArrayProperty: ActorFilterList
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.Engine.Actor> ActorFilterList
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor>>(Ptr + 120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+    }
+
+    /// <summary>
     /// StructProperty: CaptureInfo
     /// </summary>
     public unsafe System.IntPtr CaptureInfo
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
     }
 
     /// <summary>
@@ -296,8 +352,8 @@ public partial class SceneCaptureComponent : BmSDK.Engine.ActorComponent, BmSDK.
     /// </summary>
     public unsafe System.IntPtr ViewState
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 124); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 124); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 136); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
     }
 
     /// <summary>
@@ -305,7 +361,7 @@ public partial class SceneCaptureComponent : BmSDK.Engine.ActorComponent, BmSDK.
     /// </summary>
     public unsafe BmSDK.TArray<System.IntPtr> PostProcessProxies
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.IntPtr>>(Ptr + 128); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.IntPtr>>(Ptr + 140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
     }
 }

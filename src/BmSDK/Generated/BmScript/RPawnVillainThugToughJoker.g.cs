@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPawnVillainThugToughJoker<br/>
-/// (size = 3572)
+/// (size = 4052)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnVillainThugToughJoker : BmSDK.BmScript.RPawnVillainThugTough, BmSDK.IGameObject
@@ -110,10 +110,10 @@ public partial class RPawnVillainThugToughJoker : BmSDK.BmScript.RPawnVillainThu
     public unsafe override BmSDK.BmGame.RPawnCombat.DamageResult DamagedBy(BmSDK.BmGame.RPawnCombat.FDamageInfo DmgInfo)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainThugToughJoker.DamagedBy", true);
-        byte* paramsPtr = stackalloc byte[245];
+        byte* paramsPtr = stackalloc byte[257];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DmgInfo, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCombat.DamageResult>(paramsPtr + 244);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCombat.DamageResult>(paramsPtr + 256);
     }
 
     /// <summary>
@@ -147,6 +147,29 @@ public partial class RPawnVillainThugToughJoker : BmSDK.BmScript.RPawnVillainThu
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: ImmuneToBatclaw
+    /// </summary>
+    public unsafe virtual bool ImmuneToBatclaw()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainThugToughJoker.ImmuneToBatclaw", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: ImmuneToBatarang
+    /// </summary>
+    public unsafe override bool ImmuneToBatarang(BmSDK.Class dmgType)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainThugToughJoker.ImmuneToBatarang", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(dmgType, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
     }
 
     /// <summary>
@@ -206,7 +229,7 @@ public partial class RPawnVillainThugToughJoker : BmSDK.BmScript.RPawnVillainThu
     public unsafe virtual BmSDK.BmGame.RWeaponConfig CreateMercyWeaponConfig(BmSDK.GameObject NewOwner)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainThugToughJoker.CreateMercyWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[764];
+        byte* paramsPtr = stackalloc byte[772];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RWeaponConfig>(paramsPtr + 4);
@@ -217,8 +240,8 @@ public partial class RPawnVillainThugToughJoker : BmSDK.BmScript.RPawnVillainThu
     /// </summary>
     public unsafe bool bMercyAtNextOpportunity
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3564) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3564); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 3564); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4044) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4044); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4044); }
     }
 
     /// <summary>
@@ -226,7 +249,7 @@ public partial class RPawnVillainThugToughJoker : BmSDK.BmScript.RPawnVillainThu
     /// </summary>
     public unsafe float MercyHealthLimit
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3568); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3568); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4048); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4048); }
     }
 }

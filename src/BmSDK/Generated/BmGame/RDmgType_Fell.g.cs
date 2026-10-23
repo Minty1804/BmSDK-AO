@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RDmgType_Fell<br/>
-/// (size = 120)
+/// (size = 132)
 /// (flags = 19)
 /// </summary>
 public partial class RDmgType_Fell : BmSDK.BmGame.RDamageType, BmSDK.IGameObject

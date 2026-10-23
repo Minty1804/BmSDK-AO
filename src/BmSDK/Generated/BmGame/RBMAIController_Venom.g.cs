@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIController_Venom<br/>
-/// (size = 1068)
+/// (size = 1104)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIController_Venom : BmSDK.BmGame.RBMAIController, BmSDK.IGameObject

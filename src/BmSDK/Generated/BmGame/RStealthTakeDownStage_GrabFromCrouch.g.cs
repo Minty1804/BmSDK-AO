@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_GrabFromCrouch<br/>
-/// (size = 1032)
+/// (size = 1080)
 /// (flags = 8388626)
 /// </summary>
 public partial class RStealthTakeDownStage_GrabFromCrouch : BmSDK.BmGame.RStealthTakeDownStage, BmSDK.IGameObject
@@ -146,5 +146,14 @@ public partial class RStealthTakeDownStage_GrabFromCrouch : BmSDK.BmGame.RStealt
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         Anim = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
         return;
+    }
+
+    /// <summary>
+    /// BoolProperty: bSilentTakedownFlagSet
+    /// </summary>
+    public unsafe bool bSilentTakedownFlagSet
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1076) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1076); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1076); }
     }
 }

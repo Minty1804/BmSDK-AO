@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_KickCas<br/>
-/// (size = 600)
+/// (size = 624)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_KickCas : BmSDK.BmGame.RBMAIAction, BmSDK.IGameObject
@@ -115,7 +115,7 @@ public partial class RBMAIAction_KickCas : BmSDK.BmGame.RBMAIAction, BmSDK.IGame
     /// <summary>
     /// Function: SetCasualty
     /// </summary>
-    public unsafe virtual void SetCasualty(BmSDK.BmGame.RPawnVillain NewCas, System.Numerics.Vector3 NewKickLoc, BmSDK.FName NewKickBone)
+    public unsafe virtual void SetCasualty(BmSDK.BmGame.RBMPawnAI NewCas, System.Numerics.Vector3 NewKickLoc, BmSDK.FName NewKickBone)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMAIAction_KickCas.SetCasualty", true);
         byte* paramsPtr = stackalloc byte[24];
@@ -129,30 +129,30 @@ public partial class RBMAIAction_KickCas : BmSDK.BmGame.RBMAIAction, BmSDK.IGame
     /// <summary>
     /// ObjectProperty: Casualty
     /// </summary>
-    public unsafe BmSDK.BmGame.RPawnVillain Casualty
+    public unsafe BmSDK.BmGame.RBMPawnAI Casualty
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(Ptr + 572); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMPawnAI>(Ptr + 596); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 596); }
     }
 
     /// <summary>
     /// StructProperty: KickStandLoc
     /// </summary>
     public unsafe ref System.Numerics.Vector3 KickStandLoc
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 576);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 600);
 
     /// <summary>
     /// NameProperty: KickBone
     /// </summary>
     public unsafe BmSDK.FName KickBone
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 588); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 588); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 612); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 612); }
     }
 
     /// <summary>
     /// StructProperty: KickAnimID
     /// </summary>
-    public unsafe ref BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId KickAnimID
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId>(Ptr + 596);
+    public unsafe ref BmSDK.BmGame.RAnimUtil.FTransitionId KickAnimID
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAnimUtil.FTransitionId>(Ptr + 620);
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_StartPredatorChallenge<br/>
-/// (size = 292)
+/// (size = 324)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_StartPredatorChallengeBase, BmSDK.IGameObject
@@ -135,11 +135,11 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     }
 
     /// <summary>
-    /// Function: ActionPerformed
+    /// Function: ActionPerformedPred
     /// </summary>
-    public unsafe override bool ActionPerformed(BmSDK.BmGame.RGameInfo.EGameAction NewGameAction)
+    public unsafe override bool ActionPerformedPred(BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge NewGameAction)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSeqAct_StartPredatorChallenge.ActionPerformed", true);
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSeqAct_StartPredatorChallenge.ActionPerformedPred", true);
         byte* paramsPtr = stackalloc byte[20];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewGameAction, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -173,8 +173,8 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe BmSDK.BmGame.RGFxMovieChallengeHUD HUD
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGFxMovieChallengeHUD>(Ptr + 236); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGFxMovieChallengeHUD>(Ptr + 256); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 256); }
     }
 
     /// <summary>
@@ -182,8 +182,8 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie TheMovieInstance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 240); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 260); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 260); }
     }
 
     /// <summary>
@@ -191,8 +191,8 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe bool bExit
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 244); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 264); }
     }
 
     /// <summary>
@@ -200,8 +200,8 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe bool bRunTimer
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 244); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 264); }
     }
 
     /// <summary>
@@ -209,8 +209,8 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe bool bShowTimer
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 244); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 264); }
     }
 
     /// <summary>
@@ -218,8 +218,8 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe bool bOneHitKills
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 244); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 264); }
     }
 
     /// <summary>
@@ -227,8 +227,8 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe int IntroCountdown
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 248); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 268); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 268); }
     }
 
     /// <summary>
@@ -236,8 +236,8 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe float Timer_PostIntroDelay
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 252); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 252); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 272); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 272); }
     }
 
     /// <summary>
@@ -245,128 +245,137 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe BmSDK.FString IntroText
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 256); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 256); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 276); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 276); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: DeathMovies
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.FString> DeathMovies
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(Ptr + 288); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 288); }
     }
 
     /// <summary>
     /// InlineArray{ByteProperty}: ActualChallengeActions
     /// </summary>
-    public InlineArray<BmSDK.BmGame.RGameInfo.EGameAction> ActualChallengeActions => new(3, Ptr + 268, 1, this);
+    public InlineArray<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge> ActualChallengeActions => new(3, Ptr + 300, 1, this);
 
     /// <summary>
     /// ByteProperty: ActualChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction ActualChallengeActions_0
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge ActualChallengeActions_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 268); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 268); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 300); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 300); }
     }
     /// <summary>
     /// ByteProperty: ActualChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction ActualChallengeActions_1
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge ActualChallengeActions_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 269); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 269); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 301); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 301); }
     }
     /// <summary>
     /// ByteProperty: ActualChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction ActualChallengeActions_2
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge ActualChallengeActions_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 270); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 270); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 302); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 302); }
     }
 
     /// <summary>
     /// InlineArray{ByteProperty}: ChallengeActions
     /// </summary>
-    public InlineArray<BmSDK.BmGame.RGameInfo.EGameAction> ChallengeActions => new(3, Ptr + 271, 1, this);
+    public InlineArray<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge> ChallengeActions => new(3, Ptr + 303, 1, this);
 
     /// <summary>
     /// ByteProperty: ChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction ChallengeActions_0
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge ChallengeActions_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 271); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 271); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 303); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 303); }
     }
     /// <summary>
     /// ByteProperty: ChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction ChallengeActions_1
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge ChallengeActions_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 272); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 272); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 304); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 304); }
     }
     /// <summary>
     /// ByteProperty: ChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction ChallengeActions_2
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge ChallengeActions_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 273); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 273); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 305); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 305); }
     }
 
     /// <summary>
     /// InlineArray{ByteProperty}: CWChallengeActions
     /// </summary>
-    public InlineArray<BmSDK.BmGame.RGameInfo.EGameAction> CWChallengeActions => new(3, Ptr + 274, 1, this);
+    public InlineArray<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge> CWChallengeActions => new(3, Ptr + 306, 1, this);
 
     /// <summary>
     /// ByteProperty: CWChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction CWChallengeActions_0
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge CWChallengeActions_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 274); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 274); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 306); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 306); }
     }
     /// <summary>
     /// ByteProperty: CWChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction CWChallengeActions_1
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge CWChallengeActions_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 275); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 275); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 307); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 307); }
     }
     /// <summary>
     /// ByteProperty: CWChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction CWChallengeActions_2
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge CWChallengeActions_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 276); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 276); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 308); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 308); }
     }
 
     /// <summary>
     /// InlineArray{ByteProperty}: CoopChallengeActions
     /// </summary>
-    public InlineArray<BmSDK.BmGame.RGameInfo.EGameAction> CoopChallengeActions => new(3, Ptr + 277, 1, this);
+    public InlineArray<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge> CoopChallengeActions => new(3, Ptr + 309, 1, this);
 
     /// <summary>
     /// ByteProperty: CoopChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction CoopChallengeActions_0
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge CoopChallengeActions_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 277); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 277); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 309); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 309); }
     }
     /// <summary>
     /// ByteProperty: CoopChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction CoopChallengeActions_1
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge CoopChallengeActions_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 278); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 278); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 310); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 310); }
     }
     /// <summary>
     /// ByteProperty: CoopChallengeActions
     /// </summary>
-    public unsafe BmSDK.BmGame.RGameInfo.EGameAction CoopChallengeActions_2
+    public unsafe BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge CoopChallengeActions_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction>(Ptr + 279); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 279); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge>(Ptr + 311); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 311); }
     }
 
     /// <summary>
@@ -374,8 +383,8 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe float TimerCountdown
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 280); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 280); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 312); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 312); }
     }
 
     /// <summary>
@@ -383,8 +392,8 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe float ChallengeTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 284); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 284); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 316); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 316); }
     }
 
     /// <summary>
@@ -392,7 +401,7 @@ public partial class RSeqAct_StartPredatorChallenge : BmSDK.BmGame.RSeqAct_Start
     /// </summary>
     public unsafe float LastSentChallengeTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 288); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 288); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 320); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 320); }
     }
 }

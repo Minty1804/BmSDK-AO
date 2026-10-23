@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSecurityLaserDoorBase<br/>
-/// (size = 496)
+/// (size = 520)
 /// (flags = 142606482)
 /// </summary>
 public partial class RSecurityLaserDoorBase : BmSDK.Engine.SkeletalMeshActor, BmSDK.IGameObject

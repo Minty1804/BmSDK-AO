@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGFxMovieUI_DLC_OfferCatwoman<br/>
-/// (size = 661)
-/// (flags = 18)
+/// (size = 817)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieUI_DLC_OfferCatwoman : BmSDK.BmGame.RGFxMovieUI, BmSDK.IGameObject
 {
@@ -131,8 +131,8 @@ public partial class RGFxMovieUI_DLC_OfferCatwoman : BmSDK.BmGame.RGFxMovieUI, B
     /// </summary>
     public unsafe BmSDK.BmScript.RGFxMovieUI_DLC_OfferCatwoman.CWOPopTypes PopupType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RGFxMovieUI_DLC_OfferCatwoman.CWOPopTypes>(Ptr + 660); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 660); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RGFxMovieUI_DLC_OfferCatwoman.CWOPopTypes>(Ptr + 816); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 816); }
     }
 
     /// <summary>

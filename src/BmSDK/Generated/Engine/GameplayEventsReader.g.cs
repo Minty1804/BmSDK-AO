@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: GameplayEventsReader<br/>
-/// (size = 332)
+/// (size = 368)
 /// (flags = 134217874)
 /// </summary>
 public partial class GameplayEventsReader : BmSDK.Engine.GameplayEvents, BmSDK.IGameObject
@@ -342,7 +342,7 @@ public partial class GameplayEventsReader : BmSDK.Engine.GameplayEvents, BmSDK.I
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.GameplayEventsHandler> RegisteredHandlers
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.GameplayEventsHandler>>(Ptr + 320); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 320); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.GameplayEventsHandler>>(Ptr + 356); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 356); }
     }
 }

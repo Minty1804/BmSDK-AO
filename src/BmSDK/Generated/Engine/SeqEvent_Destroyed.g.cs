@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqEvent_Destroyed<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqEvent_Destroyed : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject

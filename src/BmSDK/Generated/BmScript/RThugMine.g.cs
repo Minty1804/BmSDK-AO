@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RThugMine<br/>
-/// (size = 548)
+/// (size = 560)
 /// (flags = 8389138)
 /// </summary>
 public partial class RThugMine : BmSDK.BmGame.RThugMineBase, BmSDK.IGameObject

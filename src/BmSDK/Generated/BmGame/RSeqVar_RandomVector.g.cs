@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqVar_RandomVector<br/>
-/// (size = 164)
+/// (size = 168)
 /// (flags = 134217874)
 /// </summary>
 public partial class RSeqVar_RandomVector : BmSDK.Engine.SeqVar_Vector, BmSDK.IGameObject
@@ -82,11 +82,11 @@ public partial class RSeqVar_RandomVector : BmSDK.Engine.SeqVar_Vector, BmSDK.IG
     /// StructProperty: Min
     /// </summary>
     public unsafe ref System.Numerics.Vector3 Min
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 140);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 144);
 
     /// <summary>
     /// StructProperty: Max
     /// </summary>
     public unsafe ref System.Numerics.Vector3 Max
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 152);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 156);
 }

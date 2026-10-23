@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHelicopterSpotLightComponent<br/>
-/// (size = 552)
+/// (size = 600)
 /// (flags = 144707730)
 /// </summary>
 public partial class RHelicopterSpotLightComponent : BmSDK.Engine.SpotLightComponent, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class RHelicopterSpotLightComponent : BmSDK.Engine.SpotLightCompo
     /// </summary>
     public unsafe bool AbsoluteRotation
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 548) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 548); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 548); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 596) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 596); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 596); }
     }
 }

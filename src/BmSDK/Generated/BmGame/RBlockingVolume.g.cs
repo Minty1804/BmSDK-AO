@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBlockingVolume<br/>
-/// (size = 484)
+/// (size = 508)
 /// (flags = 142606994)
 /// </summary>
 public partial class RBlockingVolume : BmSDK.Engine.BlockingVolume, BmSDK.IGameObject
@@ -82,5 +82,5 @@ public partial class RBlockingVolume : BmSDK.Engine.BlockingVolume, BmSDK.IGameO
     /// StructProperty: BlockedTypes
     /// </summary>
     public unsafe ref BmSDK.Engine.Actor.FBlockingVolumeTypesContainer BlockedTypes
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.Actor.FBlockingVolumeTypesContainer>(Ptr + 480);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.Actor.FBlockingVolumeTypesContainer>(Ptr + 504);
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSpecialMoveInstance_CustomWalk<br/>
-/// (size = 584)
+/// (size = 608)
 /// (flags = 8388626)
 /// </summary>
 public partial class RSpecialMoveInstance_CustomWalk : BmSDK.BmGame.RSpecialMoveInstance, BmSDK.IGameObject
@@ -91,6 +91,19 @@ public partial class RSpecialMoveInstance_CustomWalk : BmSDK.BmGame.RSpecialMove
     }
 
     /// <summary>
+    /// Function: GetHelpPrompt
+    /// </summary>
+    public unsafe override void GetHelpPrompt(BmSDK.BmGame.RHUDPrompt HelpPrompt, bool bKismetHelpOn)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSpecialMoveInstance_CustomWalk.GetHelpPrompt", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(HelpPrompt, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bKismetHelpOn, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: FinishSpecialMove
     /// </summary>
     public unsafe override void FinishSpecialMove()
@@ -143,7 +156,7 @@ public partial class RSpecialMoveInstance_CustomWalk : BmSDK.BmGame.RSpecialMove
     public unsafe virtual void AddCustomWalkPoseToWeaponConfig(BmSDK.BmGame.RWeaponConfig WeaponConfig)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSpecialMoveInstance_CustomWalk.AddCustomWalkPoseToWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[600];
+        byte* paramsPtr = stackalloc byte[608];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(WeaponConfig, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
@@ -154,8 +167,8 @@ public partial class RSpecialMoveInstance_CustomWalk : BmSDK.BmGame.RSpecialMove
     /// </summary>
     public unsafe BmSDK.BmScript.RSpecialMoveConfig_CustomWalk MyConfig
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RSpecialMoveConfig_CustomWalk>(Ptr + 576); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RSpecialMoveConfig_CustomWalk>(Ptr + 600); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 600); }
     }
 
     /// <summary>
@@ -163,7 +176,7 @@ public partial class RSpecialMoveInstance_CustomWalk : BmSDK.BmGame.RSpecialMove
     /// </summary>
     public unsafe BmSDK.BmGame.RPoseConfig CustomWalkPoseConfig
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPoseConfig>(Ptr + 580); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 580); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPoseConfig>(Ptr + 604); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 604); }
     }
 }

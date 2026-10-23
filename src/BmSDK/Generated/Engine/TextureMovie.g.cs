@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: TextureMovie<br/>
-/// (size = 284)
+/// (size = 296)
 /// (flags = 134217874)
 /// </summary>
 public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
@@ -203,8 +203,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe int SizeX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 212); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -212,8 +212,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe int SizeY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 216); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 216); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
     }
 
     /// <summary>
@@ -221,8 +221,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.Texture.EPixelFormat Format
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture.EPixelFormat>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture.EPixelFormat>(Ptr + 232); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
     }
 
     /// <summary>
@@ -230,8 +230,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.Texture.TextureAddress AddressX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture.TextureAddress>(Ptr + 221); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 221); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture.TextureAddress>(Ptr + 233); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 233); }
     }
 
     /// <summary>
@@ -239,8 +239,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.Texture.TextureAddress AddressY
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture.TextureAddress>(Ptr + 222); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 222); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture.TextureAddress>(Ptr + 234); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 234); }
     }
 
     /// <summary>
@@ -248,8 +248,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.TextureMovie.EMovieStreamSource MovieStreamSource
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.TextureMovie.EMovieStreamSource>(Ptr + 223); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 223); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.TextureMovie.EMovieStreamSource>(Ptr + 235); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 235); }
     }
 
     /// <summary>
@@ -257,8 +257,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Class DecoderClass
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 236); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 236); }
     }
 
     /// <summary>
@@ -266,8 +266,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.CodecMovie Decoder
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.CodecMovie>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.CodecMovie>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 
     /// <summary>
@@ -275,8 +275,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe bool Paused
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 232); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 244); }
     }
 
     /// <summary>
@@ -284,8 +284,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe bool Stopped
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 232); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 244); }
     }
 
     /// <summary>
@@ -293,8 +293,8 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe bool Looping
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 232); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 244); }
     }
 
     /// <summary>
@@ -302,22 +302,22 @@ public partial class TextureMovie : BmSDK.Engine.Texture, BmSDK.IGameObject
     /// </summary>
     public unsafe bool AutoPlay
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 232); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 232); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 244); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 244); }
     }
 
     /// <summary>
     /// StructProperty: Data
     /// </summary>
     public unsafe ref BmSDK.GameObject.FUntypedBulkData_Mirror Data
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FUntypedBulkData_Mirror>(Ptr + 236);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FUntypedBulkData_Mirror>(Ptr + 248);
 
     /// <summary>
     /// StructProperty: ReleaseCodecFence
     /// </summary>
     public unsafe System.IntPtr ReleaseCodecFence
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 280); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 280); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 292); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 292); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RControllableChatteringTeethBase<br/>
-/// (size = 1148)
+/// (size = 1172)
 /// (flags = 142607030)
 /// </summary>
 public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK.IGameObject
@@ -200,6 +200,28 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     }
 
     /// <summary>
+    /// Function: PlayWalkAnim
+    /// </summary>
+    public unsafe virtual void PlayWalkAnim()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RControllableChatteringTeethBase.PlayWalkAnim", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: PlayJumpAnim
+    /// </summary>
+    public unsafe virtual void PlayJumpAnim()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RControllableChatteringTeethBase.PlayJumpAnim", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: PlayPreExplodeAnim
     /// </summary>
     public unsafe virtual void PlayPreExplodeAnim()
@@ -211,23 +233,12 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     }
 
     /// <summary>
-    /// Function: GetJumpBlenderAnimNode
-    /// </summary>
-    public unsafe virtual BmSDK.Engine.AnimNodeCrossfader GetJumpBlenderAnimNode()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RControllableChatteringTeethBase.GetJumpBlenderAnimNode", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimNodeCrossfader>(paramsPtr + 0);
-    }
-
-    /// <summary>
     /// ByteProperty: TeethState
     /// </summary>
     public unsafe BmSDK.BmGame.RControllableChatteringTeethBase.EChatteringTeethState TeethState
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RControllableChatteringTeethBase.EChatteringTeethState>(Ptr + 1092); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1092); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RControllableChatteringTeethBase.EChatteringTeethState>(Ptr + 1116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1116); }
     }
 
     /// <summary>
@@ -235,8 +246,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe BmSDK.BmGame.RControllableChatteringTeethBase.EExplosionOutcome ExplosionOutcome
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RControllableChatteringTeethBase.EExplosionOutcome>(Ptr + 1093); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1093); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RControllableChatteringTeethBase.EExplosionOutcome>(Ptr + 1117); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1117); }
     }
 
     /// <summary>
@@ -244,8 +255,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe BmSDK.BmGame.RPlayerInput Input
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerInput>(Ptr + 1096); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1096); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerInput>(Ptr + 1120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1120); }
     }
 
     /// <summary>
@@ -253,8 +264,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe bool bExploded
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1100) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1100); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1100); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1124) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1124); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1124); }
     }
 
     /// <summary>
@@ -262,8 +273,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe bool bExplosionTriggered
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1100) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1100); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1100); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1124) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1124); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1124); }
     }
 
     /// <summary>
@@ -271,8 +282,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe float MinJumpingFloorAngle
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1104); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1104); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1128); }
     }
 
     /// <summary>
@@ -280,8 +291,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe float JumpBlendTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1108); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1108); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1132); }
     }
 
     /// <summary>
@@ -289,8 +300,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe float MinVillainDistanceBeforeAutoExplode
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1112); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1112); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1136); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1136); }
     }
 
     /// <summary>
@@ -298,8 +309,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe float MaxTurnSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1116); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1116); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1140); }
     }
 
     /// <summary>
@@ -307,8 +318,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe float AutoExplodeTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1144); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1144); }
     }
 
     /// <summary>
@@ -316,8 +327,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe float AutoExplodeDelay
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1124); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1124); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1148); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1148); }
     }
 
     /// <summary>
@@ -325,8 +336,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe float ActualExplodeDelay
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1128); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1128); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1152); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1152); }
     }
 
     /// <summary>
@@ -334,8 +345,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe BmSDK.Engine.Actor SpawnGadget
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 1132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 1156); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1156); }
     }
 
     /// <summary>
@@ -343,8 +354,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe BmSDK.BmGame.RControllableChatteringTeethCamera TeethCamera
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RControllableChatteringTeethCamera>(Ptr + 1136); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1136); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RControllableChatteringTeethCamera>(Ptr + 1160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1160); }
     }
 
     /// <summary>
@@ -352,8 +363,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent WalkLoopEvent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 1140); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1140); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 1164); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1164); }
     }
 
     /// <summary>
@@ -361,8 +372,8 @@ public partial class RControllableChatteringTeethBase : BmSDK.Engine.Pawn, BmSDK
     /// </summary>
     public unsafe float PostExplodeDelay
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1144); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1168); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1168); }
     }
 
     /// <summary>

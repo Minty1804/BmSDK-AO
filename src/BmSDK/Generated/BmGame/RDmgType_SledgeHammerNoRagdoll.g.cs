@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_SledgeHammerNoRagdoll<br/>
-/// (size = 120)
+/// (size = 132)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_SledgeHammerNoRagdoll : BmSDK.BmGame.RDmgType_SledgeHammer, BmSDK.IGameObject

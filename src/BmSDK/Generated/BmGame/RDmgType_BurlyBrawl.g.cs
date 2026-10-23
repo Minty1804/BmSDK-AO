@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_BurlyBrawl<br/>
-/// (size = 120)
+/// (size = 132)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_BurlyBrawl : BmSDK.BmGame.RDmgType_Knife, BmSDK.IGameObject

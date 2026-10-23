@@ -5,8 +5,8 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: DominantDirectionalLightComponent<br/>
-/// (size = 620)
-/// (flags = 144707730)
+/// (size = 652)
+/// (flags = 178262162)
 /// </summary>
 public partial class DominantDirectionalLightComponent : BmSDK.Engine.DirectionalLightComponent, BmSDK.IGameObject
 {
@@ -82,11 +82,11 @@ public partial class DominantDirectionalLightComponent : BmSDK.Engine.Directiona
     /// StructProperty: DominantLightShadowInfo
     /// </summary>
     public unsafe ref BmSDK.Engine.EngineTypes.FDominantShadowInfo DominantLightShadowInfo
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.EngineTypes.FDominantShadowInfo>(Ptr + 432);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.EngineTypes.FDominantShadowInfo>(Ptr + 464);
 
     /// <summary>
     /// StructProperty: DominantLightShadowMap
     /// </summary>
     public unsafe ref BmSDK.GameObject.FArray_Mirror DominantLightShadowMap
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FArray_Mirror>(Ptr + 608);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FArray_Mirror>(Ptr + 640);
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqEvent_HelicopterDialogueTrigger<br/>
-/// (size = 232)
+/// (size = 252)
 /// (flags = 18)
 /// </summary>
 public partial class RSeqEvent_HelicopterDialogueTrigger : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject
@@ -94,8 +94,8 @@ public partial class RSeqEvent_HelicopterDialogueTrigger : BmSDK.Engine.Sequence
     /// </summary>
     public unsafe bool DialogueEnabled
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 228); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 228); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 248) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 248); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 248); }
     }
 
     /// <summary>

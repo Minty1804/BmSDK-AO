@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPawnVillainGun<br/>
-/// (size = 3652)
+/// (size = 4120)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnVillainGun : BmSDK.BmGame.RPawnVillainGunPredBase, BmSDK.IGameObject
@@ -84,7 +84,7 @@ public partial class RPawnVillainGun : BmSDK.BmGame.RPawnVillainGunPredBase, BmS
     public unsafe virtual BmSDK.BmGame.RWeaponConfig CreateFullPanicWeaponConfig(BmSDK.GameObject NewOwner, BmSDK.Engine.AnimSet AnimSet1, BmSDK.Engine.AnimSet AnimSet2, BmSDK.Engine.AnimSet AnimSet3, BmSDK.Engine.AnimSet AnimSet4, BmSDK.Engine.AnimSet AnimSet5, BmSDK.Engine.AnimSet TurnAnimSet2, BmSDK.Engine.AnimSet TerrorTurnAnims)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGun.CreateFullPanicWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[16228];
+        byte* paramsPtr = stackalloc byte[16268];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet1, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet2, paramsPtr + 8);
@@ -238,8 +238,8 @@ public partial class RPawnVillainGun : BmSDK.BmGame.RPawnVillainGunPredBase, BmS
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent InjuredBleepSound
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 3612); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3612); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 4080); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4080); }
     }
 
     /// <summary>
@@ -247,8 +247,8 @@ public partial class RPawnVillainGun : BmSDK.BmGame.RPawnVillainGunPredBase, BmS
     /// </summary>
     public unsafe BmSDK.FName CollarSocket
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 3616); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3616); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 4084); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4084); }
     }
 
     /// <summary>
@@ -256,8 +256,8 @@ public partial class RPawnVillainGun : BmSDK.BmGame.RPawnVillainGunPredBase, BmS
     /// </summary>
     public unsafe BmSDK.Engine.MaterialInstanceConstant CollarMIC
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 3624); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3624); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 4092); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4092); }
     }
 
     /// <summary>
@@ -265,8 +265,8 @@ public partial class RPawnVillainGun : BmSDK.BmGame.RPawnVillainGunPredBase, BmS
     /// </summary>
     public unsafe BmSDK.Engine.ParticleSystem SonicBatarangCollarEffect
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 3628); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3628); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 4096); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4096); }
     }
 
     /// <summary>
@@ -274,8 +274,8 @@ public partial class RPawnVillainGun : BmSDK.BmGame.RPawnVillainGunPredBase, BmS
     /// </summary>
     public unsafe BmSDK.Engine.ParticleSystem SonicBatarangDeathCollarEffect
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 3632); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3632); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 4100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4100); }
     }
 
     /// <summary>
@@ -283,13 +283,13 @@ public partial class RPawnVillainGun : BmSDK.BmGame.RPawnVillainGunPredBase, BmS
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent CollarSoundEvent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 3636); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3636); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 4104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4104); }
     }
 
     /// <summary>
     /// StructProperty: CollarSoundHandle
     /// </summary>
     public unsafe ref BmSDK.Engine.AkWwise.FAkSoundHandle CollarSoundHandle
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.AkWwise.FAkSoundHandle>(Ptr + 3640);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.AkWwise.FAkSoundHandle>(Ptr + 4108);
 }

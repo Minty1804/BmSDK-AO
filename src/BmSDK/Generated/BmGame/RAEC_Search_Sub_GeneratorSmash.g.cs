@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAEC_Search_Sub_GeneratorSmash<br/>
-/// (size = 592)
+/// (size = 616)
 /// (flags = 8388626)
 /// </summary>
 public partial class RAEC_Search_Sub_GeneratorSmash : BmSDK.BmGame.RAEC_Search_Sub, BmSDK.IGameObject
@@ -174,8 +174,8 @@ public partial class RAEC_Search_Sub_GeneratorSmash : BmSDK.BmGame.RAEC_Search_S
     /// </summary>
     public unsafe BmSDK.BmGame.RMagneticSurfaceSMBase CurrentTargetGenerator
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RMagneticSurfaceSMBase>(Ptr + 572); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RMagneticSurfaceSMBase>(Ptr + 596); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 596); }
     }
 
     /// <summary>
@@ -183,8 +183,8 @@ public partial class RAEC_Search_Sub_GeneratorSmash : BmSDK.BmGame.RAEC_Search_S
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RAEC_Search_Sub_GeneratorSmash.FGenSearchItem> GenSearch
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RAEC_Search_Sub_GeneratorSmash.FGenSearchItem>>(Ptr + 576); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RAEC_Search_Sub_GeneratorSmash.FGenSearchItem>>(Ptr + 600); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 600); }
     }
 
     /// <summary>
@@ -192,7 +192,7 @@ public partial class RAEC_Search_Sub_GeneratorSmash : BmSDK.BmGame.RAEC_Search_S
     /// </summary>
     public unsafe float GeneratorVisibleTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 588); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 588); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 612); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 612); }
     }
 }

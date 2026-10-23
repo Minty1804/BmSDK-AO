@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponCombatRifle<br/>
-/// (size = 1104)
+/// (size = 1124)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponCombatRifle : BmSDK.BmGame.RBMWeaponRanged, BmSDK.IGameObject
@@ -140,7 +140,7 @@ public partial class RBMWeaponCombatRifle : BmSDK.BmGame.RBMWeaponRanged, BmSDK.
     public unsafe static BmSDK.BmGame.RWeaponConfig CreateCombatWeaponConfig(BmSDK.GameObject NewOwner, BmSDK.Engine.AnimSet AnimSet1, BmSDK.Engine.AnimSet AnimSet2, BmSDK.Engine.AnimSet AnimSet3, BmSDK.Engine.AnimSet AnimSet4)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RBMWeaponCombatRifle.CreateCombatWeaponConfig", true);
-        byte* paramsPtr = stackalloc byte[5404];
+        byte* paramsPtr = stackalloc byte[5324];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewOwner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet1, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSet2, paramsPtr + 8);

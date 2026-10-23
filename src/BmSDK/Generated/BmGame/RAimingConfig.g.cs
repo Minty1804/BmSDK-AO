@@ -86,7 +86,8 @@ public partial class RAimingConfig : BmSDK.GameObject, BmSDK.IGameObject
         AR_Forward = 0,
         AR_Head = 1,
         AR_Gundummy = 2,
-        AR_MAX = 3,
+        AR_Gundummy02 = 3,
+        AR_MAX = 4,
     }
 
     /// <summary>

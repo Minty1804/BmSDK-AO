@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_VenomBeatUpRetaliationStunable<br/>
-/// (size = 484)
+/// (size = 508)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_VenomBeatUpRetaliationStunable : BmSDK.BmGame.RCombatMove_VenomBeatUpRetaliation, BmSDK.IGameObject

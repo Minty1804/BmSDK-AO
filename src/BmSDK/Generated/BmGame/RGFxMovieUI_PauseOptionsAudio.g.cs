@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RGFxMovieUI_PauseOptionsAudio<br/>
-/// (size = 672)
-/// (flags = 18)
+/// (size = 828)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieUI_PauseOptionsAudio : BmSDK.BmGame.RGFxMovieUI_PauseBase, BmSDK.IGameObject
 {
@@ -142,10 +142,11 @@ public partial class RGFxMovieUI_PauseOptionsAudio : BmSDK.BmGame.RGFxMovieUI_Pa
     public enum AOPMenuItem : byte
     {
         AOPMI_None = 0,
-        AOPMI_Subtitles = 1,
-        AOPMI_VolumeSFX = 2,
-        AOPMI_VolumeBGM = 3,
-        AOPMI_VolumeDLG = 4,
-        AOPMI_MAX = 5,
+        AOPMI_Output = 1,
+        AOPMI_Subtitles = 2,
+        AOPMI_VolumeSFX = 3,
+        AOPMI_VolumeBGM = 4,
+        AOPMI_VolumeDLG = 5,
+        AOPMI_MAX = 6,
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_SilentCombatTakedown<br/>
-/// (size = 1032)
+/// (size = 1080)
 /// (flags = 8388626)
 /// </summary>
 public partial class RStealthTakeDownStage_SilentCombatTakedown : BmSDK.BmGame.RStealthTakeDownStage_GrabFromCrouch, BmSDK.IGameObject

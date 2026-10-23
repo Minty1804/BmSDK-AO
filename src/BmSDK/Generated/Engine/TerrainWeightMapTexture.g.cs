@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: TerrainWeightMapTexture<br/>
-/// (size = 344)
+/// (size = 376)
 /// (flags = 134217874)
 /// </summary>
 public partial class TerrainWeightMapTexture : BmSDK.Engine.Texture2D, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class TerrainWeightMapTexture : BmSDK.Engine.Texture2D, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.Engine.Terrain ParentTerrain
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Terrain>(Ptr + 328); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 328); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Terrain>(Ptr + 360); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 360); }
     }
 
     /// <summary>
@@ -92,8 +92,8 @@ public partial class TerrainWeightMapTexture : BmSDK.Engine.Texture2D, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.TArray<System.IntPtr> WeightedMaterials
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.IntPtr>>(Ptr + 332); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 332); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.IntPtr>>(Ptr + 364); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 364); }
     }
 
     /// <summary>

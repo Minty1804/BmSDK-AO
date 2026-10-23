@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSkeletalMeshComponentNoLights<br/>
-/// (size = 1716)
+/// (size = 1800)
 /// (flags = 2157973526)
 /// </summary>
 public partial class RSkeletalMeshComponentNoLights : BmSDK.Engine.SkeletalMeshComponent, BmSDK.IGameObject

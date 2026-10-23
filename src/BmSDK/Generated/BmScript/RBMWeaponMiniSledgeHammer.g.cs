@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponMiniSledgeHammer<br/>
-/// (size = 968)
+/// (size = 984)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponMiniSledgeHammer : BmSDK.BmGame.RBMWeaponPipeBase, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SpotLightComponent<br/>
-/// (size = 548)
+/// (size = 596)
 /// (flags = 144707730)
 /// </summary>
 public partial class SpotLightComponent : BmSDK.Engine.PointLightComponent, BmSDK.IGameObject
@@ -123,8 +123,8 @@ public partial class SpotLightComponent : BmSDK.Engine.PointLightComponent, BmSD
     /// </summary>
     public unsafe float InnerConeAngle
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 516); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
     }
 
     /// <summary>
@@ -132,8 +132,8 @@ public partial class SpotLightComponent : BmSDK.Engine.PointLightComponent, BmSD
     /// </summary>
     public unsafe float OuterConeAngle
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 520); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 568); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
     }
 
     /// <summary>
@@ -141,8 +141,8 @@ public partial class SpotLightComponent : BmSDK.Engine.PointLightComponent, BmSD
     /// </summary>
     public unsafe float LightShaftConeAngle
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 572); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
     }
 
     /// <summary>
@@ -150,8 +150,8 @@ public partial class SpotLightComponent : BmSDK.Engine.PointLightComponent, BmSD
     /// </summary>
     public unsafe BmSDK.Engine.DrawLightConeComponent PreviewInnerCone
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawLightConeComponent>(Ptr + 528); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 528); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawLightConeComponent>(Ptr + 576); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
     }
 
     /// <summary>
@@ -159,13 +159,13 @@ public partial class SpotLightComponent : BmSDK.Engine.PointLightComponent, BmSD
     /// </summary>
     public unsafe BmSDK.Engine.DrawLightConeComponent PreviewOuterCone
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawLightConeComponent>(Ptr + 532); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 532); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawLightConeComponent>(Ptr + 580); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 580); }
     }
 
     /// <summary>
     /// StructProperty: Rotation
     /// </summary>
     public unsafe ref BmSDK.Rotator Rotation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 536);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 584);
 }

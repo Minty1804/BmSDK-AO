@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RWhipBase<br/>
-/// (size = 968)
-/// (flags = 142606514)
+/// (size = 984)
+/// (flags = 176160946)
 /// </summary>
 public partial class RWhipBase : BmSDK.BmGame.RInventoryGadget, BmSDK.IGameObject
 {

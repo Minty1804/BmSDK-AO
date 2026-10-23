@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPawnVillainThugTough<br/>
-/// (size = 3564)
+/// (size = 4044)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnVillainThugTough : BmSDK.BmGame.RPawnVillainThug, BmSDK.IGameObject
@@ -114,6 +114,33 @@ public partial class RPawnVillainThugTough : BmSDK.BmGame.RPawnVillainThug, BmSD
     }
 
     /// <summary>
+    /// Function: CompletionDelegate
+    /// </summary>
+    public unsafe virtual void CompletionDelegate(BmSDK.Engine.MObjectStreaming.EStreamingResult Result, BmSDK.GameObject LoadedObject, BmSDK.Engine.MObjectStreaming.FObjectStreamingId Id, BmSDK.FString PackageName, BmSDK.FString ObjectName)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainThugTough.CompletionDelegate", true);
+        byte* paramsPtr = stackalloc byte[36];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Result, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(LoadedObject, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 8);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(PackageName, paramsPtr + 12);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ObjectName, paramsPtr + 24);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: PostBeginPlay
+    /// </summary>
+    public unsafe override void PostBeginPlay()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainThugTough.PostBeginPlay", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: SetHealth
     /// </summary>
     public unsafe override void SetHealth()
@@ -122,5 +149,98 @@ public partial class RPawnVillainThugTough : BmSDK.BmGame.RPawnVillainThug, BmSD
         byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
+    }
+
+    /// <summary>
+    /// BoolProperty: bLoadCwAnimSet
+    /// </summary>
+    public unsafe bool bLoadCwAnimSet
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4004) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4004); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4004); }
+    }
+
+    /// <summary>
+    /// StructProperty: FailedPairedId
+    /// </summary>
+    public unsafe ref BmSDK.Engine.MObjectStreaming.FObjectStreamingId FailedPairedId
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MObjectStreaming.FObjectStreamingId>(Ptr + 4008);
+
+    /// <summary>
+    /// ObjectProperty: FailedPairedAnimMoveAnimsetBm
+    /// </summary>
+    public unsafe BmSDK.Engine.AnimSet FailedPairedAnimMoveAnimsetBm
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 4012); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4012); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: FailedPairedAnimMoveAnimsetCw
+    /// </summary>
+    public unsafe BmSDK.Engine.AnimSet FailedPairedAnimMoveAnimsetCw
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(Ptr + 4016); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4016); }
+    }
+
+    /// <summary>
+    /// InlineArray{FloatProperty}: HealthPerDifficulty
+    /// </summary>
+    public InlineArray<float> HealthPerDifficulty => new(3, Ptr + 4020, 4, this);
+
+    /// <summary>
+    /// FloatProperty: HealthPerDifficulty
+    /// </summary>
+    public unsafe float HealthPerDifficulty_0
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4020); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4020); }
+    }
+    /// <summary>
+    /// FloatProperty: HealthPerDifficulty
+    /// </summary>
+    public unsafe float HealthPerDifficulty_1
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4024); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4024); }
+    }
+    /// <summary>
+    /// FloatProperty: HealthPerDifficulty
+    /// </summary>
+    public unsafe float HealthPerDifficulty_2
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4028); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4028); }
+    }
+
+    /// <summary>
+    /// InlineArray{FloatProperty}: MinAttackDelayPerDifficulty
+    /// </summary>
+    public InlineArray<float> MinAttackDelayPerDifficulty => new(3, Ptr + 4032, 4, this);
+
+    /// <summary>
+    /// FloatProperty: MinAttackDelayPerDifficulty
+    /// </summary>
+    public unsafe float MinAttackDelayPerDifficulty_0
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4032); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4032); }
+    }
+    /// <summary>
+    /// FloatProperty: MinAttackDelayPerDifficulty
+    /// </summary>
+    public unsafe float MinAttackDelayPerDifficulty_1
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4036); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4036); }
+    }
+    /// <summary>
+    /// FloatProperty: MinAttackDelayPerDifficulty
+    /// </summary>
+    public unsafe float MinAttackDelayPerDifficulty_2
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4040); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4040); }
     }
 }

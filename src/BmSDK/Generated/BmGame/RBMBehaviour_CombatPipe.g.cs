@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_CombatPipe<br/>
-/// (size = 764)
+/// (size = 820)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_CombatPipe : BmSDK.BmGame.RBMBehaviour_CombatAI, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: InterpTrackSlomo<br/>
-/// (size = 184)
+/// (size = 192)
 /// (flags = 134226066)
 /// </summary>
 public partial class InterpTrackSlomo : BmSDK.Engine.InterpTrackFloatBase, BmSDK.IGameObject
@@ -78,4 +78,12 @@ public partial class InterpTrackSlomo : BmSDK.Engine.InterpTrackFloatBase, BmSDK
         where TComponent : class, Framework.IScriptComponent<InterpTrackSlomo>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    /// <summary>
+    /// NameProperty: DirectorTrackID
+    /// </summary>
+    public unsafe BmSDK.FName DirectorTrackID
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 184); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 184); }
+    }
 }

@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: GFxMovieBenchmarking<br/>
-/// (size = 496)
-/// (flags = 18)
+/// (size = 588)
+/// (flags = 22)
 /// </summary>
 public partial class GFxMovieBenchmarking : BmSDK.BmGame.RGFxMovie, BmSDK.IGameObject
 {
@@ -77,6 +77,21 @@ public partial class GFxMovieBenchmarking : BmSDK.BmGame.RGFxMovie, BmSDK.IGameO
     public void DetachScriptComponents<TComponent>()
         where TComponent : class, Framework.IScriptComponent<GFxMovieBenchmarking>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// Function: SendStatusToFlashWithVsyncWarning
+    /// </summary>
+    public unsafe virtual void SendStatusToFlashWithVsyncWarning(bool BenchmarkingActive, int BenchmarkMin, BmSDK.FString BenchmarkMax, int BenchmarkAverage)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.GFxMovieBenchmarking.SendStatusToFlashWithVsyncWarning", true);
+        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(BenchmarkingActive, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(BenchmarkMin, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(BenchmarkMax, paramsPtr + 8);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(BenchmarkAverage, paramsPtr + 20);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
 
     /// <summary>
     /// Function: SendStatusToFlash

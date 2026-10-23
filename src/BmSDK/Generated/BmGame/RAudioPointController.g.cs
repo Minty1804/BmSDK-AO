@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAudioPointController<br/>
-/// (size = 1948)
+/// (size = 2016)
 /// (flags = 142607030)
 /// </summary>
 public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.IGameObject
@@ -490,8 +490,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent BackgroundMusicEvent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 1836); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1836); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 1904); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1904); }
     }
 
     /// <summary>
@@ -499,8 +499,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool TVController
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -508,8 +508,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool HarleyHeadController
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -517,8 +517,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool bPostBeginPlayed
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -526,8 +526,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool bIgnoreBing
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -535,8 +535,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool bBingBongPlaying
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 16) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -544,8 +544,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool bAdvanceHeadTime
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 32) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -553,8 +553,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool bSorted
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 64) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 64) : (currentMask & ~64); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 64) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 64) : (currentMask & ~64); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -562,8 +562,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool bEnabled
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 128) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 128) : (currentMask & ~128); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 128) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 128) : (currentMask & ~128); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -571,8 +571,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool bOldEnabled
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 256) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 256) : (currentMask & ~256); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 256) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 256) : (currentMask & ~256); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -580,8 +580,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool bAllowBingBong
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 512) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 512) : (currentMask & ~512); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 512) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 512) : (currentMask & ~512); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -589,8 +589,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool bHeadSpeaking
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 1024) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 1024) : (currentMask & ~1024); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 1024) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 1024) : (currentMask & ~1024); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -598,8 +598,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe bool bBongMarkerFinished
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840) & 2048) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1840); var newMask = value ? (currentMask | 2048) : (currentMask & ~2048); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1840); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908) & 2048) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1908); var newMask = value ? (currentMask | 2048) : (currentMask & ~2048); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1908); }
     }
 
     /// <summary>
@@ -607,8 +607,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.BmGame.RPawnCharacter SpeakingChar
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCharacter>(Ptr + 1844); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1844); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCharacter>(Ptr + 1912); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1912); }
     }
 
     /// <summary>
@@ -616,8 +616,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.SkeletalMeshActor SpeakingMesh
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshActor>(Ptr + 1848); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1848); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshActor>(Ptr + 1916); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1916); }
     }
 
     /// <summary>
@@ -625,8 +625,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.AkAudio.AkMultipointEmitter Emitter
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.AkAudio.AkMultipointEmitter>(Ptr + 1852); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1852); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.AkAudio.AkMultipointEmitter>(Ptr + 1920); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1920); }
     }
 
     /// <summary>
@@ -634,8 +634,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.BmGame.RPawnCharacter LocationalChar
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCharacter>(Ptr + 1856); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1856); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCharacter>(Ptr + 1924); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1924); }
     }
 
     /// <summary>
@@ -643,8 +643,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RAudioPoint> SpeakerPoints
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RAudioPoint>>(Ptr + 1860); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1860); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RAudioPoint>>(Ptr + 1928); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1928); }
     }
 
     /// <summary>
@@ -652,8 +652,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.SequenceAction StoredPlaySpeechBase
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SequenceAction>(Ptr + 1872); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1872); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SequenceAction>(Ptr + 1940); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1940); }
     }
 
     /// <summary>
@@ -661,8 +661,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.RDialogueLine StoredDialogueLine
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RDialogueLine>(Ptr + 1876); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1876); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RDialogueLine>(Ptr + 1944); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1944); }
     }
 
     /// <summary>
@@ -670,8 +670,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.BmGame.RGameInfo.VocalPriority StoredPriority
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.VocalPriority>(Ptr + 1880); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1880); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.VocalPriority>(Ptr + 1948); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1948); }
     }
 
     /// <summary>
@@ -679,8 +679,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe float timeSpeaking
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1884); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1884); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1952); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1952); }
     }
 
     /// <summary>
@@ -688,8 +688,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.SpriteComponent PointSourceSprite
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SpriteComponent>(Ptr + 1888); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1888); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SpriteComponent>(Ptr + 1956); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1956); }
     }
 
     /// <summary>
@@ -697,29 +697,29 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.BmGame.RAudioPoint CurrentSpeaker
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAudioPoint>(Ptr + 1892); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1892); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAudioPoint>(Ptr + 1960); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1960); }
     }
 
     /// <summary>
     /// StructProperty: storedPlayerPosition
     /// </summary>
     public unsafe ref System.Numerics.Vector3 storedPlayerPosition
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1896);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1964);
 
     /// <summary>
     /// StructProperty: oldStoredPlayerPosition
     /// </summary>
     public unsafe ref System.Numerics.Vector3 oldStoredPlayerPosition
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1908);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 1976);
 
     /// <summary>
     /// FloatProperty: WorldPlayTime
     /// </summary>
     public unsafe float WorldPlayTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1920); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1920); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1988); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1988); }
     }
 
     /// <summary>
@@ -727,8 +727,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe float lastDelta
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1924); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1924); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1992); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1992); }
     }
 
     /// <summary>
@@ -736,8 +736,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe float GoodFramerate
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1928); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1928); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1996); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1996); }
     }
 
     /// <summary>
@@ -745,8 +745,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe int SpeakersToPlayOn
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1932); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1932); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2000); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2000); }
     }
 
     /// <summary>
@@ -754,8 +754,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.RDialogueEvent CachedDialogueEvent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RDialogueEvent>(Ptr + 1936); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1936); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RDialogueEvent>(Ptr + 2004); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2004); }
     }
 
     /// <summary>
@@ -763,8 +763,8 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.PlayerController LocalPC
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PlayerController>(Ptr + 1940); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1940); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PlayerController>(Ptr + 2008); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2008); }
     }
 
     /// <summary>
@@ -772,7 +772,7 @@ public partial class RAudioPointController : BmSDK.BmGame.RPawnCharacter, BmSDK.
     /// </summary>
     public unsafe BmSDK.Engine.Actor OverrideActualEventActor
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 1944); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1944); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 2012); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2012); }
     }
 }

@@ -87,14 +87,41 @@ public partial class RSpecialMoveConfig : BmSDK.BmGame.RConfig, BmSDK.IGameObjec
     }
 
     /// <summary>
+    /// Function: ConfirmSpecialMove
+    /// </summary>
+    public unsafe virtual bool ConfirmSpecialMove(BmSDK.BmGame.RPawnPlayer.FEnvironmentSpecialMoveLocator Feature, BmSDK.Engine.Pawn Instigator, float DeltaTime)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RSpecialMoveConfig.ConfirmSpecialMove", true);
+        byte* paramsPtr = stackalloc byte[124];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Feature, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Instigator, paramsPtr + 112);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 116);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 120);
+    }
+
+    /// <summary>
+    /// Function: SetPrompt
+    /// </summary>
+    public unsafe virtual void SetPrompt(BmSDK.FString NewPrompt)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RSpecialMoveConfig.SetPrompt", true);
+        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(NewPrompt, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: GetPrompt
     /// </summary>
-    public unsafe virtual BmSDK.FString GetPrompt()
+    public unsafe virtual BmSDK.FString GetPrompt(BmSDK.BmGame.RPlayerController Controller)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RSpecialMoveConfig.GetPrompt", true);
-        byte* paramsPtr = stackalloc byte[12];
+        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Controller, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 4);
     }
 
     /// <summary>
@@ -120,23 +147,6 @@ public partial class RSpecialMoveConfig : BmSDK.BmGame.RConfig, BmSDK.IGameObjec
         SMCT_JumpRailing = 1,
         SMCT_Grapple = 2,
         SMCT_MAX = 3,
-    }
-
-    /// <summary>
-    /// Enum: ESpecialMoveAnimSetType
-    /// </summary>
-    public enum ESpecialMoveAnimSetType : byte
-    {
-        SMAT_LadderAnims = 0,
-        SMAT_GrateRipAnims = 1,
-        SMAT_GrateKickAnims = 2,
-        SMAT_EnvironmentInteractionAnims = 3,
-        SMAT_BossAnims = 4,
-        SMAT_FloorGrateAnims = 5,
-        SMAT_DoorAnims = 6,
-        SMAT_FloorHatchAnims = 7,
-        SMAT_None = 8,
-        SMAT_MAX = 9,
     }
 
     /// <summary>
@@ -652,9 +662,9 @@ public partial class RSpecialMoveConfig : BmSDK.BmGame.RConfig, BmSDK.IGameObjec
     /// <summary>
     /// ByteProperty: SpecialMoveAnimSetType
     /// </summary>
-    public unsafe BmSDK.BmGame.RSpecialMoveConfig.ESpecialMoveAnimSetType SpecialMoveAnimSetType
+    public unsafe BmSDK.BmGame.RGameInfo.ESpecialMoveAnimSetType SpecialMoveAnimSetType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSpecialMoveConfig.ESpecialMoveAnimSetType>(Ptr + 135); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RGameInfo.ESpecialMoveAnimSetType>(Ptr + 135); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 135); }
     }
 

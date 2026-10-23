@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: ParticleEmitter<br/>
-/// (size = 104)
+/// (size = 108)
 /// (flags = 136319123)
 /// </summary>
 public partial class ParticleEmitter : BmSDK.GameObject, BmSDK.IGameObject
@@ -161,45 +161,30 @@ public partial class ParticleEmitter : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
-    /// IntProperty: SubUVDataOffset
+    /// FloatProperty: CutOffDistance
     /// </summary>
-    public unsafe int SubUVDataOffset
+    public unsafe float CutOffDistance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 56); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 56); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 56); }
     }
 
     /// <summary>
-    /// ByteProperty: EmitterRenderMode
+    /// BoolProperty: EnableForSnowStormLevel0
     /// </summary>
-    public unsafe BmSDK.Engine.ParticleEmitter.EEmitterRenderMode EmitterRenderMode
+    public unsafe bool EnableForSnowStormLevel0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleEmitter.EEmitterRenderMode>(Ptr + 60); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 60); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 60); }
     }
 
     /// <summary>
-    /// ByteProperty: SharedEmitterInstanceCount
+    /// BoolProperty: EnableForSnowStormLevel1
     /// </summary>
-    public unsafe byte SharedEmitterInstanceCount
+    public unsafe bool EnableForSnowStormLevel1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<byte>(Ptr + 61); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 61); }
-    }
-
-    /// <summary>
-    /// StructProperty: EmitterEditorColor
-    /// </summary>
-    public unsafe ref BmSDK.GameObject.FColor EmitterEditorColor
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 64);
-
-    /// <summary>
-    /// ArrayProperty: LODLevels
-    /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.Engine.ParticleLODLevel> LODLevels
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.ParticleLODLevel>>(Ptr + 68); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 68); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 60); }
     }
 
     /// <summary>
@@ -207,8 +192,8 @@ public partial class ParticleEmitter : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe bool ConvertedModules
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 80) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 80); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 80); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 60); }
     }
 
     /// <summary>
@@ -216,8 +201,8 @@ public partial class ParticleEmitter : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bCollapsed
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 80) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 80); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 80); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 60); }
     }
 
     /// <summary>
@@ -225,8 +210,8 @@ public partial class ParticleEmitter : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bIsSoloing
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 80) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 80); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 80); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 60); }
     }
 
     /// <summary>
@@ -234,8 +219,50 @@ public partial class ParticleEmitter : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bCookedOut
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 80) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 80); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 80); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 60); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 60); }
+    }
+
+    /// <summary>
+    /// IntProperty: SubUVDataOffset
+    /// </summary>
+    public unsafe int SubUVDataOffset
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 64); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 64); }
+    }
+
+    /// <summary>
+    /// ByteProperty: EmitterRenderMode
+    /// </summary>
+    public unsafe BmSDK.Engine.ParticleEmitter.EEmitterRenderMode EmitterRenderMode
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleEmitter.EEmitterRenderMode>(Ptr + 68); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// ByteProperty: SharedEmitterInstanceCount
+    /// </summary>
+    public unsafe byte SharedEmitterInstanceCount
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<byte>(Ptr + 69); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 69); }
+    }
+
+    /// <summary>
+    /// StructProperty: EmitterEditorColor
+    /// </summary>
+    public unsafe ref BmSDK.GameObject.FColor EmitterEditorColor
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FColor>(Ptr + 72);
+
+    /// <summary>
+    /// ArrayProperty: LODLevels
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.Engine.ParticleLODLevel> LODLevels
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.ParticleLODLevel>>(Ptr + 76); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 76); }
     }
 
     /// <summary>
@@ -243,8 +270,8 @@ public partial class ParticleEmitter : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe int PeakActiveParticles
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 84); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 84); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 88); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 88); }
     }
 
     /// <summary>
@@ -252,8 +279,8 @@ public partial class ParticleEmitter : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe int InitialAllocationCount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 88); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 88); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
     }
 
     /// <summary>
@@ -261,7 +288,7 @@ public partial class ParticleEmitter : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<System.IntPtr> SharedEmitterInstances
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.IntPtr>>(Ptr + 92); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.IntPtr>>(Ptr + 96); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 96); }
     }
 }

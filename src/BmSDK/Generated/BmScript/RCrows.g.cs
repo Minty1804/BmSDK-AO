@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RCrows<br/>
-/// (size = 708)
+/// (size = 732)
 /// (flags = 8389138)
 /// </summary>
 public partial class RCrows : BmSDK.BmGame.RCrowsBase, BmSDK.IGameObject
@@ -252,218 +252,218 @@ public partial class RCrows : BmSDK.BmGame.RCrowsBase, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.DynamicLightEnvironmentComponent LightEnvironment
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DynamicLightEnvironmentComponent>(Ptr + 476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DynamicLightEnvironmentComponent>(Ptr + 500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
     }
 
     /// <summary>
     /// InlineArray{ObjectProperty}: AnimNodes
     /// </summary>
-    public InlineArray<BmSDK.Engine.AnimNodeSequence> AnimNodes => new(3, Ptr + 480, 4, this);
+    public InlineArray<BmSDK.Engine.AnimNodeSequence> AnimNodes => new(3, Ptr + 504, 4, this);
 
     /// <summary>
     /// ObjectProperty: AnimNodes
     /// </summary>
     public unsafe BmSDK.Engine.AnimNodeSequence AnimNodes_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimNodeSequence>(Ptr + 480); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimNodeSequence>(Ptr + 504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
     }
     /// <summary>
     /// ObjectProperty: AnimNodes
     /// </summary>
     public unsafe BmSDK.Engine.AnimNodeSequence AnimNodes_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimNodeSequence>(Ptr + 484); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimNodeSequence>(Ptr + 508); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 508); }
     }
     /// <summary>
     /// ObjectProperty: AnimNodes
     /// </summary>
     public unsafe BmSDK.Engine.AnimNodeSequence AnimNodes_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimNodeSequence>(Ptr + 488); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimNodeSequence>(Ptr + 512); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 512); }
     }
 
     /// <summary>
     /// InlineArray{StructProperty}: startingLoc
     /// </summary>
-    public InlineArray<System.Numerics.Vector3> startingLoc => new(3, Ptr + 492, 12, this);
+    public InlineArray<System.Numerics.Vector3> startingLoc => new(3, Ptr + 516, 12, this);
 
     /// <summary>
     /// StructProperty: startingLoc
     /// </summary>
     public unsafe ref System.Numerics.Vector3 startingLoc_0
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 492);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 516);
     /// <summary>
     /// StructProperty: startingLoc
     /// </summary>
     public unsafe ref System.Numerics.Vector3 startingLoc_1
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 504);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 528);
     /// <summary>
     /// StructProperty: startingLoc
     /// </summary>
     public unsafe ref System.Numerics.Vector3 startingLoc_2
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 516);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 540);
 
     /// <summary>
     /// InlineArray{StructProperty}: startingRot
     /// </summary>
-    public InlineArray<BmSDK.Rotator> startingRot => new(3, Ptr + 528, 12, this);
+    public InlineArray<BmSDK.Rotator> startingRot => new(3, Ptr + 552, 12, this);
 
     /// <summary>
     /// StructProperty: startingRot
     /// </summary>
     public unsafe ref BmSDK.Rotator startingRot_0
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 528);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 552);
     /// <summary>
     /// StructProperty: startingRot
     /// </summary>
     public unsafe ref BmSDK.Rotator startingRot_1
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 540);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 564);
     /// <summary>
     /// StructProperty: startingRot
     /// </summary>
     public unsafe ref BmSDK.Rotator startingRot_2
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 552);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 576);
 
     /// <summary>
     /// InlineArray{IntProperty}: bReadyForTakeoff
     /// </summary>
-    public InlineArray<int> bReadyForTakeoff => new(3, Ptr + 564, 4, this);
+    public InlineArray<int> bReadyForTakeoff => new(3, Ptr + 588, 4, this);
 
     /// <summary>
     /// IntProperty: bReadyForTakeoff
     /// </summary>
     public unsafe int bReadyForTakeoff_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 564); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 588); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 588); }
     }
     /// <summary>
     /// IntProperty: bReadyForTakeoff
     /// </summary>
     public unsafe int bReadyForTakeoff_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 568); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 592); }
     }
     /// <summary>
     /// IntProperty: bReadyForTakeoff
     /// </summary>
     public unsafe int bReadyForTakeoff_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 572); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 596); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 596); }
     }
 
     /// <summary>
     /// InlineArray{IntProperty}: bFinishedTakeOff
     /// </summary>
-    public InlineArray<int> bFinishedTakeOff => new(3, Ptr + 576, 4, this);
+    public InlineArray<int> bFinishedTakeOff => new(3, Ptr + 600, 4, this);
 
     /// <summary>
     /// IntProperty: bFinishedTakeOff
     /// </summary>
     public unsafe int bFinishedTakeOff_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 576); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 600); }
     }
     /// <summary>
     /// IntProperty: bFinishedTakeOff
     /// </summary>
     public unsafe int bFinishedTakeOff_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 580); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 580); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 604); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 604); }
     }
     /// <summary>
     /// IntProperty: bFinishedTakeOff
     /// </summary>
     public unsafe int bFinishedTakeOff_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 584); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 584); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 608); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 608); }
     }
 
     /// <summary>
     /// StructProperty: flyOffRot
     /// </summary>
     public unsafe ref BmSDK.Rotator flyOffRot
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 588);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 612);
 
     /// <summary>
     /// FloatProperty: startledTurnRate
     /// </summary>
     public unsafe float startledTurnRate
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 600); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 600); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 624); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 624); }
     }
 
     /// <summary>
     /// StructProperty: baseFlightVelocity
     /// </summary>
     public unsafe ref System.Numerics.Vector3 baseFlightVelocity
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 604);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 628);
 
     /// <summary>
     /// InlineArray{StructProperty}: trueFlightVelocity
     /// </summary>
-    public InlineArray<System.Numerics.Vector3> trueFlightVelocity => new(3, Ptr + 616, 12, this);
+    public InlineArray<System.Numerics.Vector3> trueFlightVelocity => new(3, Ptr + 640, 12, this);
 
     /// <summary>
     /// StructProperty: trueFlightVelocity
     /// </summary>
     public unsafe ref System.Numerics.Vector3 trueFlightVelocity_0
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 616);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 640);
     /// <summary>
     /// StructProperty: trueFlightVelocity
     /// </summary>
     public unsafe ref System.Numerics.Vector3 trueFlightVelocity_1
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 628);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 652);
     /// <summary>
     /// StructProperty: trueFlightVelocity
     /// </summary>
     public unsafe ref System.Numerics.Vector3 trueFlightVelocity_2
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 640);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 664);
 
     /// <summary>
     /// StructProperty: baseToRootBone
     /// </summary>
     public unsafe ref System.Numerics.Vector3 baseToRootBone
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 652);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 676);
 
     /// <summary>
     /// InlineArray{ObjectProperty}: MaterialConstants
     /// </summary>
-    public InlineArray<BmSDK.Engine.MaterialInstanceConstant> MaterialConstants => new(3, Ptr + 664, 4, this);
+    public InlineArray<BmSDK.Engine.MaterialInstanceConstant> MaterialConstants => new(3, Ptr + 688, 4, this);
 
     /// <summary>
     /// ObjectProperty: MaterialConstants
     /// </summary>
     public unsafe BmSDK.Engine.MaterialInstanceConstant MaterialConstants_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 664); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 664); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 688); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 688); }
     }
     /// <summary>
     /// ObjectProperty: MaterialConstants
     /// </summary>
     public unsafe BmSDK.Engine.MaterialInstanceConstant MaterialConstants_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 668); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 668); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 692); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 692); }
     }
     /// <summary>
     /// ObjectProperty: MaterialConstants
     /// </summary>
     public unsafe BmSDK.Engine.MaterialInstanceConstant MaterialConstants_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 672); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 672); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 696); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 696); }
     }
 
     /// <summary>
@@ -471,23 +471,23 @@ public partial class RCrows : BmSDK.BmGame.RCrowsBase, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.FString secretFlag
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 676); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 676); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 700); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 700); }
     }
 
     /// <summary>
     /// StructProperty: flyOffLoc
     /// </summary>
     public unsafe ref System.Numerics.Vector3 flyOffLoc
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 688);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 712);
 
     /// <summary>
     /// BoolProperty: bOnlyStartlableByKismet
     /// </summary>
     public unsafe bool bOnlyStartlableByKismet
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 700) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 700); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 700); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 724) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 724); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 724); }
     }
 
     /// <summary>
@@ -495,8 +495,8 @@ public partial class RCrows : BmSDK.BmGame.RCrowsBase, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bCanBeScaredByThugs
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 700) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 700); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 700); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 724) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 724); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 724); }
     }
 
     /// <summary>
@@ -504,7 +504,7 @@ public partial class RCrows : BmSDK.BmGame.RCrowsBase, BmSDK.IGameObject
     /// </summary>
     public unsafe float StartTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 704); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 704); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 728); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 728); }
     }
 }

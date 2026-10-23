@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGFxMovieUI_RiddlerMapSelect<br/>
-/// (size = 736)
-/// (flags = 18)
+/// (size = 904)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieUI_RiddlerMapSelect : BmSDK.BmGame.RGFxMovieUI_RiddlerMapSelectBase, BmSDK.IGameObject
 {
@@ -94,7 +94,7 @@ public partial class RGFxMovieUI_RiddlerMapSelect : BmSDK.BmGame.RGFxMovieUI_Rid
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.GFxUI.SwfMovie> BaseIconRef
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GFxUI.SwfMovie>>(Ptr + 724); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 724); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GFxUI.SwfMovie>>(Ptr + 892); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 892); }
     }
 }

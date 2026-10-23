@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RGIChallenge<br/>
-/// (size = 1456)
+/// (size = 1636)
 /// (flags = 142606518)
 /// </summary>
 public partial class RGIChallenge : BmSDK.BmGame.RGameInfo, BmSDK.IGameObject
@@ -162,7 +162,7 @@ public partial class RGIChallenge : BmSDK.BmGame.RGameInfo, BmSDK.IGameObject
     public unsafe override void WriteOnlineStats()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGIChallenge.WriteOnlineStats", true);
-        byte* paramsPtr = stackalloc byte[20];
+        byte* paramsPtr = stackalloc byte[56];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -176,6 +176,17 @@ public partial class RGIChallenge : BmSDK.BmGame.RGameInfo, BmSDK.IGameObject
         byte* paramsPtr = stackalloc byte[16];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
+    }
+
+    /// <summary>
+    /// Function: ShouldStartOnlineMatch
+    /// </summary>
+    public unsafe override bool ShouldStartOnlineMatch()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGIChallenge.ShouldStartOnlineMatch", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
     }
 
     /// <summary>

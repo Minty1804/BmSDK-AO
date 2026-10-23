@@ -160,6 +160,18 @@ public partial class Canvas : BmSDK.GameObject, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// Function: SetDrawColorStruct
+    /// </summary>
+    public unsafe virtual void SetDrawColorStruct(BmSDK.GameObject.FColor C)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.Canvas.SetDrawColorStruct", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(C, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: SetDrawColor
     /// </summary>
     public unsafe virtual void SetDrawColor(byte R, byte G, byte B, byte A = default)

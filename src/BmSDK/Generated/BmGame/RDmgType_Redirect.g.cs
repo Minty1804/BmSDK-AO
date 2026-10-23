@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_Redirect<br/>
-/// (size = 140)
+/// (size = 152)
 /// (flags = 134217874)
 /// </summary>
 public partial class RDmgType_Redirect : BmSDK.BmGame.RDmgType_Strike, BmSDK.IGameObject

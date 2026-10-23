@@ -114,6 +114,7 @@ public partial class RAnimNotify_Camera : BmSDK.Engine.AnimNotify, BmSDK.IGameOb
         CNT_SetGameSpeed = 1,
         CNT_SetFOV = 2,
         CNT_SetMotionBlur = 3,
-        CNT_MAX = 4,
+        CNT_CameraCut = 4,
+        CNT_MAX = 5,
     }
 }

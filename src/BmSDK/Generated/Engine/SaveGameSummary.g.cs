@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SaveGameSummary<br/>
-/// (size = 64)
+/// (size = 44)
 /// (flags = 167772306)
 /// </summary>
 public partial class SaveGameSummary : BmSDK.GameObject, BmSDK.IGameObject
@@ -78,21 +78,4 @@ public partial class SaveGameSummary : BmSDK.GameObject, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<SaveGameSummary>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
-    /// <summary>
-    /// NameProperty: BaseLevel
-    /// </summary>
-    public unsafe BmSDK.FName BaseLevel
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 44); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 44); }
-    }
-
-    /// <summary>
-    /// StrProperty: Description
-    /// </summary>
-    public unsafe BmSDK.FString Description
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 52); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 52); }
-    }
 }

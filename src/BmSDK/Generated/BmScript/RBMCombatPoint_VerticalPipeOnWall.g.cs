@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMCombatPoint_VerticalPipeOnWall<br/>
-/// (size = 528)
+/// (size = 552)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBMCombatPoint_VerticalPipeOnWall : BmSDK.BmGame.RBMCombatPoint_EnvironmentWeapon, BmSDK.IGameObject
@@ -151,8 +151,8 @@ public partial class RBMCombatPoint_VerticalPipeOnWall : BmSDK.BmGame.RBMCombatP
     /// </summary>
     public unsafe BmSDK.Engine.ParticleSystemComponent WaterFX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 516); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
     }
 
     /// <summary>
@@ -160,8 +160,8 @@ public partial class RBMCombatPoint_VerticalPipeOnWall : BmSDK.BmGame.RBMCombatP
     /// </summary>
     public unsafe BmSDK.Engine.ParticleSystemComponent WaterEndFX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 520); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystemComponent>(Ptr + 544); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 544); }
     }
 
     /// <summary>
@@ -169,7 +169,7 @@ public partial class RBMCombatPoint_VerticalPipeOnWall : BmSDK.BmGame.RBMCombatP
     /// </summary>
     public unsafe BmSDK.Engine.SkeletalMeshComponent WeaponMesh
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 548); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 548); }
     }
 }

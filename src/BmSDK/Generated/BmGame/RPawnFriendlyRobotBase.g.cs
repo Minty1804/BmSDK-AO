@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RPawnFriendlyRobotBase<br/>
-/// (size = 2788)
+/// (size = 3408)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.IGameObject
@@ -127,8 +127,8 @@ public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie MovieInfo
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 2748); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2748); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 3368); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3368); }
     }
 
     /// <summary>
@@ -136,8 +136,8 @@ public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.
     /// </summary>
     public unsafe bool bHasBeenScanned
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2752) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 2752); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 2752); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3372) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 3372); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 3372); }
     }
 
     /// <summary>
@@ -145,8 +145,8 @@ public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.
     /// </summary>
     public unsafe float AmountOfDataInFirstRobot
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2756); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2756); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3376); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3376); }
     }
 
     /// <summary>
@@ -154,8 +154,8 @@ public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.
     /// </summary>
     public unsafe float AmountOfDataInThisRobot
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2760); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2760); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3380); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3380); }
     }
 
     /// <summary>
@@ -163,8 +163,8 @@ public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.
     /// </summary>
     public unsafe float PrescanDurationFirstRobot
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2764); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2764); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3384); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3384); }
     }
 
     /// <summary>
@@ -172,8 +172,8 @@ public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.
     /// </summary>
     public unsafe float PrescanDurationOtherRobot
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2768); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2768); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3388); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3388); }
     }
 
     /// <summary>
@@ -181,8 +181,8 @@ public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.
     /// </summary>
     public unsafe float ScanAmountPerSecond
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2772); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2772); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3392); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3392); }
     }
 
     /// <summary>
@@ -190,8 +190,8 @@ public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.
     /// </summary>
     public unsafe float ScanAmountPerSecondForSecondary
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2776); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2776); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3396); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3396); }
     }
 
     /// <summary>
@@ -199,8 +199,8 @@ public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.
     /// </summary>
     public unsafe float AmountOfDataHeld
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2780); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2780); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3400); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3400); }
     }
 
     /// <summary>
@@ -208,7 +208,7 @@ public partial class RPawnFriendlyRobotBase : BmSDK.BmGame.RPawnFriendly, BmSDK.
     /// </summary>
     public unsafe float PrescanDuration
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 2784); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 2784); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 3404); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 3404); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_HudExtensionBossControl<br/>
-/// (size = 205)
+/// (size = 225)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_HudExtensionBossControl : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -94,8 +94,8 @@ public partial class RSeqAct_HudExtensionBossControl : BmSDK.Engine.SequenceActi
     /// </summary>
     public unsafe BmSDK.BmGame.RSeqAct_HudExtensionBossControl.BossHUDControl TheAction
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSeqAct_HudExtensionBossControl.BossHUDControl>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSeqAct_HudExtensionBossControl.BossHUDControl>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>

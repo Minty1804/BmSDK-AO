@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_Takedown_LedgeHang<br/>
-/// (size = 120)
+/// (size = 132)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_Takedown_LedgeHang : BmSDK.BmGame.RDmgType_Takedown_Hang, BmSDK.IGameObject

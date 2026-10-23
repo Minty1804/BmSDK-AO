@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: ShadowMapTexture2D<br/>
-/// (size = 332)
+/// (size = 364)
 /// (flags = 402)
 /// </summary>
 public partial class ShadowMapTexture2D : BmSDK.Engine.Texture2D, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class ShadowMapTexture2D : BmSDK.Engine.Texture2D, BmSDK.IGameObj
     /// </summary>
     public unsafe int ShadowmapFlags
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 328); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 328); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 360); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 360); }
     }
 }

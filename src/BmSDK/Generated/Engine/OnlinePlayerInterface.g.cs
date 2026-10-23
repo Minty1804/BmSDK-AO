@@ -5,11 +5,31 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Interface: OnlinePlayerInterface<br/>
-/// (size = 296)
+/// (size = 308)
 /// (flags = 16403)
 /// </summary>
 public partial interface OnlinePlayerInterface : BmSDK.Interface
 {
+    /// <summary>
+    /// Function: ClearEnumerateMarketplaceOffersCompleteDelegate
+    /// </summary>
+    public unsafe void ClearEnumerateMarketplaceOffersCompleteDelegate(System.IntPtr callback);
+
+    /// <summary>
+    /// Function: AddEnumerateMarketplaceOffersCompleteDelegate
+    /// </summary>
+    public unsafe void AddEnumerateMarketplaceOffersCompleteDelegate(System.IntPtr callback);
+
+    /// <summary>
+    /// Function: EnumerateMarketplaceOffers
+    /// </summary>
+    public unsafe bool EnumerateMarketplaceOffers(byte LocalUserNum, int TitleId, BmSDK.TArray<int> OfferIDs);
+
+    /// <summary>
+    /// Function: OnEnumerateMarketplaceOffersComplete
+    /// </summary>
+    public unsafe void OnEnumerateMarketplaceOffersComplete(bool bWasSuccessful);
+
     /// <summary>
     /// Function: GetAchievements
     /// </summary>
@@ -226,6 +246,11 @@ public partial interface OnlinePlayerInterface : BmSDK.Interface
     public unsafe void AddLoginCancelledDelegate(System.IntPtr CancelledDelegate);
 
     /// <summary>
+    /// Function: AddLoginStatusChangeDelegate
+    /// </summary>
+    public unsafe void AddLoginStatusChangeDelegate(System.IntPtr LoginStatusDelegate, byte LocalUserNum);
+
+    /// <summary>
     /// Function: OnLoginStatusChange
     /// </summary>
     public unsafe void OnLoginStatusChange(BmSDK.Engine.OnlineSubsystem.ELoginStatus NewStatus, BmSDK.Engine.OnlineSubsystem.FUniqueNetId NewId);
@@ -309,6 +334,11 @@ public partial interface OnlinePlayerInterface : BmSDK.Interface
     /// Function: OnLoginFailed
     /// </summary>
     public unsafe void OnLoginFailed(byte LocalUserNum, BmSDK.Engine.OnlineSubsystem.EOnlineServerConnectionStatus ErrorCode);
+
+    /// <summary>
+    /// Function: AutoLogin
+    /// </summary>
+    public unsafe bool AutoLogin();
 
     /// <summary>
     /// Function: ShowLoginUI

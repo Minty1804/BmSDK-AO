@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: PathNode_Dynamic<br/>
-/// (size = 628)
+/// (size = 664)
 /// (flags = 8389138)
 /// </summary>
 public partial class PathNode_Dynamic : BmSDK.Engine.PathNode, BmSDK.IGameObject

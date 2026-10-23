@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMCutscene_JokerGunCam<br/>
-/// (size = 136)
+/// (size = 144)
 /// (flags = 18)
 /// </summary>
 public partial class RBMCutscene_JokerGunCam : BmSDK.BmGame.RBMCutscene_BatClawCam, BmSDK.IGameObject

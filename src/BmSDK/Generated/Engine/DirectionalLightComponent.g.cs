@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: DirectionalLightComponent<br/>
-/// (size = 424)
+/// (size = 464)
 /// (flags = 144707730)
 /// </summary>
 public partial class DirectionalLightComponent : BmSDK.Engine.LightComponent, BmSDK.IGameObject
@@ -105,8 +105,8 @@ public partial class DirectionalLightComponent : BmSDK.Engine.LightComponent, Bm
     /// </summary>
     public unsafe float TraceDistance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 408); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 408); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 432); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
     }
 
     /// <summary>
@@ -114,8 +114,8 @@ public partial class DirectionalLightComponent : BmSDK.Engine.LightComponent, Bm
     /// </summary>
     public unsafe float WholeSceneDynamicShadowRadius
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 412); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 412); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 436); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 436); }
     }
 
     /// <summary>
@@ -123,8 +123,8 @@ public partial class DirectionalLightComponent : BmSDK.Engine.LightComponent, Bm
     /// </summary>
     public unsafe int NumWholeSceneDynamicShadowCascades
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 416); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 416); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 440); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
     }
 
     /// <summary>
@@ -132,7 +132,13 @@ public partial class DirectionalLightComponent : BmSDK.Engine.LightComponent, Bm
     /// </summary>
     public unsafe float CascadeDistributionExponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 420); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 420); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 444); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 444); }
     }
+
+    /// <summary>
+    /// StructProperty: LightmassSettings
+    /// </summary>
+    public unsafe ref BmSDK.Engine.EngineTypes.FLightmassDirectionalLightSettings LightmassSettings
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.EngineTypes.FLightmassDirectionalLightSettings>(Ptr + 448);
 }

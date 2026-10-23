@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSpecialMoveConfig_DropToLedgeHang<br/>
-/// (size = 348)
+/// (size = 356)
 /// (flags = 4114)
 /// </summary>
 public partial class RSpecialMoveConfig_DropToLedgeHang : BmSDK.BmGame.RSpecialMoveConfig_RelativeAnimMove, BmSDK.IGameObject

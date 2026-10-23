@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqCond_CompareBool<br/>
-/// (size = 184)
+/// (size = 204)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqCond_CompareBool : BmSDK.Engine.SequenceCondition, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class SeqCond_CompareBool : BmSDK.Engine.SequenceCondition, BmSDK
     /// </summary>
     public unsafe bool bResult
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 180) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 180); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 180); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 200) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 200); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 200); }
     }
 }

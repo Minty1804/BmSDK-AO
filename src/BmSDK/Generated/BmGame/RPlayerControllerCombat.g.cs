@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RPlayerControllerCombat<br/>
-/// (size = 5632)
+/// (size = 6540)
 /// (flags = 144703638)
 /// </summary>
 public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, BmSDK.IGameObject
@@ -79,6 +79,42 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
+    /// Function: NotifyCombatFinished
+    /// </summary>
+    public unsafe override void NotifyCombatFinished(bool BatmanWasVictorious)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.NotifyCombatFinished", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(BatmanWasVictorious, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: NotifyCombatStarted
+    /// </summary>
+    public unsafe override void NotifyCombatStarted()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.NotifyCombatStarted", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: GetProjectileHelpPrompt
+    /// </summary>
+    public unsafe override void GetProjectileHelpPrompt(BmSDK.BmGame.RHUDPrompt HelpPrompt, bool bKismetHelpOn)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GetProjectileHelpPrompt", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(HelpPrompt, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bKismetHelpOn, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: ForceDodgeProjectile
     /// </summary>
     public unsafe virtual bool ForceDodgeProjectile()
@@ -90,13 +126,13 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     }
 
     /// <summary>
-    /// Function: PCQuickGadget
+    /// Function: DoQuickFireSpecialMove
     /// </summary>
-    public unsafe virtual void PCQuickGadget(int I)
+    public unsafe override void DoQuickFireSpecialMove(int QuickSpecialMove)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.PCQuickGadget", true);
-        byte* paramsPtr = stackalloc byte[12];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(I, paramsPtr + 0);
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.DoQuickFireSpecialMove", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(QuickSpecialMove, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -146,12 +182,67 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     }
 
     /// <summary>
+    /// Function: GadgetThumbLeft
+    /// </summary>
+    public unsafe virtual void GadgetThumbLeft()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GadgetThumbLeft", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: GadgetThumbRight
+    /// </summary>
+    public unsafe virtual void GadgetThumbRight()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GadgetThumbRight", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: QuickGadgetRTFire
+    /// </summary>
+    public unsafe override void QuickGadgetRTFire()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.QuickGadgetRTFire", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: CanQuickFireSpecialMove
+    /// </summary>
+    public unsafe virtual bool CanQuickFireSpecialMove()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.CanQuickFireSpecialMove", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: CanQuickFireGadget
+    /// </summary>
+    public unsafe virtual bool CanQuickFireGadget()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.CanQuickFireGadget", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: ServerDamagePawn
     /// </summary>
     public unsafe virtual void ServerDamagePawn(BmSDK.BmGame.RPawnVillain Target, BmSDK.BmGame.RPawnCombat.FDamageInfo DmgInfo)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.ServerDamagePawn", true);
-        byte* paramsPtr = stackalloc byte[248];
+        byte* paramsPtr = stackalloc byte[260];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Target, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DmgInfo, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -374,7 +465,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual void TutorialWTF()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TutorialWTF", true);
-        byte* paramsPtr = stackalloc byte[9];
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -407,7 +498,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual void CombatWTF()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.CombatWTF", true);
-        byte* paramsPtr = stackalloc byte[20];
+        byte* paramsPtr = stackalloc byte[16];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -440,7 +531,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual bool ShouldGoSlowMoOnNextHit(int ComboInc)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.ShouldGoSlowMoOnNextHit", true);
-        byte* paramsPtr = stackalloc byte[8];
+        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ComboInc, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
@@ -493,6 +584,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual void QueueFinishedCombatMove()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.QueueFinishedCombatMove", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: UpdateComboTokenHUD
+    /// </summary>
+    public unsafe virtual void UpdateComboTokenHUD()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.UpdateComboTokenHUD", true);
         byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
@@ -646,17 +748,6 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     }
 
     /// <summary>
-    /// Function: SpecialUnlocked
-    /// </summary>
-    public unsafe virtual bool SpecialUnlocked()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.SpecialUnlocked", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
-    }
-
-    /// <summary>
     /// Function: CanDoSecondaryGroupCombatMove
     /// </summary>
     public unsafe virtual bool CanDoSecondaryGroupCombatMove(bool bDoComboCountCheck = default)
@@ -750,7 +841,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual bool SpawnTakedown(bool bOverrideCurrentMove = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.SpawnTakedown", true);
-        byte* paramsPtr = stackalloc byte[32];
+        byte* paramsPtr = stackalloc byte[36];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bOverrideCurrentMove, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
@@ -873,7 +964,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// <summary>
     /// Function: ServerRequestFloorTakedownSimulated
     /// </summary>
-    public unsafe virtual void ServerRequestFloorTakedownSimulated(BmSDK.BmGame.RPawnVillain TargetPawn, BmSDK.BmGame.RGameInfo.EGameAction ChallengeActionToTriggerIfSuccessful, float TargetDist, System.Numerics.Vector3 AnimPos, System.Numerics.Vector3 FacingDir)
+    public unsafe virtual void ServerRequestFloorTakedownSimulated(BmSDK.BmGame.RPawnVillain TargetPawn, BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge ChallengeActionToTriggerIfSuccessful, float TargetDist, System.Numerics.Vector3 AnimPos, System.Numerics.Vector3 FacingDir)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.ServerRequestFloorTakedownSimulated", true);
         byte* paramsPtr = stackalloc byte[44];
@@ -925,12 +1016,14 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// <summary>
     /// Function: TryProjectileCounter
     /// </summary>
-    public unsafe virtual bool TryProjectileCounter()
+    public unsafe virtual bool TryProjectileCounter(bool bSpawnCounter = default, BmSDK.BmGame.RBMCombatThrownObject CombatObject = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TryProjectileCounter", true);
-        byte* paramsPtr = stackalloc byte[24];
+        byte* paramsPtr = stackalloc byte[48];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bSpawnCounter, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CombatObject, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
     }
 
     /// <summary>
@@ -939,7 +1032,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual bool TryCounter(bool bCanFail, float TimeInitiatedByPlayer = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TryCounter", true);
-        byte* paramsPtr = stackalloc byte[36];
+        byte* paramsPtr = stackalloc byte[44];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bCanFail, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TimeInitiatedByPlayer, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -947,12 +1040,25 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     }
 
     /// <summary>
-    /// Function: TryRasBurlyCounter
+    /// Function: TryBeatdownCounter
     /// </summary>
-    public unsafe virtual bool TryRasBurlyCounter(bool bCanStartMove)
+    public unsafe virtual bool TryBeatdownCounter(bool bCanStartMove, float TimeInitiatedByPlayer)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TryRasBurlyCounter", true);
-        byte* paramsPtr = stackalloc byte[12];
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TryBeatdownCounter", true);
+        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bCanStartMove, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(TimeInitiatedByPlayer, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
+    }
+
+    /// <summary>
+    /// Function: TryCounteringDeathstroke
+    /// </summary>
+    public unsafe virtual bool TryCounteringDeathstroke(bool bCanStartMove)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TryCounteringDeathstroke", true);
+        byte* paramsPtr = stackalloc byte[16];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bCanStartMove, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
@@ -1025,7 +1131,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual bool TryStrike(float TimeInitiatedByPlayer = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TryStrike", true);
-        byte* paramsPtr = stackalloc byte[28];
+        byte* paramsPtr = stackalloc byte[32];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TimeInitiatedByPlayer, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
@@ -1099,12 +1205,23 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     }
 
     /// <summary>
+    /// Function: GetCounterCriticalStrikeDamageType
+    /// </summary>
+    public unsafe virtual BmSDK.Class GetCounterCriticalStrikeDamageType()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GetCounterCriticalStrikeDamageType", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: VenomFailedCounter
     /// </summary>
     public unsafe virtual void VenomFailedCounter()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.VenomFailedCounter", true);
-        byte* paramsPtr = stackalloc byte[248];
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -1115,7 +1232,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual void VenomDismountOrStunCounter()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.VenomDismountOrStunCounter", true);
-        byte* paramsPtr = stackalloc byte[4];
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -1126,7 +1243,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual void VenomCounter()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.VenomCounter", true);
-        byte* paramsPtr = stackalloc byte[4];
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -1192,7 +1309,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual bool TriggerRideVenom()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TriggerRideVenom", true);
-        byte* paramsPtr = stackalloc byte[12];
+        byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
     }
@@ -1203,7 +1320,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe override bool TriggerGroundTakedown(bool bOverrideCurrentMove = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TriggerGroundTakedown", true);
-        byte* paramsPtr = stackalloc byte[8];
+        byte* paramsPtr = stackalloc byte[16];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bOverrideCurrentMove, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
@@ -1238,7 +1355,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual bool TryToStartCombatInterrogation()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TryToStartCombatInterrogation", true);
-        byte* paramsPtr = stackalloc byte[12];
+        byte* paramsPtr = stackalloc byte[16];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
     }
@@ -1282,6 +1399,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe override void GrabReleased()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GrabReleased", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: GrabHeld
+    /// </summary>
+    public unsafe virtual void GrabHeld()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GrabHeld", true);
         byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
@@ -1513,14 +1641,80 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// <summary>
     /// Function: AddScoreForMove
     /// </summary>
-    public unsafe virtual void AddScoreForMove(BmSDK.BmGame.RGameInfo.EComboMoveType MoveType, int ComboMultiplier, BmSDK.BmGame.RPawnCombat Target, int NumTargets)
+    public unsafe virtual void AddScoreForMove(BmSDK.BmGame.RGameInfo.EComboMoveType MoveType, int ComboMultiplier, BmSDK.BmGame.RPawnCombat Target, int numTargets)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.AddScoreForMove", true);
         byte* paramsPtr = stackalloc byte[24];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MoveType, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ComboMultiplier, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Target, paramsPtr + 8);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(NumTargets, paramsPtr + 12);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(numTargets, paramsPtr + 12);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: TurnOffKnifeComboAttackPrompt
+    /// </summary>
+    public unsafe virtual void TurnOffKnifeComboAttackPrompt()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TurnOffKnifeComboAttackPrompt", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: TurnOnKnifeComboAttackPrompt
+    /// </summary>
+    public unsafe virtual void TurnOnKnifeComboAttackPrompt()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TurnOnKnifeComboAttackPrompt", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: TurnOffMAComboChainPrompt
+    /// </summary>
+    public unsafe virtual void TurnOffMAComboChainPrompt()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TurnOffMAComboChainPrompt", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: TurnOnMAComboChainPrompt
+    /// </summary>
+    public unsafe virtual void TurnOnMAComboChainPrompt()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TurnOnMAComboChainPrompt", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: TurnOffMADoubleCounterPrompt
+    /// </summary>
+    public unsafe virtual void TurnOffMADoubleCounterPrompt()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TurnOffMADoubleCounterPrompt", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: TurnOnMADoubleCounterPrompt
+    /// </summary>
+    public unsafe virtual void TurnOnMADoubleCounterPrompt()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TurnOnMADoubleCounterPrompt", true);
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -1570,13 +1764,53 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     }
 
     /// <summary>
+    /// Function: ClearSpecialMove
+    /// </summary>
+    public unsafe virtual void ClearSpecialMove()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.ClearSpecialMove", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: DecrementSpecialMove
+    /// </summary>
+    public unsafe virtual void DecrementSpecialMove()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.DecrementSpecialMove", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: HasSpecialMoveToken
+    /// </summary>
+    public unsafe virtual bool HasSpecialMoveToken()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.HasSpecialMoveToken", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: SpecialMoveTargetInRange
     /// </summary>
     public unsafe virtual bool SpecialMoveTargetInRange()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.SpecialMoveTargetInRange", true);
-        byte* paramsPtr = stackalloc byte[16];
+        byte* paramsPtr = stackalloc byte[4];
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
     }
 
@@ -1738,12 +1972,34 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     }
 
     /// <summary>
+    /// Function: ExitSuperCombo
+    /// </summary>
+    public unsafe virtual void ExitSuperCombo()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.ExitSuperCombo", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: EnterSuperCombo
+    /// </summary>
+    public unsafe virtual void EnterSuperCombo()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.EnterSuperCombo", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: GetSuperComboModeProportion
     /// </summary>
     public unsafe virtual float GetSuperComboModeProportion(int TestComboSize)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GetSuperComboModeProportion", true);
-        byte* paramsPtr = stackalloc byte[12];
+        byte* paramsPtr = stackalloc byte[8];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TestComboSize, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<float>(paramsPtr + 4);
@@ -1785,23 +2041,12 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     }
 
     /// <summary>
-    /// Function: DecCombo
-    /// </summary>
-    public unsafe virtual void DecCombo()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.DecCombo", true);
-        byte* paramsPtr = stackalloc byte[0];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
     /// Function: IncCombo
     /// </summary>
     public unsafe virtual void IncCombo(BmSDK.BmGame.RPawnCombat PawnAttacked = default, int IncAmount = default, int IncSpecialMoveCount = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.IncCombo", true);
-        byte* paramsPtr = stackalloc byte[20];
+        byte* paramsPtr = stackalloc byte[28];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PawnAttacked, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(IncAmount, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(IncSpecialMoveCount, paramsPtr + 8);
@@ -1817,39 +2062,6 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.SetComboIncCue", true);
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewCue, paramsPtr + 0);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: AwardXPBonus
-    /// </summary>
-    public unsafe virtual void AwardXPBonus()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.AwardXPBonus", true);
-        byte* paramsPtr = stackalloc byte[0];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: AddPredatorXPBonus
-    /// </summary>
-    public unsafe virtual void AddPredatorXPBonus()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.AddPredatorXPBonus", true);
-        byte* paramsPtr = stackalloc byte[0];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: AddCombatXPBonus
-    /// </summary>
-    public unsafe virtual void AddCombatXPBonus()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.AddCombatXPBonus", true);
-        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -1932,6 +2144,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     }
 
     /// <summary>
+    /// Function: ExitComboFlow
+    /// </summary>
+    public unsafe virtual void ExitComboFlow()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.ExitComboFlow", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: EnterComboFlow
     /// </summary>
     public unsafe virtual void EnterComboFlow()
@@ -1959,8 +2182,15 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual void ClearComboMoves()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.ClearComboMoves", true);
-        byte* paramsPtr = stackalloc byte[4];
+        byte* paramsPtr = stackalloc byte[0];
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
         return;
     }
 
@@ -1971,16 +2201,34 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.SetMaxVariation", true);
         byte* paramsPtr = stackalloc byte[0];
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
         return;
     }
 
     /// <summary>
-    /// Function: GetMaxComboVariation
+    /// Function: ComputeComboVariation
     /// </summary>
-    public unsafe virtual int GetMaxComboVariation()
+    public unsafe virtual int ComputeComboVariation()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GetMaxComboVariation", true);
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.ComputeComboVariation", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: GetMaxComboVariationInChallenge
+    /// </summary>
+    public unsafe virtual int GetMaxComboVariationInChallenge()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GetMaxComboVariationInChallenge", true);
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
@@ -1992,8 +2240,15 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual void ResetComboMoveTypes()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.ResetComboMoveTypes", true);
-        byte* paramsPtr = stackalloc byte[4];
+        byte* paramsPtr = stackalloc byte[0];
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
         return;
     }
 
@@ -2047,7 +2302,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual int GetComboVariationScore()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GetComboVariationScore", true);
-        byte* paramsPtr = stackalloc byte[8];
+        byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
     }
@@ -2314,7 +2569,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe override void GetHelpPrompt(BmSDK.BmGame.RHUDPrompt HelpPrompt, bool bKismetHelpOn)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GetHelpPrompt", true);
-        byte* paramsPtr = stackalloc byte[32];
+        byte* paramsPtr = stackalloc byte[44];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(HelpPrompt, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bKismetHelpOn, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -2327,7 +2582,7 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual void ShowTutorial(BmSDK.BmGame.RHUDPrompt HelpPrompt, BmSDK.BmGame.RPersistentData.ETutorialType TutorialToShow)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.ShowTutorial", true);
-        byte* paramsPtr = stackalloc byte[24];
+        byte* paramsPtr = stackalloc byte[28];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(HelpPrompt, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TutorialToShow, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -2340,8 +2595,15 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual void GetHighestPriorityTutorial(out BmSDK.BmGame.RPersistentData.ETutorialType BestTutorial, out BmSDK.FString BestTutorialPrompt, out BmSDK.BmGame.RHUDPrompt.EControlIcon BestControlIcon, out int bShowTutorial)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GetHighestPriorityTutorial", true);
-        byte* paramsPtr = stackalloc byte[44];
+        byte* paramsPtr = stackalloc byte[24];
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
         BestTutorial = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.ETutorialType>(paramsPtr + 0);
         BestTutorialPrompt = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 4);
         BestControlIcon = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RHUDPrompt.EControlIcon>(paramsPtr + 16);
@@ -2355,26 +2617,21 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     public unsafe virtual bool CheckTutorial(BmSDK.BmGame.RPersistentData.ETutorialType CheckTutorialType, out int BestPriority, out BmSDK.BmGame.RPersistentData.ETutorialType BestTutorial, out BmSDK.FString BestPrompt, out int bShowTutorial)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.CheckTutorial", true);
-        byte* paramsPtr = stackalloc byte[36];
+        byte* paramsPtr = stackalloc byte[32];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CheckTutorialType, paramsPtr + 0);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
         BestPriority = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
         BestTutorial = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.ETutorialType>(paramsPtr + 8);
         BestPrompt = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 12);
         bShowTutorial = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 24);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 28);
-    }
-
-    /// <summary>
-    /// Function: CanTriggerCombatInterrogation
-    /// </summary>
-    public unsafe virtual bool CanTriggerCombatInterrogation(bool bCheckValidContext = default)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.CanTriggerCombatInterrogation", true);
-        byte* paramsPtr = stackalloc byte[16];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(bCheckValidContext, paramsPtr + 0);
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
     }
 
     /// <summary>
@@ -2465,6 +2722,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<float>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: CanDoCombatWhileMoveInputIsIgnored
+    /// </summary>
+    public unsafe virtual bool CanDoCombatWhileMoveInputIsIgnored()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.CanDoCombatWhileMoveInputIsIgnored", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
     }
 
     /// <summary>
@@ -2624,6 +2892,76 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     }
 
     /// <summary>
+    /// Function: GetMovesToUnlockSpecial
+    /// </summary>
+    public unsafe virtual int GetMovesToUnlockSpecial()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.GetMovesToUnlockSpecial", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// Function: RemoveCounterListener
+    /// </summary>
+    public unsafe virtual void RemoveCounterListener(System.IntPtr del)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.RemoveCounterListener", true);
+        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(del, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: AddCounterListener
+    /// </summary>
+    public unsafe virtual void AddCounterListener(System.IntPtr del)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.AddCounterListener", true);
+        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(del, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: QuickGadgetThumbLeftTimeout
+    /// </summary>
+    public unsafe virtual void QuickGadgetThumbLeftTimeout()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.QuickGadgetThumbLeftTimeout", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: QuickGadgetThumbRightTimeout
+    /// </summary>
+    public unsafe virtual void QuickGadgetThumbRightTimeout()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.QuickGadgetThumbRightTimeout", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: TryCountering
+    /// </summary>
+    public unsafe virtual bool TryCountering(BmSDK.BmGame.RPlayerControllerCombat Controller, bool bCanStartMove)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerControllerCombat.TryCountering", true);
+        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Controller, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bCanStartMove, paramsPtr + 4);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
+    }
+
+    /// <summary>
     /// Struct: FComboMoveInfo
     /// </summary>
     [StructLayout(LayoutKind.Explicit, Size = 8)]
@@ -2678,8 +3016,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe BmSDK.BmGame.RBMCombatManager CombatManager
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMCombatManager>(Ptr + 4460); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4460); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMCombatManager>(Ptr + 5040); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5040); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: CounteringListeners
+    /// </summary>
+    public unsafe BmSDK.TArray<System.IntPtr> CounteringListeners
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<System.IntPtr>>(Ptr + 5044); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5044); }
     }
 
     /// <summary>
@@ -2687,8 +3034,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bStunned
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2696,8 +3043,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bZapped
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2705,8 +3052,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bSuppressCombatCameraInCorridor
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2714,8 +3061,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bPlayFinishedCombatMoveWhenAble
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2723,8 +3070,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bAllowCombo
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 16) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2732,8 +3079,35 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bForceSpecialCombo
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 32) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bHitDuringCombat
+    /// </summary>
+    public unsafe bool bHitDuringCombat
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 64) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 64) : (currentMask & ~64); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bPerfectFreeFlowCombat
+    /// </summary>
+    public unsafe bool bPerfectFreeFlowCombat
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 128) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 128) : (currentMask & ~128); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bCanCheckForPerfectFreeFlowCombat
+    /// </summary>
+    public unsafe bool bCanCheckForPerfectFreeFlowCombat
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 256) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 256) : (currentMask & ~256); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2741,8 +3115,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHit
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 64) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 64) : (currentMask & ~64); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 512) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 512) : (currentMask & ~512); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2750,8 +3124,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bEverBeenHit
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 128) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 128) : (currentMask & ~128); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 1024) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 1024) : (currentMask & ~1024); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2759,8 +3133,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitByStunStick
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 256) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 256) : (currentMask & ~256); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 2048) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 2048) : (currentMask & ~2048); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2768,8 +3142,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitByKnife
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 512) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 512) : (currentMask & ~512); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 4096) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 4096) : (currentMask & ~4096); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2777,8 +3151,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitBySword
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 1024) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 1024) : (currentMask & ~1024); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 8192) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 8192) : (currentMask & ~8192); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2786,8 +3160,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitByCombatGun
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 2048) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 2048) : (currentMask & ~2048); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 16384) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 16384) : (currentMask & ~16384); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2795,8 +3169,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitBySimultaneousAttack
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 4096) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 4096) : (currentMask & ~4096); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 32768) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 32768) : (currentMask & ~32768); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2804,8 +3178,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitByArmouredThug
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 8192) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 8192) : (currentMask & ~8192); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 65536) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 65536) : (currentMask & ~65536); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2813,8 +3187,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitByShieldThug
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 16384) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 16384) : (currentMask & ~16384); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 131072) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 131072) : (currentMask & ~131072); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2822,8 +3196,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitByLieutenant
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 32768) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 32768) : (currentMask & ~32768); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 262144) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 262144) : (currentMask & ~262144); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2831,8 +3205,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitByTitanHenchman
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 65536) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 65536) : (currentMask & ~65536); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 524288) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 524288) : (currentMask & ~524288); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2840,8 +3214,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitByProjectile
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 131072) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 131072) : (currentMask & ~131072); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 1048576) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 1048576) : (currentMask & ~1048576); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2849,8 +3223,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitBySniper
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 262144) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 262144) : (currentMask & ~262144); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 2097152) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 2097152) : (currentMask & ~2097152); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2858,8 +3232,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bBeenHitByMine
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 524288) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 524288) : (currentMask & ~524288); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 4194304) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 4194304) : (currentMask & ~4194304); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2867,8 +3241,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bSpottedByThermal
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 1048576) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 1048576) : (currentMask & ~1048576); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 8388608) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 8388608) : (currentMask & ~8388608); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2876,8 +3250,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bTryingToSetDialogueMode
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 2097152) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 2097152) : (currentMask & ~2097152); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 16777216) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 16777216) : (currentMask & ~16777216); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2885,17 +3259,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bShowEvadePrompt
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 4194304) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 4194304) : (currentMask & ~4194304); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
-    }
-
-    /// <summary>
-    /// BoolProperty: bShowQuickBatarangPrompt
-    /// </summary>
-    public unsafe bool bShowQuickBatarangPrompt
-    {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 8388608) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 8388608) : (currentMask & ~8388608); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 33554432) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 33554432) : (currentMask & ~33554432); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2903,8 +3268,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bCanDoComboBatarang
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 16777216) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 16777216) : (currentMask & ~16777216); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 67108864) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 67108864) : (currentMask & ~67108864); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2912,8 +3277,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bMirroredFailAnim
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 33554432) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 33554432) : (currentMask & ~33554432); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 134217728) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 134217728) : (currentMask & ~134217728); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2921,8 +3286,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bUseComboIncCue
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 67108864) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 67108864) : (currentMask & ~67108864); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 268435456) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 268435456) : (currentMask & ~268435456); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2930,8 +3295,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bLieutenantStrikeHelp
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 134217728) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 134217728) : (currentMask & ~134217728); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 536870912) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 536870912) : (currentMask & ~536870912); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2939,8 +3304,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bDisallowCombat
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 268435456) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 268435456) : (currentMask & ~268435456); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & 1073741824) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | 1073741824) : (currentMask & ~1073741824); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bDisallowEvade
+    /// </summary>
+    public unsafe bool bDisallowEvade
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056) & -2147483648) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); var newMask = value ? (currentMask | -2147483648) : (currentMask & ~-2147483648); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5056); }
     }
 
     /// <summary>
@@ -2948,8 +3322,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bCapeStunDisabled
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 536870912) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 536870912) : (currentMask & ~536870912); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5060); }
     }
 
     /// <summary>
@@ -2957,8 +3331,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bInSuperComboMode
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & 1073741824) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | 1073741824) : (currentMask & ~1073741824); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5060); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bAllowSuperComboModePP
+    /// </summary>
+    public unsafe bool bAllowSuperComboModePP
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5060); }
     }
 
     /// <summary>
@@ -2966,8 +3349,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bAllowInteractionMidCombat
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464) & -2147483648) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4464); var newMask = value ? (currentMask | -2147483648) : (currentMask & ~-2147483648); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4464); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5060); }
     }
 
     /// <summary>
@@ -2975,8 +3358,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bNextCombatMoveClearsSuperComboMode
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4468) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4468); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4468); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5060); }
     }
 
     /// <summary>
@@ -2984,8 +3367,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe bool bCouldDoCombatWhenCounterPressed
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4468) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4468); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 4468); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 5060); }
     }
 
     /// <summary>
@@ -2993,8 +3376,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float StunnedTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4472); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5064); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5064); }
     }
 
     /// <summary>
@@ -3002,8 +3385,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float ZappedTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4476); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5068); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5068); }
     }
 
     /// <summary>
@@ -3011,8 +3394,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe BmSDK.BmGame.RViewPostProcess StunnedPostProcess
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RViewPostProcess>(Ptr + 4480); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4480); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RViewPostProcess>(Ptr + 5072); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5072); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: ElectroPostProcess
+    /// </summary>
+    public unsafe BmSDK.BmGame.RViewPostProcess ElectroPostProcess
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RViewPostProcess>(Ptr + 5076); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5076); }
     }
 
     /// <summary>
@@ -3020,8 +3412,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe BmSDK.Engine.ForceFeedbackWaveform ImpactRumble
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ForceFeedbackWaveform>(Ptr + 4484); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4484); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ForceFeedbackWaveform>(Ptr + 5080); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5080); }
     }
 
     /// <summary>
@@ -3029,8 +3421,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int ComboSize
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4488); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4488); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5084); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5084); }
     }
 
     /// <summary>
@@ -3038,8 +3430,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int CurrMaxComboSize
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4492); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4492); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5088); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5088); }
     }
 
     /// <summary>
@@ -3047,8 +3439,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int TotalMaxComboSize
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4496); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4496); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5092); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5092); }
     }
 
     /// <summary>
@@ -3056,8 +3448,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int NumTimesHit
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4500); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4500); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5096); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5096); }
     }
 
     /// <summary>
@@ -3065,8 +3457,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int CombatScore
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4504); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4504); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5100); }
     }
 
     /// <summary>
@@ -3074,23 +3466,23 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RPawnCombat> TargettedBy
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RPawnCombat>>(Ptr + 4508); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4508); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RPawnCombat>>(Ptr + 5104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5104); }
     }
 
     /// <summary>
     /// StructProperty: LastStrikeDir
     /// </summary>
     public unsafe ref System.Numerics.Vector3 LastStrikeDir
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 4520);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 5116);
 
     /// <summary>
     /// FloatProperty: RunningTimer
     /// </summary>
     public unsafe float RunningTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4532); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4532); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5128); }
     }
 
     /// <summary>
@@ -3098,8 +3490,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float TimeSinceRunPressed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4536); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4536); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5132); }
     }
 
     /// <summary>
@@ -3107,8 +3499,44 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int MovesSinceSpecial
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4540); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4540); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5136); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5136); }
+    }
+
+    /// <summary>
+    /// IntProperty: MovesSinceFirstSpecial
+    /// </summary>
+    public unsafe int MovesSinceFirstSpecial
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5140); }
+    }
+
+    /// <summary>
+    /// IntProperty: SpecialMoveTokens
+    /// </summary>
+    public unsafe int SpecialMoveTokens
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5144); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5144); }
+    }
+
+    /// <summary>
+    /// IntProperty: PreviousSpecialMovesForComboTakedown
+    /// </summary>
+    public unsafe int PreviousSpecialMovesForComboTakedown
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5148); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5148); }
+    }
+
+    /// <summary>
+    /// IntProperty: InstantTakeDownTokens
+    /// </summary>
+    public unsafe int InstantTakeDownTokens
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5152); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5152); }
     }
 
     /// <summary>
@@ -3116,8 +3544,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int CombosStarted
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4544); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4544); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5156); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5156); }
     }
 
     /// <summary>
@@ -3125,8 +3553,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int CombosAchieved
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4548); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4548); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5160); }
     }
 
     /// <summary>
@@ -3134,8 +3562,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int CummulativeComboAchieved
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4552); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4552); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5164); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5164); }
+    }
+
+    /// <summary>
+    /// IntProperty: HitCountDuringCombat
+    /// </summary>
+    public unsafe int HitCountDuringCombat
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5168); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5168); }
     }
 
     /// <summary>
@@ -3143,8 +3580,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int CounterPrompt
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4556); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4556); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5172); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5172); }
     }
 
     /// <summary>
@@ -3152,8 +3589,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float CounterPromptTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4560); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4560); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5176); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5176); }
     }
 
     /// <summary>
@@ -3161,8 +3598,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int MaxComboSize
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4564); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4564); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5180); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5180); }
     }
 
     /// <summary>
@@ -3170,8 +3607,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int MaxComboVariation
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4568); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4568); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5184); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5184); }
+    }
+
+    /// <summary>
+    /// IntProperty: MaxComboVariationInChallenge
+    /// </summary>
+    public unsafe int MaxComboVariationInChallenge
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5188); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5188); }
     }
 
     /// <summary>
@@ -3179,8 +3625,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int StoredComboBonus
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4572); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4572); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5192); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5192); }
     }
 
     /// <summary>
@@ -3188,8 +3634,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int StoredVariationBonus
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4576); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4576); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5196); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5196); }
     }
 
     /// <summary>
@@ -3197,8 +3643,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int StoredGadgetVariationBonus
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4580); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4580); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5200); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5200); }
     }
 
     /// <summary>
@@ -3206,8 +3652,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int StoredIntimidationTakedownsPerformed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4584); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4584); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5204); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5204); }
     }
 
     /// <summary>
@@ -3215,8 +3661,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int StoredPredatorVariationBonus
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4588); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4588); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5208); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5208); }
     }
 
     /// <summary>
@@ -3224,8 +3670,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe BmSDK.BmGame.RBMRoomAIState XPBonusRoom
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMRoomAIState>(Ptr + 4592); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4592); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMRoomAIState>(Ptr + 5212); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5212); }
     }
 
     /// <summary>
@@ -3233,8 +3679,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int HitsSinceCounter
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4596); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4596); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5216); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5216); }
     }
 
     /// <summary>
@@ -3242,8 +3688,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int SetComboFrames
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4600); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4600); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5220); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5220); }
     }
 
     /// <summary>
@@ -3251,8 +3697,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int ShowCriticalFrames
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4604); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4604); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5224); }
     }
 
     /// <summary>
@@ -3260,8 +3706,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float NotInCombatTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 4608); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4608); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5228); }
     }
 
     /// <summary>
@@ -3269,8 +3715,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe BmSDK.Engine.AudioComponent ComboIncAC
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AudioComponent>(Ptr + 4612); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4612); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AudioComponent>(Ptr + 5232); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5232); }
     }
 
     /// <summary>
@@ -3278,8 +3724,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int BlockedByArmouredSinceBeatdown
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4616); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4616); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5236); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5236); }
     }
 
     /// <summary>
@@ -3287,8 +3733,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int BlockedByShieldSinceAerial
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4620); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4620); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5240); }
     }
 
     /// <summary>
@@ -3296,8 +3742,17 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int BlockedByTitanSinceSuperStun
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4624); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4624); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5244); }
+    }
+
+    /// <summary>
+    /// IntProperty: BlockedByArmouredLieutenant
+    /// </summary>
+    public unsafe int BlockedByArmouredLieutenant
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5248); }
     }
 
     /// <summary>
@@ -3305,8 +3760,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int StunStickHits
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4628); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4628); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5252); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5252); }
     }
 
     /// <summary>
@@ -3314,8 +3769,35 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int BladeHits
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4632); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4632); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5256); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5256); }
+    }
+
+    /// <summary>
+    /// IntProperty: ChainAttackHits
+    /// </summary>
+    public unsafe int ChainAttackHits
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5260); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5260); }
+    }
+
+    /// <summary>
+    /// IntProperty: ComboChainAttackHits
+    /// </summary>
+    public unsafe int ComboChainAttackHits
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5264); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5264); }
+    }
+
+    /// <summary>
+    /// IntProperty: DeathstrokeCounterHits
+    /// </summary>
+    public unsafe int DeathstrokeCounterHits
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5268); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5268); }
     }
 
     /// <summary>
@@ -3323,8 +3805,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RSeqAct_ComboValueReached> ComboValueReachedActions
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RSeqAct_ComboValueReached>>(Ptr + 4636); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4636); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RSeqAct_ComboValueReached>>(Ptr + 5272); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5272); }
     }
 
     /// <summary>
@@ -3332,8 +3814,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe BmSDK.BmGame.RSeqAct_HeadToHeadCombatSpawnerBase HeadToHeadSpawner
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSeqAct_HeadToHeadCombatSpawnerBase>(Ptr + 4648); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4648); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSeqAct_HeadToHeadCombatSpawnerBase>(Ptr + 5284); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5284); }
     }
 
     /// <summary>
@@ -3341,1839 +3823,2351 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int ConsecutiveBatarangsOrRedirects
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4652); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4652); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5288); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5288); }
     }
 
     /// <summary>
     /// StructProperty: LastAttacked
     /// </summary>
     public unsafe ref BmSDK.BmGame.RPlayerControllerCombat.FStruckInfo LastAttacked
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RPlayerControllerCombat.FStruckInfo>(Ptr + 4656);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RPlayerControllerCombat.FStruckInfo>(Ptr + 5292);
 
     /// <summary>
     /// ArrayProperty: ComboMoves
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RPlayerControllerCombat.FComboMoveInfo> ComboMoves
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RPlayerControllerCombat.FComboMoveInfo>>(Ptr + 4664); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4664); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RPlayerControllerCombat.FComboMoveInfo>>(Ptr + 5300); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5300); }
     }
 
     /// <summary>
     /// InlineArray{IntProperty}: MoveTypeCount
     /// </summary>
-    public InlineArray<int> MoveTypeCount => new(56, Ptr + 4676, 4, this);
+    public InlineArray<int> MoveTypeCount => new(72, Ptr + 5312, 4, this);
 
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4676); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4676); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5312); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5312); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4680); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4680); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5316); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5316); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4684); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4684); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5320); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5320); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_3
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4688); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4688); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5324); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5324); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_4
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4692); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4692); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5328); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5328); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_5
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4696); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4696); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5332); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5332); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_6
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4700); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4700); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5336); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5336); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_7
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4704); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4704); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5340); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5340); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_8
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4708); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4708); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5344); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5344); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_9
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4712); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4712); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5348); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5348); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_10
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4716); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4716); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5352); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5352); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_11
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4720); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4720); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5356); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5356); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_12
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4724); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4724); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5360); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5360); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_13
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4728); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4728); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5364); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5364); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_14
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4732); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4732); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5368); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5368); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_15
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4736); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4736); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5372); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5372); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_16
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4740); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4740); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5376); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5376); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_17
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4744); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4744); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5380); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5380); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_18
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4748); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4748); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5384); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5384); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_19
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4752); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4752); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5388); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5388); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_20
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4756); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4756); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5392); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5392); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_21
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4760); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4760); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5396); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5396); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_22
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4764); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4764); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5400); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5400); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_23
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4768); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4768); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5404); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5404); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_24
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4772); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4772); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5408); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5408); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_25
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4776); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4776); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5412); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5412); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_26
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4780); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4780); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5416); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5416); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_27
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4784); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4784); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5420); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5420); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_28
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4788); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4788); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5424); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5424); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_29
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4792); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4792); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5428); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5428); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_30
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4796); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4796); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5432); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5432); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_31
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4800); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4800); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5436); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5436); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_32
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4804); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4804); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5440); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5440); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_33
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4808); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4808); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5444); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5444); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_34
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4812); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4812); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5448); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5448); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_35
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4816); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4816); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5452); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_36
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4820); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4820); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5456); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_37
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4824); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4824); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5460); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_38
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4828); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4828); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5464); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_39
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4832); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4832); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5468); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5468); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_40
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4836); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4836); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5472); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5472); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_41
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4840); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4840); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5476); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5476); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_42
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4844); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4844); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5480); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5480); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_43
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4848); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4848); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5484); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_44
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4852); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4852); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5488); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5488); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_45
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4856); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4856); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5492); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5492); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_46
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4860); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4860); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5496); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_47
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4864); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4864); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5500); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_48
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4868); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4868); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5504); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_49
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4872); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4872); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5508); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5508); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_50
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4876); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4876); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5512); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5512); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_51
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4880); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4880); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5516); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5516); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_52
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4884); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4884); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5520); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5520); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_53
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4888); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4888); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5524); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5524); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_54
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4892); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4892); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5528); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5528); }
     }
     /// <summary>
     /// IntProperty: MoveTypeCount
     /// </summary>
     public unsafe int MoveTypeCount_55
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4896); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4896); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5532); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5532); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_56
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5536); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5536); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_57
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5540); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_58
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5544); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5544); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_59
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5548); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5548); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_60
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5552); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5552); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_61
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5556); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5556); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_62
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5560); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5560); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_63
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5564); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_64
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5568); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5568); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_65
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5572); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5572); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_66
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5576); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5576); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_67
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5580); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5580); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_68
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5584); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5584); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_69
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5588); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5588); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_70
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5592); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5592); }
+    }
+    /// <summary>
+    /// IntProperty: MoveTypeCount
+    /// </summary>
+    public unsafe int MoveTypeCount_71
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5596); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5596); }
     }
 
     /// <summary>
     /// InlineArray{IntProperty}: ComboMoveType
     /// </summary>
-    public InlineArray<int> ComboMoveType => new(56, Ptr + 4900, 4, this);
+    public InlineArray<int> ComboMoveType => new(72, Ptr + 5600, 4, this);
 
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4900); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4900); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5600); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5600); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4904); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4904); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5604); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5604); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4908); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4908); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5608); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5608); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_3
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4912); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4912); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5612); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5612); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_4
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4916); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4916); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5616); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5616); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_5
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4920); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4920); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5620); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5620); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_6
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4924); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4924); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5624); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5624); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_7
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4928); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4928); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5628); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5628); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_8
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4932); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4932); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5632); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5632); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_9
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4936); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4936); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5636); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5636); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_10
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4940); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4940); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5640); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5640); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_11
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4944); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4944); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5644); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5644); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_12
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4948); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4948); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5648); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5648); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_13
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4952); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4952); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5652); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5652); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_14
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4956); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4956); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5656); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5656); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_15
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4960); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4960); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5660); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5660); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_16
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4964); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4964); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5664); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5664); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_17
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4968); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4968); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5668); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5668); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_18
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4972); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4972); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5672); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5672); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_19
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4976); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4976); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5676); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5676); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_20
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4980); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4980); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5680); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5680); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_21
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4984); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4984); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5684); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5684); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_22
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4988); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4988); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5688); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5688); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_23
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4992); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4992); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5692); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5692); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_24
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 4996); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 4996); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5696); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5696); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_25
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5000); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5000); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5700); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5700); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_26
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5004); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5004); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5704); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5704); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_27
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5008); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5008); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5708); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5708); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_28
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5012); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5012); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5712); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5712); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_29
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5016); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5016); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5716); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5716); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_30
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5020); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5020); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5720); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5720); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_31
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5024); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5024); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5724); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5724); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_32
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5028); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5028); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5728); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5728); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_33
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5032); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5032); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5732); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5732); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_34
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5036); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5036); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5736); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5736); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_35
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5040); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5040); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5740); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5740); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_36
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5044); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5044); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5744); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5744); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_37
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5048); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5048); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5748); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5748); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_38
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5052); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5052); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5752); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5752); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_39
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5056); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5056); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5756); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5756); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_40
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5060); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5060); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5760); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5760); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_41
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5064); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5064); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5764); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5764); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_42
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5068); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5068); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5768); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5768); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_43
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5072); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5072); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5772); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5772); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_44
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5076); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5076); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5776); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5776); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_45
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5080); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5080); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5780); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5780); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_46
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5084); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5084); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5784); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5784); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_47
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5088); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5088); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5788); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5788); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_48
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5092); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5092); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5792); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5792); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_49
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5096); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5096); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5796); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5796); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_50
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5100); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5100); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5800); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5800); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_51
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5104); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5104); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5804); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5804); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_52
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5108); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5108); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5808); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5808); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_53
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5112); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5112); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5812); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5812); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_54
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5116); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5116); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5816); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5816); }
     }
     /// <summary>
     /// IntProperty: ComboMoveType
     /// </summary>
     public unsafe int ComboMoveType_55
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5820); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5820); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_56
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5824); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5824); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_57
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5828); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5828); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_58
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5832); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5832); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_59
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5836); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5836); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_60
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5840); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5840); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_61
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5844); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5844); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_62
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5848); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5848); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_63
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5852); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5852); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_64
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5856); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5856); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_65
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5860); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5860); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_66
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5864); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5864); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_67
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5868); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5868); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_68
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5872); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5872); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_69
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5876); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5876); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_70
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5880); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5880); }
+    }
+    /// <summary>
+    /// IntProperty: ComboMoveType
+    /// </summary>
+    public unsafe int ComboMoveType_71
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5884); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5884); }
     }
 
     /// <summary>
     /// InlineArray{IntProperty}: GadgetMoveType
     /// </summary>
-    public InlineArray<int> GadgetMoveType => new(56, Ptr + 5124, 4, this);
+    public InlineArray<int> GadgetMoveType => new(72, Ptr + 5888, 4, this);
 
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5124); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5124); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5888); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5888); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5128); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5128); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5892); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5892); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5896); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5896); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_3
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5136); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5136); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5900); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5900); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_4
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5140); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5140); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5904); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5904); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_5
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5144); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5908); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5908); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_6
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5148); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5912); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5912); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_7
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5152); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5152); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5916); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5916); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_8
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5156); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5156); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5920); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5920); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_9
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5160); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5160); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5924); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5924); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_10
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5164); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5164); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5928); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5928); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_11
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5168); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5168); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5932); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5932); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_12
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5172); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5172); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5936); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5936); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_13
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5176); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5176); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5940); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5940); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_14
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5180); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5180); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5944); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5944); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_15
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5184); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5184); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5948); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5948); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_16
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5188); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5188); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5952); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5952); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_17
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5192); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5192); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5956); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5956); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_18
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5196); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5196); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5960); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5960); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_19
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5200); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5200); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5964); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5964); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_20
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5968); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5968); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_21
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5972); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5972); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_22
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5212); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5212); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5976); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5976); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_23
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5216); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5216); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5980); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5980); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_24
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5984); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5984); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_25
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5224); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5988); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5988); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_26
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5992); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5992); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_27
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5232); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5232); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5996); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5996); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_28
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5236); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5236); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6000); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6000); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_29
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5240); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5240); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6004); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6004); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_30
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5244); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5244); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6008); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6008); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_31
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5248); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5248); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6012); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6012); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_32
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5252); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5252); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6016); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6016); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_33
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5256); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5256); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6020); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6020); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_34
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5260); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5260); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6024); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6024); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_35
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5264); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5264); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6028); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6028); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_36
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5268); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5268); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6032); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6032); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_37
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5272); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5272); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6036); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6036); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_38
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5276); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5276); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6040); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6040); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_39
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5280); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5280); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6044); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6044); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_40
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5284); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5284); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6048); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6048); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_41
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5288); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5288); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6052); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6052); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_42
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5292); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5292); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6056); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6056); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_43
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5296); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5296); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6060); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6060); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_44
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5300); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5300); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6064); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6064); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_45
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5304); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5304); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6068); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6068); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_46
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5308); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5308); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6072); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6072); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_47
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5312); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5312); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6076); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6076); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_48
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5316); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5316); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6080); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6080); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_49
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5320); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5320); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6084); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6084); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_50
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5324); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5324); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6088); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6088); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_51
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5328); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5328); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6092); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6092); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_52
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5332); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5332); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6096); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6096); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_53
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5336); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5336); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6100); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_54
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5340); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5340); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6104); }
     }
     /// <summary>
     /// IntProperty: GadgetMoveType
     /// </summary>
     public unsafe int GadgetMoveType_55
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5344); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5344); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6108); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6108); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_56
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6112); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6112); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_57
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6116); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_58
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6120); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_59
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6124); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6124); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_60
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6128); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_61
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6132); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_62
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6136); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6136); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_63
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6140); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_64
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6144); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6144); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_65
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6148); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6148); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_66
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6152); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6152); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_67
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6156); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6156); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_68
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6160); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_69
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6164); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6164); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_70
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6168); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6168); }
+    }
+    /// <summary>
+    /// IntProperty: GadgetMoveType
+    /// </summary>
+    public unsafe int GadgetMoveType_71
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6172); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6172); }
     }
 
     /// <summary>
     /// InlineArray{IntProperty}: SavedComboMoveType
     /// </summary>
-    public InlineArray<int> SavedComboMoveType => new(56, Ptr + 5348, 4, this);
+    public InlineArray<int> SavedComboMoveType => new(72, Ptr + 6176, 4, this);
 
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_0
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5348); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5348); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6176); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6176); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_1
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5352); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5352); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6180); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6180); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_2
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5356); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5356); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6184); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6184); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_3
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5360); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5360); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6188); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6188); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_4
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5364); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5364); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6192); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6192); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_5
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5368); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5368); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6196); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6196); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_6
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5372); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5372); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6200); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6200); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_7
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5376); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5376); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6204); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6204); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_8
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5380); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5380); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6208); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6208); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_9
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5384); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5384); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6212); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6212); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_10
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5388); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5388); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6216); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6216); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_11
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5392); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5392); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6220); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6220); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_12
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5396); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5396); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6224); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_13
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5400); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5400); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6228); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_14
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5404); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5404); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6232); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6232); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_15
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5408); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5408); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6236); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6236); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_16
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5412); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5412); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6240); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_17
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5416); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5416); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6244); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_18
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5420); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5420); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6248); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_19
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5424); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5424); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6252); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6252); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_20
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6256); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6256); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_21
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6260); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6260); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_22
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5436); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6264); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6264); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_23
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5440); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5440); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6268); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6268); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_24
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5444); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5444); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6272); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6272); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_25
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5448); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5448); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6276); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6276); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_26
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5452); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6280); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6280); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_27
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5456); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5456); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6284); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6284); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_28
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5460); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5460); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6288); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6288); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_29
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5464); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5464); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6292); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6292); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_30
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5468); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5468); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6296); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6296); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_31
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5472); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6300); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6300); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_32
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5476); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6304); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6304); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_33
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5480); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5480); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6308); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6308); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_34
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5484); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5484); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6312); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6312); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_35
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5488); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5488); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6316); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6316); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_36
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5492); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5492); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6320); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6320); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_37
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5496); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5496); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6324); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6324); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_38
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5500); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5500); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6328); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6328); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_39
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5504); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5504); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6332); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6332); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_40
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5508); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5508); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6336); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6336); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_41
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5512); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5512); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6340); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6340); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_42
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5516); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5516); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6344); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6344); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_43
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5520); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5520); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6348); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6348); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_44
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5524); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6352); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6352); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_45
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5528); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5528); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6356); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6356); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_46
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5532); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5532); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6360); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6360); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_47
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5536); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5536); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6364); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6364); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_48
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5540); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5540); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6368); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6368); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_49
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5544); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5544); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6372); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6372); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_50
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5548); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5548); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6376); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6376); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_51
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5552); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5552); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6380); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6380); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_52
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5556); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5556); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6384); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6384); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_53
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5560); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5560); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6388); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6388); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_54
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5564); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5564); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6392); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6392); }
     }
     /// <summary>
     /// IntProperty: SavedComboMoveType
     /// </summary>
     public unsafe int SavedComboMoveType_55
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5568); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5568); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6396); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6396); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_56
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6400); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6400); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_57
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6404); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6404); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_58
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6408); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6408); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_59
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6412); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6412); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_60
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6416); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6416); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_61
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6420); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6420); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_62
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6424); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6424); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_63
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6428); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6428); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_64
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6432); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6432); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_65
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6436); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6436); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_66
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6440); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6440); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_67
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6444); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6444); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_68
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6448); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6448); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_69
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6452); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_70
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6456); }
+    }
+    /// <summary>
+    /// IntProperty: SavedComboMoveType
+    /// </summary>
+    public unsafe int SavedComboMoveType_71
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6460); }
     }
 
     /// <summary>
@@ -5181,8 +6175,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int SavedComboSize
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5572); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5572); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6464); }
     }
 
     /// <summary>
@@ -5190,8 +6184,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe BmSDK.BmGame.RPawnCombat CurrentLookAtTarget
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCombat>(Ptr + 5576); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5576); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnCombat>(Ptr + 6468); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6468); }
     }
 
     /// <summary>
@@ -5199,8 +6193,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float CurrentLookAtTargetTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5580); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5580); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6472); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6472); }
     }
 
     /// <summary>
@@ -5208,8 +6202,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int FrontCounters
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5584); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5584); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6476); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6476); }
     }
 
     /// <summary>
@@ -5217,8 +6211,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int BackCounters
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5588); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5588); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6480); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6480); }
     }
 
     /// <summary>
@@ -5226,8 +6220,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int SuperComboModeMin
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5592); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5592); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6484); }
     }
 
     /// <summary>
@@ -5235,8 +6229,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe int SuperComboModeMax
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 5596); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5596); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 6488); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6488); }
     }
 
     /// <summary>
@@ -5244,8 +6238,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float SuperComboModeMinSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5600); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5600); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6492); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6492); }
     }
 
     /// <summary>
@@ -5253,8 +6247,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float SuperComboModeMinDurationMulti
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5604); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5604); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6496); }
     }
 
     /// <summary>
@@ -5262,8 +6256,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float CurrCombatCamDistModifier
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5608); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5608); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6500); }
     }
 
     /// <summary>
@@ -5271,8 +6265,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float CurrSuperComboPPAmount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5612); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5612); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6504); }
     }
 
     /// <summary>
@@ -5280,8 +6274,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float SuperComboModeVal1Multi
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5616); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5616); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6508); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6508); }
     }
 
     /// <summary>
@@ -5289,8 +6283,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float SuperComboModeVal2Multi
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5620); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5620); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6512); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6512); }
     }
 
     /// <summary>
@@ -5298,8 +6292,8 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe BmSDK.BmGame.RViewPostProcess SuperComboModePP
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RViewPostProcess>(Ptr + 5624); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5624); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RViewPostProcess>(Ptr + 6516); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6516); }
     }
 
     /// <summary>
@@ -5307,7 +6301,25 @@ public partial class RPlayerControllerCombat : BmSDK.BmGame.RPlayerController, B
     /// </summary>
     public unsafe float TimeSinceLastStrikeRequest
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 5628); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 5628); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6520); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6520); }
+    }
+
+    /// <summary>
+    /// FloatProperty: fLastTimePressedRightTrigger
+    /// </summary>
+    public unsafe float fLastTimePressedRightTrigger
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 6524); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6524); }
+    }
+
+    /// <summary>
+    /// DelegateProperty: __TryCountering__Delegate
+    /// </summary>
+    public unsafe System.IntPtr __TryCountering__Delegate
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 6528); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 6528); }
     }
 }

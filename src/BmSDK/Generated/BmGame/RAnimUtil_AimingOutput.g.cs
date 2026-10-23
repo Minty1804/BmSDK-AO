@@ -76,7 +76,7 @@ public partial class RAnimUtil_AimingOutput : BmSDK.GameObject, BmSDK.IGameObjec
     /// <summary>
     /// Struct: FAimingOutput
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 72)]
+    [StructLayout(LayoutKind.Explicit, Size = 76)]
     public partial record struct FAimingOutput
     {
         /// <summary>

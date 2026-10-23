@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RHidePoint_Plinth<br/>
-/// (size = 964)
+/// (size = 1032)
 /// (flags = 2155872786)
 /// </summary>
 public partial class RHidePoint_Plinth : BmSDK.BmGame.RHidePoint_Mesh, BmSDK.IGameObject

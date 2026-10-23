@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: WindDirectionalSource<br/>
-/// (size = 432)
+/// (size = 456)
 /// (flags = 8389138)
 /// </summary>
 public partial class WindDirectionalSource : BmSDK.Engine.Info, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class WindDirectionalSource : BmSDK.Engine.Info, BmSDK.IGameObjec
     /// </summary>
     public unsafe BmSDK.Engine.WindDirectionalSourceComponent Component
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.WindDirectionalSourceComponent>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.WindDirectionalSourceComponent>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 }

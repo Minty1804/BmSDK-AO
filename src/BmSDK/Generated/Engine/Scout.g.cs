@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: Scout<br/>
-/// (size = 1236)
+/// (size = 1272)
 /// (flags = 142606526)
 /// </summary>
 public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
@@ -94,8 +94,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.Scout.FPathSizeInfo> PathSizes
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Scout.FPathSizeInfo>>(Ptr + 1092); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1092); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Scout.FPathSizeInfo>>(Ptr + 1116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1116); }
     }
 
     /// <summary>
@@ -103,8 +103,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float TestJumpZ
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1104); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1104); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1128); }
     }
 
     /// <summary>
@@ -112,8 +112,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float TestGroundSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1108); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1108); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1132); }
     }
 
     /// <summary>
@@ -121,8 +121,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float TestMaxFallSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1112); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1112); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1136); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1136); }
     }
 
     /// <summary>
@@ -130,8 +130,17 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float TestFallSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1116); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1116); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1140); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: CollisionPathBuildingActors
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.Engine.Actor> CollisionPathBuildingActors
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor>>(Ptr + 1144); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1144); }
     }
 
     /// <summary>
@@ -139,8 +148,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float MaxLandingVelocity
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1120); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1120); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1156); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1156); }
     }
 
     /// <summary>
@@ -148,8 +157,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe int MinNumPlayerStarts
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1124); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1124); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1160); }
     }
 
     /// <summary>
@@ -157,8 +166,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Class DefaultReachSpecClass
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 1128); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1128); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 1164); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1164); }
     }
 
     /// <summary>
@@ -166,8 +175,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.GameObject.FColor> EdgePathColors
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FColor>>(Ptr + 1132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.GameObject.FColor>>(Ptr + 1168); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1168); }
     }
 
     /// <summary>
@@ -175,8 +184,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_StepSize
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1144); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1144); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1180); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1180); }
     }
 
     /// <summary>
@@ -184,8 +193,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_EntityHalfHeight
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1148); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1148); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1184); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1184); }
     }
 
     /// <summary>
@@ -193,8 +202,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_StartingHeightOffset
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1152); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1152); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1188); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1188); }
     }
 
     /// <summary>
@@ -202,8 +211,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_MaxDropHeight
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1156); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1156); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1192); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1192); }
     }
 
     /// <summary>
@@ -211,8 +220,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_MaxStepHeight
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1160); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1160); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1196); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1196); }
     }
 
     /// <summary>
@@ -220,8 +229,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_VertZDeltaSnapThresh
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1164); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1164); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1200); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1200); }
     }
 
     /// <summary>
@@ -229,8 +238,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_MinPolyArea
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1168); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1168); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1204); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1204); }
     }
 
     /// <summary>
@@ -238,8 +247,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_BorderBackfill_CheckDist
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1172); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1172); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1208); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1208); }
     }
 
     /// <summary>
@@ -247,8 +256,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_MinMergeDotAreaThreshold
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1176); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1176); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1212); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1212); }
     }
 
     /// <summary>
@@ -256,8 +265,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_MinMergeDotSmallArea
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1180); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1180); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1216); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1216); }
     }
 
     /// <summary>
@@ -265,8 +274,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_MinMergeDotLargeArea
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1184); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1184); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1220); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1220); }
     }
 
     /// <summary>
@@ -274,8 +283,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_MaxPolyHeight
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1188); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1188); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1224); }
     }
 
     /// <summary>
@@ -283,8 +292,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_MaxPolyBuildHeight
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1192); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1192); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1228); }
     }
 
     /// <summary>
@@ -292,8 +301,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_HeightMergeThreshold
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1196); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1196); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1232); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1232); }
     }
 
     /// <summary>
@@ -301,8 +310,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_EdgeMaxDelta
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1200); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1200); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1236); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1236); }
     }
 
     /// <summary>
@@ -310,8 +319,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_MaxGroundCheckSize
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1240); }
     }
 
     /// <summary>
@@ -319,8 +328,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float NavMeshGen_MinEdgeLength
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1244); }
     }
 
     /// <summary>
@@ -328,8 +337,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe bool NavMeshGen_ExpansionDoObstacleMeshSimplification
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1212) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1212); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1212); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1248) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1248); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1248); }
     }
 
     /// <summary>
@@ -337,8 +346,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe bool bHightlightOneWayReachSpecs
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1212) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1212); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1212); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1248) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1248); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1248); }
     }
 
     /// <summary>
@@ -346,8 +355,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float MinMantleFallDist
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1216); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1216); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1252); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1252); }
     }
 
     /// <summary>
@@ -355,8 +364,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float MaxMantleFallDist
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1256); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1256); }
     }
 
     /// <summary>
@@ -364,8 +373,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float MinMantleLateralDist
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1224); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1260); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1260); }
     }
 
     /// <summary>
@@ -373,8 +382,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float MaxMantleLateralDist
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1264); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1264); }
     }
 
     /// <summary>
@@ -382,8 +391,8 @@ public partial class Scout : BmSDK.Engine.Pawn, BmSDK.IGameObject
     /// </summary>
     public unsafe float MaxMantleFallTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1232); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1232); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1268); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1268); }
     }
 
     /// <summary>

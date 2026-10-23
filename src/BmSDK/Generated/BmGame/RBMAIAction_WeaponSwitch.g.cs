@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RBMAIAction_WeaponSwitch<br/>
-/// (size = 572)
+/// (size = 596)
 /// (flags = 8388627)
 /// </summary>
 public partial class RBMAIAction_WeaponSwitch : BmSDK.BmGame.RBMAIAction, BmSDK.IGameObject

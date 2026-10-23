@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_ActorFactoryEx<br/>
-/// (size = 300)
+/// (size = 320)
 /// (flags = 136323218)
 /// </summary>
 public partial class SeqAct_ActorFactoryEx : BmSDK.Engine.SeqAct_ActorFactory, BmSDK.IGameObject

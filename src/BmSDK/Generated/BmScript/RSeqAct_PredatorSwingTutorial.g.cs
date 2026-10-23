@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_PredatorSwingTutorial<br/>
-/// (size = 349)
+/// (size = 413)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_PredatorSwingTutorial : BmSDK.BmGame.RSeqAct_HelpText, BmSDK.IGameObject
@@ -114,6 +114,18 @@ public partial class RSeqAct_PredatorSwingTutorial : BmSDK.BmGame.RSeqAct_HelpTe
     }
 
     /// <summary>
+    /// Function: ActionPerformedPred
+    /// </summary>
+    public unsafe override void ActionPerformedPred(BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge Action)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSeqAct_PredatorSwingTutorial.ActionPerformedPred", true);
+        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Action, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: CanUseGrapple
     /// </summary>
     public unsafe override bool CanUseGrapple()
@@ -138,13 +150,14 @@ public partial class RSeqAct_PredatorSwingTutorial : BmSDK.BmGame.RSeqAct_HelpTe
     /// <summary>
     /// Function: GetLine
     /// </summary>
-    public unsafe override BmSDK.BmGame.RHUDPrompt.FHelpLine GetLine(int I)
+    public unsafe override void GetLine(int I, out BmSDK.BmGame.RHUDPrompt.FHelpLine OutHelpLine)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSeqAct_PredatorSwingTutorial.GetLine", true);
-        byte* paramsPtr = stackalloc byte[48];
+        byte* paramsPtr = stackalloc byte[44];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(I, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RHUDPrompt.FHelpLine>(paramsPtr + 4);
+        OutHelpLine = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RHUDPrompt.FHelpLine>(paramsPtr + 4);
+        return;
     }
 
     /// <summary>
@@ -152,8 +165,8 @@ public partial class RSeqAct_PredatorSwingTutorial : BmSDK.BmGame.RSeqAct_HelpTe
     /// </summary>
     public unsafe BmSDK.BmScript.RSeqAct_PredatorSwingTutorial.PredSwingTutorialState CurrentState
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RSeqAct_PredatorSwingTutorial.PredSwingTutorialState>(Ptr + 348); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 348); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmScript.RSeqAct_PredatorSwingTutorial.PredSwingTutorialState>(Ptr + 412); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 412); }
     }
 
     /// <summary>

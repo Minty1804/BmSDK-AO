@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: ParticleModuleEventGenerator<br/>
-/// (size = 68)
+/// (size = 72)
 /// (flags = 134221970)
 /// </summary>
 public partial class ParticleModuleEventGenerator : BmSDK.Engine.ParticleModuleEventBase, BmSDK.IGameObject
@@ -85,6 +85,15 @@ public partial class ParticleModuleEventGenerator : BmSDK.Engine.ParticleModuleE
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.ParticleModuleEventGenerator.FParticleEvent_GenerateInfo>>(Ptr + 56); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 56); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bUseHitLocationOnDeath
+    /// </summary>
+    public unsafe bool bUseHitLocationOnDeath
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
     }
 
     /// <summary>

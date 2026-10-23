@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionIf<br/>
-/// (size = 232)
+/// (size = 336)
 /// (flags = 134226066)
 /// </summary>
 public partial class MaterialExpressionIf : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,29 +82,29 @@ public partial class MaterialExpressionIf : BmSDK.Engine.MaterialExpression, BmS
     /// StructProperty: A
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput A
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// StructProperty: B
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput B
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 120);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 160);
 
     /// <summary>
     /// StructProperty: AGreaterThanB
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput AGreaterThanB
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 148);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 204);
 
     /// <summary>
     /// StructProperty: AEqualsB
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput AEqualsB
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 176);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 248);
 
     /// <summary>
     /// StructProperty: ALessThanB
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput ALessThanB
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 204);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 292);
 }

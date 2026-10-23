@@ -5,7 +5,7 @@ namespace BmSDK.IpDrv;
 
 /// <summary>
 /// Class: TcpNetDriver<br/>
-/// (size = 416)
+/// (size = 396)
 /// (flags = 268435596)
 /// </summary>
 public partial class TcpNetDriver : BmSDK.Engine.NetDriver, BmSDK.IGameObject

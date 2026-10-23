@@ -5,7 +5,7 @@ namespace BmSDK.AkAudio;
 
 /// <summary>
 /// Class: AkAudioVolume<br/>
-/// (size = 576)
+/// (size = 604)
 /// (flags = 142606994)
 /// </summary>
 public partial class AkAudioVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
@@ -184,12 +184,21 @@ public partial class AkAudioVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// ByteProperty: ListenerTrigger
+    /// </summary>
+    public unsafe BmSDK.Engine.AkWwise.EListenerID ListenerTrigger
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkWwise.EListenerID>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
+    }
+
+    /// <summary>
     /// ComponentProperty: AudioPropertySheet
     /// </summary>
     public unsafe BmSDK.Engine.AkPropertySheet AudioPropertySheet
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkPropertySheet>(Ptr + 472); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkPropertySheet>(Ptr + 500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
     }
 
     /// <summary>
@@ -197,8 +206,8 @@ public partial class AkAudioVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.AkWwise.FAkEnvironmentSettings> EnvironmentSettings
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.AkWwise.FAkEnvironmentSettings>>(Ptr + 476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.AkWwise.FAkEnvironmentSettings>>(Ptr + 504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
     }
 
     /// <summary>
@@ -206,8 +215,26 @@ public partial class AkAudioVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe bool ForceUpdateTouching
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 488) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 488); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 488); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 516); }
+    }
+
+    /// <summary>
+    /// BoolProperty: ExcludeAsOcclusionVolume
+    /// </summary>
+    public unsafe bool ExcludeAsOcclusionVolume
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 516); }
+    }
+
+    /// <summary>
+    /// BoolProperty: IsActived
+    /// </summary>
+    public unsafe bool IsActived
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 516); }
     }
 
     /// <summary>
@@ -215,35 +242,35 @@ public partial class AkAudioVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe float OcclusionMultiplier
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 492); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 520); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
     }
 
     /// <summary>
     /// StructProperty: ParameterX
     /// </summary>
     public unsafe ref BmSDK.AkAudio.AkAudioVolume.FAkAxisParameter ParameterX
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.AkAudio.AkAudioVolume.FAkAxisParameter>(Ptr + 496);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.AkAudio.AkAudioVolume.FAkAxisParameter>(Ptr + 524);
 
     /// <summary>
     /// StructProperty: ParameterY
     /// </summary>
     public unsafe ref BmSDK.AkAudio.AkAudioVolume.FAkAxisParameter ParameterY
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.AkAudio.AkAudioVolume.FAkAxisParameter>(Ptr + 512);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.AkAudio.AkAudioVolume.FAkAxisParameter>(Ptr + 540);
 
     /// <summary>
     /// StructProperty: ParameterZ
     /// </summary>
     public unsafe ref BmSDK.AkAudio.AkAudioVolume.FAkAxisParameter ParameterZ
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.AkAudio.AkAudioVolume.FAkAxisParameter>(Ptr + 528);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.AkAudio.AkAudioVolume.FAkAxisParameter>(Ptr + 556);
 
     /// <summary>
     /// ComponentProperty: DrawBoundsComponent
     /// </summary>
     public unsafe BmSDK.Engine.AkDrawBoundsComponent DrawBoundsComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkDrawBoundsComponent>(Ptr + 544); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 544); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkDrawBoundsComponent>(Ptr + 572); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
     }
 
     /// <summary>
@@ -251,8 +278,8 @@ public partial class AkAudioVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.AkAudio.AkAudioVolume.FTouchingActorInfo> EnvironmentTouching
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.AkAudio.AkAudioVolume.FTouchingActorInfo>>(Ptr + 548); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 548); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.AkAudio.AkAudioVolume.FTouchingActorInfo>>(Ptr + 576); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
     }
 
     /// <summary>
@@ -260,8 +287,8 @@ public partial class AkAudioVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe int TouchingCount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 560); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 560); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 588); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 588); }
     }
 
     /// <summary>
@@ -269,8 +296,8 @@ public partial class AkAudioVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe int ListenerEnvironmentCount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 564); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 592); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 592); }
     }
 
     /// <summary>
@@ -278,8 +305,8 @@ public partial class AkAudioVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
     /// </summary>
     public unsafe double LastTouchingUpdateTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<double>(Ptr + 568); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<double>(Ptr + 596); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 596); }
     }
 
     /// <summary>

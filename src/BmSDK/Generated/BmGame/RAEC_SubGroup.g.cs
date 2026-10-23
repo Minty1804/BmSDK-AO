@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAEC_SubGroup<br/>
-/// (size = 452)
+/// (size = 480)
 /// (flags = 8388626)
 /// </summary>
 public partial class RAEC_SubGroup : BmSDK.BmGame.RAlertEventCoordinatorBase, BmSDK.IGameObject

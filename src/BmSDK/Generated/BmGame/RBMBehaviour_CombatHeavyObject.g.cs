@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_CombatHeavyObject<br/>
-/// (size = 768)
+/// (size = 824)
 /// (flags = 134226066)
 /// </summary>
 public partial class RBMBehaviour_CombatHeavyObject : BmSDK.BmGame.RBMBehaviour_CombatAI, BmSDK.IGameObject
@@ -183,7 +183,7 @@ public partial class RBMBehaviour_CombatHeavyObject : BmSDK.BmGame.RBMBehaviour_
     /// </summary>
     public unsafe float DropBoxTimer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 764); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 764); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 820); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 820); }
     }
 }

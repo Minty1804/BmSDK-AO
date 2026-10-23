@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_LedgeAttack<br/>
-/// (size = 1128)
+/// (size = 1172)
 /// (flags = 8388626)
 /// </summary>
 public partial class RStealthTakeDownStage_LedgeAttack : BmSDK.BmGame.RStealthTakeDownStage_RailingAttack, BmSDK.IGameObject
@@ -78,4 +78,15 @@ public partial class RStealthTakeDownStage_LedgeAttack : BmSDK.BmGame.RStealthTa
         where TComponent : class, Framework.IScriptComponent<RStealthTakeDownStage_LedgeAttack>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    /// <summary>
+    /// Function: SlowMoNotify
+    /// </summary>
+    public unsafe override void SlowMoNotify(float NewDesiredGameSpeed)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RStealthTakeDownStage_LedgeAttack.SlowMoNotify", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(NewDesiredGameSpeed, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: FracturedSMActorSpawnable<br/>
-/// (size = 580)
+/// (size = 596)
 /// (flags = 8389138)
 /// </summary>
 public partial class FracturedSMActorSpawnable : BmSDK.Engine.FracturedStaticMeshActor, BmSDK.IGameObject

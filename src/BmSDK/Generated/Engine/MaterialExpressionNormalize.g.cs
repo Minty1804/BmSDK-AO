@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionNormalize<br/>
-/// (size = 120)
+/// (size = 160)
 /// (flags = 134217874)
 /// </summary>
 public partial class MaterialExpressionNormalize : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,5 +82,5 @@ public partial class MaterialExpressionNormalize : BmSDK.Engine.MaterialExpressi
     /// StructProperty: VectorInput
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput VectorInput
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 }

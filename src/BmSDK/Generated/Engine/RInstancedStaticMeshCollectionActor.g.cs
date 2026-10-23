@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: RInstancedStaticMeshCollectionActor<br/>
-/// (size = 448)
+/// (size = 472)
 /// (flags = 142606998)
 /// </summary>
 public partial class RInstancedStaticMeshCollectionActor : BmSDK.Engine.StaticMeshActorBase, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class RInstancedStaticMeshCollectionActor : BmSDK.Engine.StaticMe
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent> InstancedStaticMeshComponents
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent>>(Ptr + 432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.InstancedStaticMeshComponent>>(Ptr + 456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class RInstancedStaticMeshCollectionActor : BmSDK.Engine.StaticMe
     /// </summary>
     public unsafe int MaxInstancedStaticMeshComponents
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 444); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 444); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 468); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 468); }
     }
 }

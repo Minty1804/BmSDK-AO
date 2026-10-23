@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: AnimNodeSequence<br/>
-/// (size = 300)
+/// (size = 308)
 /// (flags = 142606482)
 /// </summary>
 public partial class AnimNodeSequence : BmSDK.Engine.AnimNode, BmSDK.IGameObject
@@ -715,11 +715,29 @@ public partial class AnimNodeSequence : BmSDK.Engine.AnimNode, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// IntProperty: DisableTimeAdvanceForNumFrames
+    /// </summary>
+    public unsafe int DisableTimeAdvanceForNumFrames
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 288); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 288); }
+    }
+
+    /// <summary>
+    /// FloatProperty: FakeTransitionTime
+    /// </summary>
+    public unsafe float FakeTransitionTime
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 292); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 292); }
+    }
+
+    /// <summary>
     /// ArrayProperty: MetaDataSkelControlList
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.SkelControlBase> MetaDataSkelControlList
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.SkelControlBase>>(Ptr + 288); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 288); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.SkelControlBase>>(Ptr + 296); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 296); }
     }
 }

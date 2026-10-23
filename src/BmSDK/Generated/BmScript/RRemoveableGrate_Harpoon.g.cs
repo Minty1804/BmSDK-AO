@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RRemoveableGrate_Harpoon<br/>
-/// (size = 768)
+/// (size = 796)
 /// (flags = 10486290)
 /// </summary>
 public partial class RRemoveableGrate_Harpoon : BmSDK.BmGame.RRemoveableGrate, BmSDK.IGameObject
@@ -113,14 +113,5 @@ public partial class RRemoveableGrate_Harpoon : BmSDK.BmGame.RRemoveableGrate, B
         BmSDK.Framework.MarshalUtil.ToUnmanaged(HarpoonGun, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
-    }
-
-    /// <summary>
-    /// ComponentProperty: LightEnvironment
-    /// </summary>
-    public unsafe BmSDK.Engine.DynamicLightEnvironmentComponent LightEnvironment
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DynamicLightEnvironmentComponent>(Ptr + 764); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 764); }
     }
 }

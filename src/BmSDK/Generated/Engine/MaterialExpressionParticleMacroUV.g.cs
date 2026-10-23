@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionParticleMacroUV<br/>
-/// (size = 96)
+/// (size = 120)
 /// (flags = 134217874)
 /// </summary>
 public partial class MaterialExpressionParticleMacroUV : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class MaterialExpressionParticleMacroUV : BmSDK.Engine.MaterialEx
     /// </summary>
     public unsafe bool bUseViewSpace
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 92); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 116) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 116); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 116); }
     }
 }

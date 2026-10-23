@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_Patrol<br/>
-/// (size = 428)
+/// (size = 452)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_Patrol : BmSDK.BmGame.RBMBehaviour_CoopPatrol, BmSDK.IGameObject

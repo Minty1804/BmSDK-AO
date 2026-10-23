@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RCombatMove_BatmanQuickHandcuffStrike<br/>
-/// (size = 1036)
+/// (size = 1076)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_BatmanQuickHandcuffStrike : BmSDK.BmGame.RCombatMove_BatmanQuickStrike, BmSDK.IGameObject

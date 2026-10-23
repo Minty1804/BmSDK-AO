@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMSeqEvent_GenericBackToBehaviours<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 18)
 /// </summary>
 public partial class RBMSeqEvent_GenericBackToBehaviours : BmSDK.BmGame.RBMSeqEvent_BehaviourRoot, BmSDK.IGameObject

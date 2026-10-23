@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: Admin<br/>
-/// (size = 1424)
+/// (size = 1452)
 /// (flags = 8388630)
 /// </summary>
 public partial class Admin : BmSDK.Engine.PlayerController, BmSDK.IGameObject

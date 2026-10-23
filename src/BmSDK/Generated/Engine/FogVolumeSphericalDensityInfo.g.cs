@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: FogVolumeSphericalDensityInfo<br/>
-/// (size = 440)
+/// (size = 464)
 /// (flags = 142606994)
 /// </summary>
 public partial class FogVolumeSphericalDensityInfo : BmSDK.Engine.FogVolumeDensityInfo, BmSDK.IGameObject

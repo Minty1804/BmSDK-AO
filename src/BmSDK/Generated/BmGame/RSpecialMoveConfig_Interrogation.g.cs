@@ -101,9 +101,9 @@ public partial class RSpecialMoveConfig_Interrogation : BmSDK.BmGame.RSpecialMov
     }
 
     /// <summary>
-    /// NameProperty: inAnim
+    /// NameProperty: InAnim
     /// </summary>
-    public unsafe BmSDK.FName inAnim
+    public unsafe BmSDK.FName InAnim
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 300); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 300); }
@@ -170,6 +170,15 @@ public partial class RSpecialMoveConfig_Interrogation : BmSDK.BmGame.RSpecialMov
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RSpecialMoveConfig_Interrogation.CameraCollisionOption>(Ptr + 364); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 364); }
+    }
+
+    /// <summary>
+    /// ByteProperty: ReactionBarkType
+    /// </summary>
+    public unsafe BmSDK.BmGame.RBMAIController.BarkType ReactionBarkType
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMAIController.BarkType>(Ptr + 365); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 365); }
     }
 
     /// <summary>

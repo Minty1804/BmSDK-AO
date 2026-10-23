@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAEC_SearchlightCower<br/>
-/// (size = 452)
+/// (size = 480)
 /// (flags = 8388626)
 /// </summary>
 public partial class RAEC_SearchlightCower : BmSDK.BmGame.RAlertEventCoordinatorBase, BmSDK.IGameObject
@@ -84,7 +84,7 @@ public partial class RAEC_SearchlightCower : BmSDK.BmGame.RAlertEventCoordinator
     public unsafe virtual void ThugIsUnderLight(BmSDK.BmGame.RBMAIController C)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAEC_SearchlightCower.ThugIsUnderLight", true);
-        byte* paramsPtr = stackalloc byte[8];
+        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(C, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMSeqEvent_HostageSeePlayer_Right<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 18)
 /// </summary>
 public partial class RBMSeqEvent_HostageSeePlayer_Right : BmSDK.BmGame.RBMSeqEvent_BehaviourRoot, BmSDK.IGameObject

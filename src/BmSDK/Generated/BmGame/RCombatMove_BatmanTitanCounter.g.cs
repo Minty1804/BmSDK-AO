@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_BatmanTitanCounter<br/>
-/// (size = 876)
-/// (flags = 142606482)
+/// (size = 932)
+/// (flags = 142606486)
 /// </summary>
 public partial class RCombatMove_BatmanTitanCounter : BmSDK.BmGame.RCombatMove_BatmanCounter, BmSDK.IGameObject
 {
@@ -269,7 +269,7 @@ public partial class RCombatMove_BatmanTitanCounter : BmSDK.BmGame.RCombatMove_B
     /// </summary>
     public unsafe float LastSlowSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 872); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 872); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 928); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 928); }
     }
 }

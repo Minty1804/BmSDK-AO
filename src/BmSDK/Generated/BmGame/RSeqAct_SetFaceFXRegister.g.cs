@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_SetFaceFXRegister<br/>
-/// (size = 224)
+/// (size = 244)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_SetFaceFXRegister : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -119,8 +119,8 @@ public partial class RSeqAct_SetFaceFXRegister : BmSDK.Engine.SequenceAction, Bm
     /// </summary>
     public unsafe float BlendInDuration
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
@@ -128,8 +128,8 @@ public partial class RSeqAct_SetFaceFXRegister : BmSDK.Engine.SequenceAction, Bm
     /// </summary>
     public unsafe float BlendOutDuration
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
     }
 
     /// <summary>
@@ -137,7 +137,7 @@ public partial class RSeqAct_SetFaceFXRegister : BmSDK.Engine.SequenceAction, Bm
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RSeqAct_SetFaceFXRegister.FSeqActFaceFXRegister> Registers
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RSeqAct_SetFaceFXRegister.FSeqActFaceFXRegister>>(Ptr + 212); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 212); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RSeqAct_SetFaceFXRegister.FSeqActFaceFXRegister>>(Ptr + 232); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
     }
 }

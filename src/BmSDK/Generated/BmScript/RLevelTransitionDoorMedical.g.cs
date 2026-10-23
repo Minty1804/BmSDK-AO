@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RLevelTransitionDoorMedical<br/>
-/// (size = 748)
+/// (size = 776)
 /// (flags = 8389138)
 /// </summary>
 public partial class RLevelTransitionDoorMedical : BmSDK.BmGame.RLevelTransitionDoorBase, BmSDK.IGameObject
@@ -105,7 +105,7 @@ public partial class RLevelTransitionDoorMedical : BmSDK.BmGame.RLevelTransition
     /// </summary>
     public unsafe BmSDK.Engine.StaticMeshComponent FrameMesh
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 744); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 744); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 772); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 772); }
     }
 }

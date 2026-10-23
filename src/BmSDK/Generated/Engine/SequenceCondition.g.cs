@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: SequenceCondition<br/>
-/// (size = 180)
+/// (size = 200)
 /// (flags = 134217875)
 /// </summary>
 public partial class SequenceCondition : BmSDK.Engine.SequenceOp, BmSDK.IGameObject

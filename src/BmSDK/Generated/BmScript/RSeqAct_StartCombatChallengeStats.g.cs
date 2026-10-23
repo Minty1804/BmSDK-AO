@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// ABSTRACT Class: RSeqAct_StartCombatChallengeStats<br/>
-/// (size = 232)
+/// (size = 252)
 /// (flags = 8211)
 /// </summary>
 public partial class RSeqAct_StartCombatChallengeStats : BmSDK.BmGame.RSeqAct_StartCombatChallengeBase, BmSDK.IGameObject
@@ -148,8 +148,8 @@ public partial class RSeqAct_StartCombatChallengeStats : BmSDK.BmGame.RSeqAct_St
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmScript.RSeqAct_StartCombatChallengeStats.FMoveInfo> CombatMoveScores
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmScript.RSeqAct_StartCombatChallengeStats.FMoveInfo>>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmScript.RSeqAct_StartCombatChallengeStats.FMoveInfo>>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 
     /// <summary>

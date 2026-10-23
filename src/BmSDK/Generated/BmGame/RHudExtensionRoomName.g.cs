@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionRoomName<br/>
-/// (size = 140)
+/// (size = 120)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionRoomName : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -81,12 +81,11 @@ public partial class RHudExtensionRoomName : BmSDK.BmGame.RHudExtension, BmSDK.I
     /// <summary>
     /// Function: ShowRoomName
     /// </summary>
-    public unsafe virtual void ShowRoomName(BmSDK.FString roomName, BmSDK.TArray<BmSDK.FString> RiddleList)
+    public unsafe virtual void ShowRoomName(BmSDK.FString roomName)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionRoomName.ShowRoomName", true);
-        byte* paramsPtr = stackalloc byte[24];
+        byte* paramsPtr = stackalloc byte[12];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(roomName, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(RiddleList, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -104,6 +103,17 @@ public partial class RHudExtensionRoomName : BmSDK.BmGame.RHudExtension, BmSDK.I
     }
 
     /// <summary>
+    /// Function: LoadComplete
+    /// </summary>
+    public unsafe virtual void LoadComplete()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionRoomName.LoadComplete", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: Close
     /// </summary>
     public unsafe override void Close()
@@ -112,6 +122,17 @@ public partial class RHudExtensionRoomName : BmSDK.BmGame.RHudExtension, BmSDK.I
         byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
+    }
+
+    /// <summary>
+    /// Function: GetRoomName
+    /// </summary>
+    public unsafe virtual BmSDK.GFxUI.GFxObject GetRoomName()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionRoomName.GetRoomName", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(paramsPtr + 0);
     }
 
     /// <summary>
@@ -133,16 +154,25 @@ public partial class RHudExtensionRoomName : BmSDK.BmGame.RHudExtension, BmSDK.I
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie MovieInfo
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
     }
 
     /// <summary>
-    /// IntProperty: NumRiddles
+    /// ObjectProperty: RoomNameCached
     /// </summary>
-    public unsafe int NumRiddles
+    public unsafe BmSDK.GFxUI.GFxObject RoomNameCached
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 136); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(Ptr + 104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
+    }
+
+    /// <summary>
+    /// StrProperty: CachedRoomName
+    /// </summary>
+    public unsafe BmSDK.FString CachedRoomName
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 108); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 108); }
     }
 }

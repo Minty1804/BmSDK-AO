@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_GrundyCrush_NoArmour<br/>
-/// (size = 120)
+/// (size = 132)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_GrundyCrush_NoArmour : BmSDK.BmGame.RDmgType_GrundyCrush, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBatclawPipeCoverBase<br/>
-/// (size = 444)
+/// (size = 456)
 /// (flags = 142606482)
 /// </summary>
 public partial class RBatclawPipeCoverBase : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -83,13 +83,7 @@ public partial class RBatclawPipeCoverBase : BmSDK.Engine.Actor, BmSDK.IGameObje
     /// </summary>
     public unsafe BmSDK.Engine.SkeletalMeshComponent CapMesh
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
-
-    /// <summary>
-    /// StructProperty: InvestigateOffset
-    /// </summary>
-    public unsafe ref System.Numerics.Vector3 InvestigateOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 432);
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionCrimeSceneInfo<br/>
-/// (size = 136)
+/// (size = 112)
 /// (flags = 18)
 /// </summary>
 public partial class RHudExtensionCrimeSceneInfo : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject
@@ -81,25 +81,26 @@ public partial class RHudExtensionCrimeSceneInfo : BmSDK.BmGame.RHudExtension, B
     /// <summary>
     /// Function: UpdateCompletionText
     /// </summary>
-    public unsafe virtual void UpdateCompletionText(BmSDK.FString CompletionText)
+    public unsafe virtual void UpdateCompletionText(BmSDK.FString CompletionText, int Perc)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionCrimeSceneInfo.UpdateCompletionText", true);
-        byte* paramsPtr = stackalloc byte[12];
+        byte* paramsPtr = stackalloc byte[16];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CompletionText, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Perc, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
     /// <summary>
-    /// Function: InitCrimeSceneInfoCaseFile
+    /// Function: InitCrimeSceneInfoLogData
     /// </summary>
-    public unsafe virtual void InitCrimeSceneInfoCaseFile(BmSDK.FString CaseFileName, BmSDK.FString CrimeSceneName, BmSDK.FString CompletionText)
+    public unsafe virtual void InitCrimeSceneInfoLogData(BmSDK.FString LogEntryName, BmSDK.FString LogEntryData, bool IsLogEntryImportant)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionCrimeSceneInfo.InitCrimeSceneInfoCaseFile", true);
-        byte* paramsPtr = stackalloc byte[36];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(CaseFileName, paramsPtr + 0);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(CrimeSceneName, paramsPtr + 12);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(CompletionText, paramsPtr + 24);
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionCrimeSceneInfo.InitCrimeSceneInfoLogData", true);
+        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(LogEntryName, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(LogEntryData, paramsPtr + 12);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(IsLogEntryImportant, paramsPtr + 24);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -107,12 +108,13 @@ public partial class RHudExtensionCrimeSceneInfo : BmSDK.BmGame.RHudExtension, B
     /// <summary>
     /// Function: InitCrimeSceneInfo
     /// </summary>
-    public unsafe virtual void InitCrimeSceneInfo(BmSDK.FString CrimeSceneName, BmSDK.FString CompletionText)
+    public unsafe virtual void InitCrimeSceneInfo(BmSDK.FString CrimeSceneName, BmSDK.FString CompletionText, int Perc)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionCrimeSceneInfo.InitCrimeSceneInfo", true);
-        byte* paramsPtr = stackalloc byte[24];
+        byte* paramsPtr = stackalloc byte[28];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CrimeSceneName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CompletionText, paramsPtr + 12);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Perc, paramsPtr + 24);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -140,6 +142,17 @@ public partial class RHudExtensionCrimeSceneInfo : BmSDK.BmGame.RHudExtension, B
     }
 
     /// <summary>
+    /// Function: GetCrimeSceneInfo
+    /// </summary>
+    public unsafe virtual BmSDK.GFxUI.GFxObject GetCrimeSceneInfo()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RHudExtensionCrimeSceneInfo.GetCrimeSceneInfo", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(paramsPtr + 0);
+    }
+
+    /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe override bool Init(BmSDK.BmGame.RPlayerController _RPC, BmSDK.FString _ExtensionName, BmSDK.FString _ExtensionPath)
@@ -158,7 +171,25 @@ public partial class RHudExtensionCrimeSceneInfo : BmSDK.BmGame.RHudExtension, B
     /// </summary>
     public unsafe BmSDK.GFxUI.SwfMovie MovieInfo
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 132); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.SwfMovie>(Ptr + 100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: CrimeSceneInfoCached
+    /// </summary>
+    public unsafe BmSDK.GFxUI.GFxObject CrimeSceneInfoCached
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GFxUI.GFxObject>(Ptr + 104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bShowingBackButtonCallout
+    /// </summary>
+    public unsafe bool bShowingBackButtonCallout
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 108) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 108); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 108); }
     }
 }

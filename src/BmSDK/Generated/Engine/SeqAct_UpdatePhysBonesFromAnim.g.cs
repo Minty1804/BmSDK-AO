@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqAct_UpdatePhysBonesFromAnim<br/>
-/// (size = 204)
+/// (size = 224)
 /// (flags = 8210)
 /// </summary>
 public partial class SeqAct_UpdatePhysBonesFromAnim : BmSDK.Engine.SequenceAction, BmSDK.IGameObject

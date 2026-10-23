@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: WindPointSource<br/>
-/// (size = 432)
+/// (size = 456)
 /// (flags = 142606994)
 /// </summary>
 public partial class WindPointSource : BmSDK.Engine.Info, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class WindPointSource : BmSDK.Engine.Info, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.WindPointSourceComponent Component
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.WindPointSourceComponent>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.WindPointSourceComponent>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 }

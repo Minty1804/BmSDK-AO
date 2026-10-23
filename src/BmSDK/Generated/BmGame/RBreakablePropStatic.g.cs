@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBreakablePropStatic<br/>
-/// (size = 748)
+/// (size = 780)
 /// (flags = 142606994)
 /// </summary>
 public partial class RBreakablePropStatic : BmSDK.BmGame.RKActorSpawnable, BmSDK.IGameObject
@@ -201,11 +201,11 @@ public partial class RBreakablePropStatic : BmSDK.BmGame.RKActorSpawnable, BmSDK
     /// <summary>
     /// Function: SetToDamageStageMesh
     /// </summary>
-    public unsafe virtual void SetToDamageStageMesh(int stage)
+    public unsafe virtual void SetToDamageStageMesh(int Stage)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBreakablePropStatic.SetToDamageStageMesh", true);
         byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(stage, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Stage, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -228,8 +228,8 @@ public partial class RBreakablePropStatic : BmSDK.BmGame.RKActorSpawnable, BmSDK
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RBreakablePropStatic.FDamageStage> DamageStages
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RBreakablePropStatic.FDamageStage>>(Ptr + 700); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 700); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RBreakablePropStatic.FDamageStage>>(Ptr + 732); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 732); }
     }
 
     /// <summary>
@@ -237,8 +237,8 @@ public partial class RBreakablePropStatic : BmSDK.BmGame.RKActorSpawnable, BmSDK
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Class> DamageTypes
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Class>>(Ptr + 712); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 712); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Class>>(Ptr + 744); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 744); }
     }
 
     /// <summary>
@@ -246,8 +246,8 @@ public partial class RBreakablePropStatic : BmSDK.BmGame.RKActorSpawnable, BmSDK
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Class> IgnoreDamageTypes
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Class>>(Ptr + 724); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 724); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Class>>(Ptr + 756); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 756); }
     }
 
     /// <summary>
@@ -255,8 +255,8 @@ public partial class RBreakablePropStatic : BmSDK.BmGame.RKActorSpawnable, BmSDK
     /// </summary>
     public unsafe bool IgnoreDamageUntilToggled
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 736) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 736); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 736); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 768) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 768); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 768); }
     }
 
     /// <summary>
@@ -264,8 +264,8 @@ public partial class RBreakablePropStatic : BmSDK.BmGame.RKActorSpawnable, BmSDK
     /// </summary>
     public unsafe int CurrentDamage
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 740); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 740); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 772); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 772); }
     }
 
     /// <summary>
@@ -273,8 +273,8 @@ public partial class RBreakablePropStatic : BmSDK.BmGame.RKActorSpawnable, BmSDK
     /// </summary>
     public unsafe int CurrentDamageStage
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 744); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 744); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 776); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 776); }
     }
 
     /// <summary>

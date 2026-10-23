@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSpecialMoveInstance_Jump<br/>
-/// (size = 656)
+/// (size = 680)
 /// (flags = 142606482)
 /// </summary>
 public partial class RSpecialMoveInstance_Jump : BmSDK.BmGame.RSpecialMoveInstance_RunningRelativeAnimMove, BmSDK.IGameObject

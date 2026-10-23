@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqEvent_LastThug_BreakoutOfPred<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 18)
 /// </summary>
 public partial class RSeqEvent_LastThug_BreakoutOfPred : BmSDK.BmGame.RBMSeqEvent_BehaviourRoot, BmSDK.IGameObject

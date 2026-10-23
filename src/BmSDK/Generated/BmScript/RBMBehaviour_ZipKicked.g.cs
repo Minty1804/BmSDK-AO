@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMBehaviour_ZipKicked<br/>
-/// (size = 716)
+/// (size = 748)
 /// (flags = 8396818)
 /// </summary>
 public partial class RBMBehaviour_ZipKicked : BmSDK.BmGame.RBMBehaviour_BatClawed, BmSDK.IGameObject

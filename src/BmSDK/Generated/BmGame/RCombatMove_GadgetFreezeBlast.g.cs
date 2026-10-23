@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RCombatMove_GadgetFreezeBlast<br/>
-/// (size = 492)
+/// (size = 516)
 /// (flags = 8388627)
 /// </summary>
 public partial class RCombatMove_GadgetFreezeBlast : BmSDK.BmGame.RCombatMove_BatmanAttack, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: PrefabSequence<br/>
-/// (size = 276)
+/// (size = 296)
 /// (flags = 134217874)
 /// </summary>
 public partial class PrefabSequence : BmSDK.Engine.Sequence, BmSDK.IGameObject
@@ -120,7 +120,7 @@ public partial class PrefabSequence : BmSDK.Engine.Sequence, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.Engine.PrefabInstance OwnerPrefab
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PrefabInstance>(Ptr + 272); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 272); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PrefabInstance>(Ptr + 292); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 292); }
     }
 }

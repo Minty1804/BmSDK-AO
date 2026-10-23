@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_BeatDownStart<br/>
-/// (size = 140)
+/// (size = 152)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_BeatDownStart : BmSDK.BmGame.RDmgType_BeatDown, BmSDK.IGameObject
@@ -78,4 +78,15 @@ public partial class RDmgType_BeatDownStart : BmSDK.BmGame.RDmgType_BeatDown, Bm
         where TComponent : class, Framework.IScriptComponent<RDmgType_BeatDownStart>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    /// <summary>
+    /// Function: ShouldDisarmOnFirstHit
+    /// </summary>
+    public unsafe static bool ShouldDisarmOnFirstHit(BmSDK.BmGame.RBMWeapon currWpn)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDmgType_BeatDownStart.ShouldDisarmOnFirstHit", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(currWpn, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+    }
 }

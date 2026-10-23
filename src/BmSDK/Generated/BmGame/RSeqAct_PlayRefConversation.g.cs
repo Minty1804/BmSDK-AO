@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_PlayRefConversation<br/>
-/// (size = 232)
+/// (size = 252)
 /// (flags = 134226066)
 /// </summary>
 public partial class RSeqAct_PlayRefConversation : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject
@@ -106,7 +106,7 @@ public partial class RSeqAct_PlayRefConversation : BmSDK.Engine.SeqAct_Latent, B
     /// </summary>
     public unsafe BmSDK.FString DialogueLine
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 }

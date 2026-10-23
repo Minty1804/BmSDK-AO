@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGooSprayRb<br/>
-/// (size = 1104)
+/// (size = 1120)
 /// (flags = 8388658)
 /// </summary>
 public partial class RGooSprayRb : BmSDK.BmGame.RGooSpray, BmSDK.IGameObject

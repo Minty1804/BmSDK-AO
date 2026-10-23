@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RPathNode_DynamicFractureWall<br/>
-/// (size = 668)
+/// (size = 704)
 /// (flags = 142606994)
 /// </summary>
 public partial class RPathNode_DynamicFractureWall : BmSDK.BmGame.RPathNode, BmSDK.IGameObject

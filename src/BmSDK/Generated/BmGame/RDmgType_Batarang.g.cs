@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_Batarang<br/>
-/// (size = 120)
-/// (flags = 18)
+/// (size = 132)
+/// (flags = 134217874)
 /// </summary>
 public partial class RDmgType_Batarang : BmSDK.BmGame.RDamageType, BmSDK.IGameObject
 {

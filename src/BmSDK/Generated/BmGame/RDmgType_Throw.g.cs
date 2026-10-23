@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_Throw<br/>
-/// (size = 140)
+/// (size = 152)
 /// (flags = 134217874)
 /// </summary>
 public partial class RDmgType_Throw : BmSDK.BmGame.RDmgType_Strike, BmSDK.IGameObject

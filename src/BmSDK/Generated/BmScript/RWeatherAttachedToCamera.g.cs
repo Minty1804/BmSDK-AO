@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RWeatherAttachedToCamera<br/>
-/// (size = 500)
+/// (size = 520)
 /// (flags = 8389138)
 /// </summary>
 public partial class RWeatherAttachedToCamera : BmSDK.BmGame.RWeatherAttachedToCameraBase, BmSDK.IGameObject
@@ -129,24 +129,15 @@ public partial class RWeatherAttachedToCamera : BmSDK.BmGame.RWeatherAttachedToC
     /// StructProperty: CameraPos
     /// </summary>
     public unsafe ref System.Numerics.Vector3 CameraPos
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 464);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 488);
 
     /// <summary>
     /// ComponentProperty: WeatherMesh
     /// </summary>
     public unsafe BmSDK.Engine.StaticMeshComponent WeatherMesh
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
-    }
-
-    /// <summary>
-    /// IntProperty: UpdateStage
-    /// </summary>
-    public unsafe int UpdateStage
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 480); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.StaticMeshComponent>(Ptr + 500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
     }
 
     /// <summary>
@@ -154,13 +145,13 @@ public partial class RWeatherAttachedToCamera : BmSDK.BmGame.RWeatherAttachedToC
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent WeatherAudioEvent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 484); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
     }
 
     /// <summary>
     /// StructProperty: WeatherSoundHandle
     /// </summary>
     public unsafe ref BmSDK.Engine.AkWwise.FAkSoundHandle WeatherSoundHandle
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.AkWwise.FAkSoundHandle>(Ptr + 488);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.AkWwise.FAkSoundHandle>(Ptr + 508);
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCombatMove_BatmanQuickStrikeVenom<br/>
-/// (size = 1040)
+/// (size = 1080)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_BatmanQuickStrikeVenom : BmSDK.BmGame.RCombatMove_BatmanStrike, BmSDK.IGameObject
@@ -105,7 +105,7 @@ public partial class RCombatMove_BatmanQuickStrikeVenom : BmSDK.BmGame.RCombatMo
     /// </summary>
     public unsafe float MaxStrikeDistance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1036); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1036); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1076); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1076); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RRobinXRayViewPostProcess<br/>
-/// (size = 128)
+/// (size = 160)
 /// (flags = 18)
 /// </summary>
 public partial class RRobinXRayViewPostProcess : BmSDK.BmGame.RXRayViewPostProcess, BmSDK.IGameObject

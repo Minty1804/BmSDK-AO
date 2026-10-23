@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RAEC_Sub_Formation<br/>
-/// (size = 472)
+/// (size = 496)
 /// (flags = 8388627)
 /// </summary>
 public partial class RAEC_Sub_Formation : BmSDK.BmGame.RAlertEventCoordinatorBase, BmSDK.IGameObject
@@ -165,21 +165,12 @@ public partial class RAEC_Sub_Formation : BmSDK.BmGame.RAlertEventCoordinatorBas
     }
 
     /// <summary>
-    /// ObjectProperty: SearchCon
-    /// </summary>
-    public unsafe BmSDK.BmGame.RBMAIController SearchCon
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMAIController>(Ptr + 452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
-    }
-
-    /// <summary>
     /// ObjectProperty: FollowTarget
     /// </summary>
     public unsafe BmSDK.BmGame.RAEC_Sub_Formation FollowTarget
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAEC_Sub_Formation>(Ptr + 456); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RAEC_Sub_Formation>(Ptr + 480); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
     }
 
     /// <summary>
@@ -187,7 +178,7 @@ public partial class RAEC_Sub_Formation : BmSDK.BmGame.RAlertEventCoordinatorBas
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RAEC_Sub_Formation> Followers
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RAEC_Sub_Formation>>(Ptr + 460); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RAEC_Sub_Formation>>(Ptr + 484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMBehaviour_CombatAITough<br/>
-/// (size = 764)
+/// (size = 820)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_CombatAITough : BmSDK.BmGame.RBMBehaviour_CombatAI, BmSDK.IGameObject

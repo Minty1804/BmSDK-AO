@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_LoadSynopsisTextures<br/>
-/// (size = 244)
+/// (size = 264)
 /// (flags = 134226066)
 /// </summary>
 public partial class RSeqAct_LoadSynopsisTextures : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject
@@ -94,8 +94,8 @@ public partial class RSeqAct_LoadSynopsisTextures : BmSDK.Engine.SeqAct_Latent, 
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.Texture2D> TextureRefs
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Texture2D>>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Texture2D>>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 
     /// <summary>
@@ -103,7 +103,7 @@ public partial class RSeqAct_LoadSynopsisTextures : BmSDK.Engine.SeqAct_Latent, 
     /// </summary>
     public unsafe BmSDK.FString PkgRef
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 232); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 252); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 252); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_SetGunFiring<br/>
-/// (size = 204)
+/// (size = 232)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_SetGunFiring : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -78,4 +78,21 @@ public partial class RSeqAct_SetGunFiring : BmSDK.Engine.SequenceAction, BmSDK.I
         where TComponent : class, Framework.IScriptComponent<RSeqAct_SetGunFiring>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    /// <summary>
+    /// BoolProperty: UnlimitedAmmo
+    /// </summary>
+    public unsafe bool UnlimitedAmmo
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 224) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 224); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 224); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: AimAt
+    /// </summary>
+    public unsafe BmSDK.Engine.Actor AimAt
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+    }
 }

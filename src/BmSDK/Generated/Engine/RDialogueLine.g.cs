@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: RDialogueLine<br/>
-/// (size = 104)
+/// (size = 82)
 /// (flags = 134217874)
 /// </summary>
 public partial class RDialogueLine : BmSDK.GameObject, BmSDK.IGameObject
@@ -166,32 +166,5 @@ public partial class RDialogueLine : BmSDK.GameObject, BmSDK.IGameObject
     {
         get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.RDialogueEvent.EPriority>(Ptr + 81); }
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 81); }
-    }
-
-    /// <summary>
-    /// ArrayProperty: HasBeenUsed
-    /// </summary>
-    public unsafe BmSDK.TArray<bool> HasBeenUsed
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<bool>>(Ptr + 84); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 84); }
-    }
-
-    /// <summary>
-    /// IntProperty: NumRandomUsed
-    /// </summary>
-    public unsafe int NumRandomUsed
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 96); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 96); }
-    }
-
-    /// <summary>
-    /// IntProperty: LastRandomUsed
-    /// </summary>
-    public unsafe int LastRandomUsed
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
     }
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RStealthTakeDownStage_RailingTakedown<br/>
-/// (size = 1176)
+/// (size = 1220)
 /// (flags = 8388626)
 /// </summary>
 public partial class RStealthTakeDownStage_RailingTakedown : BmSDK.BmGame.RStealthTakeDownStage, BmSDK.IGameObject
@@ -117,5 +117,5 @@ public partial class RStealthTakeDownStage_RailingTakedown : BmSDK.BmGame.RSteal
     /// StructProperty: TwistScreenShake
     /// </summary>
     public unsafe ref BmSDK.BmGame.RBMScreenShakeModifier.FBMScreenShakeStruct TwistScreenShake
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RBMScreenShakeModifier.FBMScreenShakeStruct>(Ptr + 1032);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RBMScreenShakeModifier.FBMScreenShakeStruct>(Ptr + 1076);
 }

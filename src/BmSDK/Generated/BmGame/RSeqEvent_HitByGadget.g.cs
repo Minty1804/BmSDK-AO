@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqEvent_HitByGadget<br/>
-/// (size = 244)
+/// (size = 264)
 /// (flags = 134217874)
 /// </summary>
 public partial class RSeqEvent_HitByGadget : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject
@@ -94,8 +94,8 @@ public partial class RSeqEvent_HitByGadget : BmSDK.Engine.SequenceEvent, BmSDK.I
     /// </summary>
     public unsafe BmSDK.Class GadgetClass
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
     }
 
     /// <summary>
@@ -103,7 +103,7 @@ public partial class RSeqEvent_HitByGadget : BmSDK.Engine.SequenceEvent, BmSDK.I
     /// </summary>
     public unsafe BmSDK.FString GadgetClassAsString
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 232); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 252); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 252); }
     }
 }

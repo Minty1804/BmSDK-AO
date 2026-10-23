@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: ParticleModuleRequired<br/>
-/// (size = 180)
+/// (size = 176)
 /// (flags = 142610578)
 /// </summary>
 public partial class ParticleModuleRequired : BmSDK.Engine.ParticleModule, BmSDK.IGameObject
@@ -90,6 +90,33 @@ public partial class ParticleModuleRequired : BmSDK.Engine.ParticleModule, BmSDK
     }
 
     /// <summary>
+    /// Enum: EPivotPosition
+    /// </summary>
+    public enum EPivotPosition : byte
+    {
+        PP_Center = 0,
+        PP_Left = 1,
+        PP_Right = 2,
+        PP_Bottom = 3,
+        PP_BottomLeft = 4,
+        PP_BottomRight = 5,
+        PP_Top = 6,
+        PP_TopLeft = 7,
+        PP_TopRight = 8,
+        PP_MAX = 9,
+    }
+
+    /// <summary>
+    /// Enum: ESpriteShape
+    /// </summary>
+    public enum ESpriteShape : byte
+    {
+        ESpriteShape_Hexagon = 0,
+        ESpriteShape_Quad = 1,
+        ESpriteShape_MAX = 2,
+    }
+
+    /// <summary>
     /// Enum: EParticleSortMode
     /// </summary>
     public enum EParticleSortMode : byte
@@ -130,12 +157,21 @@ public partial class ParticleModuleRequired : BmSDK.Engine.ParticleModule, BmSDK
     }
 
     /// <summary>
+    /// ByteProperty: SpriteShape
+    /// </summary>
+    public unsafe BmSDK.Engine.ParticleModuleRequired.ESpriteShape SpriteShape
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleModuleRequired.ESpriteShape>(Ptr + 62); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 62); }
+    }
+
+    /// <summary>
     /// ByteProperty: ParticleBurstMethod
     /// </summary>
     public unsafe BmSDK.Engine.ParticleEmitter.EParticleBurstMethod ParticleBurstMethod
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleEmitter.EParticleBurstMethod>(Ptr + 62); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 62); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleEmitter.EParticleBurstMethod>(Ptr + 63); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 63); }
     }
 
     /// <summary>
@@ -143,8 +179,8 @@ public partial class ParticleModuleRequired : BmSDK.Engine.ParticleModule, BmSDK
     /// </summary>
     public unsafe BmSDK.Engine.ParticleEmitter.EParticleSubUVInterpMethod InterpolationMethod
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleEmitter.EParticleSubUVInterpMethod>(Ptr + 63); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 63); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleEmitter.EParticleSubUVInterpMethod>(Ptr + 64); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 64); }
     }
 
     /// <summary>
@@ -152,8 +188,17 @@ public partial class ParticleModuleRequired : BmSDK.Engine.ParticleModule, BmSDK
     /// </summary>
     public unsafe BmSDK.Engine.ParticleModuleRequired.EEmitterNormalsMode EmitterNormalsMode
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleModuleRequired.EEmitterNormalsMode>(Ptr + 64); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 64); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleModuleRequired.EEmitterNormalsMode>(Ptr + 65); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 65); }
+    }
+
+    /// <summary>
+    /// ByteProperty: PivotPosition
+    /// </summary>
+    public unsafe BmSDK.Engine.ParticleModuleRequired.EPivotPosition PivotPosition
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleModuleRequired.EPivotPosition>(Ptr + 66); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 66); }
     }
 
     /// <summary>
@@ -379,23 +424,14 @@ public partial class ParticleModuleRequired : BmSDK.Engine.ParticleModule, BmSDK
     }
 
     /// <summary>
-    /// FloatProperty: DownsampleThresholdScreenFraction
-    /// </summary>
-    public unsafe float DownsampleThresholdScreenFraction
-    {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 152); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 152); }
-    }
-
-    /// <summary>
     /// StructProperty: NormalsSphereCenter
     /// </summary>
     public unsafe ref System.Numerics.Vector3 NormalsSphereCenter
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 156);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 152);
 
     /// <summary>
     /// StructProperty: NormalsCylinderDirection
     /// </summary>
     public unsafe ref System.Numerics.Vector3 NormalsCylinderDirection
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 168);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 164);
 }

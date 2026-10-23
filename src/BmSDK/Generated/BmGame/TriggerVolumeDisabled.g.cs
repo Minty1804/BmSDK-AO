@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: TriggerVolumeDisabled<br/>
-/// (size = 472)
+/// (size = 496)
 /// (flags = 8389138)
 /// </summary>
 public partial class TriggerVolumeDisabled : BmSDK.Engine.TriggerVolume, BmSDK.IGameObject

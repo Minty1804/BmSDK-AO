@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_DropWeapons<br/>
-/// (size = 216)
+/// (size = 236)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_DropWeapons : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -90,11 +90,11 @@ public partial class RSeqAct_DropWeapons : BmSDK.Engine.SequenceAction, BmSDK.IG
     }
 
     /// <summary>
-    /// ArrayProperty: Thugs
+    /// ArrayProperty: thugs
     /// </summary>
-    public unsafe BmSDK.TArray<BmSDK.BmGame.RBMPawnAI> Thugs
+    public unsafe BmSDK.TArray<BmSDK.BmGame.RBMPawnAI> thugs
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RBMPawnAI>>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RBMPawnAI>>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 }

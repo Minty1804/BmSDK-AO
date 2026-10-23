@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqEvent_RopeCut<br/>
-/// (size = 228)
+/// (size = 248)
 /// (flags = 134217874)
 /// </summary>
 public partial class RSeqEvent_RopeCut : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject

@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RPlantPodHomingSmallBase<br/>
-/// (size = 496)
-/// (flags = 209715347)
+/// (size = 520)
+/// (flags = 109051923)
 /// </summary>
 public partial class RPlantPodHomingSmallBase : BmSDK.Engine.SkeletalMeshActor, BmSDK.IGameObject
 {
@@ -73,14 +73,4 @@ public partial class RPlantPodHomingSmallBase : BmSDK.Engine.SkeletalMeshActor, 
         where TComponent : class, Framework.IScriptComponent<RPlantPodHomingSmallBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
-    /// <summary>
-    /// Function: Kill
-    /// </summary>
-    public unsafe virtual void Kill()
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlantPodHomingSmallBase.Kill", true);
-        byte* paramsPtr = stackalloc byte[0];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
 }

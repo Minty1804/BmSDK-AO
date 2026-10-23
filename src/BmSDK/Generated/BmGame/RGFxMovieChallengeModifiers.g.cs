@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RGFxMovieChallengeModifiers<br/>
-/// (size = 496)
-/// (flags = 18)
+/// (size = 588)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieChallengeModifiers : BmSDK.BmGame.RGFxMovie, BmSDK.IGameObject
 {
@@ -112,6 +112,17 @@ public partial class RGFxMovieChallengeModifiers : BmSDK.BmGame.RGFxMovie, BmSDK
     }
 
     /// <summary>
+    /// Function: PopupDismissed
+    /// </summary>
+    public unsafe virtual void PopupDismissed()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieChallengeModifiers.PopupDismissed", true);
+        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: PopupRequester_Callback
     /// </summary>
     public unsafe override void PopupRequester_Callback(BmSDK.BmGame.RGFxMoviePopupRequester ThePopUpMsg, int ButtonId)
@@ -162,14 +173,26 @@ public partial class RGFxMovieChallengeModifiers : BmSDK.BmGame.RGFxMovie, BmSDK
     /// <summary>
     /// Function: SetChallengeDetails
     /// </summary>
-    public unsafe virtual void SetChallengeDetails(int ChallengeIndex, int CurrentRound)
+    public unsafe virtual void SetChallengeDetails(int challengeIndex, int CurrentRound, bool bIsCombatTraining)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieChallengeModifiers.SetChallengeDetails", true);
-        byte* paramsPtr = stackalloc byte[8];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(ChallengeIndex, paramsPtr + 0);
+        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(challengeIndex, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CurrentRound, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(bIsCombatTraining, paramsPtr + 8);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
+    }
+
+    /// <summary>
+    /// Function: GetCombatTrainingId
+    /// </summary>
+    public unsafe virtual int GetCombatTrainingId()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieChallengeModifiers.GetCombatTrainingId", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
     }
 
     /// <summary>
@@ -227,6 +250,17 @@ public partial class RGFxMovieChallengeModifiers : BmSDK.BmGame.RGFxMovie, BmSDK
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieChallengeModifiers.AddTileEntryAuto", true);
         byte* paramsPtr = stackalloc byte[4];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(entry_index, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
+    /// Function: ForceCurrentModifiers
+    /// </summary>
+    public unsafe virtual void ForceCurrentModifiers()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieChallengeModifiers.ForceCurrentModifiers", true);
+        byte* paramsPtr = stackalloc byte[0];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

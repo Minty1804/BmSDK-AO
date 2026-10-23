@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqCond_Increment<br/>
-/// (size = 192)
+/// (size = 212)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqCond_Increment : BmSDK.Engine.SequenceCondition, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class SeqCond_Increment : BmSDK.Engine.SequenceCondition, BmSDK.I
     /// </summary>
     public unsafe int IncrementAmount
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 180); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 180); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 200); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 200); }
     }
 
     /// <summary>
@@ -92,8 +92,8 @@ public partial class SeqCond_Increment : BmSDK.Engine.SequenceCondition, BmSDK.I
     /// </summary>
     public unsafe int ValueA
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 184); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 184); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 204); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
     }
 
     /// <summary>
@@ -101,7 +101,7 @@ public partial class SeqCond_Increment : BmSDK.Engine.SequenceCondition, BmSDK.I
     /// </summary>
     public unsafe int ValueB
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 188); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 188); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
     }
 }

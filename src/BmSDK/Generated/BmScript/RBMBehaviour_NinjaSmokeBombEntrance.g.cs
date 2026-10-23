@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMBehaviour_NinjaSmokeBombEntrance<br/>
-/// (size = 424)
+/// (size = 444)
 /// (flags = 8210)
 /// </summary>
 public partial class RBMBehaviour_NinjaSmokeBombEntrance : BmSDK.BmGame.RBMBehaviour_LunaticEntrance, BmSDK.IGameObject

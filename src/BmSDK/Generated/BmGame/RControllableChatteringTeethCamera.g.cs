@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RControllableChatteringTeethCamera<br/>
-/// (size = 960)
+/// (size = 1004)
 /// (flags = 144704146)
 /// </summary>
 public partial class RControllableChatteringTeethCamera : BmSDK.BmGame.RCameraActor, BmSDK.IGameObject
@@ -198,35 +198,35 @@ public partial class RControllableChatteringTeethCamera : BmSDK.BmGame.RCameraAc
     /// </summary>
     public unsafe BmSDK.BmGame.RControllableChatteringTeethBase TargetTeeth
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RControllableChatteringTeethBase>(Ptr + 864); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 864); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RControllableChatteringTeethBase>(Ptr + 908); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 908); }
     }
 
     /// <summary>
     /// StructProperty: CameraTargetOffset
     /// </summary>
     public unsafe ref System.Numerics.Vector3 CameraTargetOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 868);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 912);
 
     /// <summary>
     /// StructProperty: CameraFallbackOffset
     /// </summary>
     public unsafe ref System.Numerics.Vector3 CameraFallbackOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 880);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 924);
 
     /// <summary>
     /// StructProperty: CameraDragOffset
     /// </summary>
     public unsafe ref System.Numerics.Vector3 CameraDragOffset
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 892);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 936);
 
     /// <summary>
     /// FloatProperty: CameraDragDistance
     /// </summary>
     public unsafe float CameraDragDistance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 904); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 904); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 948); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 948); }
     }
 
     /// <summary>
@@ -234,8 +234,8 @@ public partial class RControllableChatteringTeethCamera : BmSDK.BmGame.RCameraAc
     /// </summary>
     public unsafe float CameraTargetExplodeRegressionSpeed
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 908); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 908); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 952); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 952); }
     }
 
     /// <summary>
@@ -243,8 +243,8 @@ public partial class RControllableChatteringTeethCamera : BmSDK.BmGame.RCameraAc
     /// </summary>
     public unsafe float CameraTargetExplodeRegressionAcc
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 912); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 912); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 956); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 956); }
     }
 
     /// <summary>
@@ -252,19 +252,19 @@ public partial class RControllableChatteringTeethCamera : BmSDK.BmGame.RCameraAc
     /// </summary>
     public unsafe float CameraTargetExplodeSettleDistance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 916); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 916); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 960); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 960); }
     }
 
     /// <summary>
     /// StructProperty: TeethCameraSmoother
     /// </summary>
     public unsafe ref BmSDK.BmGame.R3rdPersonCamera.FCameraSmoother TeethCameraSmoother
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.R3rdPersonCamera.FCameraSmoother>(Ptr + 920);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.R3rdPersonCamera.FCameraSmoother>(Ptr + 964);
 
     /// <summary>
     /// StructProperty: TeethCameraVelocity
     /// </summary>
     public unsafe ref System.Numerics.Vector3 TeethCameraVelocity
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 948);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 992);
 }

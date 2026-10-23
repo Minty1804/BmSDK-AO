@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RRotateActor<br/>
-/// (size = 552)
+/// (size = 576)
 /// (flags = 142606994)
 /// </summary>
 public partial class RRotateActor : BmSDK.Engine.InterpActor, BmSDK.IGameObject
@@ -82,11 +82,11 @@ public partial class RRotateActor : BmSDK.Engine.InterpActor, BmSDK.IGameObject
     /// StructProperty: BaseRotation
     /// </summary>
     public unsafe ref BmSDK.Rotator BaseRotation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 528);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 552);
 
     /// <summary>
     /// StructProperty: AccumulatedRotation
     /// </summary>
     public unsafe ref BmSDK.Rotator AccumulatedRotation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 540);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Rotator>(Ptr + 564);
 }

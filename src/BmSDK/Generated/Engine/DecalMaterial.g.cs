@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: DecalMaterial<br/>
-/// (size = 1412)
+/// (size = 1912)
 /// (flags = 134217874)
 /// </summary>
 public partial class DecalMaterial : BmSDK.Engine.Material, BmSDK.IGameObject

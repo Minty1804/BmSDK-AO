@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPawnFriendlyHostage<br/>
-/// (size = 2748)
+/// (size = 3368)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnFriendlyHostage : BmSDK.BmGame.RPawnFriendly, BmSDK.IGameObject

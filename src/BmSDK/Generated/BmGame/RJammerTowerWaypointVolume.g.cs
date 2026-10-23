@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RJammerTowerWaypointVolume<br/>
-/// (size = 488)
+/// (size = 512)
 /// (flags = 8389138)
 /// </summary>
 public partial class RJammerTowerWaypointVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
@@ -121,8 +121,8 @@ public partial class RJammerTowerWaypointVolume : BmSDK.Engine.Volume, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.BmGame.RJammerTowerLocation ParentTower
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RJammerTowerLocation>(Ptr + 472); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RJammerTowerLocation>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
     }
 
     /// <summary>
@@ -130,8 +130,8 @@ public partial class RJammerTowerWaypointVolume : BmSDK.Engine.Volume, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.Engine.Actor WaypointLocationActor
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 476); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
     }
 
     /// <summary>
@@ -139,8 +139,8 @@ public partial class RJammerTowerWaypointVolume : BmSDK.Engine.Volume, BmSDK.IGa
     /// </summary>
     public unsafe float DistanceFromMyWaypointToTower
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 480); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 480); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
     }
 
     /// <summary>
@@ -148,7 +148,7 @@ public partial class RJammerTowerWaypointVolume : BmSDK.Engine.Volume, BmSDK.IGa
     /// </summary>
     public unsafe bool PlayerIsInVolume
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 484) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 484); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 484); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 508) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 508); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 508); }
     }
 }

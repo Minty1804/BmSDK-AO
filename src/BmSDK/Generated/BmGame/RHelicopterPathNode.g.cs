@@ -4,9 +4,9 @@
 namespace BmSDK.BmGame;
 
 /// <summary>
-/// Class: RHelicopterPathNode<br/>
-/// (size = 632)
-/// (flags = 142606994)
+/// ABSTRACT Class: RHelicopterPathNode<br/>
+/// (size = 680)
+/// (flags = 142606995)
 /// </summary>
 public partial class RHelicopterPathNode : BmSDK.Engine.PathNode, BmSDK.Engine.EditorLinkSelectionInterface, BmSDK.IGameObject
 {
@@ -27,11 +27,6 @@ public partial class RHelicopterPathNode : BmSDK.Engine.PathNode, BmSDK.Engine.E
     public static RHelicopterPathNode DefaultObject => (RHelicopterPathNode)StaticClass().DefaultObject;
 
     internal RHelicopterPathNode() { }
-
-    /// <summary>
-    /// Constructs a new RHelicopterPathNode
-    /// </summary>
-    public RHelicopterPathNode(System.Numerics.Vector3 Location = default, BmSDK.Rotator Rotation = default, BmSDK.Engine.Actor Template = null, BmSDK.GameObject Owner = null, BmSDK.GameObject Instigator = null, BmSDK.Engine.Level Level = null) : base(BmSDK.Framework.Game.SpawnActorInternal(StaticClass(), default, Location, Rotation, Template, Owner, Instigator, Level)) { }
 
     /// <summary>
     /// Constructs a new wrapper instance from the given object pointer.
@@ -145,7 +140,13 @@ public partial class RHelicopterPathNode : BmSDK.Engine.PathNode, BmSDK.Engine.E
     /// </summary>
     public unsafe System.IntPtr VfTable_IEditorLinkSelectionInterface
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 628); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 628); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 664); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 664); }
     }
+
+    /// <summary>
+    /// StructProperty: ForcePathExtend
+    /// </summary>
+    public unsafe ref System.Numerics.Vector3 ForcePathExtend
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 668);
 }

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMBehaviour_AttachToEvents<br/>
-/// (size = 396)
+/// (size = 416)
 /// (flags = 134226066)
 /// </summary>
 public partial class RBMBehaviour_AttachToEvents : BmSDK.BmGame.RBMBehaviour, BmSDK.IGameObject

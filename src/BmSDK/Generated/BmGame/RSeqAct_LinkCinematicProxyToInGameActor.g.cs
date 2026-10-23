@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_LinkCinematicProxyToInGameActor<br/>
-/// (size = 236)
+/// (size = 256)
 /// (flags = 134226066)
 /// </summary>
 public partial class RSeqAct_LinkCinematicProxyToInGameActor : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class RSeqAct_LinkCinematicProxyToInGameActor : BmSDK.Engine.SeqA
     /// </summary>
     public unsafe BmSDK.Engine.Actor InGameActor
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 
     /// <summary>
@@ -92,8 +92,8 @@ public partial class RSeqAct_LinkCinematicProxyToInGameActor : BmSDK.Engine.SeqA
     /// </summary>
     public unsafe BmSDK.BmGame.RCinematicActor CinematicActor
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCinematicActor>(Ptr + 224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCinematicActor>(Ptr + 244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
     }
 
     /// <summary>
@@ -101,8 +101,8 @@ public partial class RSeqAct_LinkCinematicProxyToInGameActor : BmSDK.Engine.SeqA
     /// </summary>
     public unsafe float WarningTimeout
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
     }
 
     /// <summary>
@@ -110,7 +110,7 @@ public partial class RSeqAct_LinkCinematicProxyToInGameActor : BmSDK.Engine.SeqA
     /// </summary>
     public unsafe float WarningTimeoutRemaining
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 232); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 232); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 252); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 252); }
     }
 }

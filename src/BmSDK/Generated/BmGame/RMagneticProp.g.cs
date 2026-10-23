@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RMagneticProp<br/>
-/// (size = 696)
+/// (size = 728)
 /// (flags = 8389138)
 /// </summary>
 public partial class RMagneticProp : BmSDK.Engine.KActor, BmSDK.IGameObject

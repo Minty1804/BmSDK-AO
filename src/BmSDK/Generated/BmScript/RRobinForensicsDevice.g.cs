@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RRobinForensicsDevice<br/>
-/// (size = 1120)
+/// (size = 1124)
 /// (flags = 10485778)
 /// </summary>
 public partial class RRobinForensicsDevice : BmSDK.BmGame.RForensicsDevice, BmSDK.IGameObject
@@ -84,7 +84,7 @@ public partial class RRobinForensicsDevice : BmSDK.BmGame.RForensicsDevice, BmSD
     public unsafe override void RestoreMaterialsForXray(bool force_swap = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RRobinForensicsDevice.RestoreMaterialsForXray", true);
-        byte* paramsPtr = stackalloc byte[8];
+        byte* paramsPtr = stackalloc byte[24];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(force_swap, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
@@ -108,7 +108,7 @@ public partial class RRobinForensicsDevice : BmSDK.BmGame.RForensicsDevice, BmSD
     public unsafe override void SwapMaterialsForXray(bool force_swap = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RRobinForensicsDevice.SwapMaterialsForXray", true);
-        byte* paramsPtr = stackalloc byte[12];
+        byte* paramsPtr = stackalloc byte[24];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(force_swap, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;

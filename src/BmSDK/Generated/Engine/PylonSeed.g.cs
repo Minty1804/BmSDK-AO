@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: PylonSeed<br/>
-/// (size = 432)
+/// (size = 456)
 /// (flags = 142606994)
 /// </summary>
 public partial class PylonSeed : BmSDK.Engine.Actor, BmSDK.Engine.Interface_NavMeshPathObject, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class PylonSeed : BmSDK.Engine.Actor, BmSDK.Engine.Interface_NavM
     /// </summary>
     public unsafe System.IntPtr VfTable_IInterface_NavMeshPathObject
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 }

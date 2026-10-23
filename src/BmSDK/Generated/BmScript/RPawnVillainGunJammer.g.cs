@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RPawnVillainGunJammer<br/>
-/// (size = 3676)
+/// (size = 4144)
 /// (flags = 10485814)
 /// </summary>
 public partial class RPawnVillainGunJammer : BmSDK.BmScript.RPawnVillainGunJammerBase, BmSDK.IGameObject
@@ -81,13 +81,13 @@ public partial class RPawnVillainGunJammer : BmSDK.BmScript.RPawnVillainGunJamme
     /// <summary>
     /// Function: UpdateAerialSnapAnim
     /// </summary>
-    public unsafe static void UpdateAerialSnapAnim(BmSDK.BmScript.RPawnVillainGunJammer Pawn, BmSDK.BmGame.RAnimUtil_PosePlayer.FTransitionId Transition, BmSDK.Engine.AnimSet OverrideAnimSet = default)
+    public unsafe static void UpdateAerialSnapAnim(BmSDK.BmScript.RPawnVillainGunJammer Pawn, BmSDK.BmGame.RAnimUtil.FTransitionId Transition, BmSDK.Engine.AnimSet OverrideAnimset = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGunJammer.UpdateAerialSnapAnim", true);
         byte* paramsPtr = stackalloc byte[20];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Pawn, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Transition, paramsPtr + 4);
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(OverrideAnimSet, paramsPtr + 8);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(OverrideAnimset, paramsPtr + 8);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

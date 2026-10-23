@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMCombatThrownObject_TigerShieldDestroyed<br/>
-/// (size = 720)
+/// (size = 780)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBMCombatThrownObject_TigerShieldDestroyed : BmSDK.BmGame.RBMCombatThrownObject, BmSDK.IGameObject

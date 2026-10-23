@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqCond_LevelLoaded<br/>
-/// (size = 192)
+/// (size = 212)
 /// (flags = 18)
 /// </summary>
 public partial class RSeqCond_LevelLoaded : BmSDK.Engine.SequenceCondition, BmSDK.IGameObject
@@ -94,7 +94,7 @@ public partial class RSeqCond_LevelLoaded : BmSDK.Engine.SequenceCondition, BmSD
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.FName> Levels
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(Ptr + 180); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 180); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(Ptr + 200); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 200); }
     }
 }

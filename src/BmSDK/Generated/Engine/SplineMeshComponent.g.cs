@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SplineMeshComponent<br/>
-/// (size = 580)
+/// (size = 644)
 /// (flags = 2290094226)
 /// </summary>
 public partial class SplineMeshComponent : BmSDK.Engine.StaticMeshComponent, BmSDK.IGameObject
@@ -82,21 +82,21 @@ public partial class SplineMeshComponent : BmSDK.Engine.StaticMeshComponent, BmS
     /// StructProperty: SplineParams
     /// </summary>
     public unsafe ref BmSDK.Engine.SplineMeshComponent.FSplineMeshParams SplineParams
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.SplineMeshComponent.FSplineMeshParams>(Ptr + 476);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.SplineMeshComponent.FSplineMeshParams>(Ptr + 540);
 
     /// <summary>
     /// StructProperty: SplineXDir
     /// </summary>
     public unsafe ref System.Numerics.Vector3 SplineXDir
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 564);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 628);
 
     /// <summary>
     /// BoolProperty: bSmoothInterpRollScale
     /// </summary>
     public unsafe bool bSmoothInterpRollScale
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 576) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 576); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 576); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 640) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 640); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 640); }
     }
 
     /// <summary>

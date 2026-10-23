@@ -84,11 +84,11 @@ public partial class RDOFManager : BmSDK.GameObject, BmSDK.IGameObject
     public unsafe virtual bool Update(float DeltaTime, out BmSDK.Engine.PostProcessVolume.FPostProcessSettings PP)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDOFManager.Update", true);
-        byte* paramsPtr = stackalloc byte[436];
+        byte* paramsPtr = stackalloc byte[456];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         PP = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PostProcessVolume.FPostProcessSettings>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 404);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 424);
     }
 
     /// <summary>
@@ -133,7 +133,7 @@ public partial class RDOFManager : BmSDK.GameObject, BmSDK.IGameObject
     public unsafe virtual void SetDof(out BmSDK.Engine.PostProcessVolume.FPostProcessSettings PP)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDOFManager.SetDof", true);
-        byte* paramsPtr = stackalloc byte[400];
+        byte* paramsPtr = stackalloc byte[420];
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;

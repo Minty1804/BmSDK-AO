@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RHidePoint_Rope<br/>
-/// (size = 996)
-/// (flags = 2155872786)
+/// (size = 1080)
+/// (flags = 2155872790)
 /// </summary>
 public partial class RHidePoint_Rope : BmSDK.BmGame.RHidePoint_RopeBase, BmSDK.IGameObject
 {

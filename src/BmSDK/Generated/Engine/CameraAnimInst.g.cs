@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: CameraAnimInst<br/>
-/// (size = 592)
+/// (size = 612)
 /// (flags = 136315026)
 /// </summary>
 public partial class CameraAnimInst : BmSDK.GameObject, BmSDK.IGameObject
@@ -412,13 +412,13 @@ public partial class CameraAnimInst : BmSDK.GameObject, BmSDK.IGameObject
     /// </summary>
     public unsafe float LastPPSettingsAlpha
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 576); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 596); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 596); }
     }
 
     /// <summary>
     /// StructProperty: LastCameraLoc
     /// </summary>
     public unsafe ref System.Numerics.Vector3 LastCameraLoc
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 580);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 600);
 }

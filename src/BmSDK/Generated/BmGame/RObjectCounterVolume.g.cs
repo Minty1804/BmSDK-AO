@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RObjectCounterVolume<br/>
-/// (size = 476)
+/// (size = 500)
 /// (flags = 8389138)
 /// </summary>
 public partial class RObjectCounterVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
@@ -121,7 +121,7 @@ public partial class RObjectCounterVolume : BmSDK.Engine.Volume, BmSDK.IGameObje
     /// </summary>
     public unsafe BmSDK.Class ObjectType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 472); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Class>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
     }
 }

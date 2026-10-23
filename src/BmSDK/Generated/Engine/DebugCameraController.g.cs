@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: DebugCameraController<br/>
-/// (size = 1472)
+/// (size = 1500)
 /// (flags = 142606486)
 /// </summary>
 public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSDK.IGameObject
@@ -269,8 +269,8 @@ public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe BmSDK.FName PrimaryKey
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 1424); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1424); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 1452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1452); }
     }
 
     /// <summary>
@@ -278,8 +278,8 @@ public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe BmSDK.FName SecondaryKey
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 1432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 1460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1460); }
     }
 
     /// <summary>
@@ -287,8 +287,8 @@ public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe BmSDK.FName UnselectKey
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 1440); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1440); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 1468); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1468); }
     }
 
     /// <summary>
@@ -296,8 +296,8 @@ public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe bool bShowSelectedInfo
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1448); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1476) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1476); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1476); }
     }
 
     /// <summary>
@@ -305,8 +305,8 @@ public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe bool bIsFrozenRendering
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1448); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1448); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1476) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 1476); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 1476); }
     }
 
     /// <summary>
@@ -314,8 +314,8 @@ public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe BmSDK.Engine.PlayerController OryginalControllerRef
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PlayerController>(Ptr + 1452); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1452); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PlayerController>(Ptr + 1480); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1480); }
     }
 
     /// <summary>
@@ -323,8 +323,8 @@ public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe BmSDK.Engine.Player OryginalPlayer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Player>(Ptr + 1456); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1456); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Player>(Ptr + 1484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1484); }
     }
 
     /// <summary>
@@ -332,8 +332,8 @@ public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe BmSDK.Engine.DrawFrustumComponent DrawFrustum
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawFrustumComponent>(Ptr + 1460); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1460); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawFrustumComponent>(Ptr + 1488); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1488); }
     }
 
     /// <summary>
@@ -341,8 +341,8 @@ public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe BmSDK.Engine.Actor SelectedActor
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 1464); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1464); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(Ptr + 1492); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1492); }
     }
 
     /// <summary>
@@ -350,7 +350,7 @@ public partial class DebugCameraController : BmSDK.Engine.PlayerController, BmSD
     /// </summary>
     public unsafe BmSDK.Engine.PrimitiveComponent SelectedComponent
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PrimitiveComponent>(Ptr + 1468); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1468); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PrimitiveComponent>(Ptr + 1496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1496); }
     }
 }

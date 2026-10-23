@@ -196,6 +196,15 @@ public partial class REvidence : BmSDK.BmGame.RConfig, BmSDK.IGameObject
     }
 
     /// <summary>
+    /// BoolProperty: mIsCaseFile
+    /// </summary>
+    public unsafe bool mIsCaseFile
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 144) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 144); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 144); }
+    }
+
+    /// <summary>
     /// Enum: DevicePostProcessEffects
     /// </summary>
     public enum DevicePostProcessEffects : byte
@@ -209,8 +218,9 @@ public partial class REvidence : BmSDK.BmGame.RConfig, BmSDK.IGameObject
         DPPE_EmField = 6,
         DPPE_Cold = 7,
         DPPE_Distortion = 8,
-        DPPE_Scan = 9,
-        DPPE_Off = 10,
-        DPPE_MAX = 11,
+        DPPE_CaseFile = 9,
+        DPPE_Scan = 10,
+        DPPE_Off = 11,
+        DPPE_MAX = 12,
     }
 }

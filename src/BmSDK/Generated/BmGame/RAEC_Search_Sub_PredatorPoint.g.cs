@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAEC_Search_Sub_PredatorPoint<br/>
-/// (size = 504)
+/// (size = 528)
 /// (flags = 8388626)
 /// </summary>
 public partial class RAEC_Search_Sub_PredatorPoint : BmSDK.BmGame.RAEC_Sub_Formation, BmSDK.IGameObject
@@ -84,7 +84,7 @@ public partial class RAEC_Search_Sub_PredatorPoint : BmSDK.BmGame.RAEC_Sub_Forma
     public unsafe virtual void StartFromSearch(BmSDK.BmGame.RBMAIController NewCon, BmSDK.BmGame.RAEC_Search_Sub.FRestoreSearchState OldSearchState, BmSDK.BmGame.RPredatorSpecialMovePointBase NewPredatorPoint)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RAEC_Search_Sub_PredatorPoint.StartFromSearch", true);
-        byte* paramsPtr = stackalloc byte[36];
+        byte* paramsPtr = stackalloc byte[40];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewCon, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OldSearchState, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewPredatorPoint, paramsPtr + 32);
@@ -120,14 +120,14 @@ public partial class RAEC_Search_Sub_PredatorPoint : BmSDK.BmGame.RAEC_Sub_Forma
     /// StructProperty: SearchState
     /// </summary>
     public unsafe ref BmSDK.BmGame.RAEC_Search_Sub.FRestoreSearchState SearchState
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAEC_Search_Sub.FRestoreSearchState>(Ptr + 472);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RAEC_Search_Sub.FRestoreSearchState>(Ptr + 496);
 
     /// <summary>
     /// ObjectProperty: PredatorPoint
     /// </summary>
     public unsafe BmSDK.BmGame.RPredatorSpecialMovePointBase PredatorPoint
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPredatorSpecialMovePointBase>(Ptr + 500); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPredatorSpecialMovePointBase>(Ptr + 524); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
     }
 }

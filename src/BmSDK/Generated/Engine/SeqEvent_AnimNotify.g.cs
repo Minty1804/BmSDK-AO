@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqEvent_AnimNotify<br/>
-/// (size = 236)
+/// (size = 256)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqEvent_AnimNotify : BmSDK.Engine.SequenceEvent, BmSDK.IGameObject
@@ -83,7 +83,7 @@ public partial class SeqEvent_AnimNotify : BmSDK.Engine.SequenceEvent, BmSDK.IGa
     /// </summary>
     public unsafe BmSDK.FName NotifyName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 228); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 248); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 248); }
     }
 }

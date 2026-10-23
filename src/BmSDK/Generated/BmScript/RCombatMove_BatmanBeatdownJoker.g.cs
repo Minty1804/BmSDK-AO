@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RCombatMove_BatmanBeatdownJoker<br/>
-/// (size = 1092)
+/// (size = 1144)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCombatMove_BatmanBeatdownJoker : BmSDK.BmGame.RCombatMove_BatmanBeatdown, BmSDK.IGameObject

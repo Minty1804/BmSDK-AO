@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCrowdSpawner_FlockingBats<br/>
-/// (size = 512)
+/// (size = 536)
 /// (flags = 8388626)
 /// </summary>
 public partial class RCrowdSpawner_FlockingBats : BmSDK.BmGame.RCrowdSpawner, BmSDK.IGameObject

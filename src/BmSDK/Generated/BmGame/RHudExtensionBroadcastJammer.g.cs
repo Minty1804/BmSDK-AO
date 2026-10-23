@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHudExtensionBroadcastJammer<br/>
-/// (size = 132)
+/// (size = 100)
 /// (flags = 33554450)
 /// </summary>
 public partial class RHudExtensionBroadcastJammer : BmSDK.BmGame.RHudExtension, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: DirectionalLightToggleable<br/>
-/// (size = 444)
+/// (size = 468)
 /// (flags = 142606994)
 /// </summary>
 public partial class DirectionalLightToggleable : BmSDK.Engine.DirectionalLight, BmSDK.IGameObject

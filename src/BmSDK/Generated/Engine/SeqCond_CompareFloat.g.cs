@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqCond_CompareFloat<br/>
-/// (size = 188)
+/// (size = 208)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqCond_CompareFloat : BmSDK.Engine.SequenceCondition, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class SeqCond_CompareFloat : BmSDK.Engine.SequenceCondition, BmSD
     /// </summary>
     public unsafe float ValueA
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 180); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 180); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 200); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 200); }
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public partial class SeqCond_CompareFloat : BmSDK.Engine.SequenceCondition, BmSD
     /// </summary>
     public unsafe float ValueB
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 184); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 184); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 204); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
     }
 }

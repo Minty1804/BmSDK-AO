@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMWeaponChurchSpecialShotty<br/>
-/// (size = 1116)
+/// (size = 1136)
 /// (flags = 8388658)
 /// </summary>
 public partial class RBMWeaponChurchSpecialShotty : BmSDK.BmScript.RBMWeaponChurchSpecialRifle, BmSDK.IGameObject
@@ -130,7 +130,7 @@ public partial class RBMWeaponChurchSpecialShotty : BmSDK.BmScript.RBMWeaponChur
     /// </summary>
     public unsafe float BuckSpreadShotDeviance
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1112); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1112); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1132); }
     }
 }

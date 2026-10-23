@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMCombatThrownObject_HeavyObjectStool<br/>
-/// (size = 728)
+/// (size = 792)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBMCombatThrownObject_HeavyObjectStool : BmSDK.BmScript.RBMCombatThrownObject_HeavyObject, BmSDK.IGameObject

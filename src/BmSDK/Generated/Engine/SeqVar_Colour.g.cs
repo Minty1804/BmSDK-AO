@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: SeqVar_Colour<br/>
-/// (size = 144)
+/// (size = 148)
 /// (flags = 134217874)
 /// </summary>
 public partial class SeqVar_Colour : BmSDK.Engine.SequenceVariable, BmSDK.IGameObject
@@ -82,5 +82,5 @@ public partial class SeqVar_Colour : BmSDK.Engine.SequenceVariable, BmSDK.IGameO
     /// StructProperty: ColourValue
     /// </summary>
     public unsafe ref BmSDK.GameObject.FLinearColor ColourValue
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FLinearColor>(Ptr + 128);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FLinearColor>(Ptr + 132);
 }

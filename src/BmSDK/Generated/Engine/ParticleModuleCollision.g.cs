@@ -142,12 +142,21 @@ public partial class ParticleModuleCollision : BmSDK.Engine.ParticleModuleCollis
     }
 
     /// <summary>
+    /// BoolProperty: bDebugCollisionTrajectory
+    /// </summary>
+    public unsafe bool bDebugCollisionTrajectory
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 144) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 144); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 144); }
+    }
+
+    /// <summary>
     /// BoolProperty: bDropDetail
     /// </summary>
     public unsafe bool bDropDetail
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 144) & 16) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 144); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 144); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 144) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 144); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 144); }
     }
 
     /// <summary>

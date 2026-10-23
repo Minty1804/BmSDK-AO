@@ -5,8 +5,8 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RGFxMovieKismetBase<br/>
-/// (size = 496)
-/// (flags = 134217874)
+/// (size = 588)
+/// (flags = 134217878)
 /// </summary>
 public partial class RGFxMovieKismetBase : BmSDK.BmGame.RGFxMovie, BmSDK.IGameObject
 {

@@ -161,9 +161,9 @@ public partial class RAnimUtil_PhysicsOutput : BmSDK.GameObject, BmSDK.IGameObje
     }
 
     /// <summary>
-    /// BoolProperty: ForceCollideWithVenomHenchmanThrowChannelsOnly
+    /// BoolProperty: ForceRagdollCollideWithBlockingVolumes
     /// </summary>
-    public unsafe bool ForceCollideWithVenomHenchmanThrowChannelsOnly
+    public unsafe bool ForceRagdollCollideWithBlockingVolumes
     {
         get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44) & 128) != 0; }
         set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 44); var newMask = value ? (currentMask | 128) : (currentMask & ~128); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 44); }

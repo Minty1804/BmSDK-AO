@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RParticleKillVolume<br/>
-/// (size = 476)
+/// (size = 504)
 /// (flags = 142606994)
 /// </summary>
 public partial class RParticleKillVolume : BmSDK.Engine.Volume, BmSDK.IGameObject
@@ -106,11 +106,20 @@ public partial class RParticleKillVolume : BmSDK.Engine.Volume, BmSDK.IGameObjec
     }
 
     /// <summary>
+    /// IntProperty: Priority
+    /// </summary>
+    public unsafe int Priority
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
+    }
+
+    /// <summary>
     /// ObjectProperty: AffectedPlayer
     /// </summary>
     public unsafe BmSDK.BmGame.RPlayerController AffectedPlayer
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 472); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPlayerController>(Ptr + 500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
     }
 }

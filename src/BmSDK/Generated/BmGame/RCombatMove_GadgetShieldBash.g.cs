@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RCombatMove_GadgetShieldBash<br/>
-/// (size = 492)
+/// (size = 516)
 /// (flags = 8388627)
 /// </summary>
 public partial class RCombatMove_GadgetShieldBash : BmSDK.BmGame.RCombatMove_BatmanAttack, BmSDK.IGameObject

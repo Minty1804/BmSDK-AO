@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_TerrorCorner_Right<br/>
-/// (size = 640)
+/// (size = 664)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_TerrorCorner_Right : BmSDK.BmGame.RBMAIAction_TerrorCorner, BmSDK.IGameObject

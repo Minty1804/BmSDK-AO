@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RNoDeleteCameraActor<br/>
-/// (size = 864)
+/// (size = 908)
 /// (flags = 10485778)
 /// </summary>
 public partial class RNoDeleteCameraActor : BmSDK.BmGame.RCameraActor, BmSDK.IGameObject

@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RCinematicActorSpawnable<br/>
-/// (size = 580)
+/// (size = 672)
 /// (flags = 142606482)
 /// </summary>
 public partial class RCinematicActorSpawnable : BmSDK.BmGame.RCinematicActor, BmSDK.IGameObject

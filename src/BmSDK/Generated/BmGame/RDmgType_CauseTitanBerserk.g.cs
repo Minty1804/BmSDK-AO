@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RDmgType_CauseTitanBerserk<br/>
-/// (size = 120)
+/// (size = 132)
 /// (flags = 18)
 /// </summary>
 public partial class RDmgType_CauseTitanBerserk : BmSDK.BmGame.RDamageType, BmSDK.IGameObject

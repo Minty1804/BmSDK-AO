@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMDialogueCoordinator<br/>
-/// (size = 576)
+/// (size = 608)
 /// (flags = 142606482)
 /// </summary>
 public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -79,6 +79,17 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
     /// <summary>
+    /// Function: Init
+    /// </summary>
+    public unsafe virtual void Init()
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMDialogueCoordinator.Init", true);
+        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    /// <summary>
     /// Function: DecreaseDialogueFrequency
     /// </summary>
     public unsafe virtual void DecreaseDialogueFrequency()
@@ -96,18 +107,6 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMDialogueCoordinator.ResetRoomSpecificBias", true);
         byte* paramsPtr = stackalloc byte[0];
-        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return;
-    }
-
-    /// <summary>
-    /// Function: SetMinRandomBarkTime
-    /// </summary>
-    public unsafe virtual void SetMinRandomBarkTime(float NewMin)
-    {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMDialogueCoordinator.SetMinRandomBarkTime", true);
-        byte* paramsPtr = stackalloc byte[4];
-        BmSDK.Framework.MarshalUtil.ToUnmanaged(NewMin, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -171,7 +170,7 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// <summary>
     /// Function: PawnDied
     /// </summary>
-    public unsafe virtual void PawnDied(BmSDK.BmGame.RPawnVillain DeadPawn)
+    public unsafe virtual void PawnDied(BmSDK.BmGame.RBMPawnAI DeadPawn)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMDialogueCoordinator.PawnDied", true);
         byte* paramsPtr = stackalloc byte[4];
@@ -313,7 +312,7 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     public unsafe virtual bool AddFollowOnConversation(BmSDK.BmGame.RPawnVillain Speaker, BmSDK.BmGame.RBarkFlagBase ContextFlags)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMDialogueCoordinator.AddFollowOnConversation", true);
-        byte* paramsPtr = stackalloc byte[32];
+        byte* paramsPtr = stackalloc byte[36];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Speaker, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ContextFlags, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
@@ -323,10 +322,10 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// <summary>
     /// Function: QueueBarkConversation
     /// </summary>
-    public unsafe virtual bool QueueBarkConversation(BmSDK.BmGame.RPawnVillain Speaker, int Priority, BmSDK.BmGame.RBarkFlagBase ContextFlags)
+    public unsafe virtual bool QueueBarkConversation(BmSDK.BmGame.RBMPawnAI Speaker, int Priority, BmSDK.BmGame.RBarkFlagBase ContextFlags)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMDialogueCoordinator.QueueBarkConversation", true);
-        byte* paramsPtr = stackalloc byte[36];
+        byte* paramsPtr = stackalloc byte[48];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Speaker, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Priority, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ContextFlags, paramsPtr + 8);
@@ -337,7 +336,7 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// <summary>
     /// Function: PawnPlayBark
     /// </summary>
-    public unsafe virtual void PawnPlayBark(BmSDK.BmGame.RPawnVillain Speaker, BmSDK.BmGame.RBarkFlagBase ContextFlags)
+    public unsafe virtual void PawnPlayBark(BmSDK.BmGame.RBMPawnAI Speaker, BmSDK.BmGame.RBarkFlagBase ContextFlags)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMDialogueCoordinator.PawnPlayBark", true);
         byte* paramsPtr = stackalloc byte[32];
@@ -350,7 +349,7 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// <summary>
     /// Function: PawnIsCurrentSpeaker
     /// </summary>
-    public unsafe virtual bool PawnIsCurrentSpeaker(BmSDK.BmGame.RPawnVillain TestPawn)
+    public unsafe virtual bool PawnIsCurrentSpeaker(BmSDK.BmGame.RBMPawnAI TestPawn)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMDialogueCoordinator.PawnIsCurrentSpeaker", true);
         byte* paramsPtr = stackalloc byte[8];
@@ -444,7 +443,7 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// <summary>
     /// Function: GetBark
     /// </summary>
-    public unsafe virtual BmSDK.BmGame.RBarkSet.FBarkDefinition GetBark(BmSDK.BmGame.RPawnVillain Barker, BmSDK.BmGame.RBarkSet.EConvoBarkType BarkType, BmSDK.BmGame.RBarkFlagBase ContextFlags)
+    public unsafe virtual BmSDK.BmGame.RBarkSet.FBarkDefinition GetBark(BmSDK.BmGame.RBMPawnAI Barker, BmSDK.BmGame.RBarkSet.EConvoBarkType BarkType, BmSDK.BmGame.RBarkFlagBase ContextFlags)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMDialogueCoordinator.GetBark", true);
         byte* paramsPtr = stackalloc byte[32];
@@ -466,21 +465,21 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// StructProperty: CurrentConversation
     /// </summary>
     public unsafe ref BmSDK.BmGame.RBMDialogueCoordinator.FDialogueInstance CurrentConversation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RBMDialogueCoordinator.FDialogueInstance>(Ptr + 428);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RBMDialogueCoordinator.FDialogueInstance>(Ptr + 452);
 
     /// <summary>
     /// StructProperty: FollowupConversation
     /// </summary>
     public unsafe ref BmSDK.BmGame.RBMDialogueCoordinator.FDialogueInstance FollowupConversation
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RBMDialogueCoordinator.FDialogueInstance>(Ptr + 472);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RBMDialogueCoordinator.FDialogueInstance>(Ptr + 496);
 
     /// <summary>
     /// ArrayProperty: ScriptedConversationBehaviour
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RBMBehaviour_StartConversation> ScriptedConversationBehaviour
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RBMBehaviour_StartConversation>>(Ptr + 516); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RBMBehaviour_StartConversation>>(Ptr + 540); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
     }
 
     /// <summary>
@@ -488,8 +487,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe float TimeWithoutBark
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 528); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 528); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 552); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 552); }
     }
 
     /// <summary>
@@ -497,8 +496,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe bool bBarksEnabled
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 532) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 532); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 532); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 556) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 556); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 556); }
     }
 
     /// <summary>
@@ -506,8 +505,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe bool bRandomBarksEnabled
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 532) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 532); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 532); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 556) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 556); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 556); }
     }
 
     /// <summary>
@@ -515,8 +514,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe bool bReactiveBarksOnly
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 532) & 4) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 532); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 532); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 556) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 556); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 556); }
     }
 
     /// <summary>
@@ -524,17 +523,35 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe bool bPredIdleConfigSpeaking
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 532) & 8) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 532); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 532); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 556) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 556); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 556); }
     }
 
     /// <summary>
-    /// FloatProperty: MinRandomBarkTime
+    /// FloatProperty: MinRandomBarkTimeCocky
     /// </summary>
-    public unsafe float MinRandomBarkTime
+    public unsafe float MinRandomBarkTimeCocky
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 536); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 536); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 560); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 560); }
+    }
+
+    /// <summary>
+    /// FloatProperty: MinRandomBarkTimeNervous
+    /// </summary>
+    public unsafe float MinRandomBarkTimeNervous
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
+    }
+
+    /// <summary>
+    /// FloatProperty: MinRandomBarkTimeTerrified
+    /// </summary>
+    public unsafe float MinRandomBarkTimeTerrified
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 568); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
     }
 
     /// <summary>
@@ -542,8 +559,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe float CurrRandomBarkTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 540); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 572); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
     }
 
     /// <summary>
@@ -551,8 +568,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe BmSDK.BmGame.RJokerTannoy Tannoy
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RJokerTannoy>(Ptr + 544); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 544); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RJokerTannoy>(Ptr + 576); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 576); }
     }
 
     /// <summary>
@@ -560,8 +577,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe float TimeWithoutTannoyBark
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 548); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 548); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 580); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 580); }
     }
 
     /// <summary>
@@ -569,8 +586,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe float MinTannoyTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 552); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 552); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 584); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 584); }
     }
 
     /// <summary>
@@ -578,8 +595,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RAlertEventCoordinatorBase> LockList
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RAlertEventCoordinatorBase>>(Ptr + 556); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 556); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RAlertEventCoordinatorBase>>(Ptr + 588); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 588); }
     }
 
     /// <summary>
@@ -587,8 +604,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe int RoomSpecificBias
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 568); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 568); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 600); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 600); }
     }
 
     /// <summary>
@@ -596,8 +613,8 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
     /// </summary>
     public unsafe int SteelA1SpecialCaseCounter
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 572); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 572); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 604); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 604); }
     }
 
     /// <summary>
@@ -661,9 +678,9 @@ public partial class RBMDialogueCoordinator : BmSDK.Engine.Actor, BmSDK.IGameObj
         /// <summary>
         /// ObjectProperty: TalkPawn
         /// </summary>
-        public unsafe BmSDK.BmGame.RPawnVillain TalkPawn
+        public unsafe BmSDK.BmGame.RBMPawnAI TalkPawn
         {
-            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(Ptr + 0); }; }
+            get { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMPawnAI>(Ptr + 0); }; }
             set { fixed (void* thisPtr = &this) { IntPtr Ptr = (IntPtr)thisPtr; BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 0); }; }
         }
     }

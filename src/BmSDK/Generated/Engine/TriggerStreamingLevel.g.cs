@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: TriggerStreamingLevel<br/>
-/// (size = 452)
+/// (size = 476)
 /// (flags = 8389138)
 /// </summary>
 public partial class TriggerStreamingLevel : BmSDK.Engine.Trigger, BmSDK.IGameObject
@@ -98,8 +98,8 @@ public partial class TriggerStreamingLevel : BmSDK.Engine.Trigger, BmSDK.IGameOb
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.Engine.TriggerStreamingLevel.FLevelStreamingData> Levels
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.TriggerStreamingLevel.FLevelStreamingData>>(Ptr + 440); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 440); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.TriggerStreamingLevel.FLevelStreamingData>>(Ptr + 464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
     }
 
     /// <summary>

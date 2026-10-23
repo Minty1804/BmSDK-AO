@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RMapPlacementMarker<br/>
-/// (size = 448)
+/// (size = 476)
 /// (flags = 142606994)
 /// </summary>
 public partial class RMapPlacementMarker : BmSDK.Engine.Actor, BmSDK.IGameObject
@@ -83,8 +83,8 @@ public partial class RMapPlacementMarker : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.BmGame.RMapPlacementMarker.MapMarkerType MarkerType
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RMapPlacementMarker.MapMarkerType>(Ptr + 428); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 428); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RMapPlacementMarker.MapMarkerType>(Ptr + 452); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 452); }
     }
 
     /// <summary>
@@ -92,8 +92,8 @@ public partial class RMapPlacementMarker : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.BmGame.RPersistentData.ERiddlerLocationName Zone
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.ERiddlerLocationName>(Ptr + 429); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 429); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.ERiddlerLocationName>(Ptr + 453); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 453); }
     }
 
     /// <summary>
@@ -101,8 +101,8 @@ public partial class RMapPlacementMarker : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe int Index
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 432); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 456); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 456); }
     }
 
     /// <summary>
@@ -110,8 +110,17 @@ public partial class RMapPlacementMarker : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// </summary>
     public unsafe BmSDK.FString StringName
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 436); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 436); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 460); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 460); }
+    }
+
+    /// <summary>
+    /// BoolProperty: UI_Shown
+    /// </summary>
+    public unsafe bool UI_Shown
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 472) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 472); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 472); }
     }
 
     /// <summary>
@@ -121,14 +130,26 @@ public partial class RMapPlacementMarker : BmSDK.Engine.Actor, BmSDK.IGameObject
     {
         MMT_Objective = 0,
         MMT_CrimeScene = 1,
-        MMT_Riddle = 2,
-        MMT_RiddleProjectedQ = 3,
-        MMT_Cipher = 4,
-        MMT_Officer = 5,
-        MMT_PointOfInterest = 6,
-        MMT_ARTraining = 7,
-        MMT_ThugAssult = 8,
-        MMT_SecurityCamera = 9,
-        MMT_MAX = 10,
+        MMT_EnigmaTrophy = 2,
+        MMT_EnigmaBreakable = 3,
+        MMT_SMAnarky = 4,
+        MMT_SMPenguin = 5,
+        MMT_SMDeadshot = 6,
+        MMT_SMMadHatter = 7,
+        MMT_SMBird = 8,
+        MMT_SMBlackgatePrisoners = 9,
+        MMT_SMShivaIcon = 10,
+        MMT_SMShivaTrajectory = 11,
+        MMT_SMBlackMask = 12,
+        MMT_SMGenericRadius = 13,
+        MMT_DEInformant = 14,
+        MMT_DESpecial = 15,
+        MMT_DEEpic = 16,
+        MMT_EnigmaTower = 17,
+        MMT_PointOfInterest = 18,
+        MMT_ChallengeMode = 19,
+        MMT_ARChallenge = 20,
+        MMT_EnigmaHQ = 21,
+        MMT_MAX = 22,
     }
 }

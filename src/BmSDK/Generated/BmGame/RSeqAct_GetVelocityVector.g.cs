@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_GetVelocityVector<br/>
-/// (size = 216)
+/// (size = 236)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_GetVelocityVector : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -93,5 +93,5 @@ public partial class RSeqAct_GetVelocityVector : BmSDK.Engine.SequenceAction, Bm
     /// StructProperty: Velocity
     /// </summary>
     public unsafe ref System.Numerics.Vector3 Velocity
-        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 204);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 224);
 }

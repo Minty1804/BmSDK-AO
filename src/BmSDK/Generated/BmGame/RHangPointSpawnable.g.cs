@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RHangPointSpawnable<br/>
-/// (size = 948)
+/// (size = 1004)
 /// (flags = 2155872786)
 /// </summary>
 public partial class RHangPointSpawnable : BmSDK.BmGame.RHangAttackHook, BmSDK.IGameObject
@@ -117,7 +117,7 @@ public partial class RHangPointSpawnable : BmSDK.BmGame.RHangAttackHook, BmSDK.I
     /// </summary>
     public unsafe BmSDK.BmGame.RHidePoint SourceHidePoint
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RHidePoint>(Ptr + 944); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 944); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RHidePoint>(Ptr + 1000); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1000); }
     }
 }

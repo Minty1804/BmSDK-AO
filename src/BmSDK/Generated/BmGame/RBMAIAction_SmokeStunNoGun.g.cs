@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RBMAIAction_SmokeStunNoGun<br/>
-/// (size = 572)
+/// (size = 596)
 /// (flags = 8388626)
 /// </summary>
 public partial class RBMAIAction_SmokeStunNoGun : BmSDK.BmGame.RBMAIAction, BmSDK.IGameObject

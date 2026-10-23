@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RAudioPoint_Tannoy<br/>
-/// (size = 1948)
+/// (size = 2016)
 /// (flags = 8389174)
 /// </summary>
 public partial class RAudioPoint_Tannoy : BmSDK.BmGame.RAudioPointController, BmSDK.IGameObject

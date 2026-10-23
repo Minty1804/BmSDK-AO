@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSeqAct_SetCharacterProgress<br/>
-/// (size = 216)
+/// (size = 268)
 /// (flags = 8210)
 /// </summary>
 public partial class RSeqAct_SetCharacterProgress : BmSDK.Engine.SequenceAction, BmSDK.IGameObject
@@ -95,36 +95,54 @@ public partial class RSeqAct_SetCharacterProgress : BmSDK.Engine.SequenceAction,
     public unsafe override void Activated()
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RSeqAct_SetCharacterProgress.Activated", true);
-        byte* paramsPtr = stackalloc byte[20];
+        byte* paramsPtr = stackalloc byte[48];
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
     /// <summary>
-    /// ByteProperty: Character
+    /// IntProperty: Percentage
     /// </summary>
-    public unsafe BmSDK.BmGame.RPersistentData.EProgressCharacter Character
+    public unsafe int Percentage
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EProgressCharacter>(Ptr + 204); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 224); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
     }
 
     /// <summary>
-    /// ByteProperty: Location
+    /// StrProperty: SDB_Title
     /// </summary>
-    public unsafe BmSDK.BmGame.RPersistentData.EProgressLocations Location
+    public unsafe BmSDK.FString SDB_Title
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EProgressLocations>(Ptr + 205); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 205); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 228); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 228); }
     }
 
     /// <summary>
-    /// IntProperty: Status
+    /// StrProperty: SDB_Description
     /// </summary>
-    public unsafe int Status
+    public unsafe BmSDK.FString SDB_Description
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
+    }
+
+    /// <summary>
+    /// BoolProperty: ShowObjectiveMessage
+    /// </summary>
+    public unsafe bool ShowObjectiveMessage
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 252); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bMapPrompt
+    /// </summary>
+    public unsafe bool bMapPrompt
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 252); }
     }
 
     /// <summary>
@@ -132,8 +150,8 @@ public partial class RSeqAct_SetCharacterProgress : BmSDK.Engine.SequenceAction,
     /// </summary>
     public unsafe bool IdentityUnknown
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 212); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 252); }
     }
 
     /// <summary>
@@ -141,7 +159,70 @@ public partial class RSeqAct_SetCharacterProgress : BmSDK.Engine.SequenceAction,
     /// </summary>
     public unsafe bool Locked
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212) & 2) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 212); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 252); }
+    }
+
+    /// <summary>
+    /// BoolProperty: IsNew
+    /// </summary>
+    public unsafe bool IsNew
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 252); }
+    }
+
+    /// <summary>
+    /// BoolProperty: isStoryProgression
+    /// </summary>
+    public unsafe bool isStoryProgression
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 252); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 252); }
+    }
+
+    /// <summary>
+    /// FloatProperty: ShowTimeSeconds
+    /// </summary>
+    public unsafe float ShowTimeSeconds
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 256); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 256); }
+    }
+
+    /// <summary>
+    /// ByteProperty: iconType
+    /// </summary>
+    public unsafe BmSDK.BmGame.MGFxWidgetMapSystem.ObjIcon iconType
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGFxWidgetMapSystem.ObjIcon>(Ptr + 260); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 260); }
+    }
+
+    /// <summary>
+    /// ByteProperty: Character
+    /// </summary>
+    public unsafe BmSDK.BmGame.RPersistentData.EProgressCharacter Character
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EProgressCharacter>(Ptr + 261); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 261); }
+    }
+
+    /// <summary>
+    /// ByteProperty: Location
+    /// </summary>
+    public unsafe BmSDK.BmGame.RPersistentData.EProgressLocations Location
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EProgressLocations>(Ptr + 262); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 262); }
+    }
+
+    /// <summary>
+    /// IntProperty: MissionCompleted
+    /// </summary>
+    public unsafe int MissionCompleted
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 264); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 264); }
     }
 }

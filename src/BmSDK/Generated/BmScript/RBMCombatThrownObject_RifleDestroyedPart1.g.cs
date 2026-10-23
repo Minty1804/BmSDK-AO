@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RBMCombatThrownObject_RifleDestroyedPart1<br/>
-/// (size = 720)
+/// (size = 780)
 /// (flags = 8389138)
 /// </summary>
 public partial class RBMCombatThrownObject_RifleDestroyedPart1 : BmSDK.BmGame.RBMCombatThrownObject, BmSDK.IGameObject

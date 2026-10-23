@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// Class: RSeqAct_SpeechEventManager<br/>
-/// (size = 380)
+/// (size = 400)
 /// (flags = 142614674)
 /// </summary>
 public partial class RSeqAct_SpeechEventManager : BmSDK.BmGame.RSeqAct_SpeechEventManagerBase, BmSDK.IGameObject
@@ -142,29 +142,29 @@ public partial class RSeqAct_SpeechEventManager : BmSDK.BmGame.RSeqAct_SpeechEve
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RSeqAct_SpeechEventManagerBase.FSpeechEvent> SpeechEvents
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RSeqAct_SpeechEventManagerBase.FSpeechEvent>>(Ptr + 284); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 284); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RSeqAct_SpeechEventManagerBase.FSpeechEvent>>(Ptr + 304); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 304); }
     }
 
     /// <summary>
     /// StructProperty: SpeechEventPlayerClose
     /// </summary>
     public unsafe ref BmSDK.BmGame.RSeqAct_SpeechEventManagerBase.FSpeechEvent SpeechEventPlayerClose
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RSeqAct_SpeechEventManagerBase.FSpeechEvent>(Ptr + 296);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RSeqAct_SpeechEventManagerBase.FSpeechEvent>(Ptr + 316);
 
     /// <summary>
     /// StructProperty: SpeechEventPlayerBlocking
     /// </summary>
     public unsafe ref BmSDK.BmGame.RSeqAct_SpeechEventManagerBase.FSpeechEvent SpeechEventPlayerBlocking
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RSeqAct_SpeechEventManagerBase.FSpeechEvent>(Ptr + 332);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.BmGame.RSeqAct_SpeechEventManagerBase.FSpeechEvent>(Ptr + 352);
 
     /// <summary>
     /// BoolProperty: bPlayerAlreadyClose
     /// </summary>
     public unsafe bool bPlayerAlreadyClose
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 368) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 368); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 368); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 388) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 388); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 388); }
     }
 
     /// <summary>
@@ -172,8 +172,8 @@ public partial class RSeqAct_SpeechEventManager : BmSDK.BmGame.RSeqAct_SpeechEve
     /// </summary>
     public unsafe float PlayerCloseTime
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 372); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 372); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 392); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 392); }
     }
 
     /// <summary>
@@ -181,7 +181,7 @@ public partial class RSeqAct_SpeechEventManager : BmSDK.BmGame.RSeqAct_SpeechEve
     /// </summary>
     public unsafe float PlayerCloseDelay
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 376); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 376); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 396); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 396); }
     }
 }

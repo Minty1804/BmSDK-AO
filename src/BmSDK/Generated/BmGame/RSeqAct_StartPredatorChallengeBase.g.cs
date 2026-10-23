@@ -5,7 +5,7 @@ namespace BmSDK.BmGame;
 
 /// <summary>
 /// ABSTRACT Class: RSeqAct_StartPredatorChallengeBase<br/>
-/// (size = 236)
+/// (size = 256)
 /// (flags = 8211)
 /// </summary>
 public partial class RSeqAct_StartPredatorChallengeBase : BmSDK.Engine.SeqAct_Latent, BmSDK.IGameObject
@@ -86,6 +86,18 @@ public partial class RSeqAct_StartPredatorChallengeBase : BmSDK.Engine.SeqAct_La
     }
 
     /// <summary>
+    /// Function: ActionPerformedPred
+    /// </summary>
+    public unsafe virtual bool ActionPerformedPred(BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge NewGameAction)
+    {
+        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RSeqAct_StartPredatorChallengeBase.ActionPerformedPred", true);
+        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(NewGameAction, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+    }
+
+    /// <summary>
     /// Function: GetChallengeTime
     /// </summary>
     public unsafe virtual float GetChallengeTime()
@@ -99,10 +111,10 @@ public partial class RSeqAct_StartPredatorChallengeBase : BmSDK.Engine.SeqAct_La
     /// <summary>
     /// ObjectProperty: ChallengeVIP
     /// </summary>
-    public unsafe BmSDK.BmGame.RPawnVillain ChallengeVIP
+    public unsafe BmSDK.BmGame.RBMPawnAI ChallengeVIP
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(Ptr + 220); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 220); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RBMPawnAI>(Ptr + 240); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 240); }
     }
 
     /// <summary>
@@ -110,7 +122,7 @@ public partial class RSeqAct_StartPredatorChallengeBase : BmSDK.Engine.SeqAct_La
     /// </summary>
     public unsafe BmSDK.TArray<BmSDK.BmGame.RPawnVillain> PunchedEnemies
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RPawnVillain>>(Ptr + 224); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 224); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RPawnVillain>>(Ptr + 244); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 244); }
     }
 }

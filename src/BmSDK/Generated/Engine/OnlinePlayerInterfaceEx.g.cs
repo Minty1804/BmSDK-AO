@@ -11,6 +11,11 @@ namespace BmSDK.Engine;
 public partial interface OnlinePlayerInterfaceEx : BmSDK.Interface
 {
     /// <summary>
+    /// Function: UnlockAvatarAward
+    /// </summary>
+    public unsafe bool UnlockAvatarAward(byte LocalUserNum, int AvatarItemId);
+
+    /// <summary>
     /// Function: GetTimeSinceGuideLastClosed
     /// </summary>
     public unsafe float GetTimeSinceGuideLastClosed();

@@ -5,8 +5,8 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RGFxMovieCustom_DeathMovie<br/>
-/// (size = 496)
-/// (flags = 18)
+/// (size = 588)
+/// (flags = 22)
 /// </summary>
 public partial class RGFxMovieCustom_DeathMovie : BmSDK.BmGame.RGFxMovieCustom, BmSDK.IGameObject
 {

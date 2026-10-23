@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// Class: MaterialExpressionLightmassReplace<br/>
-/// (size = 148)
+/// (size = 204)
 /// (flags = 134217874)
 /// </summary>
 public partial class MaterialExpressionLightmassReplace : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
@@ -82,11 +82,11 @@ public partial class MaterialExpressionLightmassReplace : BmSDK.Engine.MaterialE
     /// StructProperty: Realtime
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Realtime
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 92);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 116);
 
     /// <summary>
     /// StructProperty: Lightmass
     /// </summary>
     public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Lightmass
-        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 120);
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 160);
 }

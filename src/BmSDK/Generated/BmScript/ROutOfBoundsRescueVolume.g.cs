@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: ROutOfBoundsRescueVolume<br/>
-/// (size = 512)
+/// (size = 540)
 /// (flags = 8389138)
 /// </summary>
 public partial class ROutOfBoundsRescueVolume : BmSDK.BmGame.RWaterRescueVolumeBase, BmSDK.IGameObject

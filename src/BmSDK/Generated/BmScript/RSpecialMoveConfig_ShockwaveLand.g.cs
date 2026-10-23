@@ -5,7 +5,7 @@ namespace BmSDK.BmScript;
 
 /// <summary>
 /// Class: RSpecialMoveConfig_ShockwaveLand<br/>
-/// (size = 544)
+/// (size = 568)
 /// (flags = 4114)
 /// </summary>
 public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMoveConfig_Land, BmSDK.IGameObject
@@ -88,12 +88,57 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     }
 
     /// <summary>
+    /// FloatProperty: SmashForce
+    /// </summary>
+    public unsafe float SmashForce
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 492); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
+    }
+
+    /// <summary>
+    /// FloatProperty: SmashStunTime
+    /// </summary>
+    public unsafe float SmashStunTime
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
+    }
+
+    /// <summary>
+    /// FloatProperty: SmashDamageAmount
+    /// </summary>
+    public unsafe float SmashDamageAmount
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
+    }
+
+    /// <summary>
+    /// ByteProperty: VillainsKnockedOutBatmanScore
+    /// </summary>
+    public unsafe BmSDK.BmGame.RPersistentData.EBatmanChallenge VillainsKnockedOutBatmanScore
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EBatmanChallenge>(Ptr + 504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
+    }
+
+    /// <summary>
+    /// ByteProperty: VillainsUpgradeKnockedOutBatmanScore
+    /// </summary>
+    public unsafe BmSDK.BmGame.RPersistentData.EBatmanChallenge VillainsUpgradeKnockedOutBatmanScore
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.EBatmanChallenge>(Ptr + 505); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 505); }
+    }
+
+    /// <summary>
     /// FloatProperty: MinShockwaveRadius
     /// </summary>
     public unsafe float MinShockwaveRadius
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 492); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 508); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 508); }
     }
 
     /// <summary>
@@ -101,8 +146,8 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe float MaxShockwaveRadius
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 496); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 512); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 512); }
     }
 
     /// <summary>
@@ -110,8 +155,8 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe float ShockwaveRadiusPower
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 500); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 516); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 516); }
     }
 
     /// <summary>
@@ -119,8 +164,8 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe float ShockwaveForce
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 504); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 520); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
     }
 
     /// <summary>
@@ -128,8 +173,8 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe float ShockwaveTan
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 508); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 508); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 524); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
     }
 
     /// <summary>
@@ -137,8 +182,26 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe float ShockwaveUpgradeDelay
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 512); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 512); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 528); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 528); }
+    }
+
+    /// <summary>
+    /// FloatProperty: ShockwaveStunTime
+    /// </summary>
+    public unsafe float ShockwaveStunTime
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 532); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 532); }
+    }
+
+    /// <summary>
+    /// FloatProperty: ShockwaveDamageAmount
+    /// </summary>
+    public unsafe float ShockwaveDamageAmount
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 536); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 536); }
     }
 
     /// <summary>
@@ -146,8 +209,17 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe bool bTriggerSecondaryShockwave
     {
-        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516) & 1) != 0; }
-        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 516); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 516); }
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 540) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 540); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 540); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bAutoTriggerShockwaveUpgrade
+    /// </summary>
+    public unsafe bool bAutoTriggerShockwaveUpgrade
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 540) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 540); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 540); }
     }
 
     /// <summary>
@@ -155,8 +227,8 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe BmSDK.Engine.ParticleSystem ShockwaveUpgradeFX
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 520); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 520); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleSystem>(Ptr + 544); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 544); }
     }
 
     /// <summary>
@@ -164,8 +236,8 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe float ShockwaveFXRadius
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 524); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 524); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 548); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 548); }
     }
 
     /// <summary>
@@ -173,8 +245,8 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent ShockwaveChargeSound
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 528); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 528); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 552); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 552); }
     }
 
     /// <summary>
@@ -182,8 +254,8 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe BmSDK.Engine.AkEvent ShockwaveBlastSound
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 532); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 532); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkEvent>(Ptr + 556); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 556); }
     }
 
     /// <summary>
@@ -191,8 +263,8 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe float ChargeSoundDuration
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 536); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 536); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 560); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 560); }
     }
 
     /// <summary>
@@ -200,7 +272,7 @@ public partial class RSpecialMoveConfig_ShockwaveLand : BmSDK.BmGame.RSpecialMov
     /// </summary>
     public unsafe BmSDK.Engine.ForceFeedbackWaveform rumble
     {
-        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ForceFeedbackWaveform>(Ptr + 540); }
-        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 540); }
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ForceFeedbackWaveform>(Ptr + 564); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 564); }
     }
 }

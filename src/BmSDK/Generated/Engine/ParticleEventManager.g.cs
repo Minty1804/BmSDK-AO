@@ -5,7 +5,7 @@ namespace BmSDK.Engine;
 
 /// <summary>
 /// ABSTRACT Class: ParticleEventManager<br/>
-/// (size = 428)
+/// (size = 452)
 /// (flags = 142606483)
 /// </summary>
 public partial class ParticleEventManager : BmSDK.Engine.Actor, BmSDK.IGameObject
