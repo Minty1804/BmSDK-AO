@@ -16,7 +16,7 @@ internal sealed class GlobalRedirectManager(BindingFlags genericRedirSearchFlags
     /// Maps declaring function paths to GlobalRedirectorInfo objects which contain
     /// the target class and the delegate of the detour.
     /// </summary>
-    private readonly Dictionary<string, List<GlobalRedirectorInfo>> _globalRedirsDict = [];
+    private readonly Dictionary<string, List<GlobalRedirectorInfo>> _globalRedirsDict = new(UENames.Comparer);
 
     /// <summary>
     /// Registers all functions marked with a <see cref="RedirectAttribute"/> in a given assembly.
@@ -66,7 +66,10 @@ internal sealed class GlobalRedirectManager(BindingFlags genericRedirSearchFlags
             redirAttr.AllowSubtypes,
             redirectMi,
             redirectMi.DeclaringType!.Assembly
-        );
+        )
+        {
+            IncludeOverrides = redirAttr.IncludeOverrides,
+        };
 
         // Add new redirect to the target function's redirect list
         if (_globalRedirsDict.TryGetValue(declaringFuncPath, out var redirects))
@@ -120,6 +123,23 @@ internal sealed class GlobalRedirectManager(BindingFlags genericRedirSearchFlags
                 return objType == info.TargetType;
             }
         });
+    }
+
+    /// <summary>
+    /// BmSDK-AO: redirects with <see cref="RedirectAttribute.IncludeOverrides"/> registered on a function that the
+    /// running one overrides (<paramref name="superPaths"/>, nearest first). The nearest match wins.
+    /// </summary>
+    public IEnumerable<GlobalRedirectorInfo> GetOverrideRedirectors(GameObject obj, string[] superPaths)
+    {
+        foreach (var path in superPaths)
+        {
+            var found = GetRedirectors(obj, path).Where(info => info.IncludeOverrides).ToArray();
+            if (found.Length > 0)
+            {
+                return found;
+            }
+        }
+        return [];
     }
 
     /// <summary>

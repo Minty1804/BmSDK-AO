@@ -8,6 +8,16 @@ public abstract class GameDefine
 
     public abstract string Name { get; }
 
+    // False while a port can only run in bring-up mode (see GameDefineAO and Loader.AO.cs)
+    public virtual bool SupportsFullRuntime => true;
+
+    // FNameEntry text: City keeps UTF-16 at +16, Arkham Origins ANSI at +12
+    public virtual int NameEntryTextOffset => 16;
+    public virtual bool NameEntryIsAnsi => false;
+
+    // DLC bundle install (DLCManager) relies on VTableOffsets, only measured for City
+    public virtual bool SupportsDLCBundles => true;
+
     // Globals
     public abstract IntPtr GNames { get; }
     public abstract IntPtr GObjObjects { get; }
@@ -78,6 +88,7 @@ public abstract class GameDefine
         {
             GameDefineEpic.TimeDateStamp => new GameDefineEpic(),
             GameDefineSteam.TimeDateStamp => new GameDefineSteam(),
+            GameDefineAO.TimeDateStamp => new GameDefineAO(),
             _ => throw new NotSupportedException(
                 $"Unrecognized BatmanAC.exe build (TimeDateStamp 0x{timeDateStamp:X8})"
             ),

@@ -48,9 +48,17 @@ void Runtime::OnAttach()
         []()
         {
             TRACE("Press 'P' to start SDK generation");
+            const auto triggerFile = Runtime::GetExeDir() / "BmSDK.Generator.go";
             while (true)
             {
-                if ((GetAsyncKeyState('P') & 0x8000))
+                // A trigger file also starts it, without needing the game window focused
+                std::error_code ec;
+                if (fs::exists(triggerFile, ec))
+                {
+                    fs::remove(triggerFile, ec);
+                    TRACE("Trigger file found");
+                }
+                else if ((GetAsyncKeyState('P') & 0x8000))
                 {
                     DWORD foregroundPID = 0;
                     GetWindowThreadProcessId(GetForegroundWindow(), &foregroundPID);
@@ -58,9 +66,17 @@ void Runtime::OnAttach()
                     // Don't generate if the game window isn't focused.
                     if (foregroundPID != GetCurrentProcessId())
                     {
+                        this_thread::sleep_for(chrono::milliseconds(100));
                         continue;
                     }
+                }
+                else
+                {
+                    this_thread::sleep_for(chrono::milliseconds(100));
+                    continue;
+                }
 
+                {
                     HANDLE mainThread = OpenThread(THREAD_SUSPEND_RESUME, FALSE, Runtime::MainThreadId);
                     if (mainThread) SuspendThread(mainThread);
 
@@ -72,13 +88,18 @@ void Runtime::OnAttach()
                     }
                     break;
                 }
-                this_thread::sleep_for(chrono::milliseconds(100));
             }
         })
         .detach();
 }
 
 void Runtime::LoadClassesIntoMemory() {
+    if (GameOffsets::IsAO)
+    {
+        LoadClassesIntoMemoryAO();
+        return;
+    }
+
     TRACE("Loading all UPKs into memory");
 
     const wregex packageFilter(
@@ -114,6 +135,11 @@ void Runtime::GenerateSDK()
 
     LoadClassesIntoMemory();
 
+    if (GameOffsets::IsAO)
+    {
+        CheckLayoutAO();
+    }
+
     TRACE("Scanning {} objects for classes", Runtime::GObjects->Num);
 
     Runtime::Classes.clear();
@@ -144,6 +170,12 @@ void Runtime::GenerateSDK()
 
     // TODO: Un-hardcode this
     fs::path outDir = "..\\..\\..\\src\\BmSDK\\Generated\\";
+    if (GameOffsets::IsAO)
+    {
+        // Written next to the exe; BmSDK-AO/tools copies it into repo/src/BmSDK/Generated
+        outDir = GetExeDir() / "BmSDK.Generated";
+    }
+    TRACE("Output directory {}", outDir.string());
     fs::remove_all(outDir);
     fs::create_directory(outDir);
 
@@ -169,6 +201,12 @@ void Runtime::GenerateSDK()
         }
 
         Printer::PrintFile(classObj, classFileStream);
+    }
+
+    // AO cooks BmScript into the maps: load them in batches and print the classes they add
+    if (GameOffsets::IsAO)
+    {
+        GenerateMoreClassesAO(outDir);
     }
 
     // Print StaticInit file

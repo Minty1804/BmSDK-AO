@@ -19,7 +19,7 @@ internal static class RedirectManager
     /// A unique set of all function paths that have been redirected.
     /// This is used to set up UFunction objects for redirection.
     /// </summary>
-    private static readonly HashSet<string> s_redirectFuncs = [];
+    private static readonly HashSet<string> s_redirectFuncs = new(UENames.Comparer);
 
     /// <summary>
     /// Stack storing the currently running redirect targets.
@@ -80,7 +80,8 @@ internal static class RedirectManager
         Function funcObj,
         string funcPath,
         FFrame* stackPtr,
-        IntPtr Result
+        IntPtr Result,
+        string[]? superPaths = null // BmSDK-AO: functions this one overrides, for IncludeOverrides redirects
     )
     {
         // Prevent infinite recursion: if top of stack is the function object, treat as reentry
@@ -110,14 +111,18 @@ internal static class RedirectManager
         }
 
         // Get redirects applicable to current function
-        var redirs = AcquireRedirects(selfObj, funcPath);
-        if (!redirs.Any())
+        var redirs = AcquireRedirects(selfObj, funcPath).ToArray();
+        if (redirs.Length == 0 && superPaths is { Length: > 0 })
+        {
+            redirs = Global.GetOverrideRedirectors(selfObj, superPaths).Cast<IGenericRedirect>().ToArray();
+        }
+        if (redirs.Length == 0)
         {
             return false;
         }
 
         // Push this func to mark it as being actively redirected during this invocation
-        var newCall = new RedirectCall(selfObj, funcObj, redirs.ToArray());
+        var newCall = new RedirectCall(selfObj, funcObj, redirs);
         s_redirectCalls.Push(newCall);
 
         try

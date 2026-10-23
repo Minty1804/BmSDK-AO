@@ -6,6 +6,7 @@ DetourAttach
 DetourDetach
 DetourTransactionBegin
 DetourTransactionCommit
+DetourTransactionAbort
 DetourFinishHelperProcess
 
 GetWindowThreadProcessId

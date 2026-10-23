@@ -56,4 +56,19 @@ public abstract class Script
     /// the new version of the scripts class
     /// </summary>
     public virtual void OnLoad() { }
+
+    /// <summary>
+    /// Called when the user changes one of this mod's <see cref="OptionAttribute"/> options in the
+    /// in-game menu (BmSDK-AO addition). The member already holds the new value.
+    /// While a slider is dragged the member follows every frame, but this runs at most 10 times a second, plus once
+    /// with the final value when the slider is released.
+    /// </summary>
+    /// <param name="name">Name of the field or property that changed.</param>
+    public virtual void OnOptionChanged(string name) { }
+
+    /// <summary>
+    /// Sets the status line under one of this mod's options in the menu (BmSDK-AO addition). Empty text removes it.
+    /// </summary>
+    protected void SetOptionStatus(string memberName, string text, OptionStatus status = OptionStatus.Info) =>
+        OptionsMenu.SetStatus(Mod, memberName, text, status);
 }

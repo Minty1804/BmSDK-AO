@@ -36,4 +36,11 @@ public sealed class RedirectAttribute(Type targetType, string targetMethod) : At
     /// particular child type.
     /// </summary>
     public bool AllowSubtypes { get; init; } = true;
+
+    /// <summary>
+    /// BmSDK-AO addition: also redirect the subclass overrides of the target function (and the copies UnrealScript
+    /// makes of it inside states). Inside the redirect, calling the function runs the override that was called.
+    /// Off by default, so a redirect keeps covering only its own definition, as in upstream BmSDK.
+    /// </summary>
+    public bool IncludeOverrides { get; init; }
 }

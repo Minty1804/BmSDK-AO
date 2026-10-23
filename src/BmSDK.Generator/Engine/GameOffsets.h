@@ -7,6 +7,9 @@ namespace GameOffsets
 {
     inline constexpr uint32_t TimeDateStampEpic = 0x5D9F84DF;
     inline constexpr uint32_t TimeDateStampSteam = 0x520000F7;
+    // Batman: Arkham Origins (Steam, SinglePlayer). AO specifics live in AOChecks.cpp.
+    inline constexpr uint32_t TimeDateStampAOSteam = 0x53597942;
+    inline bool IsAO = false;
 
     // Globals
     inline uintptr_t GObjects = 0;
@@ -36,6 +39,14 @@ namespace GameOffsets
                 StaticFindObject = 0x8F3A0;
                 LoadPackage = 0xA06D0;
                 CollectGarbage = 0xAF980;
+                return true;
+            case TimeDateStampAOSteam:
+                GObjects = 0x14B1ACC;
+                GNames = 0x14B1A98;
+                StaticFindObject = 0x86950;
+                LoadPackage = 0x92210;
+                CollectGarbage = 0x9D4E0;
+                IsAO = true;
                 return true;
             default:
                 return false;

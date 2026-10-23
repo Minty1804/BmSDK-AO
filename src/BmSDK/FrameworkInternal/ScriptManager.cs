@@ -190,6 +190,9 @@ internal static class ScriptManager
                 RedirectManager.Global.RegisterRedirectors(asm);
                 ScriptComponentManager.RegisterTypes(asm);
 
+                // BmSDK-AO: [Option] members, ini and in-game menu tab
+                OptionsManager.RegisterMod(mod, asm, scripts);
+
                 if (s_isInitialized)
                 {
                     RedirectManager.ConfigureAllRedirectedFunctions();
@@ -212,6 +215,11 @@ internal static class ScriptManager
 
         // Call OnUnload on this mod's scripts
         loaded.Scripts.ForEach(script => script.OnUnload());
+
+        // BmSDK-AO: save pending options and drop the mod's menu tab (and its references to the assembly)
+        OptionsManager.UnregisterMod(loaded.Mod);
+        // BmSDK-AO: native hooks the mod made with DetourUtil.Hook point into the assembly that is going away
+        DetourUtil.RemoveHooksOf(loaded.Alc);
 
         if (asm != null)
         {

@@ -111,15 +111,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Framework\ao_boot.cpp" />
     <ClCompile Include="Framework\detour_manager.cpp" />
+    <ClCompile Include="Framework\options_menu.cpp" />
     <ClCompile Include="runtime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="vcpkg.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\ao_boot.h" />
     <ClInclude Include="Framework\detour_manager.h" />
     <ClInclude Include="Framework\offsets.h" />
+    <ClInclude Include="Framework\options_menu.h" />
     <ClInclude Include="runtime.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

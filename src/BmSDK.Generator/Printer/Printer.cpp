@@ -619,7 +619,7 @@ void Printer::PrintStaticInit(const vector<ClassInfo>& classes, ostream& out)
     Printer::PushIndent();
     {
         // Print props
-        Printer::Indent(out) << "private static Dictionary<string, Type> _classPathToManagedTypeMap = [];"
+        Printer::Indent(out) << "private static Dictionary<string, Type> _classPathToManagedTypeMap = new(System.StringComparer.OrdinalIgnoreCase);"
             << endl;
         Printer::Indent(out) << "private static Dictionary<Type, string> _managedTypeToClassPathMap = [];"
             << endl;

@@ -19,6 +19,15 @@ internal static class DLCManager
 
     public static unsafe void Run(bool rescan)
     {
+        if (!GameDefine.Current.SupportsDLCBundles)
+        {
+            if (rescan)
+            {
+                Debug.LogWarning("DLC bundles are not supported on this game yet");
+            }
+            return;
+        }
+
         var engine = Game.GetEngine();
 
         var enumerator = engine.DLCEnumerator;

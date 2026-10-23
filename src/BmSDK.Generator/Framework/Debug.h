@@ -26,12 +26,21 @@ namespace Debug
 
 	class DebugStream : public std::streambuf
 	{
+	public:
+		FILE* File = nullptr;  // also mirrored to BmSDK.Generator.log next to the exe
+
+	private:
 		virtual int overflow(int c) override
 		{
 			if (c != EOF)
 			{
 				char ch = static_cast<char>(c);
 				OutputDebugStringA(std::string(1, ch).c_str());
+				if (File)
+				{
+					fputc(ch, File);
+					if (ch == '\n') fflush(File);
+				}
 			}
 			return c;
 		}

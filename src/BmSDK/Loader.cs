@@ -8,7 +8,7 @@ using MoreLinq;
 
 namespace BmSDK.Framework;
 
-internal static class Loader
+internal static partial class Loader
 {
     private const string InitFuncName = "Engine.GameInfo:InitGame";
     private const string EnterMenuFuncName = "GFxUI.GFxMoviePlayer:Init";
@@ -38,6 +38,13 @@ internal static class Loader
 
         Debug.InitFileLog();
         Debug.Log($"Detected {GameDefine.Current.Name} build");
+
+        // Arkham Origins port: run only what the known addresses allow (Loader.AO.cs)
+        if (!GameDefine.Current.SupportsFullRuntime)
+        {
+            BringUpMain();
+            return;
+        }
 
         // Perform static init (before engine load)
         StaticInit.StaticInitClasses();
@@ -87,6 +94,9 @@ internal static class Loader
     {
         // Run the scheduled callbacks
         EngineSynchronizationContext.Instance.ExecutePending();
+
+        // BmSDK-AO: options menu, also while the game is paused (RGameInfo.Tick stops then)
+        RunGuarded(OptionsManager.EngineTick);
         return _EngineTickDetourBase!.Invoke(self);
     }
 
@@ -102,10 +112,12 @@ internal static class Loader
             FFrame* stackPtr = (FFrame*)Stack.ToPointer();
             var selfObj = MarshalUtil.ToManaged<GameObject>(&selfPtr);
             var funcObj = MarshalUtil.ToManaged<Function>(&stackPtr->Node);
-            var funcName = funcObj.GetPathName();
+            // BmSDK-AO: cached per function (GetPathName on every script call was the main cost of this detour)
+            var funcInfo = FunctionCache.Get(funcObj);
+            var funcName = funcInfo.Path;
 
             // Notify scripts of game init
-            if (!s_hasGameInited && funcName == InitFuncName)
+            if (!s_hasGameInited && UENames.Equal(funcName, InitFuncName))
             {
                 // Install DLC bundles
                 DLCManager.Run(true);
@@ -120,13 +132,13 @@ internal static class Loader
             }
 
             // The game's own DLC scan begins by clearing every bundle, so reinstall once it completes.
-            if (funcName == DLCScanCompleteFuncName)
+            if (UENames.Equal(funcName, DLCScanCompleteFuncName))
             {
                 DLCManager.Run(false);
             }
 
             // Notify scripts of game start
-            if (!s_hasGameStarted && funcName == EnterMenuFuncName)
+            if (!s_hasGameStarted && UENames.Equal(funcName, EnterMenuFuncName))
             {
                 ScriptManager.Scripts.ForEach(script =>
                     Debug.RunWithSender(script.Name, script.OnEnterMenu)
@@ -135,7 +147,7 @@ internal static class Loader
             }
 
             // Notify scripts of game begin play
-            if (funcName == EnterGameFuncName)
+            if (UENames.Equal(funcName, EnterGameFuncName))
             {
                 ScriptManager.Scripts.ForEach(script =>
                     Debug.RunWithSender(script.Name, script.OnEnterGame)
@@ -143,10 +155,11 @@ internal static class Loader
             }
 
             // Notify scripts of game tick
-            if (funcName == TickFuncName)
+            if (UENames.Equal(funcName, TickFuncName))
             {
                 // Tick framework stuff
                 InputManager.Tick();
+                OptionsManager.Tick(); // BmSDK-AO: tells the options menu the game is running
 
                 // Call OnTick() for scripts
                 ScriptManager.Scripts.ForEach(script =>
@@ -164,7 +177,7 @@ internal static class Loader
             }
 
             // Run redirect and skip base implementation if applicable to this function
-            if (RedirectManager.ExecuteRedirector(selfObj, funcObj, funcName, stackPtr, Result))
+            if (RedirectManager.ExecuteRedirector(selfObj, funcObj, funcName, stackPtr, Result, funcInfo.Supers))
             {
                 return;
             }

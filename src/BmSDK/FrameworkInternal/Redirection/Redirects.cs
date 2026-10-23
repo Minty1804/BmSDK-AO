@@ -35,6 +35,9 @@ internal sealed record GlobalRedirectorInfo(
     Assembly SourceAssembly
 ) : IGenericRedirect
 {
+    /// <summary>BmSDK-AO: also runs for subclass overrides of the target function.</summary>
+    public bool IncludeOverrides { get; init; }
+
     public MethodInvoker Invoker { get; } = MethodInvoker.Create(RedirectMethod);
 
     private Type[]? _paramTypes;

@@ -1,6 +1,7 @@
 #pragma once
 #include "TArray.h"
 #include "../Runtime.h"
+#include "GameOffsets.h"
 
 constexpr INT NAME_UNICODE_MASK = 0x1;
 constexpr INT NAME_INDEX_SHIFT = 1;
@@ -22,6 +23,12 @@ class FNameEntry
 public:
     string ToString() const
     {
+        // Arkham Origins: the name is ANSI at +12 (all 96k names checked, see AOChecks.cpp)
+        if (GameOffsets::IsAO)
+        {
+            return string((const char*)this + 12);
+        }
+
         if (IsUnicode())
         {
             wstring wstr = wstring(UniName);

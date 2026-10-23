@@ -2,6 +2,7 @@
 
 #include "Framework/offsets.h"
 #include "Framework/detour_manager.h"
+#include "Framework/ao_boot.h"
 
 static void init_runtime() {
     // Bail out on unsupported builds rather than detouring a bogus address
@@ -10,6 +11,13 @@ static void init_runtime() {
     }
 
     DetourRestoreAfterWith();
+
+    // Arkham Origins: SteamStub-aware start-up (see ao_boot.h)
+    if (offsets::IsAO) {
+        ao_boot::start();
+        return;
+    }
+
     DetourManager::RegisterEngineLoopPreInitDetour();
 }
 

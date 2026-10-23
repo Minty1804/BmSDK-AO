@@ -16,6 +16,12 @@ public:
     static void LoadClassesIntoMemory();
     static void GenerateSDK();
 
+    // Arkham Origins (AOChecks.cpp)
+    static void LoadClassesIntoMemoryAO();
+    static void CheckLayoutAO();
+    static void GenerateMoreClassesAO(const fs::path& outDir);
+    static fs::path GetExeDir();
+
 private:
     static void DetourProcessEvent();
 

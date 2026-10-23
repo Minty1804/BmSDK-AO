@@ -48,7 +48,11 @@ public struct FName
         var GNames = (FNameEntry***)MemUtil.GetPointer<byte>(GameDefine.Current.GNames);
         var GNamesData = *GNames;
 
-        var str = Guard.NotNull(Marshal.PtrToStringUni((IntPtr)GNamesData[Index]->UniName));
+        // Text position and encoding differ per game (see GameDefine)
+        var textPtr = (IntPtr)GNamesData[Index] + GameDefine.Current.NameEntryTextOffset;
+        var str = Guard.NotNull(
+            GameDefine.Current.NameEntryIsAnsi ? Marshal.PtrToStringAnsi(textPtr) : Marshal.PtrToStringUni(textPtr)
+        );
         return Number == 0 ? str : $"{str}_{Number - 1}";
 
     }

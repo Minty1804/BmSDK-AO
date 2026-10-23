@@ -29,7 +29,7 @@ internal sealed class LocalRedirectManager(BindingFlags genericRedirSearchFlags)
     private readonly Dictionary<
         (IntPtr ObjPtr, string FuncPath),
         List<LocalRedirectorInfo>
-    > _localRedirsDict = [];
+    > _localRedirsDict = new(ObjFuncKeyComparer.Instance);
 
     /// <summary>
     /// Maps ScriptComponents to Lists of keys for <see cref="_localRedirsDict"/>.
