@@ -77,9 +77,8 @@ Everything specific to Arkham Origins lives in separate files (`*.AO.cs`, `ao_*`
 ## 🚀 Getting started
 Download the latest version from [Releases](https://github.com/Minty1804/BmSDK-AO/releases). Nothing else is needed: BmSDK-AO carries its own .NET runtime.
 
-1. Close the game.
-2. Run `BmSDK_AO_Installer_vX.Y.Z.exe`, pick your game and click *Install*. It finds the Steam copy of the game by itself. If it doesn't, click *Choose another folder...* and pick the game folder (in Steam: right-click *Batman: Arkham Origins* > *Manage* > *Browse local files*).
-3. Start the game. Press F10 to open the options of your mods.
+1. Run `BmSDK_AO_Installer_vX.Y.Z.exe`, pick your game and click *Install*. It finds the Steam copy of the game by itself. If it doesn't, click *Choose another folder...* and pick the game folder (in Steam: right-click *Batman: Arkham Origins* > *Manage* > *Browse local files*).
+2. Start the game. Press F10 to open the options of your mods.
 
 The installer only adds files to `SinglePlayer\Binaries\Win32\`: `plugins\BmSDK.Host.asi`, the `sdk` folder and `dinput8.dll` ([Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader); an existing `dinput8.dll` from another mod is kept).
 
