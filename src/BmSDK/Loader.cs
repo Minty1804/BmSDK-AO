@@ -34,6 +34,7 @@ internal static partial class Loader
 
     private static void DllMain()
     {
+        CrashContext.Init(); // BmSDK-AO: names the running script in BmSDK.Host.log on a native crash
         EngineSynchronizationContext.InitOnThread();
 
         Debug.InitFileLog();

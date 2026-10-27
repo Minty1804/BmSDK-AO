@@ -6,6 +6,7 @@
 #include <cstring>
 #include <string>
 
+#include "crash_log.h"
 #include "detour_manager.h"
 #include "offsets.h"
 
@@ -68,6 +69,7 @@ namespace ao_boot {
         s_start = GetTickCount64();
         open_log();
         log("BmSDK.Host on Arkham Origins (TimeDateStamp 0x%08X)", offsets::TimeDateStampAOSteam);
+        crash_log::install();
 
         if (preinit_decrypted()) {
             attach("code already decrypted at DllMain");

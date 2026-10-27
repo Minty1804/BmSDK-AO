@@ -112,6 +112,7 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Framework\ao_boot.cpp" />
+    <ClCompile Include="Framework\crash_log.cpp" />
     <ClCompile Include="Framework\detour_manager.cpp" />
     <ClCompile Include="Framework\options_menu.cpp" />
     <ClCompile Include="runtime.cpp" />
@@ -121,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\ao_boot.h" />
+    <ClInclude Include="Framework\crash_log.h" />
     <ClInclude Include="Framework\detour_manager.h" />
     <ClInclude Include="Framework\offsets.h" />
     <ClInclude Include="Framework\options_menu.h" />

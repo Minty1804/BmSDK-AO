@@ -85,12 +85,14 @@ public static class Debug
     internal static void RunWithSender(string sender, Action action)
     {
         s_senderStack.Push(sender);
+        var prevContext = CrashContext.Enter(sender, action.Method); // BmSDK-AO: for the crash log
         try
         {
             action();
         }
         finally
         {
+            CrashContext.Leave(prevContext);
             s_senderStack.Pop();
         }
     }

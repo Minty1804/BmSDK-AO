@@ -53,8 +53,18 @@ internal sealed record GlobalRedirectorInfo(
         return _paramTypes;
     }
 
-    public unsafe void Run(GameObject selfObj, Function funcObj, FFrame* stackPtr, nint Result) =>
-        RedirectManager.Global.ExecuteRedirector(this, selfObj, funcObj, stackPtr, Result);
+    public unsafe void Run(GameObject selfObj, Function funcObj, FFrame* stackPtr, nint Result)
+    {
+        var prevContext = CrashContext.Enter("redirect", RedirectMethod); // BmSDK-AO: for the crash log
+        try
+        {
+            RedirectManager.Global.ExecuteRedirector(this, selfObj, funcObj, stackPtr, Result);
+        }
+        finally
+        {
+            CrashContext.Leave(prevContext);
+        }
+    }
 }
 
 /// <summary>
@@ -75,8 +85,18 @@ internal sealed record LocalRedirectorInfo(
     public Type[] ParamTypes { get; } =
         RedirectMethod.GetParameters().Select(param => param.ParameterType).ToArray();
 
-    public unsafe void Run(GameObject selfObj, Function funcObj, FFrame* stackPtr, nint Result) =>
-        RedirectManager.Local.ExecuteRedirector(this, selfObj, funcObj, stackPtr, Result);
+    public unsafe void Run(GameObject selfObj, Function funcObj, FFrame* stackPtr, nint Result)
+    {
+        var prevContext = CrashContext.Enter("redirect (component)", RedirectMethod); // BmSDK-AO: for the crash log
+        try
+        {
+            RedirectManager.Local.ExecuteRedirector(this, selfObj, funcObj, stackPtr, Result);
+        }
+        finally
+        {
+            CrashContext.Leave(prevContext);
+        }
+    }
 }
 
 /// <summary>
