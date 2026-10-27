@@ -9,6 +9,7 @@
 namespace {
     const char* volatile s_context[2] = {nullptr, nullptr};
 
+    PVOID s_handle = nullptr;
     volatile LONG s_busy = 0;
     volatile LONG s_reports = 0;
     constexpr LONG kMaxReports = 3;
@@ -246,7 +247,8 @@ namespace crash_log {
         if (installed) return;
         installed = true;
         s_mainThread = GetCurrentThreadId();  // DllMain runs on the game's main thread
-        if (AddVectoredExceptionHandler(1, handler)) {
+        s_handle = AddVectoredExceptionHandler(1, handler);
+        if (s_handle) {
             ao_boot::log("Crash log on: native crashes are written here");
         } else {
             ao_boot::log("WARNING: could not install the crash log handler");
@@ -255,5 +257,14 @@ namespace crash_log {
 }
 
 BMSDK_CRASH_API const char* volatile* __cdecl BmSDK_Crash_ContextSlot() {
+    // Called by BmSDK.dll once .NET runs. coreclr added its own vectored handler after ours, in front, and it ends
+    // the process on a fault in managed code before ours sees it: move ours back to the front.
+    static bool moved = false;
+    if (s_handle && !moved) {
+        moved = true;
+        RemoveVectoredExceptionHandler(s_handle);
+        s_handle = AddVectoredExceptionHandler(1, handler);
+        ao_boot::log(s_handle ? "Crash log moved in front of .NET's handler" : "WARNING: crash log handler lost");
+    }
     return s_context;
 }

@@ -13,6 +13,7 @@ namespace crash_log {
     void install();
 }
 
+// Also moves the crash handler in front of .NET's, which is added later (call it once .NET runs).
 // Two UTF-8 string pointers that BmSDK.dll (CrashContext.cs) keeps up to date: [0] what is running now (null when
 // the game's own code runs), [1] the last thing that started. The strings are never freed.
 BMSDK_CRASH_API const char* volatile* __cdecl BmSDK_Crash_ContextSlot();
