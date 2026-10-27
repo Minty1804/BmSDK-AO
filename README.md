@@ -68,9 +68,11 @@ Check out the [BmSDK documentation](https://bmsdk.dev/docs) for more info. It is
 
 ## 🦇 What this fork adds
 - **Arkham Origins support** (single player, Steam version): the game's address table, startup on the protected Steam executable, and C# classes generated from Arkham Origins itself.
-- **In-game options menu** (F10, or Insert while the Ultimate UI AO `.asi` is installed): mods declare their settings with `[Option]` and get their own tab. Settings are saved to an `options.ini` next to each mod. The menu supports toggles, sliders, choices, colours, text, sections, English and Spanish.
+- **In-game options menu** (F10, or Insert while the Ultimate UI AO `.asi` is installed): mods declare their settings with `[Option]` and get their own tab. Settings are saved to an `options.ini` next to each mod. The menu supports toggles, sliders, choices (also filled at run time with `OptionsMenu.SetChoices`), colours, text, sections, English and Spanish.
 - **Native hooks for scripts:** `DetourUtil.Hook` hooks a function of the game executable. BmSDK removes a mod's hooks when it is unloaded or reloaded.
 - **`[Redirect(..., IncludeOverrides = true)]`:** a redirect that also runs when a subclass or a state overrides the function. Off by default, as in the original.
+- **Crash log:** when the game crashes in native code (the game, an `.asi` or a mod), `Binaries\Win32\BmSDK.Host.log` records the real cause: error, address as `module+offset`, registers, likely return addresses and the script or redirect that was running.
+- **`const out` parameters** of game functions are generated as C# `in`, so the value reaches the game (in the original they arrive as zeros).
 
 Everything specific to Arkham Origins lives in separate files (`*.AO.cs`, `ao_*`) where possible, so the original code stays easy to compare and update.
 
