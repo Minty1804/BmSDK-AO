@@ -102,6 +102,7 @@ PropertyInfo::PropertyInfo(UProperty* prop, bool isInStruct)
     IsParam = Flags & (uint64_t)EPropertyFlags::CPF_Parm;
     IsOptionalParam = Flags & (uint64_t)EPropertyFlags::CPF_OptionalParm;
     IsOutParam = Flags & (uint64_t)EPropertyFlags::CPF_OutParm;
+    IsConstParam = Flags & (uint64_t)EPropertyFlags::CPF_Const;
     IsReturnParam = Flags & (uint64_t)EPropertyFlags::CPF_ReturnParm;
     ShouldReturnByRef = prop->ShouldReturnByRef() && !IsInStruct;
 
@@ -184,7 +185,8 @@ FunctionInfo::FunctionInfo(UFunction* func)
 
     for (auto& param : Params)
     {
-        if (param.IsOptionalParam && param.IsOutParam)
+        // C# "out" parameters can't have a default value ("in" ones, for const out, can)
+        if (param.IsOptionalParam && param.IsOutParam && !param.IsConstParam)
         {
             ShouldSuppressOptional = true;
             break;

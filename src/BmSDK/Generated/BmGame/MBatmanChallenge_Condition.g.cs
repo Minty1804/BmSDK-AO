@@ -88,12 +88,12 @@ public partial class MBatmanChallenge_Condition : BmSDK.GameObject, BmSDK.IGameO
     /// <summary>
     /// Function: RegisterAction
     /// </summary>
-    public unsafe virtual bool RegisterAction(out BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
+    public unsafe virtual bool RegisterAction(in BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatmanChallenge_Condition.RegisterAction", true);
         byte* paramsPtr = stackalloc byte[36];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ca, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ca = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MBatmanChallenge.FChallengeAction>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 32);
     }
 
@@ -134,64 +134,64 @@ public partial class MBatmanChallenge_Condition : BmSDK.GameObject, BmSDK.IGameO
     /// <summary>
     /// Function: TestGeneric
     /// </summary>
-    public unsafe virtual bool TestGeneric(out BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca, BmSDK.FString _TestGeneric)
+    public unsafe virtual bool TestGeneric(in BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca, BmSDK.FString _TestGeneric)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatmanChallenge_Condition.TestGeneric", true);
         byte* paramsPtr = stackalloc byte[48];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ca, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(_TestGeneric, paramsPtr + 32);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ca = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MBatmanChallenge.FChallengeAction>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 44);
     }
 
     /// <summary>
     /// Function: TestChallenge
     /// </summary>
-    public unsafe virtual bool TestChallenge(out BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca, BmSDK.BmGame.RPersistentData.EBatmanChallenge _TestChallenge)
+    public unsafe virtual bool TestChallenge(in BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca, BmSDK.BmGame.RPersistentData.EBatmanChallenge _TestChallenge)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatmanChallenge_Condition.TestChallenge", true);
         byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ca, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(_TestChallenge, paramsPtr + 32);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ca = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MBatmanChallenge.FChallengeAction>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 36);
     }
 
     /// <summary>
     /// Function: TestGA
     /// </summary>
-    public unsafe virtual bool TestGA(out BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca, BmSDK.BmGame.RGameInfo.EGameAction _TestGA)
+    public unsafe virtual bool TestGA(in BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca, BmSDK.BmGame.RGameInfo.EGameAction _TestGA)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatmanChallenge_Condition.TestGA", true);
         byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ca, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(_TestGA, paramsPtr + 32);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ca = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MBatmanChallenge.FChallengeAction>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 36);
     }
 
     /// <summary>
     /// Function: TestPredGA
     /// </summary>
-    public unsafe virtual bool TestPredGA(out BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca, BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge _TestPredGA)
+    public unsafe virtual bool TestPredGA(in BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca, BmSDK.BmGame.RGameInfo.EGameAction_PredatorChallenge _TestPredGA)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatmanChallenge_Condition.TestPredGA", true);
         byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ca, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(_TestPredGA, paramsPtr + 32);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ca = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MBatmanChallenge.FChallengeAction>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 36);
     }
 
     /// <summary>
     /// Function: dbgActionName
     /// </summary>
-    public unsafe virtual BmSDK.FString dbgActionName(out BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
+    public unsafe virtual BmSDK.FString dbgActionName(in BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatmanChallenge_Condition.dbgActionName", true);
         byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ca, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ca = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MBatmanChallenge.FChallengeAction>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 32);
     }
 

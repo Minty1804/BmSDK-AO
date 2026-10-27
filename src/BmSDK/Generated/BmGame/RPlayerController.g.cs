@@ -6294,10 +6294,11 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
     /// <summary>
     /// Function: CheckSpaceForGrappleLaunch
     /// </summary>
-    public unsafe virtual bool CheckSpaceForGrappleLaunch(out BmSDK.BmGame.RPawnPlayer.FEnvironmentSpecialMoveLocator Loc)
+    public unsafe virtual bool CheckSpaceForGrappleLaunch(in BmSDK.BmGame.RPawnPlayer.FEnvironmentSpecialMoveLocator Loc)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerController.CheckSpaceForGrappleLaunch", true);
         byte* paramsPtr = stackalloc byte[116];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Loc, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -6306,7 +6307,6 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Loc = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnPlayer.FEnvironmentSpecialMoveLocator>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 112);
     }
 
@@ -6698,11 +6698,12 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
     /// <summary>
     /// Function: ShouldIReallyLand
     /// </summary>
-    public unsafe virtual bool ShouldIReallyLand(BmSDK.Engine.Actor HitFloor, out System.Numerics.Vector3 HitNormal)
+    public unsafe virtual bool ShouldIReallyLand(BmSDK.Engine.Actor HitFloor, in System.Numerics.Vector3 HitNormal)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerController.ShouldIReallyLand", true);
         byte* paramsPtr = stackalloc byte[20];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(HitFloor, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(HitNormal, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -6711,7 +6712,6 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        HitNormal = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 4);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 16);
     }
 
@@ -8566,13 +8566,13 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
     /// <summary>
     /// Function: ReplicateLastMove
     /// </summary>
-    public unsafe virtual void ReplicateLastMove(float DeltaTime, out System.Numerics.Vector3 MoveVelocity)
+    public unsafe virtual void ReplicateLastMove(float DeltaTime, in System.Numerics.Vector3 MoveVelocity)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerController.ReplicateLastMove", true);
         byte* paramsPtr = stackalloc byte[16];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(MoveVelocity, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        MoveVelocity = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 4);
         return;
     }
 
@@ -9293,10 +9293,11 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
     /// <summary>
     /// Function: GetLeftRightAxis
     /// </summary>
-    public unsafe virtual System.Numerics.Vector3 GetLeftRightAxis(out System.Numerics.Vector3 MoveDirection, int NumDirections = default)
+    public unsafe virtual System.Numerics.Vector3 GetLeftRightAxis(in System.Numerics.Vector3 MoveDirection, int NumDirections = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerController.GetLeftRightAxis", true);
         byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(MoveDirection, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NumDirections, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -9306,7 +9307,6 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        MoveDirection = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 16);
     }
 
@@ -10711,7 +10711,7 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
     /// <summary>
     /// Function: CheckInterrogationTargetNative
     /// </summary>
-    public unsafe virtual bool CheckInterrogationTargetNative(BmSDK.BmGame.RPawnVillain Villain, float DistSqr, float AttackRadiusSqr, bool bNeedsReachCheck, bool bAllowedToAttackFlooredEnemies, out System.Numerics.Vector3 AttackCheckPos)
+    public unsafe virtual bool CheckInterrogationTargetNative(BmSDK.BmGame.RPawnVillain Villain, float DistSqr, float AttackRadiusSqr, bool bNeedsReachCheck, bool bAllowedToAttackFlooredEnemies, in System.Numerics.Vector3 AttackCheckPos)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerController.CheckInterrogationTargetNative", true);
         byte* paramsPtr = stackalloc byte[36];
@@ -10720,6 +10720,7 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AttackRadiusSqr, paramsPtr + 8);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bNeedsReachCheck, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bAllowedToAttackFlooredEnemies, paramsPtr + 16);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(AttackCheckPos, paramsPtr + 20);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -10728,14 +10729,13 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        AttackCheckPos = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 20);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 32);
     }
 
     /// <summary>
     /// Function: CheckStealthAttackTargetNative
     /// </summary>
-    public unsafe virtual bool CheckStealthAttackTargetNative(BmSDK.BmGame.RPawnVillain Villain, float DistSqr, float AttackRadiusSqr, bool NeedsReachCheck, bool bAllowedToAttackFlooredEnemies, bool bAllowAwareEnemies, out System.Numerics.Vector3 AttackCheckPos, BmSDK.Class TakedownDamageType, float ReachCheckRadius, bool bCheckVillainInFrontLookAway, out BmSDK.Engine.Actor FractureWall, bool Debug, bool DissallowSilentTakedowns)
+    public unsafe virtual bool CheckStealthAttackTargetNative(BmSDK.BmGame.RPawnVillain Villain, float DistSqr, float AttackRadiusSqr, bool NeedsReachCheck, bool bAllowedToAttackFlooredEnemies, bool bAllowAwareEnemies, in System.Numerics.Vector3 AttackCheckPos, BmSDK.Class TakedownDamageType, float ReachCheckRadius, bool bCheckVillainInFrontLookAway, out BmSDK.Engine.Actor FractureWall, bool Debug, bool DissallowSilentTakedowns)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerController.CheckStealthAttackTargetNative", true);
         byte* paramsPtr = stackalloc byte[64];
@@ -10745,6 +10745,7 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NeedsReachCheck, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bAllowedToAttackFlooredEnemies, paramsPtr + 16);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bAllowAwareEnemies, paramsPtr + 20);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(AttackCheckPos, paramsPtr + 24);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TakedownDamageType, paramsPtr + 36);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ReachCheckRadius, paramsPtr + 40);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bCheckVillainInFrontLookAway, paramsPtr + 44);
@@ -10758,7 +10759,6 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        AttackCheckPos = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 24);
         FractureWall = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(paramsPtr + 48);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 60);
     }
@@ -10766,13 +10766,15 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
     /// <summary>
     /// Function: FindDoubleStealthAttackTargetNative
     /// </summary>
-    public unsafe virtual void FindDoubleStealthAttackTargetNative(out System.Numerics.Vector3 AttackSearchPos, float AttackSearchRadius, float Attack2ndTargetSearchRadius, float AttackDoubleTakedownDistance, out System.Numerics.Vector3 AttackCheckPos, bool NeedsReachCheck, bool bAllowedToAttackFlooredEnemies, BmSDK.Class TakedownDamageType, out BmSDK.BmGame.RPawnVillain Villain1, out BmSDK.BmGame.RPawnVillain Villain2, out BmSDK.Engine.Actor FractureWall)
+    public unsafe virtual void FindDoubleStealthAttackTargetNative(in System.Numerics.Vector3 AttackSearchPos, float AttackSearchRadius, float Attack2ndTargetSearchRadius, float AttackDoubleTakedownDistance, in System.Numerics.Vector3 AttackCheckPos, bool NeedsReachCheck, bool bAllowedToAttackFlooredEnemies, BmSDK.Class TakedownDamageType, out BmSDK.BmGame.RPawnVillain Villain1, out BmSDK.BmGame.RPawnVillain Villain2, out BmSDK.Engine.Actor FractureWall)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerController.FindDoubleStealthAttackTargetNative", true);
         byte* paramsPtr = stackalloc byte[60];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(AttackSearchPos, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AttackSearchRadius, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Attack2ndTargetSearchRadius, paramsPtr + 16);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AttackDoubleTakedownDistance, paramsPtr + 20);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(AttackCheckPos, paramsPtr + 24);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NeedsReachCheck, paramsPtr + 36);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bAllowedToAttackFlooredEnemies, paramsPtr + 40);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TakedownDamageType, paramsPtr + 44);
@@ -10784,8 +10786,6 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        AttackSearchPos = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 0);
-        AttackCheckPos = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 24);
         Villain1 = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(paramsPtr + 48);
         Villain2 = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(paramsPtr + 52);
         FractureWall = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(paramsPtr + 56);
@@ -10832,11 +10832,13 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
     /// <summary>
     /// Function: FindStealthAttackTargetNative
     /// </summary>
-    public unsafe virtual BmSDK.BmGame.RPawnVillain FindStealthAttackTargetNative(out System.Numerics.Vector3 AttackSearchPos, float AttackSearchRadius, out System.Numerics.Vector3 AttackCheckPos, bool NeedsReachCheck, bool bAllowedToAttackFlooredEnemies, BmSDK.Class TakedownDamageType, out int bCheckForInterrogation, out BmSDK.Engine.Actor FractureWall)
+    public unsafe virtual BmSDK.BmGame.RPawnVillain FindStealthAttackTargetNative(in System.Numerics.Vector3 AttackSearchPos, float AttackSearchRadius, in System.Numerics.Vector3 AttackCheckPos, bool NeedsReachCheck, bool bAllowedToAttackFlooredEnemies, BmSDK.Class TakedownDamageType, out int bCheckForInterrogation, out BmSDK.Engine.Actor FractureWall)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerController.FindStealthAttackTargetNative", true);
         byte* paramsPtr = stackalloc byte[52];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(AttackSearchPos, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AttackSearchRadius, paramsPtr + 12);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(AttackCheckPos, paramsPtr + 16);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NeedsReachCheck, paramsPtr + 28);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bAllowedToAttackFlooredEnemies, paramsPtr + 32);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TakedownDamageType, paramsPtr + 36);
@@ -10848,8 +10850,6 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        AttackSearchPos = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 0);
-        AttackCheckPos = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 16);
         bCheckForInterrogation = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 40);
         FractureWall = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(paramsPtr + 44);
         return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPawnVillain>(paramsPtr + 48);
@@ -11544,11 +11544,12 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
     /// <summary>
     /// Function: UpdateControllerRotationFast
     /// </summary>
-    public unsafe virtual void UpdateControllerRotationFast(float DeltaTime, out System.Numerics.Vector3 MoveDirection)
+    public unsafe virtual void UpdateControllerRotationFast(float DeltaTime, in System.Numerics.Vector3 MoveDirection)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPlayerController.UpdateControllerRotationFast", true);
         byte* paramsPtr = stackalloc byte[16];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(MoveDirection, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -11557,7 +11558,6 @@ public partial class RPlayerController : BmSDK.BmGame.RPlayerControllerBase, BmS
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        MoveDirection = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 4);
         return;
     }
 

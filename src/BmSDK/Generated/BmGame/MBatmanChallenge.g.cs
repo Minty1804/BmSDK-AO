@@ -265,12 +265,12 @@ public partial class MBatmanChallenge : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: RegisterAction
     /// </summary>
-    public unsafe virtual void RegisterAction(out BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
+    public unsafe virtual void RegisterAction(in BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatmanChallenge.RegisterAction", true);
         byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ca, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ca = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MBatmanChallenge.FChallengeAction>(paramsPtr + 0);
         return;
     }
 
@@ -311,12 +311,12 @@ public partial class MBatmanChallenge : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: Load
     /// </summary>
-    public unsafe virtual void Load(out BmSDK.BmGame.MBatmanChallenge.FChallengeSaveData csd)
+    public unsafe virtual void Load(in BmSDK.BmGame.MBatmanChallenge.FChallengeSaveData csd)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatmanChallenge.Load", true);
         byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(csd, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        csd = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MBatmanChallenge.FChallengeSaveData>(paramsPtr + 0);
         return;
     }
 

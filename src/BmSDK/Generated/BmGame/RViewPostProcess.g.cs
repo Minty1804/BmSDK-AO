@@ -154,24 +154,24 @@ public partial class RViewPostProcess : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: SetVectorParamList
     /// </summary>
-    public unsafe virtual void SetVectorParamList(out BmSDK.TArray<BmSDK.BmGame.RViewPostProcess.FVectorParams> VectorList)
+    public unsafe virtual void SetVectorParamList(in BmSDK.TArray<BmSDK.BmGame.RViewPostProcess.FVectorParams> VectorList)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RViewPostProcess.SetVectorParamList", true);
         byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(VectorList, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        VectorList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RViewPostProcess.FVectorParams>>(paramsPtr + 0);
         return;
     }
 
     /// <summary>
     /// Function: SetScalarParamList
     /// </summary>
-    public unsafe virtual void SetScalarParamList(out BmSDK.TArray<BmSDK.BmGame.RViewPostProcess.FScalarParams> ScalarList)
+    public unsafe virtual void SetScalarParamList(in BmSDK.TArray<BmSDK.BmGame.RViewPostProcess.FScalarParams> ScalarList)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RViewPostProcess.SetScalarParamList", true);
         byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ScalarList, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ScalarList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.RViewPostProcess.FScalarParams>>(paramsPtr + 0);
         return;
     }
 

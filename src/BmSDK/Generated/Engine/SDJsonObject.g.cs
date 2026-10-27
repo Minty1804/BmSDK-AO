@@ -206,11 +206,12 @@ public partial class SDJsonObject : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: SetVector
     /// </summary>
-    public unsafe virtual void SetVector(BmSDK.FString Key, out System.Numerics.Vector3 Value)
+    public unsafe virtual void SetVector(BmSDK.FString Key, in System.Numerics.Vector3 Value)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDJsonObject.SetVector", true);
         byte* paramsPtr = stackalloc byte[24];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Key, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Value, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -219,7 +220,6 @@ public partial class SDJsonObject : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Value = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 12);
         return;
     }
 

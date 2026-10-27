@@ -100,10 +100,11 @@ public partial class MApexStorm : BmSDK.Engine.Actor, BmSDK.IGameObject
     /// <summary>
     /// Function: UpdateGridExternalVelocity
     /// </summary>
-    public unsafe virtual void UpdateGridExternalVelocity(out System.Numerics.Vector3 VolumeWind)
+    public unsafe virtual void UpdateGridExternalVelocity(in System.Numerics.Vector3 VolumeWind)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MApexStorm.UpdateGridExternalVelocity", true);
         byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(VolumeWind, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -112,7 +113,6 @@ public partial class MApexStorm : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        VolumeWind = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 0);
         return;
     }
 

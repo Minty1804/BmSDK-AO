@@ -27,6 +27,7 @@ struct PropertyInfo : MemberInfo
     bool IsParam = false;
     bool IsOptionalParam = false;
     bool IsOutParam = false;
+    bool IsConstParam = false; // BmSDK-AO: "const out" parameters are inputs passed by reference
     bool IsReturnParam = false;
     bool ShouldReturnByRef = false;
 };

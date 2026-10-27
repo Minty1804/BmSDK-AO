@@ -81,12 +81,12 @@ public partial class MBatChalCond_CheckHitCount : BmSDK.BmGame.MBatmanChallenge_
     /// <summary>
     /// Function: RegisterAction
     /// </summary>
-    public unsafe override bool RegisterAction(out BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
+    public unsafe override bool RegisterAction(in BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.MBatChalCond_CheckHitCount.RegisterAction", true);
         byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ca, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ca = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MBatmanChallenge.FChallengeAction>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 32);
     }
 

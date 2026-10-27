@@ -128,7 +128,7 @@ public partial interface OnlinePlayerInterface : BmSDK.Interface
     /// <summary>
     /// Function: SetOnlineStatus
     /// </summary>
-    public unsafe void SetOnlineStatus(byte LocalUserNum, int StatusId, out BmSDK.TArray<BmSDK.Engine.Settings.FLocalizedStringSetting> LocalizedStringSettings, out BmSDK.TArray<BmSDK.Engine.Settings.FSettingsProperty> Properties);
+    public unsafe void SetOnlineStatus(byte LocalUserNum, int StatusId, in BmSDK.TArray<BmSDK.Engine.Settings.FLocalizedStringSetting> LocalizedStringSettings, in BmSDK.TArray<BmSDK.Engine.Settings.FSettingsProperty> Properties);
 
     /// <summary>
     /// Function: GetFriendsList

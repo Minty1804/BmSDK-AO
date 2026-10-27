@@ -194,10 +194,11 @@ public partial class SDJsonArray : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: AddVector
     /// </summary>
-    public unsafe virtual void AddVector(out System.Numerics.Vector3 Value)
+    public unsafe virtual void AddVector(in System.Numerics.Vector3 Value)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDJsonArray.AddVector", true);
         byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Value, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -206,7 +207,6 @@ public partial class SDJsonArray : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Value = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 0);
         return;
     }
 

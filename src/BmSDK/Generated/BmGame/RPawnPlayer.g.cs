@@ -1567,10 +1567,11 @@ public partial class RPawnPlayer : BmSDK.BmGame.RPawnPlayerCombat, BmSDK.BmGame.
     /// <summary>
     /// Function: CorrectFallingVelocity
     /// </summary>
-    public unsafe virtual void CorrectFallingVelocity(out System.Numerics.Vector3 DesiredPosition, float Max2DAccel, float DeltaTime)
+    public unsafe virtual void CorrectFallingVelocity(in System.Numerics.Vector3 DesiredPosition, float Max2DAccel, float DeltaTime)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPawnPlayer.CorrectFallingVelocity", true);
         byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DesiredPosition, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Max2DAccel, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 16);
         var oldFlags = funcManaged.FunctionFlags;
@@ -1581,7 +1582,6 @@ public partial class RPawnPlayer : BmSDK.BmGame.RPawnPlayerCombat, BmSDK.BmGame.
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        DesiredPosition = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 0);
         return;
     }
 
@@ -2037,10 +2037,11 @@ public partial class RPawnPlayer : BmSDK.BmGame.RPawnPlayerCombat, BmSDK.BmGame.
     /// <summary>
     /// Function: AddFakeCollisionNormal
     /// </summary>
-    public unsafe virtual void AddFakeCollisionNormal(out System.Numerics.Vector3 CollisionNormal)
+    public unsafe virtual void AddFakeCollisionNormal(in System.Numerics.Vector3 CollisionNormal)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RPawnPlayer.AddFakeCollisionNormal", true);
         byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CollisionNormal, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -2049,7 +2050,6 @@ public partial class RPawnPlayer : BmSDK.BmGame.RPawnPlayerCombat, BmSDK.BmGame.
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        CollisionNormal = BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 0);
         return;
     }
 

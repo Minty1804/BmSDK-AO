@@ -4,6 +4,7 @@
 
 enum class EPropertyFlags : DWORD
 {
+    CPF_Const = 0x1, // BmSDK-AO: measured in Arkham Origins ("const out" parameters are 0x29)
     CPF_Parm = 0x8,
     CPF_OptionalParm = 0x10,
     CPF_OutParm = 0x20,

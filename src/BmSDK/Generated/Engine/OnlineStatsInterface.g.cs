@@ -13,7 +13,7 @@ public partial interface OnlineStatsInterface : BmSDK.Interface
     /// <summary>
     /// Function: RegisterStatGuid
     /// </summary>
-    public unsafe bool RegisterStatGuid(BmSDK.Engine.OnlineSubsystem.FUniqueNetId PlayerID, out BmSDK.FString ClientStatGuid);
+    public unsafe bool RegisterStatGuid(BmSDK.Engine.OnlineSubsystem.FUniqueNetId PlayerID, in BmSDK.FString ClientStatGuid);
 
     /// <summary>
     /// Function: GetClientStatGuid
@@ -38,7 +38,7 @@ public partial interface OnlineStatsInterface : BmSDK.Interface
     /// <summary>
     /// Function: RegisterHostStatGuid
     /// </summary>
-    public unsafe bool RegisterHostStatGuid(out BmSDK.FString HostStatGuid);
+    public unsafe bool RegisterHostStatGuid(in BmSDK.FString HostStatGuid);
 
     /// <summary>
     /// Function: GetHostStatGuid
@@ -48,7 +48,7 @@ public partial interface OnlineStatsInterface : BmSDK.Interface
     /// <summary>
     /// Function: WriteOnlinePlayerScores
     /// </summary>
-    public unsafe bool WriteOnlinePlayerScores(BmSDK.FName SessionName, int LeaderboardId, out BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FOnlinePlayerScore> PlayerScores);
+    public unsafe bool WriteOnlinePlayerScores(BmSDK.FName SessionName, int LeaderboardId, in BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FOnlinePlayerScore> PlayerScores);
 
     /// <summary>
     /// Function: OnFlushOnlineStatsComplete
@@ -108,7 +108,7 @@ public partial interface OnlineStatsInterface : BmSDK.Interface
     /// <summary>
     /// Function: ReadOnlineStats
     /// </summary>
-    public unsafe bool ReadOnlineStats(out BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FUniqueNetId> Players, BmSDK.Engine.OnlineStatsRead StatsRead);
+    public unsafe bool ReadOnlineStats(in BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FUniqueNetId> Players, BmSDK.Engine.OnlineStatsRead StatsRead);
 
     /// <summary>
     /// Function: ResetOnlineStatsForAllUsers

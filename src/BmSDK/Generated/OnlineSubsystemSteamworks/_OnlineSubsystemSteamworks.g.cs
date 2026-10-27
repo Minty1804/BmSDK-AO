@@ -285,10 +285,11 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
     /// <summary>
     /// Function: UniqueNetIdToPlayerName
     /// </summary>
-    public unsafe virtual BmSDK.FString UniqueNetIdToPlayerName(out BmSDK.Engine.OnlineSubsystem.FUniqueNetId Uid)
+    public unsafe virtual BmSDK.FString UniqueNetIdToPlayerName(in BmSDK.Engine.OnlineSubsystem.FUniqueNetId Uid)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "OnlineSubsystemSteamworks.OnlineSubsystemSteamworks.UniqueNetIdToPlayerName", true);
         byte* paramsPtr = stackalloc byte[56];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Uid, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -297,7 +298,6 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Uid = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.OnlineSubsystem.FUniqueNetId>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 44);
     }
 
@@ -465,11 +465,12 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
     /// <summary>
     /// Function: ShowCustomPlayersUI
     /// </summary>
-    public unsafe virtual bool ShowCustomPlayersUI(byte LocalUserNum, out BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FUniqueNetId> Players, BmSDK.FString Title, BmSDK.FString Description)
+    public unsafe virtual bool ShowCustomPlayersUI(byte LocalUserNum, in BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FUniqueNetId> Players, BmSDK.FString Title, BmSDK.FString Description)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "OnlineSubsystemSteamworks.OnlineSubsystemSteamworks.ShowCustomPlayersUI", true);
         byte* paramsPtr = stackalloc byte[44];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LocalUserNum, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Players, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Title, paramsPtr + 16);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Description, paramsPtr + 28);
         var oldFlags = funcManaged.FunctionFlags;
@@ -480,7 +481,6 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Players = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FUniqueNetId>>(paramsPtr + 4);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 40);
     }
 
@@ -1017,11 +1017,12 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
     /// <summary>
     /// Function: RegisterStatGuid
     /// </summary>
-    public unsafe virtual bool RegisterStatGuid(BmSDK.Engine.OnlineSubsystem.FUniqueNetId PlayerID, out BmSDK.FString ClientStatGuid)
+    public unsafe virtual bool RegisterStatGuid(BmSDK.Engine.OnlineSubsystem.FUniqueNetId PlayerID, in BmSDK.FString ClientStatGuid)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "OnlineSubsystemSteamworks.OnlineSubsystemSteamworks.RegisterStatGuid", true);
         byte* paramsPtr = stackalloc byte[60];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PlayerID, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ClientStatGuid, paramsPtr + 44);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1030,7 +1031,6 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        ClientStatGuid = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 44);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 56);
     }
 
@@ -1091,10 +1091,11 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
     /// <summary>
     /// Function: RegisterHostStatGuid
     /// </summary>
-    public unsafe virtual bool RegisterHostStatGuid(out BmSDK.FString HostStatGuid)
+    public unsafe virtual bool RegisterHostStatGuid(in BmSDK.FString HostStatGuid)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "OnlineSubsystemSteamworks.OnlineSubsystemSteamworks.RegisterHostStatGuid", true);
         byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(HostStatGuid, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1103,7 +1104,6 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        HostStatGuid = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
     }
 
@@ -1594,12 +1594,14 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
     /// <summary>
     /// Function: SetOnlineStatus
     /// </summary>
-    public unsafe virtual void SetOnlineStatus(byte LocalUserNum, int StatusId, out BmSDK.TArray<BmSDK.Engine.Settings.FLocalizedStringSetting> LocalizedStringSettings, out BmSDK.TArray<BmSDK.Engine.Settings.FSettingsProperty> Properties)
+    public unsafe virtual void SetOnlineStatus(byte LocalUserNum, int StatusId, in BmSDK.TArray<BmSDK.Engine.Settings.FLocalizedStringSetting> LocalizedStringSettings, in BmSDK.TArray<BmSDK.Engine.Settings.FSettingsProperty> Properties)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "OnlineSubsystemSteamworks.OnlineSubsystemSteamworks.SetOnlineStatus", true);
         byte* paramsPtr = stackalloc byte[32];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LocalUserNum, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(StatusId, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(LocalizedStringSettings, paramsPtr + 8);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Properties, paramsPtr + 20);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1608,8 +1610,6 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        LocalizedStringSettings = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Settings.FLocalizedStringSetting>>(paramsPtr + 8);
-        Properties = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Settings.FSettingsProperty>>(paramsPtr + 20);
         return;
     }
 
@@ -2114,12 +2114,13 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
     /// <summary>
     /// Function: WriteOnlinePlayerScores
     /// </summary>
-    public unsafe virtual bool WriteOnlinePlayerScores(BmSDK.FName SessionName, int LeaderboardId, out BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FOnlinePlayerScore> PlayerScores)
+    public unsafe virtual bool WriteOnlinePlayerScores(BmSDK.FName SessionName, int LeaderboardId, in BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FOnlinePlayerScore> PlayerScores)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "OnlineSubsystemSteamworks.OnlineSubsystemSteamworks.WriteOnlinePlayerScores", true);
         byte* paramsPtr = stackalloc byte[28];
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SessionName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LeaderboardId, paramsPtr + 8);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(PlayerScores, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -2128,7 +2129,6 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        PlayerScores = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FOnlinePlayerScore>>(paramsPtr + 12);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 24);
     }
 
@@ -2351,10 +2351,11 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
     /// <summary>
     /// Function: ReadOnlineStats
     /// </summary>
-    public unsafe virtual bool ReadOnlineStats(out BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FUniqueNetId> Players, BmSDK.Engine.OnlineStatsRead StatsRead)
+    public unsafe virtual bool ReadOnlineStats(in BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FUniqueNetId> Players, BmSDK.Engine.OnlineStatsRead StatsRead)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "OnlineSubsystemSteamworks.OnlineSubsystemSteamworks.ReadOnlineStats", true);
         byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Players, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(StatsRead, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -2364,7 +2365,6 @@ public partial class _OnlineSubsystemSteamworks : BmSDK.IpDrv.OnlineSubsystemCom
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Players = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.OnlineSubsystem.FUniqueNetId>>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 16);
     }
 

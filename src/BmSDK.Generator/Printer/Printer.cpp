@@ -476,10 +476,11 @@ void Printer::PrintFunction(const FunctionInfo& func, bool isInInterface, ostrea
     {
         auto& prop = func.Params[i];
 
-        // "out" keyword for out params
+        // "out" keyword for out params. BmSDK-AO: "const out" params are inputs passed by reference in
+        // UnrealScript, so they become "in": the caller's value is marshalled in (as "out" they arrived as zeros)
         if (prop.IsOutParam)
         {
-            out << "out ";
+            out << (prop.IsConstParam ? "in " : "out ");
         }
 
         // Print param declaration
@@ -521,8 +522,8 @@ void Printer::PrintFunction(const FunctionInfo& func, bool isInInterface, ostrea
         {
             auto& param = func.Params[i];
 
-            // Don't marshal in 'out' params
-            if (param.IsOutParam)
+            // Don't marshal in 'out' params (but do for const out ones, which are inputs)
+            if (param.IsOutParam && !param.IsConstParam)
             {
                 continue;
             }
@@ -560,7 +561,7 @@ void Printer::PrintFunction(const FunctionInfo& func, bool isInInterface, ostrea
         {
             auto& param = func.Params[i];
 
-            if (param.IsOutParam)
+            if (param.IsOutParam && !param.IsConstParam)
             {
                 Printer::Indent(out)
                     << param.ManagedName << " = BmSDK.Framework.MarshalUtil.ToManaged<"

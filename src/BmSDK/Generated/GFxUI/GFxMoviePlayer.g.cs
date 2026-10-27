@@ -1065,10 +1065,11 @@ public partial class GFxMoviePlayer : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: SetPerspective3D
     /// </summary>
-    public unsafe virtual void SetPerspective3D(out BmSDK.GameObject.FMatrix matPersp)
+    public unsafe virtual void SetPerspective3D(in BmSDK.GameObject.FMatrix matPersp)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "GFxUI.GFxMoviePlayer.SetPerspective3D", true);
         byte* paramsPtr = stackalloc byte[64];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(matPersp, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1077,17 +1078,17 @@ public partial class GFxMoviePlayer : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        matPersp = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GameObject.FMatrix>(paramsPtr + 0);
         return;
     }
 
     /// <summary>
     /// Function: SetView3D
     /// </summary>
-    public unsafe virtual void SetView3D(out BmSDK.GameObject.FMatrix matView)
+    public unsafe virtual void SetView3D(in BmSDK.GameObject.FMatrix matView)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "GFxUI.GFxMoviePlayer.SetView3D", true);
         byte* paramsPtr = stackalloc byte[64];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(matView, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1096,7 +1097,6 @@ public partial class GFxMoviePlayer : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        matView = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GameObject.FMatrix>(paramsPtr + 0);
         return;
     }
 

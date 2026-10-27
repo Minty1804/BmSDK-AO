@@ -93,12 +93,12 @@ public partial class MBatChalCond_ComboMovePerformed : BmSDK.BmGame.MBatmanChall
     /// <summary>
     /// Function: RegisterAction
     /// </summary>
-    public unsafe override bool RegisterAction(out BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
+    public unsafe override bool RegisterAction(in BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.MBatChalCond_ComboMovePerformed.RegisterAction", true);
         byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ca, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ca = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MBatmanChallenge.FChallengeAction>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 32);
     }
 

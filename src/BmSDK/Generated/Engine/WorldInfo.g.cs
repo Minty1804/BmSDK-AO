@@ -526,10 +526,12 @@ public partial class WorldInfo : BmSDK.Engine.ZoneInfo, BmSDK.IGameObject
     /// <summary>
     /// Function: PrepareMapChange
     /// </summary>
-    public unsafe virtual void PrepareMapChange(out BmSDK.TArray<BmSDK.FName> LevelNames, out BmSDK.TArray<BmSDK.FName> LevelsToNotMakeVisible)
+    public unsafe virtual void PrepareMapChange(in BmSDK.TArray<BmSDK.FName> LevelNames, in BmSDK.TArray<BmSDK.FName> LevelsToNotMakeVisible = default)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.WorldInfo.PrepareMapChange", true);
         byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(LevelNames, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(LevelsToNotMakeVisible, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -538,8 +540,6 @@ public partial class WorldInfo : BmSDK.Engine.ZoneInfo, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        LevelNames = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(paramsPtr + 0);
-        LevelsToNotMakeVisible = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(paramsPtr + 12);
         return;
     }
 

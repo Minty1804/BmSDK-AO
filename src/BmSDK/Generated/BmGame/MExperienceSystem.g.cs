@@ -1013,13 +1013,13 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: GetGradePointsFrom
     /// </summary>
-    public unsafe virtual int GetGradePointsFrom(out BmSDK.TArray<BmSDK.BmGame.MExperienceSystemConfig.FCombatEfficiencyRange> Table, float Value)
+    public unsafe virtual int GetGradePointsFrom(in BmSDK.TArray<BmSDK.BmGame.MExperienceSystemConfig.FCombatEfficiencyRange> Table, float Value)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetGradePointsFrom", true);
         byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Table, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Value, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        Table = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.MExperienceSystemConfig.FCombatEfficiencyRange>>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 16);
     }
 

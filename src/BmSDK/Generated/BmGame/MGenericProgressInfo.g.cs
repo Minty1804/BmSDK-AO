@@ -81,36 +81,36 @@ public partial class MGenericProgressInfo : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Function: IsRevealed
     /// </summary>
-    public unsafe static bool IsRevealed(out BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData staticData)
+    public unsafe static bool IsRevealed(in BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData staticData)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGenericProgressInfo.IsRevealed", true);
         byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(staticData, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        staticData = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
     }
 
     /// <summary>
     /// Function: IsCompleted
     /// </summary>
-    public unsafe static bool IsCompleted(out BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData staticData)
+    public unsafe static bool IsCompleted(in BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData staticData)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGenericProgressInfo.IsCompleted", true);
         byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(staticData, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        staticData = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
     }
 
     /// <summary>
     /// Function: Percentage
     /// </summary>
-    public unsafe static int Percentage(out BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData staticData)
+    public unsafe static int Percentage(in BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData staticData)
     {
         var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGenericProgressInfo.Percentage", true);
         byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(staticData, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        staticData = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
         return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 12);
     }
 
