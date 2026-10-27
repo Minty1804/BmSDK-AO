@@ -106,6 +106,16 @@ public static class OptionsMenu
     public static void SetStatus(Mod mod, string memberName, string text, OptionStatus status = OptionStatus.Info) =>
         OptionsManager.SetStatus(mod, memberName, text, status);
 
+    /// <summary>
+    /// Replaces the choices of an int option declared with <see cref="OptionAttribute.Choices"/>, for lists only known
+    /// at run time (BmSDK-AO addition). The value is kept inside the new range and the menu is rebuilt, so call it
+    /// only when the list changes (it does nothing when the list is the same). Choice tooltips are dropped.
+    /// The ini value is read before the mod can call this, against the declared choices: keep the real state in
+    /// another member (a string, for example) and set the index from it.
+    /// </summary>
+    public static void SetChoices(Mod mod, string memberName, string[] choices, string[]? choicesEs = null) =>
+        OptionsManager.SetChoices(mod, memberName, choices, choicesEs);
+
     /// <summary>English or Spanish text, following the menu language.</summary>
     public static string T(string en, string es) => Spanish ? es : en;
 }

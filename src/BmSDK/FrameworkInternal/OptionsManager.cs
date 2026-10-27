@@ -58,6 +58,8 @@ internal static class OptionsManager
         public DateTime LastNotify { get; set; } = DateTime.MinValue;
         public string StatusText { get; set; } = "";
         public OptionStatus Status { get; set; }
+        public string[]? RuntimeChoices { get; set; } // set by OptionsMenu.SetChoices, replaces Attr.Choices
+        public string[]? RuntimeChoicesEs { get; set; }
     }
 
     private sealed class ModOptions(Mod mod, string iniPath, List<Entry> entries, List<Script> scripts)
@@ -221,6 +223,36 @@ internal static class OptionsManager
         }
     }
 
+    /// <summary>Replaces the choices of an int option declared with Choices and rebuilds the menu. Game thread.</summary>
+    public static void SetChoices(Mod mod, string memberName, string[] choices, string[]? choicesEs)
+    {
+        var options = s_modList.FirstOrDefault(o => o.Mod == mod);
+        var e = options?.Entries.FirstOrDefault(x => x.Name == memberName);
+        if (e == null || e.Kind != Kind.Choice || e.EnumValues != null)
+        {
+            Debug.LogWarning($"[{mod.Name}] SetChoices: {memberName} is not an int option with Choices");
+            return;
+        }
+        if (choices.Length == 0)
+        {
+            choices = [""];
+        }
+        if (
+            e.RuntimeChoices != null
+            && e.RuntimeChoices.SequenceEqual(choices)
+            && (e.RuntimeChoicesEs ?? []).SequenceEqual(choicesEs ?? [])
+        )
+        {
+            return;
+        }
+        e.RuntimeChoices = choices;
+        e.RuntimeChoicesEs = choicesEs;
+        // Keep the value inside the new range
+        SetMember(e, GetMember(e));
+        e.Last = GetMember(e);
+        RebuildMenu();
+    }
+
     // ---- menu tabs ----
 
     private static string TabName(ModOptions options) => options.OnChanged != null ? SdkTab : options.Mod.Name;
@@ -291,7 +323,8 @@ internal static class OptionsManager
             _ => NativeMenu.TypeText,
         };
         var choices = ChoiceNames(e);
-        var help = (Es ? a.ChoiceHelpEs : null) ?? a.ChoiceHelp ?? [];
+        // Choice tooltips belong to the declared choices: none once the mod replaced them
+        var help = e.RuntimeChoices != null ? [] : (Es ? a.ChoiceHelpEs : null) ?? a.ChoiceHelp ?? [];
         var choiceText = string.Join(
             "\n",
             choices.Select((c, i) => i < help.Length && !string.IsNullOrEmpty(help[i]) ? $"{c}\t{help[i]}" : c)
@@ -323,7 +356,9 @@ internal static class OptionsManager
         {
             return [];
         }
-        var names = (Es ? e.Attr.ChoicesEs : null) ?? e.Attr.Choices;
+        var names = e.RuntimeChoices != null
+            ? (Es ? e.RuntimeChoicesEs : null) ?? e.RuntimeChoices
+            : (Es ? e.Attr.ChoicesEs : null) ?? e.Attr.Choices;
         if (names != null)
         {
             return names;
@@ -759,7 +794,7 @@ internal static class OptionsManager
         SetRaw(e, value);
     }
 
-    private static int ChoiceCount(Entry e) => e.EnumValues?.Length ?? e.Attr.Choices?.Length ?? 0;
+    private static int ChoiceCount(Entry e) => e.EnumValues?.Length ?? e.RuntimeChoices?.Length ?? e.Attr.Choices?.Length ?? 0;
 
     // ---- ini ----
 
@@ -829,7 +864,7 @@ internal static class OptionsManager
             Kind.Color => "colour RRGGBB",
             Kind.Text => "text",
             Kind.Choice when e.EnumValues != null => string.Join(", ", e.EnumValues.Cast<object>()),
-            Kind.Choice => $"0 to {ChoiceCount(e) - 1}: {string.Join(", ", e.Attr.Choices ?? [])}",
+            Kind.Choice => $"0 to {ChoiceCount(e) - 1}: {string.Join(", ", e.RuntimeChoices ?? e.Attr.Choices ?? [])}",
             _ => $"{Format(e, e.Attr.Min)} to {Format(e, e.Attr.Max)}",
         };
 

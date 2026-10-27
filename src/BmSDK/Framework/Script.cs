@@ -71,4 +71,11 @@ public abstract class Script
     /// </summary>
     protected void SetOptionStatus(string memberName, string text, OptionStatus status = OptionStatus.Info) =>
         OptionsMenu.SetStatus(Mod, memberName, text, status);
+
+    /// <summary>
+    /// Replaces the choices of one of this mod's int options declared with Choices (BmSDK-AO addition). See
+    /// <see cref="OptionsMenu.SetChoices"/>.
+    /// </summary>
+    protected void SetOptionChoices(string memberName, string[] choices, string[]? choicesEs = null) =>
+        OptionsMenu.SetChoices(Mod, memberName, choices, choicesEs);
 }
