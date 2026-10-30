@@ -204,6 +204,10 @@ namespace {
                 } else {
                     ImGui::SetNextItemWidth(width);
                     const char* preview = v >= 0 && v < int(o.choices.size()) ? o.choices[v].c_str() : "";
+                    // Drop-down list up to 16 items tall (ImGui's default is 8): long lists like a suit list
+                    const ImGuiStyle& st = ImGui::GetStyle();
+                    ImGui::SetNextWindowSizeConstraints(ImVec2(0, 0),
+                        ImVec2(FLT_MAX, (ImGui::GetFontSize() + st.ItemSpacing.y) * 16 - st.ItemSpacing.y + st.WindowPadding.y * 2));
                     if (ImGui::BeginCombo(o.label.c_str(), preview)) {
                         for (int i = 0; i < int(o.choices.size()); i++) {
                             if (ImGui::Selectable(o.choices[i].c_str(), v == i) && v != i) {
