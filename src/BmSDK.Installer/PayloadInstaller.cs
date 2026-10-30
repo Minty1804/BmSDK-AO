@@ -39,13 +39,15 @@ internal static class PayloadInstaller
         for (var i = 0; i < entries.Count; i++)
         {
             var entry = entries[i];
-            var destPath = Path.GetFullPath(Path.Combine(root, entry.FullName));
+            // 1.1's payload was written with '\' (ZipFile under Windows PowerShell): accept both
+            var entryName = entry.FullName.Replace('\\', '/');
+            var destPath = Path.GetFullPath(Path.Combine(root, entryName));
             if (!destPath.StartsWith(root, StringComparison.OrdinalIgnoreCase))
             {
                 throw new InvalidDataException($"Payload entry escapes the target directory: {entry.FullName}");
             }
 
-            if (entry.FullName.Equals(AsiLoaderEntry, StringComparison.OrdinalIgnoreCase) && File.Exists(destPath))
+            if (entryName.Equals(AsiLoaderEntry, StringComparison.OrdinalIgnoreCase) && File.Exists(destPath))
             {
                 // Keep whatever is there: an ASI Loader already works, and anything else is another
                 // mod's file that must not be replaced (BmSDK then needs the user to sort it out)
