@@ -85,6 +85,16 @@ If you want to use mods, here's how you get set up:
 
 The installer isn't code-signed, so Windows SmartScreen may warn you the first time you run it. Choose "More info" → "Run anyway" to continue.
 
+<details>
+<summary>Installing manually instead</summary>
+
+1. Download the `BmSDK_AO_v*.zip` from the latest [release](https://github.com/Minty1804/BmSDK-AO/releases/latest) and open it.
+2. Inside you'll see a `Binaries` folder. Copy it to your game's `SinglePlayer` folder (likely `C:\Program Files (x86)\Steam\steamapps\common\Batman Arkham Origins\SinglePlayer`). There should already be a folder there with the same name: merge them and replace the files. If your game already has a `Binaries\Win32\dinput8.dll` from another mod, keep yours when it is Ultimate ASI Loader; otherwise BmSDK-AO won't start.
+3. BmSDK-AO is now installed! Script mods go in your `SinglePlayer\BmGame\Mods` folder (one folder per mod) or in `SinglePlayer\BmGame\Scripts` as .cs files. Press F10 in game to open your mods' options.
+
+To uninstall, delete `Binaries\Win32\plugins\BmSDK.Host.asi` and the `Binaries\Win32\sdk` folder. `Binaries\Win32\dinput8.dll` (Ultimate ASI Loader) can stay if other `.asi` mods use it.
+</details>
+
 Keep in mind that script mods can potentially harm your computer. Make sure you only download and install mods from trusted sources.
 
 ### ⚠️ Supported versions
