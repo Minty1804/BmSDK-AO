@@ -1,0 +1,66 @@
+name: Bug report
+description: Something doesn't work, or the game crashes, with BmSDK-AO or a mod made with it
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please fill in what you can. The log file is the most useful part.
+        Only the Steam version of Batman: Arkham Origins (single player) is supported.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What went wrong, and what did you expect instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can it be reproduced?
+      description: What were you doing when it happened (menu, area of the map, suit, loading a save...)? Does it happen every time?
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: BmSDK-AO version
+      description: Shown in the installer, or in the first lines of BmSDK.log
+      placeholder: "1.2"
+    validations:
+      required: true
+
+  - type: textarea
+    id: mods
+    attributes:
+      label: Installed mods
+      description: BmSDK-AO mods (and their versions) plus any other mods (ASI, ReShade, suit mods, Community Patch...)
+      placeholder: |
+        Ultimate UI 2.5
+        Natural Lip Sync 1.2
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: BmSDK.log
+      description: |
+        Drag the file here, or paste its content. It is in the game folder:
+        `Steam\steamapps\common\Batman Arkham Origins\SinglePlayer\Binaries\Win32\BmSDK.log`
+        Attach it right after the problem happens, before starting the game again (a new start overwrites it).
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Screenshots, videos, crash dumps...
