@@ -16,7 +16,8 @@ namespace BmSDK.Framework;
 /// </list>
 /// The default value is the member's initial value. The ini key is the member's name.
 /// If the mod's own code changes the member, the menu and the ini follow.
-/// Texts ending in <c>Es</c> are the Spanish versions, used when the menu language is Spanish.
+/// Texts ending in <c>Es</c> are the Spanish versions and <c>Pt</c> the Portuguese ones, used when the game's
+/// language is Spanish (Spain or Mexico) or Portuguese. A missing one falls back to English.
 /// </remarks>
 /// <example>
 /// [Option("Strength", Min = 0, Max = 1, Help = "How much the lips move")]
@@ -28,6 +29,7 @@ public sealed class OptionAttribute(string label) : Attribute
 {
     public string Label { get; } = label;
     public string? LabelEs { get; init; }
+    public string? LabelPt { get; init; }
 
     /// <summary>Lowest value (int and float options).</summary>
     public double Min { get; init; } = 0;
@@ -38,22 +40,27 @@ public sealed class OptionAttribute(string label) : Attribute
     /// <summary>Tooltip shown in the menu.</summary>
     public string? Help { get; init; }
     public string? HelpEs { get; init; }
+    public string? HelpPt { get; init; }
 
     /// <summary>Inner tab inside the mod's tab. Options without one go above the inner tabs.</summary>
     public string? Section { get; init; }
     public string? SectionEs { get; init; }
+    public string? SectionPt { get; init; }
 
     /// <summary>Title line drawn above the first option of each group.</summary>
     public string? Group { get; init; }
     public string? GroupEs { get; init; }
+    public string? GroupPt { get; init; }
 
     /// <summary>Choice names (int options; enums use their member names unless this is set).</summary>
     public string[]? Choices { get; init; }
     public string[]? ChoicesEs { get; init; }
+    public string[]? ChoicesPt { get; init; }
 
     /// <summary>Tooltip of each choice, same order as the choices.</summary>
     public string[]? ChoiceHelp { get; init; }
     public string[]? ChoiceHelpEs { get; init; }
+    public string[]? ChoiceHelpPt { get; init; }
 
     /// <summary>An int option edited with a colour picker (0xRRGGBB, saved as RRGGBB).</summary>
     public bool Color { get; init; }
@@ -69,15 +76,21 @@ public sealed class OptionAttribute(string label) : Attribute
 
     /// <summary>Saved in the ini but not shown in the menu (state the mod keeps between sessions).</summary>
     public bool Hidden { get; init; }
+
+    /// <summary>
+    /// False keeps the option out of the pause menu's MODS screen (it stays in the F10 menu), for a mod with a pause
+    /// entry of its own (<see cref="PauseMenu.AddEntry"/>). A mod with no option left there has no tab on that screen.
+    /// </summary>
+    public bool ModsScreen { get; init; } = true;
 }
 
 /// <summary>Colour of an option's status line in the menu (BmSDK-AO addition).</summary>
 public enum OptionStatus
 {
-    /// <summary>Grey; shown only with "Show option status" on.</summary>
+    /// <summary>Grey; shown only with ShowStatus=True in BmSDK.ini.</summary>
     Info,
 
-    /// <summary>Green; shown only with "Show option status" on.</summary>
+    /// <summary>Green; shown only with ShowStatus=True in BmSDK.ini.</summary>
     Ok,
 
     /// <summary>Yellow; always shown.</summary>
@@ -90,11 +103,17 @@ public enum OptionStatus
 /// <summary>The in-game options menu, for mods (BmSDK-AO addition).</summary>
 public static class OptionsMenu
 {
-    /// <summary>Menu language: "en" or "es". Mods that build their own texts (status lines) follow it.</summary>
+    /// <summary>
+    /// Menu language, the game's own: "en", "es" (Spain and Mexico) or "pt"; any other game language is "en". Mods that
+    /// build their own texts (status lines) follow it.
+    /// </summary>
     public static string Language => OptionsManager.Language;
 
     /// <summary>True when the menu language is Spanish.</summary>
     public static bool Spanish => OptionsManager.Language == "es";
+
+    /// <summary>True when the menu language is Portuguese.</summary>
+    public static bool Portuguese => OptionsManager.Language == "pt";
 
     /// <summary>True while the menu is open.</summary>
     public static bool IsOpen => NativeMenu.IsOpen();
@@ -113,9 +132,17 @@ public static class OptionsMenu
     /// The ini value is read before the mod can call this, against the declared choices: keep the real state in
     /// another member (a string, for example) and set the index from it.
     /// </summary>
-    public static void SetChoices(Mod mod, string memberName, string[] choices, string[]? choicesEs = null) =>
-        OptionsManager.SetChoices(mod, memberName, choices, choicesEs);
+    public static void SetChoices(
+        Mod mod,
+        string memberName,
+        string[] choices,
+        string[]? choicesEs = null,
+        string[]? choicesPt = null
+    ) => OptionsManager.SetChoices(mod, memberName, choices, choicesEs, choicesPt);
 
-    /// <summary>English or Spanish text, following the menu language.</summary>
+    /// <summary>English or Spanish text, following the menu language (Portuguese gets the English one).</summary>
     public static string T(string en, string es) => Spanish ? es : en;
+
+    /// <summary>English, Spanish or Portuguese text, following the menu language.</summary>
+    public static string T(string en, string es, string pt) => Spanish ? es : Portuguese ? pt : en;
 }

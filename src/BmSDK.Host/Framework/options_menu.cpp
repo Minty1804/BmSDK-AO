@@ -66,12 +66,18 @@ namespace {
     std::atomic<bool> g_open{false};
     std::atomic<int> g_key{VK_F10};
     std::atomic<DWORD> g_lastToggle{0};
+    bool g_escClosed = false;  // Esc closed the menu: its key-up does not reach the game either
+
+    void set_open(bool open, const char* why) {
+        if (g_open == open) return;
+        g_open = open;
+        g_lastToggle = GetTickCount();
+        ao_boot::log("[menu] %s (%s)", open ? "open" : "closed", why);
+    }
 
     void toggle() {  // WndProc and the Present-side polling may both see one press: the first one wins
         if (GetTickCount() - g_lastToggle < 300) return;
-        g_open = !g_open;
-        g_lastToggle = GetTickCount();
-        ao_boot::log("[menu] %s", g_open ? "open" : "closed");
+        set_open(!g_open, "key");
     }
 
     bool is_input(UINT msg) {
@@ -87,6 +93,19 @@ namespace {
         }
         // A bare F10 opens the window's menu bar loop in DefWindowProc and freezes the game for a moment
         if (key == VK_F10 && msg == WM_SYSCOMMAND && (w & 0xFFF0) == SC_KEYMENU && l == 0) return 0;
+        // Esc closes the menu (it can be opened from the pause menu's MODS entry, where Esc is the usual way back),
+        // unless a text field is being edited
+        if (w == VK_ESCAPE && (msg == WM_KEYDOWN || msg == WM_KEYUP)) {
+            if (msg == WM_KEYDOWN && g_open && g_imgui && !ImGui::GetIO().WantTextInput) {
+                set_open(false, "Esc");
+                g_escClosed = true;
+                return 0;
+            }
+            if (msg == WM_KEYUP && g_escClosed) {
+                g_escClosed = false;
+                return 0;
+            }
+        }
         if (g_open && g_imgui) {
             ImGui_ImplWin32_WndProcHandler(h, msg, w, l);
             if (is_input(msg)) return 0;  // the game does not see it while the menu is open
@@ -349,10 +368,21 @@ namespace {
         int active = 0;
 
         const ImVec2 screen = ImGui::GetIO().DisplaySize;
-        // Top right, so it does not cover Ultimate UI's own window (top left) while it is still an .asi
-        ImGui::SetNextWindowPos(ImVec2(screen.x - 60.f, 60.f), ImGuiCond_FirstUseEver, ImVec2(1.f, 0.f));
-        ImGui::SetNextWindowSizeConstraints(ImVec2(0, 0), ImVec2(FLT_MAX, screen.y > 200 ? screen.y - 120 : FLT_MAX));
-        ImGui::Begin("BmSDK", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize);
+        // Docked to the right edge from the top, like ReShade's panel (user, 2026-11-08). It used to be placed once
+        // at the top right and then grow to the right with its content, off the screen. Its height follows the
+        // content of the open tab (up to the screen's height, then it scrolls), so no empty space is left below.
+        // Only the width can change, by dragging the left edge; it stays on the right edge, never wider than the screen.
+        static float s_width = 0.f;
+        const float minWidth = screen.x < 480.f ? screen.x : 360.f;
+        const float maxWidth = screen.x > 80.f ? screen.x - 40.f : screen.x;
+        if (s_width <= 0.f) s_width = screen.x * 0.36f;
+        s_width = std::clamp(s_width, minWidth, maxWidth);
+        ImGui::SetNextWindowPos(ImVec2(screen.x, 0.f), ImGuiCond_Always, ImVec2(1.f, 0.f));
+        ImGui::SetNextWindowSize(ImVec2(s_width, 0.f), ImGuiCond_Always); // 0: fit the height to the content
+        ImGui::SetNextWindowSizeConstraints(ImVec2(minWidth, 0.f), ImVec2(maxWidth, screen.y));
+        ImGui::Begin("BmSDK", nullptr,
+            ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_HorizontalScrollbar);
+        s_width = ImGui::GetWindowWidth(); // keeps a width dragged this frame
         std::vector<std::string> order;
         for (const auto& t : s_viewTabs)
             if (t != "BmSDK") order.push_back(t);
@@ -661,6 +691,11 @@ int __cdecl BmSDK_Menu_PollChanges(int* ids, double* values, int max) {
 int __cdecl BmSDK_Menu_ActiveOption() { return g_activeId; }
 
 int __cdecl BmSDK_Menu_IsOpen() { return g_open ? 1 : 0; }
+
+void __cdecl BmSDK_Menu_SetOpen(int open) {
+    if (!g_imgui) return;  // not drawn yet: nothing would show
+    set_open(open != 0, "code");
+}
 
 void __cdecl BmSDK_Menu_SetFooter(const char* text) { BmSDK_Menu_SetUiText(0, text); }
 

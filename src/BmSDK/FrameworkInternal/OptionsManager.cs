@@ -60,6 +60,7 @@ internal static class OptionsManager
         public OptionStatus Status { get; set; }
         public string[]? RuntimeChoices { get; set; } // set by OptionsMenu.SetChoices, replaces Attr.Choices
         public string[]? RuntimeChoicesEs { get; set; }
+        public string[]? RuntimeChoicesPt { get; set; }
     }
 
     private sealed class ModOptions(Mod mod, string iniPath, List<Entry> entries, List<Script> scripts)
@@ -76,40 +77,18 @@ internal static class OptionsManager
         public HashSet<Entry> MenuChanges { get; } = [];
     }
 
-    /// <summary>BmSDK's own settings: tab "BmSDK", saved in Binaries\Win32\BmSDK.ini.</summary>
+    /// <summary>
+    /// BmSDK's own settings, saved in Binaries\Win32\BmSDK.ini. Not shown in any menu (the user's choice,
+    /// 2026-11-05): changed by editing that ini. The menu language follows the game's.
+    /// </summary>
     private static class SdkSettings
     {
-        public enum MenuLanguage
-        {
-            Auto,
-            English,
-            Spanish,
-        }
-
-        [Option(
-            "Menu language",
-            LabelEs = "Idioma del menú",
-            Choices = ["Auto", "English", "Español"],
-            ChoiceHelp = ["The language of Windows (Spanish or English).", "", ""],
-            ChoiceHelpEs = ["El idioma de Windows (español o inglés).", "", ""]
-        )]
-        public static MenuLanguage Language = MenuLanguage.Auto;
-
-        [Option(
-            "Show option status",
-            LabelEs = "Mostrar el estado de cada opción",
-            Help = "A line under each option that says what it is doing (for testing). Problems always show.",
-            HelpEs = "Una línea bajo cada opción que dice qué está haciendo (para pruebas). Los problemas se ven siempre."
-        )]
+        // A line under each option that says what it is doing (for testing). Problems always show.
+        [Option("Show option status", Hidden = true)]
         public static bool ShowStatus = false;
 
-        [Option(
-            "Menu key",
-            LabelEs = "Tecla del menú",
-            Advanced = true,
-            Help = "A key name (F10, Insert, Home, Scroll...) or Auto: F10, or Insert while Ultimate UI AO is installed as an .asi.",
-            HelpEs = "Un nombre de tecla (F10, Insert, Home, Scroll...) o Auto: F10, o Insert si Ultimate UI AO está instalado como .asi."
-        )]
+        // A key name (F10, Insert, Home, Scroll...) or Auto: F10, or Insert while Ultimate UI AO is installed as an .asi
+        [Option("Menu key", Hidden = true)]
         public static string Key = "Auto";
     }
 
@@ -128,10 +107,12 @@ internal static class OptionsManager
     private static bool s_inputHeld;
     private static PlayerController? s_heldController;
 
-    /// <summary>"en" or "es".</summary>
+    /// <summary>"en", "es" or "pt": the game's language (ApplyLanguage).</summary>
     public static string Language { get; private set; } = "en";
 
     private static bool Es => Language == "es";
+    private static bool Pt => Language == "pt";
+    private static bool s_gameLanguageRead;
 
     /// <summary>Reads a mod's options, applies its ini and adds its tab to the menu. Game thread.</summary>
     public static void RegisterMod(Mod mod, Assembly asm, List<Script> scripts)
@@ -224,7 +205,7 @@ internal static class OptionsManager
     }
 
     /// <summary>Replaces the choices of an int option declared with Choices and rebuilds the menu. Game thread.</summary>
-    public static void SetChoices(Mod mod, string memberName, string[] choices, string[]? choicesEs)
+    public static void SetChoices(Mod mod, string memberName, string[] choices, string[]? choicesEs, string[]? choicesPt)
     {
         var options = s_modList.FirstOrDefault(o => o.Mod == mod);
         var e = options?.Entries.FirstOrDefault(x => x.Name == memberName);
@@ -241,12 +222,14 @@ internal static class OptionsManager
             e.RuntimeChoices != null
             && e.RuntimeChoices.SequenceEqual(choices)
             && (e.RuntimeChoicesEs ?? []).SequenceEqual(choicesEs ?? [])
+            && (e.RuntimeChoicesPt ?? []).SequenceEqual(choicesPt ?? [])
         )
         {
             return;
         }
         e.RuntimeChoices = choices;
         e.RuntimeChoicesEs = choicesEs;
+        e.RuntimeChoicesPt = choicesPt;
         // Keep the value inside the new range
         SetMember(e, GetMember(e));
         e.Last = GetMember(e);
@@ -308,7 +291,15 @@ internal static class OptionsManager
         SetUiTexts();
     }
 
-    private static string L(string en, string? es) => Es && !string.IsNullOrEmpty(es) ? es : en;
+    private static string L(string en, string? es, string? pt) =>
+        Es && !string.IsNullOrEmpty(es) ? es
+        : Pt && !string.IsNullOrEmpty(pt) ? pt
+        : en;
+
+    private static TItem[]? L<TItem>(TItem[]? en, TItem[]? es, TItem[]? pt) => (Es ? es : Pt ? pt : null) ?? en;
+
+    /// <summary>English, Spanish or Portuguese, following the menu language.</summary>
+    internal static string T(string en, string es, string pt) => Es ? es : Pt ? pt : en;
 
     private static NativeMenu.OptionSpec Spec(Entry e, string tab, int parentId)
     {
@@ -324,7 +315,7 @@ internal static class OptionsManager
         };
         var choices = ChoiceNames(e);
         // Choice tooltips belong to the declared choices: none once the mod replaced them
-        var help = e.RuntimeChoices != null ? [] : (Es ? a.ChoiceHelpEs : null) ?? a.ChoiceHelp ?? [];
+        var help = e.RuntimeChoices != null ? [] : L(a.ChoiceHelp, a.ChoiceHelpEs, a.ChoiceHelpPt) ?? [];
         var choiceText = string.Join(
             "\n",
             choices.Select((c, i) => i < help.Length && !string.IsNullOrEmpty(help[i]) ? $"{c}\t{help[i]}" : c)
@@ -332,10 +323,10 @@ internal static class OptionsManager
         var (min, max) = e.Kind == Kind.Choice ? (0, choices.Length - 1) : (a.Min, a.Max);
         return new NativeMenu.OptionSpec(
             tab,
-            L(a.Section ?? "", a.SectionEs),
-            L(a.Group ?? "", a.GroupEs),
-            L(a.Label, a.LabelEs),
-            L(a.Help ?? "", a.HelpEs),
+            L(a.Section ?? "", a.SectionEs, a.SectionPt),
+            L(a.Group ?? "", a.GroupEs, a.GroupPt),
+            L(a.Label, a.LabelEs, a.LabelPt),
+            L(a.Help ?? "", a.HelpEs, a.HelpPt),
             choiceText,
             a.Format ?? "",
             type,
@@ -357,8 +348,8 @@ internal static class OptionsManager
             return [];
         }
         var names = e.RuntimeChoices != null
-            ? (Es ? e.RuntimeChoicesEs : null) ?? e.RuntimeChoices
-            : (Es ? e.Attr.ChoicesEs : null) ?? e.Attr.Choices;
+            ? L(e.RuntimeChoices, e.RuntimeChoicesEs, e.RuntimeChoicesPt)
+            : L(e.Attr.Choices, e.Attr.ChoicesEs, e.Attr.ChoicesPt);
         if (names != null)
         {
             return names;
@@ -370,13 +361,15 @@ internal static class OptionsManager
     {
         NativeMenu.SetUiText(
             0,
-            Es
-                ? $"{s_key}: abrir/cerrar  |  se guarda en el {IniFileName} de cada mod"
-                : $"{s_key}: open/close  |  saved in each mod's {IniFileName}"
+            T(
+                $"{s_key}: open/close  |  saved in each mod's {IniFileName}",
+                $"{s_key}: abrir/cerrar  |  se guarda en el {IniFileName} de cada mod",
+                $"{s_key}: abrir/fechar  |  salvo no {IniFileName} de cada mod"
+            )
         );
-        NativeMenu.SetUiText(1, Es ? "Valores por defecto" : "Reset to defaults");
-        NativeMenu.SetUiText(2, Es ? "Ningún mod cargado tiene opciones." : "No loaded mod declares options.");
-        NativeMenu.SetUiText(3, Es ? "Avanzado" : "Advanced");
+        NativeMenu.SetUiText(1, T("Reset to defaults", "Valores por defecto", "Restaurar padrões"));
+        NativeMenu.SetUiText(2, T("No loaded mod declares options.", "Ningún mod cargado tiene opciones.", "Nenhum mod carregado tem opções."));
+        NativeMenu.SetUiText(3, T("Advanced", "Avanzado", "Avançado"));
     }
 
     // ---- ticks ----
@@ -388,6 +381,7 @@ internal static class OptionsManager
         {
             s_firstGameTick = DateTime.UtcNow;
         }
+        ReadGameLanguage();
     }
 
     /// <summary>
@@ -607,16 +601,22 @@ internal static class OptionsManager
         NativeMenu.SetShowStatus(SdkSettings.ShowStatus);
         SetUiTexts();
         Register(new ModOptions(new Mod(SdkTab, binaries, new TomlTable()), path, entries, []) { OnChanged = OnSdkSettingChanged });
+
+        // An ini from an older version keeps settings that are gone (Language until 1.1.1: the menu follows the game's
+        // language since 1.2): written again with only the current ones. Only BmSDK's own ini, never a mod's (a mod
+        // may read its old keys to convert them).
+        if (ReadIni(path).Keys.Any(k => !entries.Any(e => string.Equals(e.Name, k, StringComparison.OrdinalIgnoreCase)))
+            && s_mods.TryGetValue(path, out var sdk))
+        {
+            Save(sdk);
+            Debug.Log($"{SettingsFileName}: settings that no longer exist removed");
+        }
     }
 
     private static void OnSdkSettingChanged(string name)
     {
         switch (name)
         {
-            case nameof(SdkSettings.Language):
-                ApplyLanguage();
-                RebuildMenu();
-                break;
             case nameof(SdkSettings.ShowStatus):
                 NativeMenu.SetShowStatus(SdkSettings.ShowStatus);
                 break;
@@ -629,14 +629,75 @@ internal static class OptionsManager
         }
     }
 
-    private static void ApplyLanguage()
+    // The game's language. At start-up from its config (UserEngine.ini, [Engine.Engine] Language); once the game runs,
+    // from the game itself (GetLanguageForScriptCode), which also knows a language Steam picked.
+    private static void ApplyLanguage(string? code = null)
     {
-        Language = SdkSettings.Language switch
+        code ??= ConfigLanguage();
+        Language = code.Trim().ToUpperInvariant() switch
         {
-            SdkSettings.MenuLanguage.English => "en",
-            SdkSettings.MenuLanguage.Spanish => "es",
-            _ => CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "es" ? "es" : "en",
+            "ESN" or "ESM" or "ES" => "es",
+            "POR" or "PTB" or "PT" => "pt",
+            _ => "en",
         };
+    }
+
+    private static string ConfigLanguage()
+    {
+        try
+        {
+            var path = Path.Combine(FileUtils.GetBasePath(), "BMGame", "Config", "UserEngine.ini");
+            var inEngine = false;
+            foreach (var raw in File.ReadLines(path))
+            {
+                var line = raw.Trim();
+                if (line.StartsWith('['))
+                {
+                    inEngine = line.Equals("[Engine.Engine]", StringComparison.OrdinalIgnoreCase);
+                }
+                else if (inEngine && line.StartsWith("Language=", StringComparison.OrdinalIgnoreCase))
+                {
+                    return line["Language=".Length..];
+                }
+            }
+        }
+        catch (Exception)
+        {
+            // no config: English
+        }
+        return "INT";
+    }
+
+    // On a game tick: the language the game really runs in. The menu is rebuilt only if it differs.
+    private static void ReadGameLanguage()
+    {
+        if (s_gameLanguageRead)
+        {
+            return;
+        }
+        string code;
+        try
+        {
+            if (WorldInfo.GetWorldInfo()?.Game is not BmGame.RGameInfo game)
+            {
+                return; // no game yet: next tick
+            }
+            s_gameLanguageRead = true;
+            code = game.GetLanguageForScriptCode().ToString();
+        }
+        catch (Exception ex)
+        {
+            s_gameLanguageRead = true;
+            Debug.LogWarning($"Could not read the game's language: {ex.Message}");
+            return;
+        }
+        var before = Language;
+        ApplyLanguage(code.Length > 0 ? code : null);
+        Debug.Log($"Game language \"{code}\": menu language {Language}");
+        if (Language != before)
+        {
+            RebuildMenu();
+        }
     }
 
     private static void InstallWhenReady(DateTime now)
@@ -796,6 +857,193 @@ internal static class OptionsManager
 
     private static int ChoiceCount(Entry e) => e.EnumValues?.Length ?? e.RuntimeChoices?.Length ?? e.Attr.Choices?.Length ?? 0;
 
+    // ---- the pause menu's MODS screen (PauseModScreen): every option as a list of values ----
+
+    /// <summary>One mod's options as the MODS screen shows them.</summary>
+    internal sealed record ScreenTab(string Name, List<ScreenItem> Items);
+
+    /// <summary>One option: its values as a list (a slider becomes a list of steps, like the game's Difficulty).</summary>
+    internal sealed class ScreenItem
+    {
+        internal object Handle { get; init; } = null!; // the Entry (a private type)
+        public string Label { get; init; } = "";
+        public string Help { get; init; } = "";
+        public string Section { get; init; } = "";
+        public double[] Values { get; set; } = [];
+        public string[] Names { get; set; } = [];
+    }
+
+    private const int MaxScreenValues = 101;
+
+    /// <summary>
+    /// Every mod with options the screen can show, in menu order (BmSDK's own last). Colour and text options, hidden
+    /// and advanced ones, and those with ModsScreen = false stay in the F10 menu only.
+    /// </summary>
+    internal static List<ScreenTab> ScreenTabs()
+    {
+        var tabs = new List<ScreenTab>();
+        foreach (var options in s_modList.OrderBy(o => o.OnChanged != null))
+        {
+            var items = new List<ScreenItem>();
+            foreach (var e in options.Entries)
+            {
+                if (e.Id == 0 || e.Attr.Hidden || e.Attr.Advanced || !e.Attr.ModsScreen || e.Kind is Kind.Color or Kind.Text)
+                {
+                    continue;
+                }
+                var a = e.Attr;
+                items.Add(new ScreenItem
+                {
+                    Handle = e,
+                    Label = L(a.Label, a.LabelEs, a.LabelPt),
+                    Help = L(a.Help ?? "", a.HelpEs, a.HelpPt),
+                    Section = L(a.Section ?? "", a.SectionEs, a.SectionPt),
+                });
+            }
+            if (items.Count > 0)
+            {
+                tabs.Add(new ScreenTab(TabName(options), items));
+            }
+        }
+        return tabs;
+    }
+
+    /// <summary>Fills the item's values (the current one is always among them) and returns its index.</summary>
+    internal static int ScreenIndex(ScreenItem item)
+    {
+        var e = (Entry)item.Handle;
+        var current = e.Last;
+        switch (e.Kind)
+        {
+            case Kind.Bool:
+                item.Values = [0, 1];
+                item.Names = Es ? ["No", "Sí"] : Pt ? ["Não", "Sim"] : ["No", "Yes"];
+                break;
+            case Kind.Choice:
+                var names = ChoiceNames(e);
+                item.Values = [.. Enumerable.Range(0, names.Length).Select(i => (double)i)];
+                item.Names = names;
+                break;
+            default:
+                item.Values = Steps(e, current);
+                item.Names = [.. item.Values.Select(v => FormatShown(e, v))];
+                break;
+        }
+        return Nearest(item.Values, current);
+    }
+
+    internal static int ScreenDefaultIndex(ScreenItem item) => Nearest(item.Values, ((Entry)item.Handle).Default);
+
+    /// <summary>The user picked value <paramref name="index"/>: applied and saved as if from the F10 menu.</summary>
+    internal static void ScreenSet(ScreenItem item, int index)
+    {
+        if (index < 0 || index >= item.Values.Length)
+        {
+            return;
+        }
+        var e = (Entry)item.Handle;
+        ApplyFromMenu(e, item.Values[index], DateTime.UtcNow);
+        NativeMenu.SetValue(e.Id, e.Last); // the F10 menu shows it too
+    }
+
+    private static int Nearest(double[] values, double v)
+    {
+        var best = 0;
+        for (var i = 1; i < values.Length; i++)
+        {
+            if (Math.Abs(values[i] - v) < Math.Abs(values[best] - v))
+            {
+                best = i;
+            }
+        }
+        return best;
+    }
+
+    // Slider steps: 1 for whole numbers, else the precision of the format ("%.1f" -> 0.1), at most
+    // MaxScreenValues of them; the current value is added if it falls between two steps.
+    private static double[] Steps(Entry e, double current)
+    {
+        var (min, max) = (Math.Min(e.Attr.Min, e.Attr.Max), Math.Max(e.Attr.Min, e.Attr.Max));
+        var range = max - min;
+        double step;
+        if (e.Kind == Kind.Int)
+        {
+            step = 1;
+        }
+        else
+        {
+            var f = e.Attr.Format ?? "";
+            var dot = f.IndexOf("%.", StringComparison.Ordinal);
+            var digits = dot >= 0 && dot + 2 < f.Length && char.IsDigit(f[dot + 2]) ? f[dot + 2] - '0' : 2;
+            step = Math.Pow(10, -digits);
+        }
+        if (range <= 0)
+        {
+            return [min];
+        }
+        while (range / step + 1 > MaxScreenValues)
+        {
+            step *= range / step / (MaxScreenValues - 1) > 4 ? 5 : 2; // 1, 2, 10, 20... or 5, 10, 50...
+        }
+        var values = new List<double>();
+        for (var v = min; v <= max + step / 1000; v += step)
+        {
+            values.Add(Math.Round(Math.Min(v, max), 6));
+        }
+        if (values[^1] < max)
+        {
+            values.Add(max);
+        }
+        if (current >= min && current <= max && !values.Any(v => Math.Abs(v - current) < step / 1000))
+        {
+            values.Add(current);
+            values.Sort();
+        }
+        return [.. values];
+    }
+
+    // The value as the F10 menu shows it: the option's printf-style format (%d, %.Nf, %%), else a plain number
+    private static string FormatShown(Entry e, double v)
+    {
+        var f = e.Attr.Format;
+        if (string.IsNullOrEmpty(f))
+        {
+            return e.Kind == Kind.Int ? ((int)v).ToString(CultureInfo.InvariantCulture) : v.ToString("0.##", CultureInfo.InvariantCulture);
+        }
+        var sb = new StringBuilder();
+        for (var i = 0; i < f.Length; i++)
+        {
+            if (f[i] != '%' || i + 1 >= f.Length)
+            {
+                sb.Append(f[i]);
+                continue;
+            }
+            var j = i + 1;
+            if (f[j] == '%')
+            {
+                sb.Append('%');
+                i = j;
+                continue;
+            }
+            var digits = -1;
+            if (f[j] == '.' && j + 1 < f.Length && char.IsDigit(f[j + 1]))
+            {
+                digits = f[j + 1] - '0';
+                j += 2;
+            }
+            if (j < f.Length && f[j] is 'f' or 'd' or 'i')
+            {
+                sb.Append(f[j] == 'f'
+                    ? v.ToString("F" + (digits < 0 ? 6 : digits), CultureInfo.InvariantCulture)
+                    : ((int)Math.Round(v)).ToString(CultureInfo.InvariantCulture));
+                i = j;
+                continue;
+            }
+            sb.Append(f[i]);
+        }
+        return sb.ToString();
+    }
+
     // ---- ini ----
 
     private static Dictionary<string, string> ReadIni(string path)
@@ -877,7 +1125,9 @@ internal static class OptionsManager
         }
         options.MenuChanges.Clear();
         var sb = new StringBuilder();
-        sb.Append($"; Options of {options.Mod.Name}. Change them in the in-game menu ({s_key}) or here with the game closed.\r\n");
+        sb.Append(options.Mod.Name == SdkTab
+            ? "; Options of BmSDK. They are not in any menu: change them here with the game closed. The menus follow the game's language.\r\n"
+            : $"; Options of {options.Mod.Name}. Change them in the in-game menu ({s_key}, or MODS in the pause menu) or here with the game closed.\r\n");
         sb.Append("[Options]\r\n");
         foreach (var e in options.Entries)
         {

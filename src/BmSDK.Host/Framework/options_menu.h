@@ -77,6 +77,10 @@ BMSDK_MENU_API void __cdecl BmSDK_Menu_SetShowStatus(int show);
 // 1 while the menu is open.
 BMSDK_MENU_API int __cdecl BmSDK_Menu_IsOpen();
 
+// Opens (1) or closes (0) the menu, as its key would (the pause menu's MODS entry). Optional export: C# looks it up
+// on its own, so the API version stays 3.
+BMSDK_MENU_API void __cdecl BmSDK_Menu_SetOpen(int open);
+
 // v3: the menu's own texts, for the language: 0 footer, 1 "Reset to defaults", 2 "No loaded mod...", 3 "Advanced".
 BMSDK_MENU_API void __cdecl BmSDK_Menu_SetUiText(int which, const char* text);
 

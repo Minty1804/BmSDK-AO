@@ -57,6 +57,7 @@ internal static unsafe partial class NativeMenu
     private static delegate* unmanaged[Cdecl]<int> s_activeOption;
     private static delegate* unmanaged[Cdecl]<int> s_isOpen;
     private static delegate* unmanaged[Cdecl]<int, byte*, void> s_setUiText;
+    private static delegate* unmanaged[Cdecl]<int, void> s_setOpen; // optional: older hosts lack it
 
     public static bool Available { get; private set; }
 
@@ -93,6 +94,9 @@ internal static unsafe partial class NativeMenu
         s_activeOption = (delegate* unmanaged[Cdecl]<int>)Get("BmSDK_Menu_ActiveOption");
         s_isOpen = (delegate* unmanaged[Cdecl]<int>)Get("BmSDK_Menu_IsOpen");
         s_setUiText = (delegate* unmanaged[Cdecl]<int, byte*, void>)Get("BmSDK_Menu_SetUiText");
+        s_setOpen = NativeLibrary.TryGetExport(host, "BmSDK_Menu_SetOpen", out var setOpen)
+            ? (delegate* unmanaged[Cdecl]<int, void>)setOpen
+            : null;
         Available = true;
         return true;
     }
@@ -169,6 +173,18 @@ internal static unsafe partial class NativeMenu
     public static int ActiveOption() => Available ? s_activeOption() : 0;
 
     public static bool IsOpen() => Available && s_isOpen() != 0;
+
+    /// <summary>Whether the host can open the menu from code (<see cref="SetOpen"/>).</summary>
+    public static bool CanOpen => Available && s_setOpen != null;
+
+    /// <summary>Opens or closes the menu, as its key would.</summary>
+    public static void SetOpen(bool open)
+    {
+        if (CanOpen)
+        {
+            s_setOpen(open ? 1 : 0);
+        }
+    }
 
     public static double GetValue(int id) => Available ? s_getValue(id) : double.NaN;
 
