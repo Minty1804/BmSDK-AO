@@ -78,116 +78,147 @@ public partial class MCrimeSceneInvestigationSystem : BmSDK.GameObject, BmSDK.IG
         where TComponent : class, Framework.IScriptComponent<MCrimeSceneInvestigationSystem>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_GetCSIProgres;
     /// <summary>
     /// Function: GetCSIProgres
     /// </summary>
     public unsafe virtual void GetCSIProgres(out int unlocked, out int Total)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MCrimeSceneInvestigationSystem.GetCSIProgres", true);
-        byte* paramsPtr = stackalloc byte[76];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCSIProgres, "BmGame.MCrimeSceneInvestigationSystem.GetCSIProgres");
+        byte* paramsPtr = stackalloc byte[92];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out unlocked);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(unlocked, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Total);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Total, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        unlocked = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
-        Total = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        unlocked = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
+        Total = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
         return;
     }
 
+    private static BmSDK.Function __fn_GetCaseEvidencesList;
     /// <summary>
     /// Function: GetCaseEvidencesList
     /// </summary>
     public unsafe virtual void GetCaseEvidencesList(out BmSDK.TArray<BmSDK.FString> EvidenceList, BmSDK.FName CaseFile)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MCrimeSceneInvestigationSystem.GetCaseEvidencesList", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCaseEvidencesList, "BmGame.MCrimeSceneInvestigationSystem.GetCaseEvidencesList");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CaseFile, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        EvidenceList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 0);
+        EvidenceList = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_BuildCaseReport;
     /// <summary>
     /// Function: BuildCaseReport
     /// </summary>
     public unsafe virtual void BuildCaseReport(out BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICaseReportItem> CSICaseReportList, BmSDK.FName CSICase)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MCrimeSceneInvestigationSystem.BuildCaseReport", true);
-        byte* paramsPtr = stackalloc byte[76];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_BuildCaseReport, "BmGame.MCrimeSceneInvestigationSystem.BuildCaseReport");
+        byte* paramsPtr = stackalloc byte[92];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CSICase, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        CSICaseReportList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICaseReportItem>>(paramsPtr + 0);
+        CSICaseReportList = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICaseReportItem>>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetCaseReportByGlobalFlag;
     /// <summary>
     /// Function: GetCaseReportByGlobalFlag
     /// </summary>
     public unsafe virtual void GetCaseReportByGlobalFlag(out BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICaseReportItem> CSICaseReportList, BmSDK.FName CSICase, BmSDK.FName GlobalFlag)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MCrimeSceneInvestigationSystem.GetCaseReportByGlobalFlag", true);
-        byte* paramsPtr = stackalloc byte[76];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCaseReportByGlobalFlag, "BmGame.MCrimeSceneInvestigationSystem.GetCaseReportByGlobalFlag");
+        byte* paramsPtr = stackalloc byte[92];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CSICase, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(GlobalFlag, paramsPtr + 20);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        CSICaseReportList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICaseReportItem>>(paramsPtr + 0);
+        CSICaseReportList = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICaseReportItem>>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetCaseReport;
     /// <summary>
     /// Function: GetCaseReport
     /// </summary>
     public unsafe virtual void GetCaseReport(out BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICaseReportItem> CSICaseReportList, BmSDK.FName CSICase)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MCrimeSceneInvestigationSystem.GetCaseReport", true);
-        byte* paramsPtr = stackalloc byte[68];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCaseReport, "BmGame.MCrimeSceneInvestigationSystem.GetCaseReport");
+        byte* paramsPtr = stackalloc byte[84];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CSICase, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        CSICaseReportList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICaseReportItem>>(paramsPtr + 0);
+        CSICaseReportList = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICaseReportItem>>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetUnlockedCases;
     /// <summary>
     /// Function: GetUnlockedCases
     /// </summary>
     public unsafe virtual int GetUnlockedCases(BmSDK.FString initialCaseFileName, out BmSDK.TArray<BmSDK.FName> CSICaseList)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MCrimeSceneInvestigationSystem.GetUnlockedCases", true);
-        byte* paramsPtr = stackalloc byte[80];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetUnlockedCases, "BmGame.MCrimeSceneInvestigationSystem.GetUnlockedCases");
+        byte* paramsPtr = stackalloc byte[96];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(initialCaseFileName, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        CSICaseList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FName>>(paramsPtr + 12);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 24);
+        CSICaseList = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.FName>>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 24);
     }
 
+    private static BmSDK.Function __fn_GetAllCases;
     /// <summary>
     /// Function: GetAllCases
     /// </summary>
     public unsafe virtual void GetAllCases(out BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICasesInfo> CSICaseList)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MCrimeSceneInvestigationSystem.GetAllCases", true);
-        byte* paramsPtr = stackalloc byte[56];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetAllCases, "BmGame.MCrimeSceneInvestigationSystem.GetAllCases");
+        byte* paramsPtr = stackalloc byte[72];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        CSICaseList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICasesInfo>>(paramsPtr + 0);
+        CSICaseList = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.BmGame.MCrimeSceneInvestigationSystem.FCSICasesInfo>>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetPlayerController;
     /// <summary>
     /// Function: SetPlayerController
     /// </summary>
     public unsafe virtual void SetPlayerController(BmSDK.BmGame.RPlayerController RPC)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MCrimeSceneInvestigationSystem.SetPlayerController", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetPlayerController, "BmGame.MCrimeSceneInvestigationSystem.SetPlayerController");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RPC, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_Init;
     /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe virtual void Init()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MCrimeSceneInvestigationSystem.Init", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Init, "BmGame.MCrimeSceneInvestigationSystem.Init");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

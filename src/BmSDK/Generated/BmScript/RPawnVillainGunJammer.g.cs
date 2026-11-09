@@ -78,13 +78,15 @@ public partial class RPawnVillainGunJammer : BmSDK.BmScript.RPawnVillainGunJamme
         where TComponent : class, Framework.IScriptComponent<RPawnVillainGunJammer>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_UpdateAerialSnapAnim;
     /// <summary>
     /// Function: UpdateAerialSnapAnim
     /// </summary>
     public unsafe static void UpdateAerialSnapAnim(BmSDK.BmScript.RPawnVillainGunJammer Pawn, BmSDK.BmGame.RAnimUtil.FTransitionId Transition, BmSDK.Engine.AnimSet OverrideAnimset = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGunJammer.UpdateAerialSnapAnim", true);
-        byte* paramsPtr = stackalloc byte[20];
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdateAerialSnapAnim, "BmScript.RPawnVillainGunJammer.UpdateAerialSnapAnim");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Pawn, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Transition, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OverrideAnimset, paramsPtr + 8);
@@ -92,26 +94,31 @@ public partial class RPawnVillainGunJammer : BmSDK.BmScript.RPawnVillainGunJamme
         return;
     }
 
+    private static BmSDK.Function __fn_SetAerialSnapAnimSet;
     /// <summary>
     /// Function: SetAerialSnapAnimSet
     /// </summary>
     public unsafe static void SetAerialSnapAnimSet(BmSDK.BmScript.RPawnVillainGunJammer Pawn, BmSDK.Engine.AnimSet VictimAnimSet)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGunJammer.SetAerialSnapAnimSet", true);
-        byte* paramsPtr = stackalloc byte[8];
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetAerialSnapAnimSet, "BmScript.RPawnVillainGunJammer.SetAerialSnapAnimSet");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Pawn, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(VictimAnimSet, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AddPawnProps;
     /// <summary>
     /// Function: AddPawnProps
     /// </summary>
     public unsafe override void AddPawnProps()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.RPawnVillainGunJammer.AddPawnProps", true);
-        byte* paramsPtr = stackalloc byte[124];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddPawnProps, "BmScript.RPawnVillainGunJammer.AddPawnProps");
+        byte* paramsPtr = stackalloc byte[140];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

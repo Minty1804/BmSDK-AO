@@ -78,13 +78,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<RDialogueManager>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_UnregisterPackageLoad;
     /// <summary>
     /// Function: UnregisterPackageLoad
     /// </summary>
     public unsafe virtual void UnregisterPackageLoad(BmSDK.FString LoadingPackage, bool FromRandom = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UnregisterPackageLoad", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnregisterPackageLoad, "BmGame.RDialogueManager.UnregisterPackageLoad");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LoadingPackage, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(FromRandom, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
@@ -98,13 +101,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_RegisterPackageLoad;
     /// <summary>
     /// Function: RegisterPackageLoad
     /// </summary>
     public unsafe virtual void RegisterPackageLoad(BmSDK.FString LoadingPackage, bool FromRandom = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RegisterPackageLoad", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterPackageLoad, "BmGame.RDialogueManager.RegisterPackageLoad");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LoadingPackage, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(FromRandom, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
@@ -118,13 +124,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_GFXClearSubtitle;
     /// <summary>
     /// Function: GFXClearSubtitle
     /// </summary>
     public unsafe virtual void GFXClearSubtitle()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.GFXClearSubtitle", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GFXClearSubtitle, "BmGame.RDialogueManager.GFXClearSubtitle");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -136,13 +145,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_GFXSetSubtitle;
     /// <summary>
     /// Function: GFXSetSubtitle
     /// </summary>
     public unsafe virtual void GFXSetSubtitle(BmSDK.FString sub)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.GFXSetSubtitle", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GFXSetSubtitle, "BmGame.RDialogueManager.GFXSetSubtitle");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(sub, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -155,13 +167,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_GetThugIdsDebugInfo;
     /// <summary>
     /// Function: GetThugIdsDebugInfo
     /// </summary>
     public unsafe virtual void GetThugIdsDebugInfo(out BmSDK.TArray<BmSDK.Engine.Actor.FThought> ThoughtList)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.GetThugIdsDebugInfo", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetThugIdsDebugInfo, "BmGame.RDialogueManager.GetThugIdsDebugInfo");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -170,41 +185,50 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        ThoughtList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.Actor.FThought>>(paramsPtr + 0);
+        ThoughtList = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.Engine.Actor.FThought>>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_TapeLoadedRef;
     /// <summary>
     /// Function: TapeLoadedRef
     /// </summary>
     public unsafe virtual void TapeLoadedRef(BmSDK.BmGame.RFullTape Tape)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.TapeLoadedRef", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TapeLoadedRef, "BmGame.RDialogueManager.TapeLoadedRef");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Tape, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SurveillanceState;
     /// <summary>
     /// Function: SurveillanceState
     /// </summary>
     public unsafe virtual void SurveillanceState(bool SetState)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.SurveillanceState", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SurveillanceState, "BmGame.RDialogueManager.SurveillanceState");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SetState, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PlaySpeech;
     /// <summary>
     /// Function: PlaySpeech
     /// </summary>
     public unsafe virtual void PlaySpeech(BmSDK.Engine.Actor SpeechActor, BmSDK.Engine.RDialogueLine DialogueLine, BmSDK.BmGame.RGameInfo.VocalPriority Priority = default, BmSDK.Engine.SequenceAction PlaySpeechAction = default, bool bPlayEarcon = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.PlaySpeech", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlaySpeech, "BmGame.RDialogueManager.PlaySpeech");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SpeechActor, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DialogueLine, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Priority, paramsPtr + 8);
@@ -214,230 +238,291 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_ActivateDialogue;
     /// <summary>
     /// Function: ActivateDialogue
     /// </summary>
     public unsafe virtual void ActivateDialogue(BmSDK.BmGame.RSeqAct_PlaySpeechBase Speech)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.ActivateDialogue", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ActivateDialogue, "BmGame.RDialogueManager.ActivateDialogue");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Speech, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_UnregisterSingleLine;
     /// <summary>
     /// Function: UnregisterSingleLine
     /// </summary>
     public unsafe virtual void UnregisterSingleLine(BmSDK.Engine.RDialogueLine Line)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UnregisterSingleLine", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnregisterSingleLine, "BmGame.RDialogueManager.UnregisterSingleLine");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Line, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RegisterSingleLine;
     /// <summary>
     /// Function: RegisterSingleLine
     /// </summary>
     public unsafe virtual void RegisterSingleLine(BmSDK.Engine.RDialogueLine Line, BmSDK.BmGame.RSeqAct_PlaySpeechBase.EDialogueType DialogueType, bool ManagedBanks = default, BmSDK.FString RadioStation = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RegisterSingleLine", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterSingleLine, "BmGame.RDialogueManager.RegisterSingleLine");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Line, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DialogueType, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ManagedBanks, paramsPtr + 8);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RadioStation, paramsPtr + 12);
+        var __optional = BmSDK.Framework.OptionalParms.Suspend(funcManaged);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        BmSDK.Framework.OptionalParms.Resume(funcManaged, __optional);
         return;
     }
 
+    private static BmSDK.Function __fn_UnregisterConversation;
     /// <summary>
     /// Function: UnregisterConversation
     /// </summary>
     public unsafe virtual void UnregisterConversation(BmSDK.BmGame.RScriptConversation Conv)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UnregisterConversation", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnregisterConversation, "BmGame.RDialogueManager.UnregisterConversation");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Conv, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RegisterConversation;
     /// <summary>
     /// Function: RegisterConversation
     /// </summary>
     public unsafe virtual void RegisterConversation(BmSDK.BmGame.RScriptConversation Conv, BmSDK.BmGame.RSeqAct_PlaySpeechBase.EDialogueType DialogueType, bool ManagedBanks = default, BmSDK.FString RadioStation = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RegisterConversation", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterConversation, "BmGame.RDialogueManager.RegisterConversation");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Conv, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DialogueType, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ManagedBanks, paramsPtr + 8);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RadioStation, paramsPtr + 12);
+        var __optional = BmSDK.Framework.OptionalParms.Suspend(funcManaged);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        BmSDK.Framework.OptionalParms.Resume(funcManaged, __optional);
         return;
     }
 
+    private static BmSDK.Function __fn_UnregisterSpeaker;
     /// <summary>
     /// Function: UnregisterSpeaker
     /// </summary>
     public unsafe virtual void UnregisterSpeaker(BmSDK.Engine.Actor Actor, bool checkDelete)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UnregisterSpeaker", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnregisterSpeaker, "BmGame.RDialogueManager.UnregisterSpeaker");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Actor, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(checkDelete, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RegisterSpeaker;
     /// <summary>
     /// Function: RegisterSpeaker
     /// </summary>
     public unsafe virtual void RegisterSpeaker(BmSDK.Engine.Actor Actor, BmSDK.Engine.AkWwise.EDialogueHelperType SpeakerType = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RegisterSpeaker", true);
-        byte* paramsPtr = stackalloc byte[5];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterSpeaker, "BmGame.RDialogueManager.RegisterSpeaker");
+        byte* paramsPtr = stackalloc byte[21];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Actor, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SpeakerType, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PostBeginPlay;
     /// <summary>
     /// Function: PostBeginPlay
     /// </summary>
     public unsafe override void PostBeginPlay()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.PostBeginPlay", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PostBeginPlay, "BmGame.RDialogueManager.PostBeginPlay");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_Tick;
     /// <summary>
     /// Function: Tick
     /// </summary>
     public unsafe override void Tick(float Delta)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.Tick", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Tick, "BmGame.RDialogueManager.Tick");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Delta, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_StopAllDialogues;
     /// <summary>
     /// Function: StopAllDialogues
     /// </summary>
     public unsafe virtual void StopAllDialogues()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.StopAllDialogues", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StopAllDialogues, "BmGame.RDialogueManager.StopAllDialogues");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_UpdatePendingDialogue;
     /// <summary>
     /// Function: UpdatePendingDialogue
     /// </summary>
     public unsafe virtual void UpdatePendingDialogue(float Delta)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UpdatePendingDialogue", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdatePendingDialogue, "BmGame.RDialogueManager.UpdatePendingDialogue");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Delta, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_UpdateActorList;
     /// <summary>
     /// Function: UpdateActorList
     /// </summary>
     public unsafe virtual void UpdateActorList()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UpdateActorList", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdateActorList, "BmGame.RDialogueManager.UpdateActorList");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_UpdateRunningSpeech;
     /// <summary>
     /// Function: UpdateRunningSpeech
     /// </summary>
     public unsafe virtual void UpdateRunningSpeech()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UpdateRunningSpeech", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdateRunningSpeech, "BmGame.RDialogueManager.UpdateRunningSpeech");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetFlagDialogueManager;
     /// <summary>
     /// Function: SetFlagDialogueManager
     /// </summary>
     public unsafe virtual void SetFlagDialogueManager(bool flag)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.SetFlagDialogueManager", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetFlagDialogueManager, "BmGame.RDialogueManager.SetFlagDialogueManager");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(flag, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RemoveTV;
     /// <summary>
     /// Function: RemoveTV
     /// </summary>
     public unsafe virtual void RemoveTV()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RemoveTV", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RemoveTV, "BmGame.RDialogueManager.RemoveTV");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AddTV;
     /// <summary>
     /// Function: AddTV
     /// </summary>
     public unsafe virtual void AddTV()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.AddTV", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddTV, "BmGame.RDialogueManager.AddTV");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_StopTape;
     /// <summary>
     /// Function: StopTape
     /// </summary>
     public unsafe virtual void StopTape()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.StopTape", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StopTape, "BmGame.RDialogueManager.StopTape");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AddLineToDialogueManager;
     /// <summary>
     /// Function: AddLineToDialogueManager
     /// </summary>
     public unsafe virtual void AddLineToDialogueManager(BmSDK.Engine.RDialogueLine Line)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.AddLineToDialogueManager", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddLineToDialogueManager, "BmGame.RDialogueManager.AddLineToDialogueManager");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Line, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RegisterThugBarksIdLoaded;
     /// <summary>
     /// Function: RegisterThugBarksIdLoaded
     /// </summary>
     public unsafe virtual void RegisterThugBarksIdLoaded(BmSDK.BmGame.RCharacter Character, int Id)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RegisterThugBarksIdLoaded", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterThugBarksIdLoaded, "BmGame.RDialogueManager.RegisterThugBarksIdLoaded");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Character, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
@@ -451,13 +536,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_GetThugBarksIdToLoad;
     /// <summary>
     /// Function: GetThugBarksIdToLoad
     /// </summary>
     public unsafe virtual int GetThugBarksIdToLoad(BmSDK.BmGame.RCharacter Character)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.GetThugBarksIdToLoad", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetThugBarksIdToLoad, "BmGame.RDialogueManager.GetThugBarksIdToLoad");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Character, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -467,16 +555,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_BumpRandomDialogue;
     /// <summary>
     /// Function: BumpRandomDialogue
     /// </summary>
     public unsafe virtual void BumpRandomDialogue()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.BumpRandomDialogue", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_BumpRandomDialogue, "BmGame.RDialogueManager.BumpRandomDialogue");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -488,13 +579,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_CheckRegistered;
     /// <summary>
     /// Function: CheckRegistered
     /// </summary>
     public unsafe virtual bool CheckRegistered(BmSDK.BmGame.RPawn Pawn)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.CheckRegistered", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CheckRegistered, "BmGame.RDialogueManager.CheckRegistered");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Pawn, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -504,16 +598,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_LineIsActive;
     /// <summary>
     /// Function: LineIsActive
     /// </summary>
     public unsafe virtual void LineIsActive(BmSDK.Engine.RDialogueLine Line)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.LineIsActive", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_LineIsActive, "BmGame.RDialogueManager.LineIsActive");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Line, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -526,13 +623,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_ConversationIsActive;
     /// <summary>
     /// Function: ConversationIsActive
     /// </summary>
     public unsafe virtual void ConversationIsActive(BmSDK.BmGame.RScriptConversation Conversation)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.ConversationIsActive", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ConversationIsActive, "BmGame.RDialogueManager.ConversationIsActive");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Conversation, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -545,13 +645,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_RemoveBankInfo;
     /// <summary>
     /// Function: RemoveBankInfo
     /// </summary>
     public unsafe virtual void RemoveBankInfo(BmSDK.Engine.AkBank Bank)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RemoveBankInfo", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RemoveBankInfo, "BmGame.RDialogueManager.RemoveBankInfo");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Bank, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -564,13 +667,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_AddBankInfo;
     /// <summary>
     /// Function: AddBankInfo
     /// </summary>
     public unsafe virtual void AddBankInfo(BmSDK.Engine.AkBank Bank, bool DoLoadInDialogueManager, bool AlsoLoadStreams, bool ErrorOnLoad = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.AddBankInfo", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddBankInfo, "BmGame.RDialogueManager.AddBankInfo");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Bank, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DoLoadInDialogueManager, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AlsoLoadStreams, paramsPtr + 8);
@@ -586,13 +692,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_IsTapePlaying;
     /// <summary>
     /// Function: IsTapePlaying
     /// </summary>
     public unsafe virtual bool IsTapePlaying()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.IsTapePlaying", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsTapePlaying, "BmGame.RDialogueManager.IsTapePlaying");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -601,16 +710,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_IsConversationLoaded;
     /// <summary>
     /// Function: IsConversationLoaded
     /// </summary>
     public unsafe virtual bool IsConversationLoaded(BmSDK.BmGame.RScriptConversation Conversation, BmSDK.Engine.RDialogueLine SingleLine)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.IsConversationLoaded", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsConversationLoaded, "BmGame.RDialogueManager.IsConversationLoaded");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Conversation, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SingleLine, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
@@ -621,16 +733,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_LoadConversation;
     /// <summary>
     /// Function: LoadConversation
     /// </summary>
     public unsafe virtual void LoadConversation(BmSDK.BmGame.RScriptConversation Conversation, BmSDK.Engine.RDialogueLine SingleLine, float TimeToKeep, bool RemoveFromGame, bool OnlyLoadBanks = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.LoadConversation", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_LoadConversation, "BmGame.RDialogueManager.LoadConversation");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Conversation, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SingleLine, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TimeToKeep, paramsPtr + 8);
@@ -647,13 +762,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_UpdatePendingDialogueLoading;
     /// <summary>
     /// Function: UpdatePendingDialogueLoading
     /// </summary>
     public unsafe virtual void UpdatePendingDialogueLoading(float DeltaTime)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UpdatePendingDialogueLoading", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdatePendingDialogueLoading, "BmGame.RDialogueManager.UpdatePendingDialogueLoading");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -666,13 +784,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_InternalStopTape;
     /// <summary>
     /// Function: InternalStopTape
     /// </summary>
     public unsafe virtual void InternalStopTape()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.InternalStopTape", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_InternalStopTape, "BmGame.RDialogueManager.InternalStopTape");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -684,13 +805,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_PlayTape;
     /// <summary>
     /// Function: PlayTape
     /// </summary>
     public unsafe virtual void PlayTape(BmSDK.FString TapeName, int TapeNumber)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.PlayTape", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlayTape, "BmGame.RDialogueManager.PlayTape");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TapeName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TapeNumber, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
@@ -704,13 +828,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_InitTape;
     /// <summary>
     /// Function: InitTape
     /// </summary>
     public unsafe virtual void InitTape()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.InitTape", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_InitTape, "BmGame.RDialogueManager.InitTape");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -722,13 +849,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_PlayerChangeReset;
     /// <summary>
     /// Function: PlayerChangeReset
     /// </summary>
     public unsafe virtual void PlayerChangeReset()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.PlayerChangeReset", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlayerChangeReset, "BmGame.RDialogueManager.PlayerChangeReset");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -740,13 +870,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_Reset;
     /// <summary>
     /// Function: Reset
     /// </summary>
     public unsafe override void Reset()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.Reset", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Reset, "BmGame.RDialogueManager.Reset");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -758,13 +891,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_LinePackageLoaded;
     /// <summary>
     /// Function: LinePackageLoaded
     /// </summary>
     public unsafe virtual void LinePackageLoaded(int Id)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.LinePackageLoaded", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_LinePackageLoaded, "BmGame.RDialogueManager.LinePackageLoaded");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -777,13 +913,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_LinePackageLoad;
     /// <summary>
     /// Function: LinePackageLoad
     /// </summary>
     public unsafe virtual bool LinePackageLoad(BmSDK.FString Info, BmSDK.FString Line, BmSDK.FString Package, bool RadioStart, BmSDK.Engine.Actor PawnToPlayOn)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.LinePackageLoad", true);
-        byte* paramsPtr = stackalloc byte[48];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_LinePackageLoad, "BmGame.RDialogueManager.LinePackageLoad");
+        byte* paramsPtr = stackalloc byte[64];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Info, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Line, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Package, paramsPtr + 24);
@@ -797,16 +936,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 44);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 44);
     }
 
+    private static BmSDK.Function __fn_ProcessTriggers;
     /// <summary>
     /// Function: ProcessTriggers
     /// </summary>
     public unsafe virtual void ProcessTriggers(BmSDK.Engine.RDialogueEvent DialogueEvent, BmSDK.Engine.Actor A)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.ProcessTriggers", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ProcessTriggers, "BmGame.RDialogueManager.ProcessTriggers");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DialogueEvent, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(A, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
@@ -820,13 +962,18 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_SpeechReadyToStart;
     /// <summary>
     /// Function: SpeechReadyToStart
     /// </summary>
     public unsafe virtual bool SpeechReadyToStart(out BmSDK.BmGame.RDialogueManager.FRPendingSpeech Speech)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.SpeechReadyToStart", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SpeechReadyToStart, "BmGame.RDialogueManager.SpeechReadyToStart");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Speech);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Speech, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -835,17 +982,20 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Speech = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDialogueManager.FRPendingSpeech>(paramsPtr + 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 16);
+        Speech = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.RDialogueManager.FRPendingSpeech>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 16);
     }
 
+    private static BmSDK.Function __fn_OkToPlay;
     /// <summary>
     /// Function: OkToPlay
     /// </summary>
     public unsafe virtual bool OkToPlay(BmSDK.Engine.SequenceAction Speech, BmSDK.TArray<BmSDK.BmGame.RPawn> Pawns, bool ErrorIfNoPlay, bool DoNotModifyTables)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.OkToPlay", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OkToPlay, "BmGame.RDialogueManager.OkToPlay");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Speech, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Pawns, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ErrorIfNoPlay, paramsPtr + 16);
@@ -858,16 +1008,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 24);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 24);
     }
 
+    private static BmSDK.Function __fn_OkToPlayNote;
     /// <summary>
     /// Function: OkToPlayNote
     /// </summary>
     public unsafe virtual bool OkToPlayNote(BmSDK.BmGame.RDialogueManager.eDialogueFailResponse Reason, BmSDK.Engine.SequenceAction Speech = default, bool ErrorIfNoPlay = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.OkToPlayNote", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OkToPlayNote, "BmGame.RDialogueManager.OkToPlayNote");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Reason, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Speech, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ErrorIfNoPlay, paramsPtr + 8);
@@ -879,16 +1032,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_CanThisPlay;
     /// <summary>
     /// Function: CanThisPlay
     /// </summary>
     public unsafe virtual BmSDK.BmGame.RDialogueManager.eDialogueFailResponse CanThisPlay(BmSDK.BmGame.RScriptConversation Conv, BmSDK.Engine.RDialogueLine Line)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.CanThisPlay", true);
-        byte* paramsPtr = stackalloc byte[9];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CanThisPlay, "BmGame.RDialogueManager.CanThisPlay");
+        byte* paramsPtr = stackalloc byte[25];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Conv, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Line, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
@@ -899,16 +1055,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDialogueManager.eDialogueFailResponse>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.RDialogueManager.eDialogueFailResponse>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_CheckTypeCanPlay;
     /// <summary>
     /// Function: CheckTypeCanPlay
     /// </summary>
     public unsafe virtual BmSDK.BmGame.RDialogueManager.eDialogueFailResponse CheckTypeCanPlay(BmSDK.Engine.AkWwise.EDialogueHelperType DialogueType, BmSDK.Engine.RDialogueEvent DialogueEvent, BmSDK.Engine.RDialogueEvent.EPriority Priority, bool bAlreadyPlaying = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.CheckTypeCanPlay", true);
-        byte* paramsPtr = stackalloc byte[17];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CheckTypeCanPlay, "BmGame.RDialogueManager.CheckTypeCanPlay");
+        byte* paramsPtr = stackalloc byte[33];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DialogueType, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DialogueEvent, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Priority, paramsPtr + 8);
@@ -921,16 +1080,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RDialogueManager.eDialogueFailResponse>(paramsPtr + 16);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.RDialogueManager.eDialogueFailResponse>(paramsPtr + 16);
     }
 
+    private static BmSDK.Function __fn_UnregisterSingleLineInternal;
     /// <summary>
     /// Function: UnregisterSingleLineInternal
     /// </summary>
     public unsafe virtual void UnregisterSingleLineInternal(BmSDK.Engine.RDialogueLine Line)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UnregisterSingleLineInternal", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnregisterSingleLineInternal, "BmGame.RDialogueManager.UnregisterSingleLineInternal");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Line, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -943,13 +1105,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_RegisterSingleLineInternal;
     /// <summary>
     /// Function: RegisterSingleLineInternal
     /// </summary>
     public unsafe virtual void RegisterSingleLineInternal(BmSDK.Engine.RDialogueLine Line, BmSDK.BmGame.RSeqAct_PlaySpeechBase.EDialogueType DialogueType, bool ManagedBanks = default, BmSDK.FString RadioStation = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RegisterSingleLineInternal", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterSingleLineInternal, "BmGame.RDialogueManager.RegisterSingleLineInternal");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Line, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DialogueType, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ManagedBanks, paramsPtr + 8);
@@ -965,13 +1130,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_UnregisterConversationInternal;
     /// <summary>
     /// Function: UnregisterConversationInternal
     /// </summary>
     public unsafe virtual void UnregisterConversationInternal(BmSDK.BmGame.RScriptConversation Conv)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UnregisterConversationInternal", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnregisterConversationInternal, "BmGame.RDialogueManager.UnregisterConversationInternal");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Conv, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -984,13 +1152,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_RegisterConversationInternal;
     /// <summary>
     /// Function: RegisterConversationInternal
     /// </summary>
     public unsafe virtual void RegisterConversationInternal(BmSDK.BmGame.RScriptConversation Conv, BmSDK.BmGame.RSeqAct_PlaySpeechBase.EDialogueType DialogueType, bool ManagedBanks = default, BmSDK.FString RadioStation = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RegisterConversationInternal", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterConversationInternal, "BmGame.RDialogueManager.RegisterConversationInternal");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Conv, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DialogueType, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ManagedBanks, paramsPtr + 8);
@@ -1006,13 +1177,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_UnregisterSpeakerInternal;
     /// <summary>
     /// Function: UnregisterSpeakerInternal
     /// </summary>
     public unsafe virtual void UnregisterSpeakerInternal(BmSDK.Engine.Actor Actor, bool checkDelete)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.UnregisterSpeakerInternal", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnregisterSpeakerInternal, "BmGame.RDialogueManager.UnregisterSpeakerInternal");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Actor, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(checkDelete, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
@@ -1026,13 +1200,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_RegisterSpeakerInternal;
     /// <summary>
     /// Function: RegisterSpeakerInternal
     /// </summary>
     public unsafe virtual void RegisterSpeakerInternal(BmSDK.Engine.Actor Actor, BmSDK.Engine.AkWwise.EDialogueHelperType SpeakerType = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RegisterSpeakerInternal", true);
-        byte* paramsPtr = stackalloc byte[5];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterSpeakerInternal, "BmGame.RDialogueManager.RegisterSpeakerInternal");
+        byte* paramsPtr = stackalloc byte[21];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Actor, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SpeakerType, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
@@ -1046,13 +1223,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_NumberOfSlots;
     /// <summary>
     /// Function: NumberOfSlots
     /// </summary>
     public unsafe virtual int NumberOfSlots()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.NumberOfSlots", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NumberOfSlots, "BmGame.RDialogueManager.NumberOfSlots");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1061,16 +1241,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_PlaySpeechInternal;
     /// <summary>
     /// Function: PlaySpeechInternal
     /// </summary>
     public unsafe virtual void PlaySpeechInternal(BmSDK.Engine.Actor SpeechActor, BmSDK.Engine.RDialogueLine DialogueLine, BmSDK.BmGame.RGameInfo.VocalPriority Priority, BmSDK.Engine.SequenceAction PlaySpeechAction, bool bPlayEarcon)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.PlaySpeechInternal", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlaySpeechInternal, "BmGame.RDialogueManager.PlaySpeechInternal");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SpeechActor, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DialogueLine, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Priority, paramsPtr + 8);
@@ -1087,14 +1270,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_StopSpeaking;
     /// <summary>
     /// Function: StopSpeaking
     /// </summary>
     public unsafe virtual void StopSpeaking(BmSDK.Engine.Actor A, out BmSDK.Engine.AkWwise.FAkSoundHandle Handle, bool ActorDelete = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.StopSpeaking", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StopSpeaking, "BmGame.RDialogueManager.StopSpeaking");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(A, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Handle);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Handle, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ActorDelete, paramsPtr + 16);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -1104,17 +1292,20 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Handle = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkWwise.FAkSoundHandle>(paramsPtr + 4);
+        Handle = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.AkWwise.FAkSoundHandle>(paramsPtr + 4);
         return;
     }
 
+    private static BmSDK.Function __fn_StopSpeakingNoHandle;
     /// <summary>
     /// Function: StopSpeakingNoHandle
     /// </summary>
     public unsafe virtual void StopSpeakingNoHandle(BmSDK.Engine.Actor A, bool ForceStop, bool ActorDelete = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.StopSpeakingNoHandle", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StopSpeakingNoHandle, "BmGame.RDialogueManager.StopSpeakingNoHandle");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(A, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ForceStop, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ActorDelete, paramsPtr + 8);
@@ -1129,13 +1320,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_StartSpeaking;
     /// <summary>
     /// Function: StartSpeaking
     /// </summary>
     public unsafe virtual BmSDK.Engine.AkWwise.FAkSoundHandle StartSpeaking(BmSDK.Engine.Actor A, BmSDK.Engine.RDialogueEvent DialogueEvent, System.IntPtr SoundCallbackDelegate = default, int SoundCallbackFlags = default, float FaceFXStartTime = default, bool bIsTriggerFromGFX = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.StartSpeaking", true);
-        byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StartSpeaking, "BmGame.RDialogueManager.StartSpeaking");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(A, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DialogueEvent, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SoundCallbackDelegate, paramsPtr + 8);
@@ -1150,16 +1344,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AkWwise.FAkSoundHandle>(paramsPtr + 32);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.AkWwise.FAkSoundHandle>(paramsPtr + 32);
     }
 
+    private static BmSDK.Function __fn_CanContinueRingingPhone;
     /// <summary>
     /// Function: CanContinueRingingPhone
     /// </summary>
     public unsafe virtual bool CanContinueRingingPhone()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.CanContinueRingingPhone", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CanContinueRingingPhone, "BmGame.RDialogueManager.CanContinueRingingPhone");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1168,16 +1365,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_CanRingPhone;
     /// <summary>
     /// Function: CanRingPhone
     /// </summary>
     public unsafe virtual bool CanRingPhone()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.CanRingPhone", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CanRingPhone, "BmGame.RDialogueManager.CanRingPhone");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1186,16 +1386,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_Init;
     /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe virtual void Init()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.Init", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Init, "BmGame.RDialogueManager.Init");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1207,13 +1410,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_AreHelicoptersAggressive;
     /// <summary>
     /// Function: AreHelicoptersAggressive
     /// </summary>
     public unsafe virtual bool AreHelicoptersAggressive()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.AreHelicoptersAggressive", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AreHelicoptersAggressive, "BmGame.RDialogueManager.AreHelicoptersAggressive");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1222,16 +1428,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_DebugNote;
     /// <summary>
     /// Function: DebugNote
     /// </summary>
     public unsafe virtual bool DebugNote(BmSDK.FString Note, BmSDK.BmGame.RDialogueManager.eDialogueDebugNoteState State = default, bool Surv = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.DebugNote", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DebugNote, "BmGame.RDialogueManager.DebugNote");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Note, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(State, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Surv, paramsPtr + 16);
@@ -1243,16 +1452,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 20);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 20);
     }
 
+    private static BmSDK.Function __fn_ClearAllAlias;
     /// <summary>
     /// Function: ClearAllAlias
     /// </summary>
     public unsafe virtual void ClearAllAlias()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.ClearAllAlias", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ClearAllAlias, "BmGame.RDialogueManager.ClearAllAlias");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1264,13 +1476,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_ClearAlias;
     /// <summary>
     /// Function: ClearAlias
     /// </summary>
     public unsafe virtual void ClearAlias(BmSDK.FString CharacterName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.ClearAlias", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ClearAlias, "BmGame.RDialogueManager.ClearAlias");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CharacterName, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -1283,13 +1498,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_RegisterAlias;
     /// <summary>
     /// Function: RegisterAlias
     /// </summary>
     public unsafe virtual void RegisterAlias(BmSDK.FString CharacterName, BmSDK.FString NewCharacterName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.RegisterAlias", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterAlias, "BmGame.RDialogueManager.RegisterAlias");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CharacterName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewCharacterName, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
@@ -1303,13 +1521,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_SetUsed;
     /// <summary>
     /// Function: SetUsed
     /// </summary>
     public unsafe virtual void SetUsed(BmSDK.BmGame.RChapterLineSet LineSet, BmSDK.BmGame.RChapterLineSet.FChapterLineDefinition LineIn, bool ToSet)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.SetUsed", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetUsed, "BmGame.RDialogueManager.SetUsed");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LineSet, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LineIn, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ToSet, paramsPtr + 16);
@@ -1324,13 +1545,16 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_GetUsed;
     /// <summary>
     /// Function: GetUsed
     /// </summary>
     public unsafe virtual bool GetUsed(BmSDK.BmGame.RChapterLineSet LineSet, BmSDK.BmGame.RChapterLineSet.FChapterLineDefinition LineIn)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.GetUsed", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetUsed, "BmGame.RDialogueManager.GetUsed");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LineSet, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LineIn, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
@@ -1341,16 +1565,19 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 16);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 16);
     }
 
+    private static BmSDK.Function __fn_GetRandDialogueLine;
     /// <summary>
     /// Function: GetRandDialogueLine
     /// </summary>
     public unsafe virtual int GetRandDialogueLine(BmSDK.Engine.RDialogueLine Line)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDialogueManager.GetRandDialogueLine", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetRandDialogueLine, "BmGame.RDialogueManager.GetRandDialogueLine");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Line, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -1360,7 +1587,7 @@ public partial class RDialogueManager : BmSDK.Engine.Actor, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
     }
 
     /// <summary>

@@ -78,26 +78,32 @@ public partial class SDGetFireteamProfileRequest : BmSDK.Engine.SDProfileRequest
         where TComponent : class, Framework.IScriptComponent<SDGetFireteamProfileRequest>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_OnGotFireteamProfile;
     /// <summary>
     /// Function: OnGotFireteamProfile
     /// </summary>
     public unsafe virtual void OnGotFireteamProfile(BmSDK.Engine.SDHttpRequest Request, BmSDK.FString Data)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetFireteamProfileRequest.OnGotFireteamProfile", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnGotFireteamProfile, "Engine.SDGetFireteamProfileRequest.OnGotFireteamProfile");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Request, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Data, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetParameters;
     /// <summary>
     /// Function: SetParameters
     /// </summary>
     public unsafe virtual void SetParameters(int LocalPlayerNum, BmSDK.FString UserId, BmSDK.Engine.SDProfileRequest.ProfileType ProfType, System.IntPtr OnGotProfile)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetFireteamProfileRequest.SetParameters", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetParameters, "Engine.SDGetFireteamProfileRequest.SetParameters");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LocalPlayerNum, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(UserId, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ProfType, paramsPtr + 16);
@@ -106,25 +112,31 @@ public partial class SDGetFireteamProfileRequest : BmSDK.Engine.SDProfileRequest
         return;
     }
 
+    private static BmSDK.Function __fn_GetUserIdFromLocalUserNum;
     /// <summary>
     /// Function: GetUserIdFromLocalUserNum
     /// </summary>
     public unsafe virtual BmSDK.FString GetUserIdFromLocalUserNum(int LocalUserNum)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetFireteamProfileRequest.GetUserIdFromLocalUserNum", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetUserIdFromLocalUserNum, "Engine.SDGetFireteamProfileRequest.GetUserIdFromLocalUserNum");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LocalUserNum, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.FString>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_Initialise;
     /// <summary>
     /// Function: Initialise
     /// </summary>
     public unsafe override void Initialise()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetFireteamProfileRequest.Initialise", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Initialise, "Engine.SDGetFireteamProfileRequest.Initialise");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
@@ -138,13 +150,16 @@ public partial class SDGetFireteamProfileRequest : BmSDK.Engine.SDProfileRequest
         set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
     }
 
+    private static BmSDK.Function __fn_OnGotProfileDelegate;
     /// <summary>
     /// Function: OnGotProfileDelegate
     /// </summary>
     public unsafe virtual void OnGotProfileDelegate(BmSDK.Engine.SDJsonObject FireteamProfile)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetFireteamProfileRequest.OnGotProfileDelegate", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnGotProfileDelegate, "Engine.SDGetFireteamProfileRequest.OnGotProfileDelegate");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(FireteamProfile, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;

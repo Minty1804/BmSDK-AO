@@ -23,6 +23,29 @@ public sealed class Mod
     /// </summary>
     public TomlTable Config { get; }
 
+    /// <summary>
+    /// Values that survive a hot reload of this mod. A reload compiles a new assembly, so the mod's
+    /// statics start over and its own types change identity; keep only BCL and BmSDK types here
+    /// (numbers, strings, game object wrappers, collections of those), or the cast fails after a reload.
+    /// </summary>
+    public IDictionary<string, object?> State => GetState(DirectoryPath);
+
+    private static readonly Dictionary<string, Dictionary<string, object?>> s_states = [];
+
+    private static IDictionary<string, object?> GetState(string directoryPath)
+    {
+        lock (s_states)
+        {
+            if (!s_states.TryGetValue(directoryPath, out var state))
+            {
+                state = [];
+                s_states[directoryPath] = state;
+            }
+
+            return state;
+        }
+    }
+
     internal Mod(string name, string directoryPath, TomlTable config)
     {
         Name = name;

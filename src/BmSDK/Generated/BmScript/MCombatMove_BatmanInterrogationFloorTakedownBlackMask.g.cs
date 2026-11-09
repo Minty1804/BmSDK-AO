@@ -78,25 +78,31 @@ public partial class MCombatMove_BatmanInterrogationFloorTakedownBlackMask : BmS
         where TComponent : class, Framework.IScriptComponent<MCombatMove_BatmanInterrogationFloorTakedownBlackMask>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_GetBatmanAnimSet;
     /// <summary>
     /// Function: GetBatmanAnimSet
     /// </summary>
     public unsafe override BmSDK.Engine.AnimSet GetBatmanAnimSet()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.MCombatMove_BatmanInterrogationFloorTakedownBlackMask.GetBatmanAnimSet", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetBatmanAnimSet, "BmScript.MCombatMove_BatmanInterrogationFloorTakedownBlackMask.GetBatmanAnimSet");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.AnimSet>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_GetTargetAnimSet;
     /// <summary>
     /// Function: GetTargetAnimSet
     /// </summary>
     public unsafe override BmSDK.Engine.AnimSet GetTargetAnimSet()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.MCombatMove_BatmanInterrogationFloorTakedownBlackMask.GetTargetAnimSet", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTargetAnimSet, "BmScript.MCombatMove_BatmanInterrogationFloorTakedownBlackMask.GetTargetAnimSet");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AnimSet>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.AnimSet>(paramsPtr + 0);
     }
 }

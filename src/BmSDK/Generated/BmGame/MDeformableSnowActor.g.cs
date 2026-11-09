@@ -78,13 +78,16 @@ public partial class MDeformableSnowActor : BmSDK.Engine.StaticMeshActor, BmSDK.
         where TComponent : class, Framework.IScriptComponent<MDeformableSnowActor>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_OnActorUnTouch;
     /// <summary>
     /// Function: OnActorUnTouch
     /// </summary>
     public unsafe virtual void OnActorUnTouch(BmSDK.Engine.Actor Other)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDeformableSnowActor.OnActorUnTouch", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnActorUnTouch, "BmGame.MDeformableSnowActor.OnActorUnTouch");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Other, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -97,13 +100,16 @@ public partial class MDeformableSnowActor : BmSDK.Engine.StaticMeshActor, BmSDK.
         return;
     }
 
+    private static BmSDK.Function __fn_OnActorTouch;
     /// <summary>
     /// Function: OnActorTouch
     /// </summary>
     public unsafe virtual void OnActorTouch(BmSDK.Engine.Actor Other)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDeformableSnowActor.OnActorTouch", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnActorTouch, "BmGame.MDeformableSnowActor.OnActorTouch");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Other, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;

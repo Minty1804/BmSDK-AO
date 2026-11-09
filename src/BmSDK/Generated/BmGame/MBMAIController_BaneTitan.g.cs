@@ -78,14 +78,17 @@ public partial class MBMAIController_BaneTitan : BmSDK.BmGame.RBMAIController, B
         where TComponent : class, Framework.IScriptComponent<MBMAIController_BaneTitan>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_ShouldEnterCombatWhenGrenadeHit;
     /// <summary>
     /// Function: ShouldEnterCombatWhenGrenadeHit
     /// </summary>
     public unsafe override bool ShouldEnterCombatWhenGrenadeHit()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBMAIController_BaneTitan.ShouldEnterCombatWhenGrenadeHit", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ShouldEnterCombatWhenGrenadeHit, "BmGame.MBMAIController_BaneTitan.ShouldEnterCombatWhenGrenadeHit");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 }

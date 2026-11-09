@@ -78,18 +78,21 @@ public partial class RBMAIController_Lunatic : BmSDK.BmGame.RBMAIController, BmS
         where TComponent : class, Framework.IScriptComponent<RBMAIController_Lunatic>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_CalcVisibilityFor;
     /// <summary>
     /// Function: CalcVisibilityFor
     /// </summary>
     public unsafe override BmSDK.BmGame.AlertInstance.VisibilityCategory CalcVisibilityFor(BmSDK.Engine.Actor A, System.Numerics.Vector3 CheckLocation = default, float CanSeePercent = default, System.Numerics.Vector3 LookDir = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMAIController_Lunatic.CalcVisibilityFor", true);
-        byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CalcVisibilityFor, "BmGame.RBMAIController_Lunatic.CalcVisibilityFor");
+        byte* paramsPtr = stackalloc byte[56];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(A, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CheckLocation, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(CanSeePercent, paramsPtr + 16);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LookDir, paramsPtr + 20);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.AlertInstance.VisibilityCategory>(paramsPtr + 32);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.AlertInstance.VisibilityCategory>(paramsPtr + 32);
     }
 }

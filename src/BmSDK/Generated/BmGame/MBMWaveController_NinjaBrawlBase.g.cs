@@ -73,36 +73,45 @@ public partial class MBMWaveController_NinjaBrawlBase : BmSDK.BmGame.RBMWaveCont
         where TComponent : class, Framework.IScriptComponent<MBMWaveController_NinjaBrawlBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_OnSpawnNinja;
     /// <summary>
     /// Function: OnSpawnNinja
     /// </summary>
     public unsafe virtual void OnSpawnNinja(BmSDK.BmGame.RBmPawnSpawner NinjaSpawner)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBMWaveController_NinjaBrawlBase.OnSpawnNinja", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnSpawnNinja, "BmGame.MBMWaveController_NinjaBrawlBase.OnSpawnNinja");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NinjaSpawner, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_OnDeActivated;
     /// <summary>
     /// Function: OnDeActivated
     /// </summary>
     public unsafe virtual void OnDeActivated()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBMWaveController_NinjaBrawlBase.OnDeActivated", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnDeActivated, "BmGame.MBMWaveController_NinjaBrawlBase.OnDeActivated");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_OnActivated;
     /// <summary>
     /// Function: OnActivated
     /// </summary>
     public unsafe virtual void OnActivated()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBMWaveController_NinjaBrawlBase.OnActivated", true);
-        byte* paramsPtr = stackalloc byte[124];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnActivated, "BmGame.MBMWaveController_NinjaBrawlBase.OnActivated");
+        byte* paramsPtr = stackalloc byte[140];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

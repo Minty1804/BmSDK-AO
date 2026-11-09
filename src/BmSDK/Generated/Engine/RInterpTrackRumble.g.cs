@@ -108,7 +108,7 @@ public partial class RInterpTrackRumble : BmSDK.Engine.InterpTrack, BmSDK.IGameO
     /// <summary>
     /// Struct: FRumbleTrackKey
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 21)]
+    [StructLayout(LayoutKind.Explicit, Size = 24)]
     public partial record struct FRumbleTrackKey
     {
         /// <summary>

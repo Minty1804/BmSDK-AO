@@ -78,24 +78,30 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<MExperienceSystem>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_DoAlfredWisdomBonus;
     /// <summary>
     /// Function: DoAlfredWisdomBonus
     /// </summary>
     public unsafe virtual bool DoAlfredWisdomBonus()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.DoAlfredWisdomBonus", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DoAlfredWisdomBonus, "BmGame.MExperienceSystem.DoAlfredWisdomBonus");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_RegisterCombatKO;
     /// <summary>
     /// Function: RegisterCombatKO
     /// </summary>
     public unsafe virtual void RegisterCombatKO(BmSDK.BmGame.RGameInfo.EGameAction Type, BmSDK.Engine.Actor XPTarget, int XPAmount)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.RegisterCombatKO", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterCombatKO, "BmGame.MExperienceSystem.RegisterCombatKO");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Type, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPTarget, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPAmount, paramsPtr + 8);
@@ -103,13 +109,16 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_RegisterRepeatedAction;
     /// <summary>
     /// Function: RegisterRepeatedAction
     /// </summary>
     public unsafe virtual void RegisterRepeatedAction(BmSDK.BmGame.RGameInfo.EGameAction Type, BmSDK.Engine.Actor XPTarget, int XPAmount = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.RegisterRepeatedAction", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterRepeatedAction, "BmGame.MExperienceSystem.RegisterRepeatedAction");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Type, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPTarget, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPAmount, paramsPtr + 8);
@@ -117,13 +126,16 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_SpawnXPSequence;
     /// <summary>
     /// Function: SpawnXPSequence
     /// </summary>
     public unsafe virtual void SpawnXPSequence(int XPAwarded, BmSDK.Engine.Actor XPTarget, BmSDK.BmGame.RGameInfo.EGameAction Type, float BatMultiplier = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.SpawnXPSequence", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SpawnXPSequence, "BmGame.MExperienceSystem.SpawnXPSequence");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPAwarded, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPTarget, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Type, paramsPtr + 8);
@@ -132,13 +144,16 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_SpawnXPSequenceFromConfig;
     /// <summary>
     /// Function: SpawnXPSequenceFromConfig
     /// </summary>
     public unsafe virtual void SpawnXPSequenceFromConfig(BmSDK.FString MiscellaneousXPTag, BmSDK.Engine.Actor XPTarget, BmSDK.BmGame.RGameInfo.EGameAction Type, float BatMultiplier = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.SpawnXPSequenceFromConfig", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SpawnXPSequenceFromConfig, "BmGame.MExperienceSystem.SpawnXPSequenceFromConfig");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MiscellaneousXPTag, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPTarget, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Type, paramsPtr + 16);
@@ -147,147 +162,186 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_AwardBankedXP;
     /// <summary>
     /// Function: AwardBankedXP
     /// </summary>
     public unsafe virtual void AwardBankedXP()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AwardBankedXP", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AwardBankedXP, "BmGame.MExperienceSystem.AwardBankedXP");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_HasBankedExperience;
     /// <summary>
     /// Function: HasBankedExperience
     /// </summary>
     public unsafe virtual bool HasBankedExperience()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.HasBankedExperience", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_HasBankedExperience, "BmGame.MExperienceSystem.HasBankedExperience");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_BankExperience;
     /// <summary>
     /// Function: BankExperience
     /// </summary>
     public unsafe virtual void BankExperience(float experiencePoints)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.BankExperience", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_BankExperience, "BmGame.MExperienceSystem.BankExperience");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(experiencePoints, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsFullLevelUp;
     /// <summary>
     /// Function: IsFullLevelUp
     /// </summary>
     public unsafe virtual bool IsFullLevelUp()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.IsFullLevelUp", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsFullLevelUp, "BmGame.MExperienceSystem.IsFullLevelUp");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_LevelNeededXP;
     /// <summary>
     /// Function: LevelNeededXP
     /// </summary>
     public unsafe virtual int LevelNeededXP()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.LevelNeededXP", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_LevelNeededXP, "BmGame.MExperienceSystem.LevelNeededXP");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_LastLevelNeededXP;
     /// <summary>
     /// Function: LastLevelNeededXP
     /// </summary>
     public unsafe virtual int LastLevelNeededXP()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.LastLevelNeededXP", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_LastLevelNeededXP, "BmGame.MExperienceSystem.LastLevelNeededXP");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_GetNeededXP;
     /// <summary>
     /// Function: GetNeededXP
     /// </summary>
     public unsafe virtual int GetNeededXP()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetNeededXP", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetNeededXP, "BmGame.MExperienceSystem.GetNeededXP");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_GetCurrentXP;
     /// <summary>
     /// Function: GetCurrentXP
     /// </summary>
     public unsafe virtual int GetCurrentXP()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetCurrentXP", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCurrentXP, "BmGame.MExperienceSystem.GetCurrentXP");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_InitXPBarForLevel;
     /// <summary>
     /// Function: InitXPBarForLevel
     /// </summary>
     public unsafe virtual void InitXPBarForLevel(int Level)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.InitXPBarForLevel", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_InitXPBarForLevel, "BmGame.MExperienceSystem.InitXPBarForLevel");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Level, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_InitXPBarForCurrentLevel;
     /// <summary>
     /// Function: InitXPBarForCurrentLevel
     /// </summary>
     public unsafe virtual void InitXPBarForCurrentLevel()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.InitXPBarForCurrentLevel", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_InitXPBarForCurrentLevel, "BmGame.MExperienceSystem.InitXPBarForCurrentLevel");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_HideXPBar;
     /// <summary>
     /// Function: HideXPBar
     /// </summary>
     public unsafe virtual void HideXPBar()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.HideXPBar", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_HideXPBar, "BmGame.MExperienceSystem.HideXPBar");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_ShowXPBar;
     /// <summary>
     /// Function: ShowXPBar
     /// </summary>
     public unsafe virtual void ShowXPBar()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.ShowXPBar", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ShowXPBar, "BmGame.MExperienceSystem.ShowXPBar");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetXPBar;
     /// <summary>
     /// Function: SetXPBar
     /// </summary>
     public unsafe virtual void SetXPBar(int NewValue, int MinVal, int MaxVal, int Duration = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.SetXPBar", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetXPBar, "BmGame.MExperienceSystem.SetXPBar");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewValue, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MinVal, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MaxVal, paramsPtr + 8);
@@ -296,13 +350,16 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_SetLevelXPBar;
     /// <summary>
     /// Function: SetLevelXPBar
     /// </summary>
     public unsafe virtual void SetLevelXPBar(int NewValue, int Level, int Duration = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.SetLevelXPBar", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetLevelXPBar, "BmGame.MExperienceSystem.SetLevelXPBar");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewValue, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Level, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Duration, paramsPtr + 8);
@@ -310,26 +367,32 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_SetActualXPBar;
     /// <summary>
     /// Function: SetActualXPBar
     /// </summary>
     public unsafe virtual void SetActualXPBar(int NewValue, int Duration = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.SetActualXPBar", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetActualXPBar, "BmGame.MExperienceSystem.SetActualXPBar");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewValue, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Duration, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AddPredatorXP;
     /// <summary>
     /// Function: AddPredatorXP
     /// </summary>
     public unsafe virtual void AddPredatorXP(BmSDK.BmGame.RGameInfo.ECombatPawnType ThugType, BmSDK.Class DamageType, bool IsDoubleTakedown, bool IsQuickTakedown)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AddPredatorXP", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddPredatorXP, "BmGame.MExperienceSystem.AddPredatorXP");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ThugType, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DamageType, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(IsDoubleTakedown, paramsPtr + 8);
@@ -338,84 +401,107 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_ResetPredatorValues;
     /// <summary>
     /// Function: ResetPredatorValues
     /// </summary>
     public unsafe virtual void ResetPredatorValues()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.ResetPredatorValues", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ResetPredatorValues, "BmGame.MExperienceSystem.ResetPredatorValues");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_OnPlayerDied;
     /// <summary>
     /// Function: OnPlayerDied
     /// </summary>
     public unsafe virtual void OnPlayerDied()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.OnPlayerDied", true);
-        byte* paramsPtr = stackalloc byte[92];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnPlayerDied, "BmGame.MExperienceSystem.OnPlayerDied");
+        byte* paramsPtr = stackalloc byte[108];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetAwardChallengeXP;
     /// <summary>
     /// Function: GetAwardChallengeXP
     /// </summary>
     public unsafe int GetAwardChallengeXP(out BmSDK.BmGame.MExperienceSystem.FSChallengeBeatNotification notif, BmSDK.GFxUI.GFxObject XPDataChallenges, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetAwardChallengeXP", true);
-        byte* paramsPtr = stackalloc byte[108];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetAwardChallengeXP, "BmGame.MExperienceSystem.GetAwardChallengeXP");
+        byte* paramsPtr = stackalloc byte[124];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataChallenges, paramsPtr + 92);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 96);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        notif = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MExperienceSystem.FSChallengeBeatNotification>(paramsPtr + 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 96);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 100);
+        notif = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MExperienceSystem.FSChallengeBeatNotification>(paramsPtr + 0);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 96);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 100);
     }
 
+    private static BmSDK.Function __fn_AwardChallengeXP;
     /// <summary>
     /// Function: AwardChallengeXP
     /// </summary>
     public unsafe virtual void AwardChallengeXP()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AwardChallengeXP", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AwardChallengeXP, "BmGame.MExperienceSystem.AwardChallengeXP");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AppendAwardChallengeDarkKnightComplete;
     /// <summary>
     /// Function: AppendAwardChallengeDarkKnightComplete
     /// </summary>
     public unsafe virtual void AppendAwardChallengeDarkKnightComplete(BmSDK.BmGame.MDarkKnightChallengesSettings Settings)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AppendAwardChallengeDarkKnightComplete", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AppendAwardChallengeDarkKnightComplete, "BmGame.MExperienceSystem.AppendAwardChallengeDarkKnightComplete");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Settings, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AppendAwardChallengePathComplete;
     /// <summary>
     /// Function: AppendAwardChallengePathComplete
     /// </summary>
     public unsafe virtual void AppendAwardChallengePathComplete(BmSDK.BmGame.MDarkKnightChallengesSettings.FDKPathSettings PathSettings)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AppendAwardChallengePathComplete", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AppendAwardChallengePathComplete, "BmGame.MExperienceSystem.AppendAwardChallengePathComplete");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PathSettings, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AppendAwardChallengePathLevelBeat;
     /// <summary>
     /// Function: AppendAwardChallengePathLevelBeat
     /// </summary>
     public unsafe virtual void AppendAwardChallengePathLevelBeat(int Level, BmSDK.BmGame.MDarkKnightChallengesSettings.FDKPathSettings PathSettings, bool PathComplete)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AppendAwardChallengePathLevelBeat", true);
-        byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AppendAwardChallengePathLevelBeat, "BmGame.MExperienceSystem.AppendAwardChallengePathLevelBeat");
+        byte* paramsPtr = stackalloc byte[56];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Level, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PathSettings, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PathComplete, paramsPtr + 36);
@@ -423,178 +509,226 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_BeginAwardChallengeBeat;
     /// <summary>
     /// Function: BeginAwardChallengeBeat
     /// </summary>
     public unsafe virtual void BeginAwardChallengeBeat(BmSDK.BmGame.MDarkKnightChallenge Challenge, bool AwardXPNow)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.BeginAwardChallengeBeat", true);
-        byte* paramsPtr = stackalloc byte[108];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_BeginAwardChallengeBeat, "BmGame.MExperienceSystem.BeginAwardChallengeBeat");
+        byte* paramsPtr = stackalloc byte[124];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Challenge, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AwardXPNow, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AwardXP;
     /// <summary>
     /// Function: AwardXP
     /// </summary>
     public unsafe virtual void AwardXP(BmSDK.BmGame.MExperienceSystem.XPType TypeOfXP)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AwardXP", true);
-        byte* paramsPtr = stackalloc byte[128];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AwardXP, "BmGame.MExperienceSystem.AwardXP");
+        byte* paramsPtr = stackalloc byte[144];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TypeOfXP, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetPointsForPredator;
     /// <summary>
     /// Function: GetPointsForPredator
     /// </summary>
     public unsafe virtual int GetPointsForPredator(BmSDK.GFxUI.GFxObject XPDataGrade, out int ThreatXP)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetPointsForPredator", true);
-        byte* paramsPtr = stackalloc byte[56];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetPointsForPredator, "BmGame.MExperienceSystem.GetPointsForPredator");
+        byte* paramsPtr = stackalloc byte[72];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataGrade, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out ThreatXP);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ThreatXP, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ThreatXP = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+        ThreatXP = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetPointsForFFC;
     /// <summary>
     /// Function: GetPointsForFFC
     /// </summary>
     public unsafe virtual int GetPointsForFFC(BmSDK.GFxUI.GFxObject XPDataGrade, out int ThreatXP)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetPointsForFFC", true);
-        byte* paramsPtr = stackalloc byte[60];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetPointsForFFC, "BmGame.MExperienceSystem.GetPointsForFFC");
+        byte* paramsPtr = stackalloc byte[76];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataGrade, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out ThreatXP);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ThreatXP, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ThreatXP = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+        ThreatXP = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetLevels;
     /// <summary>
     /// Function: GetLevels
     /// </summary>
     public unsafe virtual void GetLevels(BmSDK.GFxUI.GFxObject XPDataCategory, int xp)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetLevels", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetLevels, "BmGame.MExperienceSystem.GetLevels");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataCategory, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(xp, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetGrade;
     /// <summary>
     /// Function: GetGrade
     /// </summary>
     public unsafe virtual int GetGrade(BmSDK.GFxUI.GFxObject XPData, BmSDK.BmGame.MExperienceSystem.XPType TypeOfXP, out int ThreatXP)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetGrade", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetGrade, "BmGame.MExperienceSystem.GetGrade");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPData, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TypeOfXP, paramsPtr + 4);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out ThreatXP);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ThreatXP, paramsPtr + 8);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ThreatXP = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 12);
+        ThreatXP = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_NotifyCombatIsOver;
     /// <summary>
     /// Function: NotifyCombatIsOver
     /// </summary>
     public unsafe virtual void NotifyCombatIsOver(int hitCount)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.NotifyCombatIsOver", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NotifyCombatIsOver, "BmGame.MExperienceSystem.NotifyCombatIsOver");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(hitCount, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_NotifyPredatorIsOver;
     /// <summary>
     /// Function: NotifyPredatorIsOver
     /// </summary>
     public unsafe virtual void NotifyPredatorIsOver(int PlayerSeenCount, int hitCount)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.NotifyPredatorIsOver", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NotifyPredatorIsOver, "BmGame.MExperienceSystem.NotifyPredatorIsOver");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PlayerSeenCount, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(hitCount, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_NotifyPredatorRooftopUntouch;
     /// <summary>
     /// Function: NotifyPredatorRooftopUntouch
     /// </summary>
     public unsafe virtual void NotifyPredatorRooftopUntouch(BmSDK.BmGame.RBMRoomAIState PredatorRooftop, int hitCount)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.NotifyPredatorRooftopUntouch", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NotifyPredatorRooftopUntouch, "BmGame.MExperienceSystem.NotifyPredatorRooftopUntouch");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PredatorRooftop, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(hitCount, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_NotifyPredatorRooftopTouch;
     /// <summary>
     /// Function: NotifyPredatorRooftopTouch
     /// </summary>
     public unsafe virtual void NotifyPredatorRooftopTouch(BmSDK.BmGame.RBMRoomAIState PredatorRooftop)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.NotifyPredatorRooftopTouch", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NotifyPredatorRooftopTouch, "BmGame.MExperienceSystem.NotifyPredatorRooftopTouch");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PredatorRooftop, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_NotifyEnemyKO;
     /// <summary>
     /// Function: NotifyEnemyKO
     /// </summary>
     public unsafe virtual void NotifyEnemyKO(BmSDK.BmGame.RBMPawnAI EnemyPawn)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.NotifyEnemyKO", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NotifyEnemyKO, "BmGame.MExperienceSystem.NotifyEnemyKO");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(EnemyPawn, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_NotifyEnemyRemoved;
     /// <summary>
     /// Function: NotifyEnemyRemoved
     /// </summary>
     public unsafe virtual void NotifyEnemyRemoved(BmSDK.BmGame.RBMPawnAI EnemyPawn)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.NotifyEnemyRemoved", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NotifyEnemyRemoved, "BmGame.MExperienceSystem.NotifyEnemyRemoved");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(EnemyPawn, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_NotifyEnemyAsCombatant;
     /// <summary>
     /// Function: NotifyEnemyAsCombatant
     /// </summary>
     public unsafe virtual void NotifyEnemyAsCombatant(BmSDK.BmGame.RBMPawnAI EnemyPawn, bool PlayerSeen)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.NotifyEnemyAsCombatant", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NotifyEnemyAsCombatant, "BmGame.MExperienceSystem.NotifyEnemyAsCombatant");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(EnemyPawn, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PlayerSeen, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AwardMiscXP;
     /// <summary>
     /// Function: AwardMiscXP
     /// </summary>
     public unsafe virtual void AwardMiscXP(int miscXP, BmSDK.FString MiscName, bool showXPSequence = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AwardMiscXP", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AwardMiscXP, "BmGame.MExperienceSystem.AwardMiscXP");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(miscXP, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MiscName, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(showXPSequence, paramsPtr + 16);
@@ -602,377 +736,484 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_AwardXPImmediately;
     /// <summary>
     /// Function: AwardXPImmediately
     /// </summary>
     public unsafe virtual void AwardXPImmediately()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AwardXPImmediately", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AwardXPImmediately, "BmGame.MExperienceSystem.AwardXPImmediately");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_LevelUpActions;
     /// <summary>
     /// Function: LevelUpActions
     /// </summary>
     public unsafe virtual void LevelUpActions(int Level)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.LevelUpActions", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_LevelUpActions, "BmGame.MExperienceSystem.LevelUpActions");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Level, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_Tick;
     /// <summary>
     /// Function: Tick
     /// </summary>
     public unsafe virtual void Tick(float DeltaTime)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.Tick", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Tick, "BmGame.MExperienceSystem.Tick");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsXPAwardQueued;
     /// <summary>
     /// Function: IsXPAwardQueued
     /// </summary>
     public unsafe virtual bool IsXPAwardQueued()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.IsXPAwardQueued", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsXPAwardQueued, "BmGame.MExperienceSystem.IsXPAwardQueued");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_TurnOffXP;
     /// <summary>
     /// Function: TurnOffXP
     /// </summary>
     public unsafe virtual void TurnOffXP()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.TurnOffXP", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TurnOffXP, "BmGame.MExperienceSystem.TurnOffXP");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_TurnOnXP;
     /// <summary>
     /// Function: TurnOnXP
     /// </summary>
     public unsafe virtual void TurnOnXP()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.TurnOnXP", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TurnOnXP, "BmGame.MExperienceSystem.TurnOnXP");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetBankedXP;
     /// <summary>
     /// Function: GetBankedXP
     /// </summary>
     public unsafe int GetBankedXP(BmSDK.GFxUI.GFxObject XPData)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetBankedXP", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetBankedXP, "BmGame.MExperienceSystem.GetBankedXP");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPData, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetMiscXP;
     /// <summary>
     /// Function: GetMiscXP
     /// </summary>
     public unsafe int GetMiscXP(BmSDK.GFxUI.GFxObject XPData)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetMiscXP", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetMiscXP, "BmGame.MExperienceSystem.GetMiscXP");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPData, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_ShowDebugThreatLevel;
     /// <summary>
     /// Function: ShowDebugThreatLevel
     /// </summary>
     public unsafe virtual void ShowDebugThreatLevel(BmSDK.Engine.Canvas C)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.ShowDebugThreatLevel", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ShowDebugThreatLevel, "BmGame.MExperienceSystem.ShowDebugThreatLevel");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(C, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetPredThreatLocalisedString;
     /// <summary>
     /// Function: GetPredThreatLocalisedString
     /// </summary>
     public unsafe virtual BmSDK.FString GetPredThreatLocalisedString(int ThreatLevel)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetPredThreatLocalisedString", true);
-        byte* paramsPtr = stackalloc byte[36];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetPredThreatLocalisedString, "BmGame.MExperienceSystem.GetPredThreatLocalisedString");
+        byte* paramsPtr = stackalloc byte[52];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ThreatLevel, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.FString>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetThreatLevelInternal;
     /// <summary>
     /// Function: GetThreatLevelInternal
     /// </summary>
     public unsafe virtual int GetThreatLevelInternal(BmSDK.TArray<BmSDK.BmGame.MExperienceSystemConfig.FThreatLevelRange> ThreatLevels, int xp)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetThreatLevelInternal", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetThreatLevelInternal, "BmGame.MExperienceSystem.GetThreatLevelInternal");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ThreatLevels, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(xp, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 16);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 16);
     }
 
+    private static BmSDK.Function __fn_GetThreatLocalisedString;
     /// <summary>
     /// Function: GetThreatLocalisedString
     /// </summary>
     public unsafe virtual BmSDK.FString GetThreatLocalisedString(BmSDK.TArray<BmSDK.BmGame.MExperienceSystemConfig.FThreatLevelRange> ThreatLevels, int xp)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetThreatLocalisedString", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetThreatLocalisedString, "BmGame.MExperienceSystem.GetThreatLocalisedString");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ThreatLevels, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(xp, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 16);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.FString>(paramsPtr + 16);
     }
 
+    private static BmSDK.Function __fn_GetThreatString;
     /// <summary>
     /// Function: GetThreatString
     /// </summary>
     public unsafe virtual BmSDK.FString GetThreatString(BmSDK.TArray<BmSDK.BmGame.MExperienceSystemConfig.FThreatLevelRange> ThreatLevels, int ThreatLevel)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetThreatString", true);
-        byte* paramsPtr = stackalloc byte[48];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetThreatString, "BmGame.MExperienceSystem.GetThreatString");
+        byte* paramsPtr = stackalloc byte[64];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ThreatLevels, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ThreatLevel, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 16);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.FString>(paramsPtr + 16);
     }
 
+    private static BmSDK.Function __fn_GetThreatColor;
     /// <summary>
     /// Function: GetThreatColor
     /// </summary>
     public unsafe virtual BmSDK.GameObject.FColor GetThreatColor(bool isFFC, int ThreatLevel)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetThreatColor", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetThreatColor, "BmGame.MExperienceSystem.GetThreatColor");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(isFFC, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ThreatLevel, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.GameObject.FColor>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.GameObject.FColor>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetThreatThug;
     /// <summary>
     /// Function: GetThreatThug
     /// </summary>
     public unsafe virtual int GetThreatThug(BmSDK.GFxUI.GFxObject XPDataThreat, BmSDK.BmGame.MExperienceSystem.XPType TypeOfXP)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetThreatThug", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetThreatThug, "BmGame.MExperienceSystem.GetThreatThug");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataThreat, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TypeOfXP, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetThreatXP;
     /// <summary>
     /// Function: GetThreatXP
     /// </summary>
     public unsafe int GetThreatXP(BmSDK.GFxUI.GFxObject XPData, BmSDK.BmGame.MExperienceSystem.XPType TypeOfXP)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetThreatXP", true);
-        byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetThreatXP, "BmGame.MExperienceSystem.GetThreatXP");
+        byte* paramsPtr = stackalloc byte[56];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPData, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TypeOfXP, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_AddCountData;
     /// <summary>
     /// Function: AddCountData
     /// </summary>
     public unsafe virtual int AddCountData(BmSDK.GFxUI.GFxObject XPDataArray, float Count, BmSDK.FString Loc, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AddCountData", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddCountData, "BmGame.MExperienceSystem.AddCountData");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataArray, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Count, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Loc, paramsPtr + 8);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 20);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 20);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 24);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 20);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 24);
     }
 
+    private static BmSDK.Function __fn_AddStringData;
     /// <summary>
     /// Function: AddStringData
     /// </summary>
     public unsafe virtual void AddStringData(BmSDK.GFxUI.GFxObject XPDataArray, BmSDK.FString Loc, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AddStringData", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddStringData, "BmGame.MExperienceSystem.AddStringData");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataArray, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Loc, paramsPtr + 4);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 16);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 16);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 16);
         return;
     }
 
+    private static BmSDK.Function __fn_AddScoreData;
     /// <summary>
     /// Function: AddScoreData
     /// </summary>
     public unsafe virtual int AddScoreData(BmSDK.GFxUI.GFxObject XPDataArray, float Count, float xp, BmSDK.FString Loc, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AddScoreData", true);
-        byte* paramsPtr = stackalloc byte[36];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddScoreData, "BmGame.MExperienceSystem.AddScoreData");
+        byte* paramsPtr = stackalloc byte[52];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataArray, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Count, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(xp, paramsPtr + 8);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Loc, paramsPtr + 12);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 24);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 24);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 28);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 24);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 28);
     }
 
+    private static BmSDK.Function __fn_AddRewardData;
     /// <summary>
     /// Function: AddRewardData
     /// </summary>
     public unsafe virtual int AddRewardData(BmSDK.GFxUI.GFxObject XPDataArray, float xp, BmSDK.FString Loc, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AddRewardData", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddRewardData, "BmGame.MExperienceSystem.AddRewardData");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataArray, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(xp, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Loc, paramsPtr + 8);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 20);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 20);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 24);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 20);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 24);
     }
 
+    private static BmSDK.Function __fn_AddThugScore;
     /// <summary>
     /// Function: AddThugScore
     /// </summary>
     public unsafe virtual int AddThugScore(BmSDK.GFxUI.GFxObject XPDataArray, BmSDK.FString enemyTypeString, BmSDK.BmGame.RGameInfo.ECombatPawnType PawnType, BmSDK.FString LocString, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AddThugScore", true);
-        byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddThugScore, "BmGame.MExperienceSystem.AddThugScore");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataArray, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(enemyTypeString, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PawnType, paramsPtr + 16);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LocString, paramsPtr + 20);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 32);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 32);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 36);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 32);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 36);
     }
 
+    private static BmSDK.Function __fn_GetPredatorThreatModifier;
     /// <summary>
     /// Function: GetPredatorThreatModifier
     /// </summary>
     public unsafe virtual int GetPredatorThreatModifier(BmSDK.GFxUI.GFxObject XPDataThreat)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetPredatorThreatModifier", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetPredatorThreatModifier, "BmGame.MExperienceSystem.GetPredatorThreatModifier");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataThreat, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetFFCThreatModifier;
     /// <summary>
     /// Function: GetFFCThreatModifier
     /// </summary>
     public unsafe virtual int GetFFCThreatModifier(BmSDK.GFxUI.GFxObject XPDataThreat)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetFFCThreatModifier", true);
-        byte* paramsPtr = stackalloc byte[60];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetFFCThreatModifier, "BmGame.MExperienceSystem.GetFFCThreatModifier");
+        byte* paramsPtr = stackalloc byte[76];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataThreat, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetCombatGrade;
     /// <summary>
     /// Function: GetCombatGrade
     /// </summary>
     public unsafe virtual void GetCombatGrade(out BmSDK.TArray<BmSDK.BmGame.MExperienceSystemConfig.FCombatGradeRange> CombatGrades, int GradePoints, out BmSDK.FString GradeLevel, out BmSDK.FString GradeName, out float XPBonus)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetCombatGrade", true);
-        byte* paramsPtr = stackalloc byte[64];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCombatGrade, "BmGame.MExperienceSystem.GetCombatGrade");
+        byte* paramsPtr = stackalloc byte[80];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(GradePoints, paramsPtr + 12);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out XPBonus);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(XPBonus, paramsPtr + 40);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        CombatGrades = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.MExperienceSystemConfig.FCombatGradeRange>>(paramsPtr + 0);
-        GradeLevel = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 16);
-        GradeName = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 28);
-        XPBonus = BmSDK.Framework.MarshalUtil.ToManaged<float>(paramsPtr + 40);
+        CombatGrades = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.BmGame.MExperienceSystemConfig.FCombatGradeRange>>(paramsPtr + 0);
+        GradeLevel = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.FString>(paramsPtr + 16);
+        GradeName = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.FString>(paramsPtr + 28);
+        XPBonus = BmSDK.Framework.MarshalUtil.ToManagedParam<float>(paramsPtr + 40);
         return;
     }
 
+    private static BmSDK.Function __fn_GetPredatorBonusPoints;
     /// <summary>
     /// Function: GetPredatorBonusPoints
     /// </summary>
     public unsafe virtual int GetPredatorBonusPoints(BmSDK.GFxUI.GFxObject XPDataGrade, BmSDK.GFxUI.GFxObject XPDataGradeStats, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetPredatorBonusPoints", true);
-        byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetPredatorBonusPoints, "BmGame.MExperienceSystem.GetPredatorBonusPoints");
+        byte* paramsPtr = stackalloc byte[56];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataGrade, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataGradeStats, paramsPtr + 4);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 8);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 12);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_AddTakedownScore;
     /// <summary>
     /// Function: AddTakedownScore
     /// </summary>
     public unsafe virtual void AddTakedownScore(BmSDK.GFxUI.GFxObject XPDataArray, BmSDK.BmGame.RGameInfo.EPredTakedownType TakedownType, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.AddTakedownScore", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddTakedownScore, "BmGame.MExperienceSystem.AddTakedownScore");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataArray, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TakedownType, paramsPtr + 4);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 8);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
         return;
     }
 
+    private static BmSDK.Function __fn_GetFurtivityPoints;
     /// <summary>
     /// Function: GetFurtivityPoints
     /// </summary>
     public unsafe virtual int GetFurtivityPoints(BmSDK.GFxUI.GFxObject XPDataGradeStats, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetFurtivityPoints", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetFurtivityPoints, "BmGame.MExperienceSystem.GetFurtivityPoints");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataGradeStats, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetCombatVariationPoints;
     /// <summary>
     /// Function: GetCombatVariationPoints
     /// </summary>
     public unsafe virtual int GetCombatVariationPoints(BmSDK.GFxUI.GFxObject XPDataGradeStats, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetCombatVariationPoints", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCombatVariationPoints, "BmGame.MExperienceSystem.GetCombatVariationPoints");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataGradeStats, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetComboVariationScore;
     /// <summary>
     /// Function: GetComboVariationScore
     /// </summary>
     public unsafe virtual int GetComboVariationScore()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetComboVariationScore", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetComboVariationScore, "BmGame.MExperienceSystem.GetComboVariationScore");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -981,122 +1222,163 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_GetCombatEfficiencyPoints;
     /// <summary>
     /// Function: GetCombatEfficiencyPoints
     /// </summary>
     public unsafe virtual int GetCombatEfficiencyPoints(BmSDK.GFxUI.GFxObject XPDataGradeStats, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetCombatEfficiencyPoints", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCombatEfficiencyPoints, "BmGame.MExperienceSystem.GetCombatEfficiencyPoints");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataGradeStats, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetCombatPerformancePoints;
     /// <summary>
     /// Function: GetCombatPerformancePoints
     /// </summary>
     public unsafe virtual int GetCombatPerformancePoints(BmSDK.GFxUI.GFxObject XPDataGradeStats, out int DataIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetCombatPerformancePoints", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCombatPerformancePoints, "BmGame.MExperienceSystem.GetCombatPerformancePoints");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(XPDataGradeStats, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out DataIndex);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(DataIndex, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        DataIndex = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+        DataIndex = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetGradePointsFrom;
     /// <summary>
     /// Function: GetGradePointsFrom
     /// </summary>
     public unsafe virtual int GetGradePointsFrom(in BmSDK.TArray<BmSDK.BmGame.MExperienceSystemConfig.FCombatEfficiencyRange> Table, float Value)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetGradePointsFrom", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetGradePointsFrom, "BmGame.MExperienceSystem.GetGradePointsFrom");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Table, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Value, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 16);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 16);
     }
 
+    private static BmSDK.Function __fn_GetArkhamCityGameActionXPValue;
     /// <summary>
     /// Function: GetArkhamCityGameActionXPValue
     /// </summary>
     public unsafe virtual int GetArkhamCityGameActionXPValue(BmSDK.BmGame.RGameInfo.EGameAction GameAction)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetArkhamCityGameActionXPValue", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetArkhamCityGameActionXPValue, "BmGame.MExperienceSystem.GetArkhamCityGameActionXPValue");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(GameAction, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetArkhamCityCombatXPConfigValues;
     /// <summary>
     /// Function: GetArkhamCityCombatXPConfigValues
     /// </summary>
     public unsafe virtual void GetArkhamCityCombatXPConfigValues(int MaxCombo, int MaxVariation, int MaxGadgetVariation, int IntimidationTakedowns, int PredatorVariation, out int MaxComboBonus, out int MaxVariationBonus, out int MaxGadgetVariationBonus, out int IntimidationTakedownBonus, out int PredatorVariationBonus)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetArkhamCityCombatXPConfigValues", true);
-        byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetArkhamCityCombatXPConfigValues, "BmGame.MExperienceSystem.GetArkhamCityCombatXPConfigValues");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MaxCombo, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MaxVariation, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MaxGadgetVariation, paramsPtr + 8);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(IntimidationTakedowns, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PredatorVariation, paramsPtr + 16);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out MaxComboBonus);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(MaxComboBonus, paramsPtr + 20);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out MaxVariationBonus);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(MaxVariationBonus, paramsPtr + 24);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out MaxGadgetVariationBonus);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(MaxGadgetVariationBonus, paramsPtr + 28);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out IntimidationTakedownBonus);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(IntimidationTakedownBonus, paramsPtr + 32);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out PredatorVariationBonus);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(PredatorVariationBonus, paramsPtr + 36);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        MaxComboBonus = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 20);
-        MaxVariationBonus = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 24);
-        MaxGadgetVariationBonus = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 28);
-        IntimidationTakedownBonus = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 32);
-        PredatorVariationBonus = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 36);
+        MaxComboBonus = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 20);
+        MaxVariationBonus = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 24);
+        MaxGadgetVariationBonus = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 28);
+        IntimidationTakedownBonus = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 32);
+        PredatorVariationBonus = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 36);
         return;
     }
 
+    private static BmSDK.Function __fn_UnblockDoubleTakedown;
     /// <summary>
     /// Function: UnblockDoubleTakedown
     /// </summary>
     public unsafe virtual void UnblockDoubleTakedown()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.UnblockDoubleTakedown", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnblockDoubleTakedown, "BmGame.MExperienceSystem.UnblockDoubleTakedown");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetPlayerController;
     /// <summary>
     /// Function: SetPlayerController
     /// </summary>
     public unsafe virtual void SetPlayerController(BmSDK.BmGame.RPlayerController RPC)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.SetPlayerController", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetPlayerController, "BmGame.MExperienceSystem.SetPlayerController");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RPC, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_Init;
     /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe virtual void Init()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.Init", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Init, "BmGame.MExperienceSystem.Init");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_KillUISound;
     /// <summary>
     /// Function: KillUISound
     /// </summary>
     public unsafe virtual void KillUISound()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.KillUISound", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_KillUISound, "BmGame.MExperienceSystem.KillUISound");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1108,13 +1390,16 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_CalculateFFCWeaponCount;
     /// <summary>
     /// Function: CalculateFFCWeaponCount
     /// </summary>
     public unsafe virtual void CalculateFFCWeaponCount()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.CalculateFFCWeaponCount", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CalculateFFCWeaponCount, "BmGame.MExperienceSystem.CalculateFFCWeaponCount");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1126,13 +1411,16 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_CalculatePredThreatLevel;
     /// <summary>
     /// Function: CalculatePredThreatLevel
     /// </summary>
     public unsafe virtual void CalculatePredThreatLevel()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.CalculatePredThreatLevel", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CalculatePredThreatLevel, "BmGame.MExperienceSystem.CalculatePredThreatLevel");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1144,13 +1432,16 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_CalculateFFCThreatLevel;
     /// <summary>
     /// Function: CalculateFFCThreatLevel
     /// </summary>
     public unsafe virtual void CalculateFFCThreatLevel()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.CalculateFFCThreatLevel", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CalculateFFCThreatLevel, "BmGame.MExperienceSystem.CalculateFFCThreatLevel");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -1162,13 +1453,16 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_VillainsAreNearby;
     /// <summary>
     /// Function: VillainsAreNearby
     /// </summary>
     public unsafe virtual bool VillainsAreNearby(float MaxHorizontalDistance, float MaxVerticalDistance)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.VillainsAreNearby", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_VillainsAreNearby, "BmGame.MExperienceSystem.VillainsAreNearby");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MaxHorizontalDistance, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MaxVerticalDistance, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
@@ -1179,16 +1473,19 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetMiscellaneousXPValueByType;
     /// <summary>
     /// Function: GetMiscellaneousXPValueByType
     /// </summary>
     public unsafe virtual int GetMiscellaneousXPValueByType(BmSDK.BmGame.RGameInfo.EGameAction Type)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetMiscellaneousXPValueByType", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetMiscellaneousXPValueByType, "BmGame.MExperienceSystem.GetMiscellaneousXPValueByType");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Type, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -1198,16 +1495,19 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetMiscellaneousXPValue;
     /// <summary>
     /// Function: GetMiscellaneousXPValue
     /// </summary>
     public unsafe virtual int GetMiscellaneousXPValue(BmSDK.FString MiscellaneousXPTag)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetMiscellaneousXPValue", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetMiscellaneousXPValue, "BmGame.MExperienceSystem.GetMiscellaneousXPValue");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(MiscellaneousXPTag, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -1217,16 +1517,19 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_GetPawnTypeXPValue;
     /// <summary>
     /// Function: GetPawnTypeXPValue
     /// </summary>
     public unsafe virtual int GetPawnTypeXPValue(BmSDK.BmGame.RPawnVillain Villain)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetPawnTypeXPValue", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetPawnTypeXPValue, "BmGame.MExperienceSystem.GetPawnTypeXPValue");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Villain, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -1236,16 +1539,19 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetPawnCombatModifierXPValue;
     /// <summary>
     /// Function: GetPawnCombatModifierXPValue
     /// </summary>
     public unsafe virtual int GetPawnCombatModifierXPValue(BmSDK.BmGame.RBMPawnAI Villain)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.GetPawnCombatModifierXPValue", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetPawnCombatModifierXPValue, "BmGame.MExperienceSystem.GetPawnCombatModifierXPValue");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Villain, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -1255,16 +1561,19 @@ public partial class MExperienceSystem : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_ResetFreeFlowCombatValues;
     /// <summary>
     /// Function: ResetFreeFlowCombatValues
     /// </summary>
     public unsafe virtual void ResetFreeFlowCombatValues()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MExperienceSystem.ResetFreeFlowCombatValues", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ResetFreeFlowCombatValues, "BmGame.MExperienceSystem.ResetFreeFlowCombatValues");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;

@@ -78,38 +78,47 @@ public partial class SDGetObjectRequest : BmSDK.Engine.SDProfileRequest, BmSDK.I
         where TComponent : class, Framework.IScriptComponent<SDGetObjectRequest>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_OnObjectGot;
     /// <summary>
     /// Function: OnObjectGot
     /// </summary>
     public unsafe virtual void OnObjectGot(BmSDK.Engine.SDHttpRequest Request, BmSDK.FString Data)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetObjectRequest.OnObjectGot", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnObjectGot, "Engine.SDGetObjectRequest.OnObjectGot");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Request, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Data, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetPrototype;
     /// <summary>
     /// Function: SetPrototype
     /// </summary>
     public unsafe virtual void SetPrototype(BmSDK.Engine.SDFireteamObject NewPrototype)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetObjectRequest.SetPrototype", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetPrototype, "Engine.SDGetObjectRequest.SetPrototype");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewPrototype, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetExternalUserParameters;
     /// <summary>
     /// Function: SetExternalUserParameters
     /// </summary>
     public unsafe virtual void SetExternalUserParameters(BmSDK.FString FireteamId, BmSDK.FString NewObjectType, bool bExtended = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetObjectRequest.SetExternalUserParameters", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetExternalUserParameters, "Engine.SDGetObjectRequest.SetExternalUserParameters");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(FireteamId, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewObjectType, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bExtended, paramsPtr + 24);
@@ -117,13 +126,16 @@ public partial class SDGetObjectRequest : BmSDK.Engine.SDProfileRequest, BmSDK.I
         return;
     }
 
+    private static BmSDK.Function __fn_SetUserParameters;
     /// <summary>
     /// Function: SetUserParameters
     /// </summary>
     public unsafe virtual void SetUserParameters(int LocalUserNum, BmSDK.FString NewObjectType, bool bExtended = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetObjectRequest.SetUserParameters", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetUserParameters, "Engine.SDGetObjectRequest.SetUserParameters");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LocalUserNum, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewObjectType, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bExtended, paramsPtr + 16);
@@ -131,13 +143,16 @@ public partial class SDGetObjectRequest : BmSDK.Engine.SDProfileRequest, BmSDK.I
         return;
     }
 
+    private static BmSDK.Function __fn_SetParameters;
     /// <summary>
     /// Function: SetParameters
     /// </summary>
     public unsafe virtual void SetParameters(BmSDK.FString NewObjectType, BmSDK.FString ObjectId, bool bExtended = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetObjectRequest.SetParameters", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetParameters, "Engine.SDGetObjectRequest.SetParameters");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewObjectType, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ObjectId, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bExtended, paramsPtr + 24);
@@ -145,24 +160,30 @@ public partial class SDGetObjectRequest : BmSDK.Engine.SDProfileRequest, BmSDK.I
         return;
     }
 
+    private static BmSDK.Function __fn_Initialise;
     /// <summary>
     /// Function: Initialise
     /// </summary>
     public unsafe override void Initialise()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetObjectRequest.Initialise", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Initialise, "Engine.SDGetObjectRequest.Initialise");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_ObjectGotDelegate;
     /// <summary>
     /// Function: ObjectGotDelegate
     /// </summary>
     public unsafe virtual void ObjectGotDelegate(BmSDK.FString GotObjectType, BmSDK.Engine.SDFireteamObject ObjectGot, bool bSucceeded)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDGetObjectRequest.ObjectGotDelegate", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ObjectGotDelegate, "Engine.SDGetObjectRequest.ObjectGotDelegate");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(GotObjectType, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ObjectGot, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bSucceeded, paramsPtr + 16);

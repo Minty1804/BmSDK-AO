@@ -78,16 +78,19 @@ public partial class MBatChalCond_CheckHitCount : BmSDK.BmGame.MBatmanChallenge_
         where TComponent : class, Framework.IScriptComponent<MBatChalCond_CheckHitCount>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_RegisterAction;
     /// <summary>
     /// Function: RegisterAction
     /// </summary>
     public unsafe override bool RegisterAction(in BmSDK.BmGame.MBatmanChallenge.FChallengeAction ca)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.MBatChalCond_CheckHitCount.RegisterAction", true);
-        byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RegisterAction, "BmScript.MBatChalCond_CheckHitCount.RegisterAction");
+        byte* paramsPtr = stackalloc byte[56];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ca, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 32);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 32);
     }
 
     /// <summary>

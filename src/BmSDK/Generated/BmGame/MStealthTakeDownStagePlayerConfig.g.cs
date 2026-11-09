@@ -78,31 +78,37 @@ public partial class MStealthTakeDownStagePlayerConfig : BmSDK.BmGame.RConfig, B
         where TComponent : class, Framework.IScriptComponent<MStealthTakeDownStagePlayerConfig>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_SpawnTakedown;
     /// <summary>
     /// Function: SpawnTakedown
     /// </summary>
     public unsafe virtual BmSDK.BmGame.RStealthTakeDownStage SpawnTakedown(BmSDK.BmGame.RPlayerController Owner, BmSDK.BmGame.RPawnVillain Victim, BmSDK.BmGame.MStealthTakeDownStagePlayerConfig.EStealthTakeDownStages Stage)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MStealthTakeDownStagePlayerConfig.SpawnTakedown", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SpawnTakedown, "BmGame.MStealthTakeDownStagePlayerConfig.SpawnTakedown");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Owner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Victim, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Stage, paramsPtr + 8);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RStealthTakeDownStage>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.RStealthTakeDownStage>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_SpawnTakedownArchetype;
     /// <summary>
     /// Function: SpawnTakedownArchetype
     /// </summary>
     public unsafe BmSDK.BmGame.RStealthTakeDownStage SpawnTakedownArchetype(BmSDK.BmGame.RPlayerController Owner, BmSDK.BmGame.MStealthTakeDownStagePlayerConfig.EStealthTakeDownStages Stage)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MStealthTakeDownStagePlayerConfig.SpawnTakedownArchetype", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SpawnTakedownArchetype, "BmGame.MStealthTakeDownStagePlayerConfig.SpawnTakedownArchetype");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Owner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Stage, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RStealthTakeDownStage>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.RStealthTakeDownStage>(paramsPtr + 8);
     }
 
     /// <summary>

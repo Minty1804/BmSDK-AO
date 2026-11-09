@@ -17,3 +17,12 @@ namespace crash_log {
 // Two UTF-8 string pointers that BmSDK.dll (CrashContext.cs) keeps up to date: [0] what is running now (null when
 // the game's own code runs), [1] the last thing that started. The strings are never freed.
 BMSDK_CRASH_API const char* volatile* __cdecl BmSDK_Crash_ContextSlot();
+
+// The UnrealScript functions running now, outermost first (BmSDK.dll's ProcessInternal detour keeps it up to date):
+// a native crash inside a script's native call (GFx, for example) names that script. Depth can exceed the 32 slots;
+// only the first 32 are kept. Optional: an older BmSDK.dll does not look for it.
+struct BmSDK_ScriptStack {
+    volatile int depth;
+    const char* volatile frames[32];
+};
+BMSDK_CRASH_API BmSDK_ScriptStack* __cdecl BmSDK_Crash_ScriptStack();

@@ -78,14 +78,17 @@ public partial class MBMBehaviour_CombatShivaNinja : BmSDK.BmGame.RBMBehaviour_C
         where TComponent : class, Framework.IScriptComponent<MBMBehaviour_CombatShivaNinja>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_GetAttackPriorityOffset;
     /// <summary>
     /// Function: GetAttackPriorityOffset
     /// </summary>
     public unsafe override int GetAttackPriorityOffset()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.MBMBehaviour_CombatShivaNinja.GetAttackPriorityOffset", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetAttackPriorityOffset, "BmScript.MBMBehaviour_CombatShivaNinja.GetAttackPriorityOffset");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 }

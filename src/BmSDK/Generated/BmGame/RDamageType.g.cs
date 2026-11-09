@@ -78,16 +78,18 @@ public partial class RDamageType : BmSDK.Engine.DamageType, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<RDamageType>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_ShouldDisarmOnFirstHit;
     /// <summary>
     /// Function: ShouldDisarmOnFirstHit
     /// </summary>
     public unsafe static bool ShouldDisarmOnFirstHit(BmSDK.BmGame.RBMWeapon currWpn)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RDamageType.ShouldDisarmOnFirstHit", true);
-        byte* paramsPtr = stackalloc byte[8];
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ShouldDisarmOnFirstHit, "BmGame.RDamageType.ShouldDisarmOnFirstHit");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(currWpn, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
     /// <summary>

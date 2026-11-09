@@ -78,13 +78,16 @@ public partial class AITree : BmSDK.Engine.K2GraphBase, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<AITree>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_EvaluateTree;
     /// <summary>
     /// Function: EvaluateTree
     /// </summary>
     public unsafe virtual BmSDK.TArray<BmSDK.Class> EvaluateTree(BmSDK.Engine.AIController InAI, out BmSDK.Engine.AITree.FAITreeHandle Handle)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.AITree.EvaluateTree", true);
-        byte* paramsPtr = stackalloc byte[64];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_EvaluateTree, "Engine.AITree.EvaluateTree");
+        byte* paramsPtr = stackalloc byte[80];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(InAI, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -94,17 +97,20 @@ public partial class AITree : BmSDK.Engine.K2GraphBase, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Handle = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AITree.FAITreeHandle>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Class>>(paramsPtr + 52);
+        Handle = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.AITree.FAITreeHandle>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.Class>>(paramsPtr + 52);
     }
 
+    private static BmSDK.Function __fn_SetActiveRoot;
     /// <summary>
     /// Function: SetActiveRoot
     /// </summary>
     public unsafe virtual bool SetActiveRoot(BmSDK.FName InName, out BmSDK.Engine.AITree.FAITreeHandle Handle)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.AITree.SetActiveRoot", true);
-        byte* paramsPtr = stackalloc byte[60];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetActiveRoot, "Engine.AITree.SetActiveRoot");
+        byte* paramsPtr = stackalloc byte[76];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(InName, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -114,8 +120,8 @@ public partial class AITree : BmSDK.Engine.K2GraphBase, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Handle = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AITree.FAITreeHandle>(paramsPtr + 8);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 56);
+        Handle = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.AITree.FAITreeHandle>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 56);
     }
 
     /// <summary>

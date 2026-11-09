@@ -27,6 +27,46 @@ internal static class RedirectManager
     /// </summary>
     private static readonly Stack<RedirectCall> s_redirectCalls = [];
 
+    /// <summary>The redirect call running right now, or null outside one.</summary>
+    public static RedirectCall? Current => s_redirectCalls.TryPeek(out var call) ? call : null;
+
+    /// <summary>
+    /// Bumped whenever a redirect is registered or unregistered. A <see cref="Function"/> remembers
+    /// the generation at which it last checked for redirects, so the ProcessInternal detour only
+    /// looks a function up by name again after the set of redirects changed.
+    /// </summary>
+    public static int Generation { get; private set; }
+
+    public static void BumpGeneration() => Generation++;
+
+    /// <summary>
+    /// Whether any global or local redirect targets this function, or (BmSDK-AO) a global one targets a function it
+    /// overrides (<see cref="RedirectAttribute.IncludeOverrides"/>). Cached on the function until the next
+    /// registration change.
+    /// </summary>
+    public static bool MayRedirect(Function func, string funcPath, string[]? superPaths = null)
+    {
+        if (func.RedirectGeneration != Generation)
+        {
+            var may = Global.HasRedirects(funcPath) || Local.HasRedirects(funcPath);
+            if (!may && superPaths != null)
+            {
+                foreach (var path in superPaths)
+                {
+                    if (Global.HasRedirects(path))
+                    {
+                        may = true;
+                        break;
+                    }
+                }
+            }
+            func.MayRedirect = may;
+            func.RedirectGeneration = Generation;
+        }
+
+        return func.MayRedirect;
+    }
+
     /// <summary>
     /// Queues a function path to be configured for redirections after
     /// the UFunction object is created. This should be run during mod initialization.
@@ -72,6 +112,10 @@ internal static class RedirectManager
     /// This is done by queuing the local redirects first and then the global ones.
     /// After the initial setup, the next redirect is dequeued on re-entry.
     /// </summary>
+    /// <remarks>
+    /// A redirect that throws is logged (see <see cref="ModGuard"/>) and the original function runs
+    /// in its place, unless the redirect had already run it.
+    /// </remarks>
     /// <returns>True, if any redirector was found and executed; false if not.
     /// As a consequence, the original should be called if false is returned.</returns>
     /// <see cref="Loader.ProcessInternalDetour(nint, nint, nint)"/>
@@ -95,7 +139,7 @@ internal static class RedirectManager
                 var redir = lastCall.NextRedirect();
                 if (redir is not null)
                 {
-                    redir.Run(selfObj, funcObj, stackPtr, Result);
+                    RunRedirect(lastCall, redir, selfObj, funcObj, stackPtr, Result);
                     return true;
                 }
                 // Call base implementation only once after redirects
@@ -106,28 +150,29 @@ internal static class RedirectManager
                 }
 
                 // Let base implementation run from RunOriginal call
+                lastCall.OriginalRan = true;
                 return false;
             }
         }
 
         // Get redirects applicable to current function
-        var redirs = AcquireRedirects(selfObj, funcPath).ToArray();
-        if (redirs.Length == 0 && superPaths is { Length: > 0 })
+        var redirs = AcquireRedirects(selfObj, funcPath);
+        if (redirs.Count == 0 && superPaths is { Length: > 0 })
         {
-            redirs = Global.GetOverrideRedirectors(selfObj, superPaths).Cast<IGenericRedirect>().ToArray();
+            redirs.AddRange(Global.GetOverrideRedirectors(selfObj, superPaths));
         }
-        if (redirs.Length == 0)
+        if (redirs.Count == 0)
         {
             return false;
         }
 
         // Push this func to mark it as being actively redirected during this invocation
-        var newCall = new RedirectCall(selfObj, funcObj, redirs);
+        var newCall = new RedirectCall(selfObj, funcObj, [.. redirs]);
         s_redirectCalls.Push(newCall);
 
         try
         {
-            newCall.NextRedirect()!.Run(selfObj, funcObj, stackPtr, Result);
+            RunRedirect(newCall, newCall.NextRedirect()!, selfObj, funcObj, stackPtr, Result);
         }
         finally
         {
@@ -138,17 +183,55 @@ internal static class RedirectManager
         return true;
     }
 
+    private static unsafe void RunRedirect(
+        RedirectCall call,
+        IGenericRedirect redir,
+        GameObject selfObj,
+        Function funcObj,
+        FFrame* stackPtr,
+        IntPtr Result
+    )
+    {
+        // A redirect switched off after repeated failures is skipped: the original runs in its place.
+        if (ModGuard.IsDisabled(redir, RedirectWhat))
+        {
+            if (!call.OriginalRan)
+            {
+                call.RunOriginal(stackPtr, Result);
+            }
+            return;
+        }
+
+        call.Stack = (IntPtr)stackPtr;
+        call.Result = Result;
+        try
+        {
+            redir.Run(selfObj, funcObj, stackPtr, Result);
+        }
+        catch (Exception ex)
+        {
+            ModGuard.Report(redir, redir.SenderName, RedirectWhat, ex, $"redirect of {funcObj.GetPathName()}");
+
+            // Keep the game's logic running: the original, unless the redirect already ran it.
+            if (!call.OriginalRan)
+            {
+                call.RunOriginal(stackPtr, Result);
+            }
+        }
+    }
+
+    private const string RedirectWhat = "redirect";
+
     /// <summary>
     /// Creates a collection of all redirects that apply to a specific object and method.
     /// </summary>
-    private static IEnumerable<IGenericRedirect> AcquireRedirects(
-        GameObject selfObj,
-        string funcPath
-    ) =>
-        Local
-            .GetRedirectors(selfObj, funcPath)
-            .Cast<IGenericRedirect>()
-            .Concat(Global.GetRedirectors(selfObj, funcPath));
+    private static List<IGenericRedirect> AcquireRedirects(GameObject selfObj, string funcPath)
+    {
+        var list = new List<IGenericRedirect>();
+        list.AddRange(Local.GetRedirectors(selfObj, funcPath));
+        list.AddRange(Global.GetRedirectors(selfObj, funcPath));
+        return list;
+    }
 
     /// <summary>
     /// Clears the backing redirector dictionaries, therefore, uninstalling all redirects.
@@ -158,5 +241,6 @@ internal static class RedirectManager
         Global.UnregisterAll();
         Local.UnregisterAll();
         s_redirectFuncs.Clear();
+        BumpGeneration();
     }
 }

@@ -78,36 +78,45 @@ public partial class MAEC_DroneAlerted_Sub_ReactionScanBy : BmSDK.BmGame.MAEC_Dr
         where TComponent : class, Framework.IScriptComponent<MAEC_DroneAlerted_Sub_ReactionScanBy>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_ThugHitReactionCompleted;
     /// <summary>
     /// Function: ThugHitReactionCompleted
     /// </summary>
     public unsafe override void ThugHitReactionCompleted(bool bStunned)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MAEC_DroneAlerted_Sub_ReactionScanBy.ThugHitReactionCompleted", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ThugHitReactionCompleted, "BmGame.MAEC_DroneAlerted_Sub_ReactionScanBy.ThugHitReactionCompleted");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bStunned, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_ThugInterruptedByHit;
     /// <summary>
     /// Function: ThugInterruptedByHit
     /// </summary>
     public unsafe override void ThugInterruptedByHit()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MAEC_DroneAlerted_Sub_ReactionScanBy.ThugInterruptedByHit", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ThugInterruptedByHit, "BmGame.MAEC_DroneAlerted_Sub_ReactionScanBy.ThugInterruptedByHit");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_NotifyFireAt;
     /// <summary>
     /// Function: NotifyFireAt
     /// </summary>
     public unsafe virtual void NotifyFireAt()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MAEC_DroneAlerted_Sub_ReactionScanBy.NotifyFireAt", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NotifyFireAt, "BmGame.MAEC_DroneAlerted_Sub_ReactionScanBy.NotifyFireAt");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

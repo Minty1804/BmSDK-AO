@@ -73,16 +73,19 @@ public partial class ParticleModuleForceFieldBase : BmSDK.Engine.ParticleModule,
         where TComponent : class, Framework.IScriptComponent<ParticleModuleForceFieldBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_GetForceFieldInstance;
     /// <summary>
     /// Function: GetForceFieldInstance
     /// </summary>
     public unsafe virtual BmSDK.Engine.NxForceFieldComponent GetForceFieldInstance(System.Numerics.Vector3 Location)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.ParticleModuleForceFieldBase.GetForceFieldInstance", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetForceFieldInstance, "Engine.ParticleModuleForceFieldBase.GetForceFieldInstance");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Location, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.NxForceFieldComponent>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.NxForceFieldComponent>(paramsPtr + 12);
     }
 
     /// <summary>

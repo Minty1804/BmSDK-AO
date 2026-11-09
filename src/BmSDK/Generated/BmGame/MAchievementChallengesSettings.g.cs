@@ -99,7 +99,7 @@ public partial class MAchievementChallengesSettings : BmSDK.BmGame.MBatmanChalle
     /// <summary>
     /// Struct: FAchievementChallenge
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 5)]
+    [StructLayout(LayoutKind.Explicit, Size = 8)]
     public partial record struct FAchievementChallenge
     {
         /// <summary>

@@ -73,79 +73,100 @@ public partial class MDualClawClusterProjectile : BmSDK.BmGame.RProjectile, BmSD
         where TComponent : class, Framework.IScriptComponent<MDualClawClusterProjectile>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_GetTimeBeforeFireRopeHook;
     /// <summary>
     /// Function: GetTimeBeforeFireRopeHook
     /// </summary>
     public unsafe virtual float GetTimeBeforeFireRopeHook()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.GetTimeBeforeFireRopeHook", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTimeBeforeFireRopeHook, "BmGame.MDualClawClusterProjectile.GetTimeBeforeFireRopeHook");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<float>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<float>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_GetRopeHookFiringLocation;
     /// <summary>
     /// Function: GetRopeHookFiringLocation
     /// </summary>
     public unsafe virtual System.Numerics.Vector3 GetRopeHookFiringLocation()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.GetRopeHookFiringLocation", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetRopeHookFiringLocation, "BmGame.MDualClawClusterProjectile.GetRopeHookFiringLocation");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<System.Numerics.Vector3>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<System.Numerics.Vector3>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_DestroyThrownObject;
     /// <summary>
     /// Function: DestroyThrownObject
     /// </summary>
     public unsafe virtual void DestroyThrownObject()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.DestroyThrownObject", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DestroyThrownObject, "BmGame.MDualClawClusterProjectile.DestroyThrownObject");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PlayHangingGuyBark;
     /// <summary>
     /// Function: PlayHangingGuyBark
     /// </summary>
     public unsafe virtual void PlayHangingGuyBark()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.PlayHangingGuyBark", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlayHangingGuyBark, "BmGame.MDualClawClusterProjectile.PlayHangingGuyBark");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_ForceAbortRopePull;
     /// <summary>
     /// Function: ForceAbortRopePull
     /// </summary>
     public unsafe virtual void ForceAbortRopePull()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.ForceAbortRopePull", true);
-        byte* paramsPtr = stackalloc byte[256];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ForceAbortRopePull, "BmGame.MDualClawClusterProjectile.ForceAbortRopePull");
+        byte* paramsPtr = stackalloc byte[272];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_EndRemoteClawed;
     /// <summary>
     /// Function: EndRemoteClawed
     /// </summary>
     public unsafe virtual void EndRemoteClawed()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.EndRemoteClawed", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_EndRemoteClawed, "BmGame.MDualClawClusterProjectile.EndRemoteClawed");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_HitWall;
     /// <summary>
     /// Function: HitWall
     /// </summary>
     public unsafe override void HitWall(System.Numerics.Vector3 HitNormal, BmSDK.Engine.Actor Other, BmSDK.Engine.PrimitiveComponent WallComp)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.HitWall", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_HitWall, "BmGame.MDualClawClusterProjectile.HitWall");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(HitNormal, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Other, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(WallComp, paramsPtr + 16);
@@ -153,13 +174,16 @@ public partial class MDualClawClusterProjectile : BmSDK.BmGame.RProjectile, BmSD
         return;
     }
 
+    private static BmSDK.Function __fn_Touch;
     /// <summary>
     /// Function: Touch
     /// </summary>
     public unsafe override void Touch(BmSDK.Engine.Actor Other, BmSDK.Engine.PrimitiveComponent OtherComp, System.Numerics.Vector3 HitLocation, System.Numerics.Vector3 HitNormal)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.Touch", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Touch, "BmGame.MDualClawClusterProjectile.Touch");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Other, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OtherComp, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(HitLocation, paramsPtr + 8);
@@ -168,122 +192,154 @@ public partial class MDualClawClusterProjectile : BmSDK.BmGame.RProjectile, BmSD
         return;
     }
 
+    private static BmSDK.Function __fn_CreateRopeSpawnable;
     /// <summary>
     /// Function: CreateRopeSpawnable
     /// </summary>
     public unsafe virtual void CreateRopeSpawnable(bool IsRopeBatarangable = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.CreateRopeSpawnable", true);
-        byte* paramsPtr = stackalloc byte[148];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CreateRopeSpawnable, "BmGame.MDualClawClusterProjectile.CreateRopeSpawnable");
+        byte* paramsPtr = stackalloc byte[164];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(IsRopeBatarangable, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsRopeCompletelyRetracted;
     /// <summary>
     /// Function: IsRopeCompletelyRetracted
     /// </summary>
     public unsafe virtual bool IsRopeCompletelyRetracted()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.IsRopeCompletelyRetracted", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsRopeCompletelyRetracted, "BmGame.MDualClawClusterProjectile.IsRopeCompletelyRetracted");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_DetachDualClawCluster;
     /// <summary>
     /// Function: DetachDualClawCluster
     /// </summary>
     public unsafe virtual void DetachDualClawCluster()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.DetachDualClawCluster", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DetachDualClawCluster, "BmGame.MDualClawClusterProjectile.DetachDualClawCluster");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SwitchTrackingCameraToRopeHook;
     /// <summary>
     /// Function: SwitchTrackingCameraToRopeHook
     /// </summary>
     public unsafe virtual void SwitchTrackingCameraToRopeHook()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.SwitchTrackingCameraToRopeHook", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SwitchTrackingCameraToRopeHook, "BmGame.MDualClawClusterProjectile.SwitchTrackingCameraToRopeHook");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SpawnHitParticles;
     /// <summary>
     /// Function: SpawnHitParticles
     /// </summary>
     public unsafe virtual void SpawnHitParticles(System.Numerics.Vector3 Origin, System.Numerics.Vector3 ImpactLoc)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.SpawnHitParticles", true);
-        byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SpawnHitParticles, "BmGame.MDualClawClusterProjectile.SpawnHitParticles");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Origin, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ImpactLoc, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetHitVillainHitReaction;
     /// <summary>
     /// Function: GetHitVillainHitReaction
     /// </summary>
     public unsafe virtual void GetHitVillainHitReaction(BmSDK.Engine.AnimSet HitReactionAnimSet, BmSDK.TArray<BmSDK.FName> ReactionAnims, out BmSDK.FName HitReaction)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.GetHitVillainHitReaction", true);
-        byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetHitVillainHitReaction, "BmGame.MDualClawClusterProjectile.GetHitVillainHitReaction");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(HitReactionAnimSet, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ReactionAnims, paramsPtr + 4);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out HitReaction);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(HitReaction, paramsPtr + 16);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        HitReaction = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(paramsPtr + 16);
+        HitReaction = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.FName>(paramsPtr + 16);
         return;
     }
 
+    private static BmSDK.Function __fn_DoRopePullDamageOnPawn;
     /// <summary>
     /// Function: DoRopePullDamageOnPawn
     /// </summary>
     public unsafe virtual void DoRopePullDamageOnPawn(BmSDK.BmGame.RPawnVillain Victim)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.DoRopePullDamageOnPawn", true);
-        byte* paramsPtr = stackalloc byte[260];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DoRopePullDamageOnPawn, "BmGame.MDualClawClusterProjectile.DoRopePullDamageOnPawn");
+        byte* paramsPtr = stackalloc byte[276];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Victim, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_DoDualClawDamageOnDrone;
     /// <summary>
     /// Function: DoDualClawDamageOnDrone
     /// </summary>
     public unsafe virtual void DoDualClawDamageOnDrone(BmSDK.BmGame.MPawnDroneBase Target, System.Numerics.Vector3 Origin)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.DoDualClawDamageOnDrone", true);
-        byte* paramsPtr = stackalloc byte[272];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DoDualClawDamageOnDrone, "BmGame.MDualClawClusterProjectile.DoDualClawDamageOnDrone");
+        byte* paramsPtr = stackalloc byte[288];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Target, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Origin, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PlayThugToThugBumpSound;
     /// <summary>
     /// Function: PlayThugToThugBumpSound
     /// </summary>
     public unsafe virtual void PlayThugToThugBumpSound(BmSDK.BmGame.RPawnVillain Target)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.PlayThugToThugBumpSound", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlayThugToThugBumpSound, "BmGame.MDualClawClusterProjectile.PlayThugToThugBumpSound");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Target, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_DoDualClawPawnToPawn;
     /// <summary>
     /// Function: DoDualClawPawnToPawn
     /// </summary>
     public unsafe virtual void DoDualClawPawnToPawn(BmSDK.BmGame.RPawnVillain Target, BmSDK.BmGame.RPawnVillain OtherPawn, System.Numerics.Vector3 impulseOnPawn = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.DoDualClawPawnToPawn", true);
-        byte* paramsPtr = stackalloc byte[284];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DoDualClawPawnToPawn, "BmGame.MDualClawClusterProjectile.DoDualClawPawnToPawn");
+        byte* paramsPtr = stackalloc byte[300];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Target, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OtherPawn, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(impulseOnPawn, paramsPtr + 8);
@@ -291,13 +347,16 @@ public partial class MDualClawClusterProjectile : BmSDK.BmGame.RProjectile, BmSD
         return;
     }
 
+    private static BmSDK.Function __fn_DoDualClawDamageOnPawn;
     /// <summary>
     /// Function: DoDualClawDamageOnPawn
     /// </summary>
     public unsafe virtual void DoDualClawDamageOnPawn(BmSDK.BmGame.RPawnVillain Target, BmSDK.BmGame.RPawnVillain OtherPawn, System.Numerics.Vector3 impulseOnPawn = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.DoDualClawDamageOnPawn", true);
-        byte* paramsPtr = stackalloc byte[276];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DoDualClawDamageOnPawn, "BmGame.MDualClawClusterProjectile.DoDualClawDamageOnPawn");
+        byte* paramsPtr = stackalloc byte[292];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Target, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OtherPawn, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(impulseOnPawn, paramsPtr + 8);
@@ -305,153 +364,192 @@ public partial class MDualClawClusterProjectile : BmSDK.BmGame.RProjectile, BmSD
         return;
     }
 
+    private static BmSDK.Function __fn_DoClusterDamageOnPawn;
     /// <summary>
     /// Function: DoClusterDamageOnPawn
     /// </summary>
     public unsafe virtual void DoClusterDamageOnPawn(BmSDK.BmGame.RPawnCombat Target, BmSDK.Engine.Actor OtherTarget)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.DoClusterDamageOnPawn", true);
-        byte* paramsPtr = stackalloc byte[264];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DoClusterDamageOnPawn, "BmGame.MDualClawClusterProjectile.DoClusterDamageOnPawn");
+        byte* paramsPtr = stackalloc byte[280];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Target, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OtherTarget, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_NotifyCutRope;
     /// <summary>
     /// Function: NotifyCutRope
     /// </summary>
     public unsafe virtual void NotifyCutRope()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.NotifyCutRope", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NotifyCutRope, "BmGame.MDualClawClusterProjectile.NotifyCutRope");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PullPawnToHidePoint;
     /// <summary>
     /// Function: PullPawnToHidePoint
     /// </summary>
     public unsafe virtual void PullPawnToHidePoint()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.PullPawnToHidePoint", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PullPawnToHidePoint, "BmGame.MDualClawClusterProjectile.PullPawnToHidePoint");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetupPawnPullNavigation;
     /// <summary>
     /// Function: SetupPawnPullNavigation
     /// </summary>
     public unsafe virtual void SetupPawnPullNavigation(BmSDK.BmGame.RPawnVillain Victim)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.SetupPawnPullNavigation", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetupPawnPullNavigation, "BmGame.MDualClawClusterProjectile.SetupPawnPullNavigation");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Victim, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CalculateHangingRopeLength;
     /// <summary>
     /// Function: CalculateHangingRopeLength
     /// </summary>
     public unsafe virtual float CalculateHangingRopeLength(BmSDK.BmGame.RHidePoint HidePoint, BmSDK.BmGame.RPawn Victim)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.CalculateHangingRopeLength", true);
-        byte* paramsPtr = stackalloc byte[84];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CalculateHangingRopeLength, "BmGame.MDualClawClusterProjectile.CalculateHangingRopeLength");
+        byte* paramsPtr = stackalloc byte[100];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(HidePoint, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Victim, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<float>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<float>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_ThrownObjectDestroyed;
     /// <summary>
     /// Function: ThrownObjectDestroyed
     /// </summary>
     public unsafe virtual void ThrownObjectDestroyed(BmSDK.BmGame.RBMCombatThrownObject ThrownObject)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.ThrownObjectDestroyed", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ThrownObjectDestroyed, "BmGame.MDualClawClusterProjectile.ThrownObjectDestroyed");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ThrownObject, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CreateObjectHidePointRope;
     /// <summary>
     /// Function: CreateObjectHidePointRope
     /// </summary>
     public unsafe virtual void CreateObjectHidePointRope()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.CreateObjectHidePointRope", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CreateObjectHidePointRope, "BmGame.MDualClawClusterProjectile.CreateObjectHidePointRope");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PullObjectToHarpoon;
     /// <summary>
     /// Function: PullObjectToHarpoon
     /// </summary>
     public unsafe virtual void PullObjectToHarpoon()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.PullObjectToHarpoon", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PullObjectToHarpoon, "BmGame.MDualClawClusterProjectile.PullObjectToHarpoon");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PullObjectToHidePoint;
     /// <summary>
     /// Function: PullObjectToHidePoint
     /// </summary>
     public unsafe virtual void PullObjectToHidePoint()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.PullObjectToHidePoint", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PullObjectToHidePoint, "BmGame.MDualClawClusterProjectile.PullObjectToHidePoint");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PullHeavyObjectToPawn;
     /// <summary>
     /// Function: PullHeavyObjectToPawn
     /// </summary>
     public unsafe virtual void PullHeavyObjectToPawn()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.PullHeavyObjectToPawn", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PullHeavyObjectToPawn, "BmGame.MDualClawClusterProjectile.PullHeavyObjectToPawn");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PullObjectToObject;
     /// <summary>
     /// Function: PullObjectToObject
     /// </summary>
     public unsafe virtual void PullObjectToObject()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.PullObjectToObject", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PullObjectToObject, "BmGame.MDualClawClusterProjectile.PullObjectToObject");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_StartAutoShrinkRope;
     /// <summary>
     /// Function: StartAutoShrinkRope
     /// </summary>
     public unsafe virtual void StartAutoShrinkRope(BmSDK.BmGame.RRopeComponentBase.ERopeLengthChangeType RopeChangeType, bool isAttachedToEnd1)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.StartAutoShrinkRope", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StartAutoShrinkRope, "BmGame.MDualClawClusterProjectile.StartAutoShrinkRope");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RopeChangeType, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(isAttachedToEnd1, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_StartRetractedRope;
     /// <summary>
     /// Function: StartRetractedRope
     /// </summary>
     public unsafe virtual void StartRetractedRope(float RopeLength, float ShrinkSpeed, BmSDK.BmGame.RRopeComponentBase.ERopeLengthChangeType RopeChangeType)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.StartRetractedRope", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StartRetractedRope, "BmGame.MDualClawClusterProjectile.StartRetractedRope");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RopeLength, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ShrinkSpeed, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RopeChangeType, paramsPtr + 8);
@@ -459,71 +557,89 @@ public partial class MDualClawClusterProjectile : BmSDK.BmGame.RProjectile, BmSD
         return;
     }
 
+    private static BmSDK.Function __fn_CreateDualClawWire;
     /// <summary>
     /// Function: CreateDualClawWire
     /// </summary>
     public unsafe virtual void CreateDualClawWire(System.Numerics.Vector3 FirstAttachPos, System.Numerics.Vector3 SecondAttachPos)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.CreateDualClawWire", true);
-        byte* paramsPtr = stackalloc byte[56];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CreateDualClawWire, "BmGame.MDualClawClusterProjectile.CreateDualClawWire");
+        byte* paramsPtr = stackalloc byte[72];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(FirstAttachPos, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SecondAttachPos, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CreateRopePawnToHarpoonTrigger;
     /// <summary>
     /// Function: CreateRopePawnToHarpoonTrigger
     /// </summary>
     public unsafe virtual void CreateRopePawnToHarpoonTrigger()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.CreateRopePawnToHarpoonTrigger", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CreateRopePawnToHarpoonTrigger, "BmGame.MDualClawClusterProjectile.CreateRopePawnToHarpoonTrigger");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_EnableRagdollMeasures;
     /// <summary>
     /// Function: EnableRagdollMeasures
     /// </summary>
     public unsafe virtual void EnableRagdollMeasures(BmSDK.BmGame.RPawnCombat Victim)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.EnableRagdollMeasures", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_EnableRagdollMeasures, "BmGame.MDualClawClusterProjectile.EnableRagdollMeasures");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Victim, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_DetachRetractRope;
     /// <summary>
     /// Function: DetachRetractRope
     /// </summary>
     public unsafe virtual void DetachRetractRope()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.DetachRetractRope", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DetachRetractRope, "BmGame.MDualClawClusterProjectile.DetachRetractRope");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RopeHookReachedDest;
     /// <summary>
     /// Function: RopeHookReachedDest
     /// </summary>
     public unsafe virtual void RopeHookReachedDest()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.RopeHookReachedDest", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RopeHookReachedDest, "BmGame.MDualClawClusterProjectile.RopeHookReachedDest");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AttachRopeToActor;
     /// <summary>
     /// Function: AttachRopeToActor
     /// </summary>
     public unsafe virtual void AttachRopeToActor(BmSDK.BmGame.RRopeComponentBase Rope, BmSDK.Engine.Actor inActor, bool isAttachedToEnd1, BmSDK.Engine.Actor OtherActor)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.AttachRopeToActor", true);
-        byte* paramsPtr = stackalloc byte[80];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AttachRopeToActor, "BmGame.MDualClawClusterProjectile.AttachRopeToActor");
+        byte* paramsPtr = stackalloc byte[96];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Rope, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(inActor, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(isAttachedToEnd1, paramsPtr + 8);
@@ -532,35 +648,44 @@ public partial class MDualClawClusterProjectile : BmSDK.BmGame.RProjectile, BmSD
         return;
     }
 
+    private static BmSDK.Function __fn_RopeHookFailedReachedDest;
     /// <summary>
     /// Function: RopeHookFailedReachedDest
     /// </summary>
     public unsafe virtual void RopeHookFailedReachedDest()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.RopeHookFailedReachedDest", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RopeHookFailedReachedDest, "BmGame.MDualClawClusterProjectile.RopeHookFailedReachedDest");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_InitRetractRope;
     /// <summary>
     /// Function: InitRetractRope
     /// </summary>
     public unsafe virtual void InitRetractRope()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.InitRetractRope", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_InitRetractRope, "BmGame.MDualClawClusterProjectile.InitRetractRope");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AttachRetractRope;
     /// <summary>
     /// Function: AttachRetractRope
     /// </summary>
     public unsafe virtual void AttachRetractRope(BmSDK.Engine.Actor inActor, bool isAttachedToEnd1, BmSDK.Engine.Actor OtherActor)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.AttachRetractRope", true);
-        byte* paramsPtr = stackalloc byte[76];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AttachRetractRope, "BmGame.MDualClawClusterProjectile.AttachRetractRope");
+        byte* paramsPtr = stackalloc byte[92];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(inActor, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(isAttachedToEnd1, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OtherActor, paramsPtr + 8);
@@ -568,226 +693,288 @@ public partial class MDualClawClusterProjectile : BmSDK.BmGame.RProjectile, BmSD
         return;
     }
 
+    private static BmSDK.Function __fn_GetTargetType;
     /// <summary>
     /// Function: GetTargetType
     /// </summary>
     public unsafe virtual void GetTargetType(BmSDK.Engine.Actor inActor, out BmSDK.BmGame.MDualClawClusterProjectile.EDualClawTargetType TargetType)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.GetTargetType", true);
-        byte* paramsPtr = stackalloc byte[5];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTargetType, "BmGame.MDualClawClusterProjectile.GetTargetType");
+        byte* paramsPtr = stackalloc byte[21];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(inActor, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out TargetType);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(TargetType, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        TargetType = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MDualClawClusterProjectile.EDualClawTargetType>(paramsPtr + 4);
+        TargetType = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MDualClawClusterProjectile.EDualClawTargetType>(paramsPtr + 4);
         return;
     }
 
+    private static BmSDK.Function __fn_FireSingleRopeHook;
     /// <summary>
     /// Function: FireSingleRopeHook
     /// </summary>
     public unsafe virtual void FireSingleRopeHook()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.FireSingleRopeHook", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_FireSingleRopeHook, "BmGame.MDualClawClusterProjectile.FireSingleRopeHook");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_TriggerFireFX;
     /// <summary>
     /// Function: TriggerFireFX
     /// </summary>
     public unsafe virtual void TriggerFireFX()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.TriggerFireFX", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TriggerFireFX, "BmGame.MDualClawClusterProjectile.TriggerFireFX");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CalculateCameraDuration;
     /// <summary>
     /// Function: CalculateCameraDuration
     /// </summary>
     public unsafe virtual void CalculateCameraDuration()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.CalculateCameraDuration", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CalculateCameraDuration, "BmGame.MDualClawClusterProjectile.CalculateCameraDuration");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsHangItemToHidePoint;
     /// <summary>
     /// Function: IsHangItemToHidePoint
     /// </summary>
     public unsafe virtual bool IsHangItemToHidePoint()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.IsHangItemToHidePoint", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsHangItemToHidePoint, "BmGame.MDualClawClusterProjectile.IsHangItemToHidePoint");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_GetCamTrackingTarget;
     /// <summary>
     /// Function: GetCamTrackingTarget
     /// </summary>
     public unsafe virtual BmSDK.Engine.Actor GetCamTrackingTarget()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.GetCamTrackingTarget", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCamTrackingTarget, "BmGame.MDualClawClusterProjectile.GetCamTrackingTarget");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Actor>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.Actor>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_OnPostImpactCamEnd;
     /// <summary>
     /// Function: OnPostImpactCamEnd
     /// </summary>
     public unsafe virtual void OnPostImpactCamEnd()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.OnPostImpactCamEnd", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnPostImpactCamEnd, "BmGame.MDualClawClusterProjectile.OnPostImpactCamEnd");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_OnPostImpactCamStart;
     /// <summary>
     /// Function: OnPostImpactCamStart
     /// </summary>
     public unsafe virtual void OnPostImpactCamStart()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.OnPostImpactCamStart", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnPostImpactCamStart, "BmGame.MDualClawClusterProjectile.OnPostImpactCamStart");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_UnLockOnTarget;
     /// <summary>
     /// Function: UnLockOnTarget
     /// </summary>
     public unsafe virtual void UnLockOnTarget()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.UnLockOnTarget", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnLockOnTarget, "BmGame.MDualClawClusterProjectile.UnLockOnTarget");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_FlyingToOtherTarget;
     /// <summary>
     /// Function: FlyingToOtherTarget
     /// </summary>
     public unsafe virtual void FlyingToOtherTarget()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.FlyingToOtherTarget", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_FlyingToOtherTarget, "BmGame.MDualClawClusterProjectile.FlyingToOtherTarget");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_LockOnTarget;
     /// <summary>
     /// Function: LockOnTarget
     /// </summary>
     public unsafe virtual void LockOnTarget()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.LockOnTarget", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_LockOnTarget, "BmGame.MDualClawClusterProjectile.LockOnTarget");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_FlyingToTarget;
     /// <summary>
     /// Function: FlyingToTarget
     /// </summary>
     public unsafe virtual void FlyingToTarget()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.FlyingToTarget", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_FlyingToTarget, "BmGame.MDualClawClusterProjectile.FlyingToTarget");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CreateRopeHook;
     /// <summary>
     /// Function: CreateRopeHook
     /// </summary>
     public unsafe virtual void CreateRopeHook()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.CreateRopeHook", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CreateRopeHook, "BmGame.MDualClawClusterProjectile.CreateRopeHook");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetTargetRotation;
     /// <summary>
     /// Function: GetTargetRotation
     /// </summary>
     public unsafe virtual BmSDK.Rotator GetTargetRotation(BmSDK.Engine.Actor Target)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.GetTargetRotation", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTargetRotation, "BmGame.MDualClawClusterProjectile.GetTargetRotation");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Target, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Rotator>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Rotator>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_SwapMesh;
     /// <summary>
     /// Function: SwapMesh
     /// </summary>
     public unsafe virtual void SwapMesh()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.SwapMesh", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SwapMesh, "BmGame.MDualClawClusterProjectile.SwapMesh");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_OnFirstImpact;
     /// <summary>
     /// Function: OnFirstImpact
     /// </summary>
     public unsafe virtual void OnFirstImpact()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.OnFirstImpact", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnFirstImpact, "BmGame.MDualClawClusterProjectile.OnFirstImpact");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_FireProjectileShowTime;
     /// <summary>
     /// Function: FireProjectileShowTime
     /// </summary>
     public unsafe virtual void FireProjectileShowTime()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.FireProjectileShowTime", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_FireProjectileShowTime, "BmGame.MDualClawClusterProjectile.FireProjectileShowTime");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_FireCluster;
     /// <summary>
     /// Function: FireCluster
     /// </summary>
     public unsafe virtual void FireCluster(System.Numerics.Vector3 Destination)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.FireCluster", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_FireCluster, "BmGame.MDualClawClusterProjectile.FireCluster");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Destination, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_DestroyCluster;
     /// <summary>
     /// Function: DestroyCluster
     /// </summary>
     public unsafe virtual void DestroyCluster()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.DestroyCluster", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DestroyCluster, "BmGame.MDualClawClusterProjectile.DestroyCluster");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_Initialize;
     /// <summary>
     /// Function: Initialize
     /// </summary>
     public unsafe virtual void Initialize(BmSDK.Engine.Inventory Launcher, BmSDK.FName SocketName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MDualClawClusterProjectile.Initialize", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Initialize, "BmGame.MDualClawClusterProjectile.Initialize");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Launcher, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SocketName, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);

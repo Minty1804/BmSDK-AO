@@ -78,13 +78,16 @@ public partial class OnlineGameSearch : BmSDK.Engine.Settings, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<OnlineGameSearch>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_SortSearchResults;
     /// <summary>
     /// Function: SortSearchResults
     /// </summary>
     public unsafe virtual void SortSearchResults()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.OnlineGameSearch.SortSearchResults", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SortSearchResults, "Engine.OnlineGameSearch.SortSearchResults");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -140,7 +143,7 @@ public partial class OnlineGameSearch : BmSDK.Engine.Settings, BmSDK.IGameObject
     /// <summary>
     /// Struct: FOnlineGameSearchSortClause
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 14)]
+    [StructLayout(LayoutKind.Explicit, Size = 16)]
     public partial record struct FOnlineGameSearchSortClause
     {
         /// <summary>
@@ -193,7 +196,7 @@ public partial class OnlineGameSearch : BmSDK.Engine.Settings, BmSDK.IGameObject
     /// <summary>
     /// Struct: FOnlineGameSearchParameter
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 14)]
+    [StructLayout(LayoutKind.Explicit, Size = 16)]
     public partial record struct FOnlineGameSearchParameter
     {
         /// <summary>

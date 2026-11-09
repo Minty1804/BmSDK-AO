@@ -21,9 +21,30 @@ internal static unsafe class FunctionCache
 
         /// <summary>Paths of the functions it overrides, nearest first (empty for most).</summary>
         public string[] Supers = [];
+
+        private IntPtr _label;
+
+        /// <summary>The path as UTF-8, made on first use and never freed (the crash log reads it).</summary>
+        public IntPtr Label => _label != IntPtr.Zero ? _label : _label = Marshal.StringToCoTaskMemUTF8(Path);
     }
 
     private static readonly Dictionary<IntPtr, Entry> s_entries = [];
+
+    /// <summary>
+    /// The UFunction a generated function wrapper calls, kept in that wrapper's own static field (ported from
+    /// XeTrinityz/BmSDK-AK). Every generated call used to run StaticFindObject on its function's path string. A
+    /// wrapper is invalidated (Ptr set to zero) when its object is destroyed, so a stale entry is looked up again.
+    /// </summary>
+    public static Function Get(ref Function? slot, string path)
+    {
+        var func = slot;
+        if (func is not null && func.Ptr != IntPtr.Zero)
+        {
+            return func;
+        }
+
+        return slot = GameObject.StaticFindObjectChecked<Function>(Function.StaticClass(), null, path, true);
+    }
 
     public static Entry Get(Function func)
     {

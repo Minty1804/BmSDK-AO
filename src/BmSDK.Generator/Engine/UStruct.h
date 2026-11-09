@@ -10,7 +10,9 @@ class UStruct : public UField
     FIELD(UStruct*, SuperStruct)
         FIELD(UField*, Children)
         FIELD(WORD, PropertiesSize)
-        WORD MinAlignment;
+        // XeTrinityz/BmSDK-AK reads it for the array stride of structs. BmSDK-AO: this offset (+66) is not measured;
+        // if PropertiesSize is really an INT here it reads 0, and StructInfo::GetAlignedSize then keeps PropertiesSize.
+        FIELD(WORD, MinAlignment)
 
     BYTE UNK2[40];
 

@@ -195,9 +195,10 @@ internal static class ScriptManager
 
                 if (s_isInitialized)
                 {
+                    ModGuard.Reset();
                     RedirectManager.ConfigureAllRedirectedFunctions();
                     ScriptComponentManager.AutoAttachTypesToExistingObjs();
-                    scripts.ForEach(script => script.OnLoad());
+                    scripts.ForEach(script => ModGuard.Run(script, script.Name, "OnLoad", script.OnLoad));
                 }
             },
             state: null
@@ -214,7 +215,7 @@ internal static class ScriptManager
         var asm = loaded.Alc.Assemblies.FirstOrDefault();
 
         // Call OnUnload on this mod's scripts
-        loaded.Scripts.ForEach(script => script.OnUnload());
+        loaded.Scripts.ForEach(script => ModGuard.Run(script, script.Name, "OnUnload", script.OnUnload));
 
         // BmSDK-AO: save pending options and drop the mod's menu tab (and its references to the assembly)
         OptionsManager.UnregisterMod(loaded.Mod);

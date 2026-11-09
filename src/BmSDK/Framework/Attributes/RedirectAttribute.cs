@@ -19,15 +19,38 @@ namespace BmSDK.Framework;
 ///     self.ExperienceAwarded(xp / 10, teethXp / 10);
 /// }
 /// </example>
-/// <param name="targetType">The type that contains the method of which calls are redirected.
-/// Use <see langword="typeof"/> to get it safely.</param>
-/// <param name="targetMethod">The name of the method on the target type to which calls are redirected.
-/// Use <see langword="nameof"/> to get it safely.</param>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
-public sealed class RedirectAttribute(Type targetType, string targetMethod) : Attribute
+public sealed class RedirectAttribute : Attribute
 {
-    public Type TargetType { get; } = targetType;
-    public string TargetMethod { get; } = targetMethod;
+    /// <param name="targetType">The type that contains the method of which calls are redirected.
+    /// Use <see langword="typeof"/> to get it safely.</param>
+    /// <param name="targetMethod">The name of the method on the target type to which calls are redirected.
+    /// Use <see langword="nameof"/> to get it safely.</param>
+    public RedirectAttribute(Type targetType, string targetMethod)
+    {
+        TargetType = targetType;
+        TargetMethod = targetMethod;
+    }
+
+    /// <summary>
+    /// Redirects a UFunction by its path, for classes BmSDK has no managed type for (a DLC's own classes, say).
+    /// The detour's self parameter is the nearest managed type the object is wrapped as, and
+    /// <see cref="Redirects.RunOriginal()"/> runs the game's version from inside the detour.
+    /// </summary>
+    /// <param name="functionPath">The function's path as the game names it, "BmScript.MDualHandgunsRh:AttachToHand".</param>
+    /// <param name="selfType">The managed type the detour takes as self: the closest wrapped base class of the function's class.</param>
+    public RedirectAttribute(string functionPath, Type selfType)
+    {
+        FunctionPath = functionPath;
+        TargetType = selfType;
+        TargetMethod = functionPath[(functionPath.LastIndexOf(':') + 1)..];
+    }
+
+    public Type TargetType { get; }
+    public string TargetMethod { get; }
+
+    /// <summary>The exact function path to redirect, when given instead of a managed type and method.</summary>
+    public string? FunctionPath { get; }
 
     /// <summary>
     /// Whether the redirect should apply to <see cref="TargetType"/> only or its children too.

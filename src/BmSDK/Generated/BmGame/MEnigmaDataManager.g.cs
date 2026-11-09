@@ -78,49 +78,63 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<MEnigmaDataManager>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_GetRiddlerLocationFromDistrictName;
     /// <summary>
     /// Function: GetRiddlerLocationFromDistrictName
     /// </summary>
     public unsafe virtual BmSDK.BmGame.RPersistentData.ERiddlerLocationName GetRiddlerLocationFromDistrictName(BmSDK.FString DistrictName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetRiddlerLocationFromDistrictName", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetRiddlerLocationFromDistrictName, "BmGame.MEnigmaDataManager.GetRiddlerLocationFromDistrictName");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DistrictName, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RPersistentData.ERiddlerLocationName>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.RPersistentData.ERiddlerLocationName>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_GetDistrictProgressInfoByName;
     /// <summary>
     /// Function: GetDistrictProgressInfoByName
     /// </summary>
     public unsafe virtual BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData GetDistrictProgressInfoByName(BmSDK.FString DistrictName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetDistrictProgressInfoByName", true);
-        byte* paramsPtr = stackalloc byte[37];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetDistrictProgressInfoByName, "BmGame.MEnigmaDataManager.GetDistrictProgressInfoByName");
+        byte* paramsPtr = stackalloc byte[53];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DistrictName, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_GetDistrictProgressInfoByIndex;
     /// <summary>
     /// Function: GetDistrictProgressInfoByIndex
     /// </summary>
     public unsafe virtual BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData GetDistrictProgressInfoByIndex(int Index)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetDistrictProgressInfoByIndex", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetDistrictProgressInfoByIndex, "BmGame.MEnigmaDataManager.GetDistrictProgressInfoByIndex");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Index, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetTotalBlackmailSetsProgressInfo;
     /// <summary>
     /// Function: GetTotalBlackmailSetsProgressInfo
     /// </summary>
     public unsafe virtual void GetTotalBlackmailSetsProgressInfo(out BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData Info)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetTotalBlackmailSetsProgressInfo", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTotalBlackmailSetsProgressInfo, "BmGame.MEnigmaDataManager.GetTotalBlackmailSetsProgressInfo");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Info);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Info, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -129,17 +143,20 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Info = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
+        Info = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetBlackmailDataProgressInfoBySetId;
     /// <summary>
     /// Function: GetBlackmailDataProgressInfoBySetId
     /// </summary>
     public unsafe virtual BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData GetBlackmailDataProgressInfoBySetId(int SetId, BmSDK.FString DistrictName = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetBlackmailDataProgressInfoBySetId", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetBlackmailDataProgressInfoBySetId, "BmGame.MEnigmaDataManager.GetBlackmailDataProgressInfoBySetId");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SetId, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DistrictName, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
@@ -150,16 +167,21 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 16);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 16);
     }
 
+    private static BmSDK.Function __fn_AddTotalBlackmailDataProgressInfo;
     /// <summary>
     /// Function: AddTotalBlackmailDataProgressInfo
     /// </summary>
     public unsafe virtual void AddTotalBlackmailDataProgressInfo(out BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData totalData)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.AddTotalBlackmailDataProgressInfo", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddTotalBlackmailDataProgressInfo, "BmGame.MEnigmaDataManager.AddTotalBlackmailDataProgressInfo");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out totalData);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(totalData, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -168,31 +190,41 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        totalData = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
+        totalData = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AddBlackmailDataProgressInfoByDistrict;
     /// <summary>
     /// Function: AddBlackmailDataProgressInfoByDistrict
     /// </summary>
     public unsafe virtual void AddBlackmailDataProgressInfoByDistrict(BmSDK.BmGame.RPersistentData.ERiddlerLocationName District, out BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData Data)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.AddBlackmailDataProgressInfoByDistrict", true);
-        byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddBlackmailDataProgressInfoByDistrict, "BmGame.MEnigmaDataManager.AddBlackmailDataProgressInfoByDistrict");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(District, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Data);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Data, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        Data = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 4);
+        Data = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 4);
         return;
     }
 
+    private static BmSDK.Function __fn_AddBlackmailDataProgressInfoByRoom;
     /// <summary>
     /// Function: AddBlackmailDataProgressInfoByRoom
     /// </summary>
     public unsafe virtual void AddBlackmailDataProgressInfoByRoom(BmSDK.BmGame.RPersistentData.ERiddlerLocationName District, out BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData Data)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.AddBlackmailDataProgressInfoByRoom", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddBlackmailDataProgressInfoByRoom, "BmGame.MEnigmaDataManager.AddBlackmailDataProgressInfoByRoom");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(District, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Data);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Data, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -201,28 +233,36 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Data = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 4);
+        Data = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 4);
         return;
     }
 
+    private static BmSDK.Function __fn_GetTotalNetworkProgressInfo;
     /// <summary>
     /// Function: GetTotalNetworkProgressInfo
     /// </summary>
     public unsafe virtual BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData GetTotalNetworkProgressInfo()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetTotalNetworkProgressInfo", true);
-        byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTotalNetworkProgressInfo, "BmGame.MEnigmaDataManager.GetTotalNetworkProgressInfo");
+        byte* paramsPtr = stackalloc byte[56];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_AddTotalNetworkNodesProgressInfo;
     /// <summary>
     /// Function: AddTotalNetworkNodesProgressInfo
     /// </summary>
     public unsafe virtual void AddTotalNetworkNodesProgressInfo(out BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData totalData)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.AddTotalNetworkNodesProgressInfo", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddTotalNetworkNodesProgressInfo, "BmGame.MEnigmaDataManager.AddTotalNetworkNodesProgressInfo");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out totalData);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(totalData, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -231,18 +271,23 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        totalData = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
+        totalData = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AddNetworkNodeProgressInfoByDistrict;
     /// <summary>
     /// Function: AddNetworkNodeProgressInfoByDistrict
     /// </summary>
     public unsafe virtual void AddNetworkNodeProgressInfoByDistrict(BmSDK.BmGame.RPersistentData.ERiddlerLocationName District, out BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData Info)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.AddNetworkNodeProgressInfoByDistrict", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddNetworkNodeProgressInfoByDistrict, "BmGame.MEnigmaDataManager.AddNetworkNodeProgressInfoByDistrict");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(District, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Info);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Info, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -251,164 +296,205 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Info = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 4);
+        Info = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 4);
         return;
     }
 
+    private static BmSDK.Function __fn_GetNetworkNodeProgressInfoByTowerIndex;
     /// <summary>
     /// Function: GetNetworkNodeProgressInfoByTowerIndex
     /// </summary>
     public unsafe virtual void GetNetworkNodeProgressInfoByTowerIndex(int TowerIndex, out BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData Info)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetNetworkNodeProgressInfoByTowerIndex", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetNetworkNodeProgressInfoByTowerIndex, "BmGame.MEnigmaDataManager.GetNetworkNodeProgressInfoByTowerIndex");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TowerIndex, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Info);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Info, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        Info = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 4);
+        Info = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 4);
         return;
     }
 
+    private static BmSDK.Function __fn_GetPSharedBlackmailDataByDistrict;
     /// <summary>
     /// Function: GetPSharedBlackmailDataByDistrict
     /// </summary>
     public unsafe virtual bool GetPSharedBlackmailDataByDistrict(BmSDK.BmGame.RPersistentData.ERiddlerLocationName DistrictName, out BmSDK.TArray<int> ptr)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetPSharedBlackmailDataByDistrict", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetPSharedBlackmailDataByDistrict, "BmGame.MEnigmaDataManager.GetPSharedBlackmailDataByDistrict");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DistrictName, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        ptr = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 16);
+        ptr = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<int>>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 16);
     }
 
+    private static BmSDK.Function __fn_GetPSharedNetworkDataByDistrict;
     /// <summary>
     /// Function: GetPSharedNetworkDataByDistrict
     /// </summary>
     public unsafe virtual bool GetPSharedNetworkDataByDistrict(BmSDK.BmGame.RPersistentData.ERiddlerLocationName District, out BmSDK.TArray<int> networkData)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetPSharedNetworkDataByDistrict", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetPSharedNetworkDataByDistrict, "BmGame.MEnigmaDataManager.GetPSharedNetworkDataByDistrict");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(District, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        networkData = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 16);
+        networkData = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<int>>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 16);
     }
 
+    private static BmSDK.Function __fn_GetBlackmailDataStatusByName;
     /// <summary>
     /// Function: GetBlackmailDataStatusByName
     /// </summary>
     public unsafe virtual int GetBlackmailDataStatusByName(BmSDK.FString packName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetBlackmailDataStatusByName", true);
-        byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetBlackmailDataStatusByName, "BmGame.MEnigmaDataManager.GetBlackmailDataStatusByName");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(packName, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_GetStateForIcon;
     /// <summary>
     /// Function: GetStateForIcon
     /// </summary>
     public unsafe virtual BmSDK.BmGame.MEnigmaDataManager.E_NodesAndPacksStates GetStateForIcon(BmSDK.FString iconType, BmSDK.FString IconName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetStateForIcon", true);
-        byte* paramsPtr = stackalloc byte[56];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetStateForIcon, "BmGame.MEnigmaDataManager.GetStateForIcon");
+        byte* paramsPtr = stackalloc byte[72];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(iconType, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(IconName, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MEnigmaDataManager.E_NodesAndPacksStates>(paramsPtr + 24);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MEnigmaDataManager.E_NodesAndPacksStates>(paramsPtr + 24);
     }
 
+    private static BmSDK.Function __fn_CountTotalBlackmailData;
     /// <summary>
     /// Function: CountTotalBlackmailData
     /// </summary>
     public unsafe virtual int CountTotalBlackmailData()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.CountTotalBlackmailData", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CountTotalBlackmailData, "BmGame.MEnigmaDataManager.CountTotalBlackmailData");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_IsTowerInDistrictLocked;
     /// <summary>
     /// Function: IsTowerInDistrictLocked
     /// </summary>
     public unsafe virtual bool IsTowerInDistrictLocked(BmSDK.BmGame.RPersistentData.ERiddlerLocationName District)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.IsTowerInDistrictLocked", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsTowerInDistrictLocked, "BmGame.MEnigmaDataManager.IsTowerInDistrictLocked");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(District, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_IsDistrictLocked;
     /// <summary>
     /// Function: IsDistrictLocked
     /// </summary>
     public unsafe virtual bool IsDistrictLocked(BmSDK.BmGame.RPersistentData.ERiddlerLocationName District)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.IsDistrictLocked", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsDistrictLocked, "BmGame.MEnigmaDataManager.IsDistrictLocked");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(District, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetActiveNodeLinesByDistrict;
     /// <summary>
     /// Function: GetActiveNodeLinesByDistrict
     /// </summary>
     public unsafe virtual BmSDK.TArray<BmSDK.FString> GetActiveNodeLinesByDistrict(BmSDK.FString DistrictName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetActiveNodeLinesByDistrict", true);
-        byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetActiveNodeLinesByDistrict, "BmGame.MEnigmaDataManager.GetActiveNodeLinesByDistrict");
+        byte* paramsPtr = stackalloc byte[56];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DistrictName, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_GetTowerNamesByDistrict;
     /// <summary>
     /// Function: GetTowerNamesByDistrict
     /// </summary>
     public unsafe virtual BmSDK.TArray<BmSDK.FString> GetTowerNamesByDistrict(BmSDK.FString DistrictName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetTowerNamesByDistrict", true);
-        byte* paramsPtr = stackalloc byte[40];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTowerNamesByDistrict, "BmGame.MEnigmaDataManager.GetTowerNamesByDistrict");
+        byte* paramsPtr = stackalloc byte[56];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DistrictName, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_GetHandlersByTowerId;
     /// <summary>
     /// Function: GetHandlersByTowerId
     /// </summary>
     public unsafe virtual BmSDK.TArray<BmSDK.FString> GetHandlersByTowerId(int TowerId)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetHandlersByTowerId", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetHandlersByTowerId, "BmGame.MEnigmaDataManager.GetHandlersByTowerId");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TowerId, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetDestinationsByTowerId;
     /// <summary>
     /// Function: GetDestinationsByTowerId
     /// </summary>
     public unsafe virtual BmSDK.TArray<BmSDK.FString> GetDestinationsByTowerId(int TowerId)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetDestinationsByTowerId", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetDestinationsByTowerId, "BmGame.MEnigmaDataManager.GetDestinationsByTowerId");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TowerId, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetDataSetIndexByFragment;
     /// <summary>
     /// Function: GetDataSetIndexByFragment
     /// </summary>
     public unsafe virtual int GetDataSetIndexByFragment(BmSDK.FString FragmentName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetDataSetIndexByFragment", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetDataSetIndexByFragment, "BmGame.MEnigmaDataManager.GetDataSetIndexByFragment");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(FragmentName, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -418,100 +504,124 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_GetDataSetByIndex;
     /// <summary>
     /// Function: GetDataSetByIndex
     /// </summary>
     public unsafe virtual BmSDK.TArray<BmSDK.FString> GetDataSetByIndex(int Index)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetDataSetByIndex", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetDataSetByIndex, "BmGame.MEnigmaDataManager.GetDataSetByIndex");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Index, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.FString>>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_TryMarkDistrictCompleteEnigma;
     /// <summary>
     /// Function: TryMarkDistrictCompleteEnigma
     /// </summary>
     public unsafe virtual void TryMarkDistrictCompleteEnigma()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.TryMarkDistrictCompleteEnigma", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TryMarkDistrictCompleteEnigma, "BmGame.MEnigmaDataManager.TryMarkDistrictCompleteEnigma");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetTowerProgress;
     /// <summary>
     /// Function: GetTowerProgress
     /// </summary>
     public unsafe virtual int GetTowerProgress()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetTowerProgress", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTowerProgress, "BmGame.MEnigmaDataManager.GetTowerProgress");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_CompleteAllDataSets;
     /// <summary>
     /// Function: CompleteAllDataSets
     /// </summary>
     public unsafe virtual void CompleteAllDataSets(int SetId, bool allButOne = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.CompleteAllDataSets", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CompleteAllDataSets, "BmGame.MEnigmaDataManager.CompleteAllDataSets");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SetId, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(allButOne, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_UnlockAllDataSets;
     /// <summary>
     /// Function: UnlockAllDataSets
     /// </summary>
     public unsafe virtual void UnlockAllDataSets(int SetId)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.UnlockAllDataSets", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnlockAllDataSets, "BmGame.MEnigmaDataManager.UnlockAllDataSets");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SetId, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CompleteAllSpyNodes;
     /// <summary>
     /// Function: CompleteAllSpyNodes
     /// </summary>
     public unsafe virtual void CompleteAllSpyNodes(int TowerIndex, bool allButOne = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.CompleteAllSpyNodes", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CompleteAllSpyNodes, "BmGame.MEnigmaDataManager.CompleteAllSpyNodes");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TowerIndex, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(allButOne, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_UnlockAllSpyNodes;
     /// <summary>
     /// Function: UnlockAllSpyNodes
     /// </summary>
     public unsafe virtual void UnlockAllSpyNodes(int TowerIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.UnlockAllSpyNodes", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnlockAllSpyNodes, "BmGame.MEnigmaDataManager.UnlockAllSpyNodes");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TowerIndex, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetTotalEnigmaProgressInfo;
     /// <summary>
     /// Function: GetTotalEnigmaProgressInfo
     /// </summary>
     public unsafe virtual BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData GetTotalEnigmaProgressInfo()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.GetTotalEnigmaProgressInfo", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTotalEnigmaProgressInfo, "BmGame.MEnigmaDataManager.GetTotalEnigmaProgressInfo");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -520,16 +630,19 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGenericProgressInfo.FGenericProgressData>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_BuildEnigmaData;
     /// <summary>
     /// Function: BuildEnigmaData
     /// </summary>
     public unsafe virtual void BuildEnigmaData()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.BuildEnigmaData", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_BuildEnigmaData, "BmGame.MEnigmaDataManager.BuildEnigmaData");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -541,13 +654,16 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_Init;
     /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe virtual void Init(BmSDK.BmGame.RGameInfo pRGI)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MEnigmaDataManager.Init", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Init, "BmGame.MEnigmaDataManager.Init");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(pRGI, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
@@ -748,7 +864,7 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Struct: FSpyNetworks
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 37)]
+    [StructLayout(LayoutKind.Explicit, Size = 40)]
     public partial record struct FSpyNetworks
     {
         /// <summary>
@@ -791,7 +907,7 @@ public partial class MEnigmaDataManager : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Struct: FTowers
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 26)]
+    [StructLayout(LayoutKind.Explicit, Size = 28)]
     public partial record struct FTowers
     {
         /// <summary>

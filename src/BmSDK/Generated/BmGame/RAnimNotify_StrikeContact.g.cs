@@ -248,7 +248,7 @@ public partial class RAnimNotify_StrikeContact : BmSDK.Engine.AnimNotify, BmSDK.
     /// <summary>
     /// Struct: FNotifyDamageInfo
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 49)]
+    [StructLayout(LayoutKind.Explicit, Size = 52)]
     public partial record struct FNotifyDamageInfo
     {
         /// <summary>

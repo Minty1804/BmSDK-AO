@@ -78,24 +78,30 @@ public partial class MSeqEvent_BaneTrapAction : BmSDK.Engine.SequenceEvent, BmSD
         where TComponent : class, Framework.IScriptComponent<MSeqEvent_BaneTrapAction>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_DestroyTrap;
     /// <summary>
     /// Function: DestroyTrap
     /// </summary>
     public unsafe virtual void DestroyTrap()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.MSeqEvent_BaneTrapAction.DestroyTrap", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DestroyTrap, "BmScript.MSeqEvent_BaneTrapAction.DestroyTrap");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AlterTrap;
     /// <summary>
     /// Function: AlterTrap
     /// </summary>
     public unsafe virtual void AlterTrap()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.MSeqEvent_BaneTrapAction.AlterTrap", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AlterTrap, "BmScript.MSeqEvent_BaneTrapAction.AlterTrap");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

@@ -78,13 +78,16 @@ public partial class MSkelControlFlameThrower : BmSDK.Engine.SkelControlBase, Bm
         where TComponent : class, Framework.IScriptComponent<MSkelControlFlameThrower>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_StopSimulation;
     /// <summary>
     /// Function: StopSimulation
     /// </summary>
     public unsafe virtual void StopSimulation()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MSkelControlFlameThrower.StopSimulation", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StopSimulation, "BmGame.MSkelControlFlameThrower.StopSimulation");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -96,13 +99,16 @@ public partial class MSkelControlFlameThrower : BmSDK.Engine.SkelControlBase, Bm
         return;
     }
 
+    private static BmSDK.Function __fn_StartSimulation;
     /// <summary>
     /// Function: StartSimulation
     /// </summary>
     public unsafe virtual void StartSimulation()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MSkelControlFlameThrower.StartSimulation", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StartSimulation, "BmGame.MSkelControlFlameThrower.StartSimulation");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;

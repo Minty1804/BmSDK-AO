@@ -212,7 +212,7 @@ public partial class RAnimUtil_AimingOutput : BmSDK.GameObject, BmSDK.IGameObjec
     /// <summary>
     /// Struct: FAimingBoneConstants
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 54)]
+    [StructLayout(LayoutKind.Explicit, Size = 56)]
     public partial record struct FAimingBoneConstants
     {
         /// <summary>

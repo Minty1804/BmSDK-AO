@@ -78,13 +78,16 @@ public partial class AICommandNodeBase : BmSDK.Engine.K2NodeBase, BmSDK.IGameObj
         where TComponent : class, Framework.IScriptComponent<AICommandNodeBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_SelectBestChild;
     /// <summary>
     /// Function: SelectBestChild
     /// </summary>
     public unsafe virtual BmSDK.Engine.AICommandNodeBase SelectBestChild(BmSDK.Engine.AIController InAI, out BmSDK.Engine.AITree.FAITreeHandle Handle)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.AICommandNodeBase.SelectBestChild", true);
-        byte* paramsPtr = stackalloc byte[56];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SelectBestChild, "Engine.AICommandNodeBase.SelectBestChild");
+        byte* paramsPtr = stackalloc byte[72];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(InAI, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -94,8 +97,8 @@ public partial class AICommandNodeBase : BmSDK.Engine.K2NodeBase, BmSDK.IGameObj
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        Handle = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AITree.FAITreeHandle>(paramsPtr + 4);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AICommandNodeBase>(paramsPtr + 52);
+        Handle = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.AITree.FAITreeHandle>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.AICommandNodeBase>(paramsPtr + 52);
     }
 
     /// <summary>

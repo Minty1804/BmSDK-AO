@@ -78,13 +78,16 @@ public partial class DrawFrustumComponent : BmSDK.Engine.PrimitiveComponent, BmS
         where TComponent : class, Framework.IScriptComponent<DrawFrustumComponent>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_SetFrustumAspectRatio;
     /// <summary>
     /// Function: SetFrustumAspectRatio
     /// </summary>
     public unsafe virtual void SetFrustumAspectRatio(float Value)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.DrawFrustumComponent.SetFrustumAspectRatio", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetFrustumAspectRatio, "Engine.DrawFrustumComponent.SetFrustumAspectRatio");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Value, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -97,13 +100,16 @@ public partial class DrawFrustumComponent : BmSDK.Engine.PrimitiveComponent, BmS
         return;
     }
 
+    private static BmSDK.Function __fn_SetFrustumAngle;
     /// <summary>
     /// Function: SetFrustumAngle
     /// </summary>
     public unsafe virtual void SetFrustumAngle(float Value)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.DrawFrustumComponent.SetFrustumAngle", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetFrustumAngle, "Engine.DrawFrustumComponent.SetFrustumAngle");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Value, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;

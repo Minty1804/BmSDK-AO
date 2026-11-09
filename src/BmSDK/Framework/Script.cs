@@ -41,9 +41,24 @@ public abstract class Script
     public virtual void OnTick() { }
 
     /// <summary>
-    /// Called every time a key is pressed.
+    /// Called once every engine frame, also while the game is paused (BmSDK-AO addition). <see cref="OnTick"/> stops
+    /// while paused; this runs before the world tick of the same frame.
+    /// </summary>
+    public virtual void OnEngineTick() { }
+
+    /// <summary>
+    /// Called every time a key or mouse button is pressed, whether or not the key is swallowed
+    /// (see <see cref="Keyboard"/>). Delivered from the engine tick, so it fires while the game is
+    /// paused or in a cutscene too.
     /// </summary>
     public virtual void OnKeyDown(Keys key) { }
+
+    /// <summary>
+    /// Called once per rendered frame, after the game has drawn its own HUD, with the viewport's
+    /// canvas. Runs while the game is paused too. Draw here rather than redirecting
+    /// GameViewportClient.PostRender yourself.
+    /// </summary>
+    public virtual void OnDraw(Engine.Canvas canvas) { }
 
     /// <summary>
     /// Called when the hot reloading system uninstalls
@@ -76,6 +91,10 @@ public abstract class Script
     /// Replaces the choices of one of this mod's int options declared with Choices (BmSDK-AO addition). See
     /// <see cref="OptionsMenu.SetChoices"/>.
     /// </summary>
-    protected void SetOptionChoices(string memberName, string[] choices, string[]? choicesEs = null) =>
-        OptionsMenu.SetChoices(Mod, memberName, choices, choicesEs);
+    protected void SetOptionChoices(
+        string memberName,
+        string[] choices,
+        string[]? choicesEs = null,
+        string[]? choicesPt = null
+    ) => OptionsMenu.SetChoices(Mod, memberName, choices, choicesEs, choicesPt);
 }

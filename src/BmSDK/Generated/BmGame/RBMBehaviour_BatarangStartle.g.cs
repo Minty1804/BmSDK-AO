@@ -78,13 +78,16 @@ public partial class RBMBehaviour_BatarangStartle : BmSDK.BmGame.RBMBehaviour_Ba
         where TComponent : class, Framework.IScriptComponent<RBMBehaviour_BatarangStartle>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_SetThreatLocation;
     /// <summary>
     /// Function: SetThreatLocation
     /// </summary>
     public unsafe override void SetThreatLocation(System.Numerics.Vector3 NewLoc)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMBehaviour_BatarangStartle.SetThreatLocation", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetThreatLocation, "BmGame.RBMBehaviour_BatarangStartle.SetThreatLocation");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewLoc, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;

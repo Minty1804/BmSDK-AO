@@ -73,13 +73,16 @@ public partial class MAnimNotify_EnvironmentTakedownBase : BmSDK.Engine.AnimNoti
         where TComponent : class, Framework.IScriptComponent<MAnimNotify_EnvironmentTakedownBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_TriggerEnvironmentTakedown;
     /// <summary>
     /// Function: TriggerEnvironmentTakedown
     /// </summary>
     public unsafe virtual void TriggerEnvironmentTakedown(BmSDK.BmGame.RPawnPlayer Player)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MAnimNotify_EnvironmentTakedownBase.TriggerEnvironmentTakedown", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TriggerEnvironmentTakedown, "BmGame.MAnimNotify_EnvironmentTakedownBase.TriggerEnvironmentTakedown");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Player, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;

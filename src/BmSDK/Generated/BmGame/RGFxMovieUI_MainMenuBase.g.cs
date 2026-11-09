@@ -78,26 +78,32 @@ public partial class RGFxMovieUI_MainMenuBase : BmSDK.BmGame.RGFxMovieUI, BmSDK.
         where TComponent : class, Framework.IScriptComponent<RGFxMovieUI_MainMenuBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_PopUpUnlockMessage;
     /// <summary>
     /// Function: PopUpUnlockMessage
     /// </summary>
     public unsafe virtual bool PopUpUnlockMessage(BmSDK.FString Prompt, BmSDK.FString Message)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_MainMenuBase.PopUpUnlockMessage", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PopUpUnlockMessage, "BmGame.RGFxMovieUI_MainMenuBase.PopUpUnlockMessage");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Prompt, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Message, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 24);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 24);
     }
 
+    private static BmSDK.Function __fn_CheckForIosUnlocks;
     /// <summary>
     /// Function: CheckForIosUnlocks
     /// </summary>
     public unsafe virtual void CheckForIosUnlocks()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_MainMenuBase.CheckForIosUnlocks", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CheckForIosUnlocks, "BmGame.RGFxMovieUI_MainMenuBase.CheckForIosUnlocks");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -109,13 +115,16 @@ public partial class RGFxMovieUI_MainMenuBase : BmSDK.BmGame.RGFxMovieUI, BmSDK.
         return;
     }
 
+    private static BmSDK.Function __fn_SwapToAudioInstaller;
     /// <summary>
     /// Function: SwapToAudioInstaller
     /// </summary>
     public unsafe virtual void SwapToAudioInstaller()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_MainMenuBase.SwapToAudioInstaller", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SwapToAudioInstaller, "BmGame.RGFxMovieUI_MainMenuBase.SwapToAudioInstaller");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -127,13 +136,16 @@ public partial class RGFxMovieUI_MainMenuBase : BmSDK.BmGame.RGFxMovieUI, BmSDK.
         return;
     }
 
+    private static BmSDK.Function __fn_MustShowVoicePackInstallButton;
     /// <summary>
     /// Function: MustShowVoicePackInstallButton
     /// </summary>
     public unsafe virtual bool MustShowVoicePackInstallButton()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_MainMenuBase.MustShowVoicePackInstallButton", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_MustShowVoicePackInstallButton, "BmGame.RGFxMovieUI_MainMenuBase.MustShowVoicePackInstallButton");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -142,6 +154,6 @@ public partial class RGFxMovieUI_MainMenuBase : BmSDK.BmGame.RGFxMovieUI, BmSDK.
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 }

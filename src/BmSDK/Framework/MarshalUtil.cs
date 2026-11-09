@@ -17,6 +17,41 @@ public static unsafe class MarshalUtil
 
     private static readonly Dictionary<IntPtr, GameObject> s_managedObjects = [];
 
+    // BmSDK-AO: addresses of objects the game destroyed, until a new object is created there. Some object
+    // references are never cleared by the GC (native transient ones, such as ActorComponent.Owner): a component that
+    // outlives its actor still points at the freed actor, and wrapping that pointer reads freed memory (Ultimate UI
+    // AO, crash on level load right after Ultimate Suit Selector put the suit back, 2026-11-05). Such a reference
+    // reads as null, which is what the game's script would see once the GC had cleared it.
+    // The set spares reading freed memory for recent objects. It was capped at 250,000 and then stopped guarding
+    // (reached after returning to the main menu: user's log, 2026-11-08); now it is emptied when full, and every
+    // pointer without a wrapper is also checked against the game's object table (IsLiveObject), which has no limit.
+    private static readonly HashSet<IntPtr> s_destroyed = [];
+    private const int MaxDestroyed = 250_000; // 32-bit process short of memory: emptied beyond this (tested with 5,000 on 2026-11-09)
+    private static int s_destroyedResets;
+
+    /// <summary>
+    /// BmSDK-AO: whether <paramref name="objPtr"/> is in GObjObjects at its own index, i.e. a live object. A destroyed
+    /// object's slot is cleared or holds another object. An index below 0 (objects of static registration) passes.
+    /// </summary>
+    private static bool IsLiveObject(IntPtr objPtr)
+    {
+        var index = *(int*)(objPtr + GameDefine.MemberOffsets.Object__ObjectInternalInteger).ToPointer();
+        if (index < 0)
+        {
+            return true;
+        }
+        var objects = MemUtil.GetPointer<IntPtr>(GameDefine.Current.GObjObjects);
+        var data = (IntPtr*)objects[0];
+        var num = ((int*)objects)[1];
+        return data != null && index < num && data[index] == objPtr;
+    }
+
+    /// <summary>A new object was created at <paramref name="objPtr"/> (UObject::AddObject).</summary>
+    internal static void NoteCreated(IntPtr objPtr) => s_destroyed.Remove(objPtr);
+
+    /// <summary>Classes already reported as unknown, so each is logged once rather than per object.</summary>
+    private static readonly HashSet<string> s_unknownClassesLogged = [];
+
     /// <summary>
     /// Marshals unmanaged data to managed, then returns it.
     /// </summary>
@@ -53,8 +88,16 @@ public static unsafe class MarshalUtil
         {
             var objPtr = MemUtil.Blit<IntPtr>(data);
 
-            // Handle null object pointers.
-            if (objPtr == IntPtr.Zero)
+            // Handle null object pointers, and dangling ones to destroyed objects (BmSDK-AO).
+            if (objPtr == IntPtr.Zero || s_destroyed.Contains(objPtr))
+            {
+                return (TManaged)(object)null!;
+            }
+            if (s_managedObjects.TryGetValue(objPtr, out var wrapped))
+            {
+                return (TManaged)(object)wrapped;
+            }
+            if (!IsLiveObject(objPtr))
             {
                 return (TManaged)(object)null!;
             }
@@ -71,19 +114,67 @@ public static unsafe class MarshalUtil
     public static TManaged ToManaged<TManaged>(IntPtr data) =>
         ToManaged<TManaged>(data.ToPointer());
 
-    // Temp-ish hack. Let's see about refactoring this later.
+    /// <summary>
+    /// Marshals an out or return parameter from a function call's parameter buffer.
+    /// </summary>
+    /// <remarks>
+    /// The parameter buffer only lives for the duration of the call, so a <see cref="TArray{T}"/>
+    /// can't wrap it the way it wraps a property in object memory: its header is copied into
+    /// memory kept alive by the new wrapper instead. Its elements are not freed by the wrapper
+    /// (as before). Every other type marshals exactly like <see cref="ToManaged{TManaged}(void*)"/>.
+    /// </remarks>
+    public static TManaged ToManagedParam<TManaged>(void* data)
+    {
+        if (
+            typeof(TManaged).IsGenericType
+            && typeof(TManaged).GetGenericTypeDefinition() == typeof(TArray<>)
+        )
+        {
+            var instance = Guard.NotNull(
+                Activator.CreateInstance(
+                    typeof(TManaged),
+                    BindingFlags.Instance | BindingFlags.NonPublic,
+                    null,
+                    [(IntPtr)data, true],
+                    null
+                ),
+                $"Couldn't copy array parameter 0x{new IntPtr(data):X}"
+            );
+
+            return (TManaged)instance;
+        }
+
+        return ToManaged<TManaged>(data);
+    }
+
+    /// <summary>
+    /// Boxing adapters over the generic marshallers, one instantiation per type, so marshalling by
+    /// <see cref="Type"/> (redirect arguments and results) costs a dictionary lookup and a delegate call
+    /// rather than reflection on every call.
+    /// </summary>
+    private static class Boxed<T>
+    {
+        public static object? To(IntPtr data) => ToManaged<T>(data);
+
+        public static void From(object? value, IntPtr data) => ToUnmanaged((T)value!, data);
+    }
+
+    private static readonly Dictionary<Type, Func<IntPtr, object?>> s_toManagedByType = [];
+    private static readonly Dictionary<Type, Action<object?, IntPtr>> s_toUnmanagedByType = [];
+
+    /// <summary>Marshals unmanaged data to a managed value of a type only known at run time.</summary>
     public static object? ToManaged(IntPtr data, Type managedType)
     {
-        var method = Guard.NotNull(
-            typeof(MarshalUtil).GetMethod(
-                nameof(ToManaged),
-                BindingFlags.Public | BindingFlags.Static,
-                [typeof(IntPtr)]
-            )
-        );
+        if (!s_toManagedByType.TryGetValue(managedType, out var marshal))
+        {
+            marshal = typeof(Boxed<>)
+                .MakeGenericType(managedType)
+                .GetMethod(nameof(Boxed<int>.To), BindingFlags.Public | BindingFlags.Static)!
+                .CreateDelegate<Func<IntPtr, object?>>();
+            s_toManagedByType[managedType] = marshal;
+        }
 
-        var genericMethod = Guard.NotNull(method.MakeGenericMethod(managedType));
-        return genericMethod.Invoke(null, [data]);
+        return marshal(data);
     }
 
     /// <summary>
@@ -138,18 +229,19 @@ public static unsafe class MarshalUtil
     public static void ToUnmanaged<TManaged>(TManaged value, IntPtr data) =>
         ToUnmanaged(value, data.ToPointer());
 
-    // Temp-ish hack. Let's see about refactoring this later.
+    /// <summary>Marshals a managed value of a type only known at run time into an existing buffer.</summary>
     public static void ToUnmanaged(object? value, IntPtr data, Type managedType)
     {
-        var method = Guard.NotNull(
-            typeof(MarshalUtil)
-                .GetMethods(BindingFlags.Public | BindingFlags.Static)
-                .Where(m => m.Name == nameof(ToUnmanaged) && m.IsGenericMethodDefinition)
-                .FirstOrDefault(m => m.GetParameters()[1].ParameterType == typeof(IntPtr))
-        );
+        if (!s_toUnmanagedByType.TryGetValue(managedType, out var marshal))
+        {
+            marshal = typeof(Boxed<>)
+                .MakeGenericType(managedType)
+                .GetMethod(nameof(Boxed<int>.From), BindingFlags.Public | BindingFlags.Static)!
+                .CreateDelegate<Action<object?, IntPtr>>();
+            s_toUnmanagedByType[managedType] = marshal;
+        }
 
-        var genericMethod = Guard.NotNull(method.MakeGenericMethod(managedType));
-        genericMethod.Invoke(null, [value, data]);
+        marshal(value, data);
     }
 
     /// <summary>
@@ -163,34 +255,104 @@ public static unsafe class MarshalUtil
     /// <returns>Managed wrapper of unmanaged pointer</returns>
     internal static GameObject GetOrCreateWrapper(IntPtr objPtr)
     {
-        // Get cached object wrapepr
+        // Get cached object wrapper
         if (s_managedObjects.TryGetValue(objPtr, out var existingObj))
         {
             return existingObj;
         }
 
-        // Calculate memory address of the object's class
-        var classPtr = *(IntPtr*)(objPtr + GameDefine.MemberOffsets.Object__Class).ToPointer();
-        var classIndexPtr = classPtr + GameDefine.MemberOffsets.Object__ObjectInternalInteger;
-        var classFlagsPtr = classPtr + GameDefine.MemberOffsets.Class__ClassFlags;
-
-        // Not clear yet why this happens, but maybe we don't need to worry about it.
-        var classIndex = *(int*)classIndexPtr.ToPointer();
-        if (classIndex < 1)
+        // Objects from static registration whose class has registered since get their real wrapper now.
+        if (s_pendingEarly.Count > 0)
         {
-            return CreateManagedWrapper(objPtr, typeof(Class));
+            WrapPendingEarly();
+            if (s_managedObjects.TryGetValue(objPtr, out existingObj))
+            {
+                return existingObj;
+            }
         }
 
-        // Get managed representation of the object's class
-        var classFlags = *(Class.EClassFlags*)classFlagsPtr.ToPointer();
+        var classPtr = *(IntPtr*)(objPtr + GameDefine.MemberOffsets.Object__Class).ToPointer();
 
-        // Get the managed type through the class object
-        var managedType = !classFlags.HasFlag(Class.EClassFlags.CLASS_Interface)
-            ? GetManagedTypeForClassPtr(classPtr)
-            : typeof(GameObject); // Wrap CDOs of interfaces as GameObject
+        // An object created during static registration, before its own class was registered: the
+        // class's Index is still INDEX_NONE and its Name and Outer aren't set yet, so it can't be
+        // identified. In AK that is 73 objects: the 44 intrinsic classes registered before Core.Class
+        // itself, the Core package (before Core.Package) and Core.System's default properties (before
+        // the property classes). Such an object is remembered and wrapped, with the right type, by the
+        // first call after its class has registered. (Caching a Class-typed wrapper here, as before,
+        // left the Core package wrapped as a Class for the whole session, so every Core.* path printed
+        // as "Core:Object:X" and no redirect on a Core function ever matched.)
+        if (ClassIndex(classPtr) < 0)
+        {
+            s_pendingEarly.Add(objPtr);
+            var early = (GameObject)Activator.CreateInstance(typeof(GameObject), true)!;
+            early.Ptr = objPtr;
+            return early;
+        }
 
-        // Wrap this object in a managed instance
-        return CreateManagedWrapper(objPtr, managedType);
+        return CreateManagedWrapper(objPtr, WrapperTypeFor(classPtr));
+    }
+
+    /// <summary>Objects created before their class was registered, waiting for their real wrapper.</summary>
+    private static readonly List<IntPtr> s_pendingEarly = [];
+
+    private static int ClassIndex(IntPtr classPtr) =>
+        *(int*)(classPtr + GameDefine.MemberOffsets.Object__ObjectInternalInteger).ToPointer();
+
+    private static void WrapPendingEarly()
+    {
+        for (var i = s_pendingEarly.Count - 1; i >= 0; i--)
+        {
+            var objPtr = s_pendingEarly[i];
+            var classPtr = *(IntPtr*)(objPtr + GameDefine.MemberOffsets.Object__Class).ToPointer();
+            if (ClassIndex(classPtr) < 0)
+            {
+                continue;
+            }
+
+            s_pendingEarly.RemoveAt(i);
+            if (!s_managedObjects.ContainsKey(objPtr))
+            {
+                CreateManagedWrapper(objPtr, WrapperTypeFor(classPtr));
+            }
+        }
+    }
+
+    /// <summary>
+    /// The managed type (and its constructor) for a class, worked out once per class: every object the
+    /// game creates comes through here, and building the class path string each time was a large share
+    /// of the garbage behind the streaming stutter.
+    /// </summary>
+    private static WrapperType WrapperTypeFor(IntPtr classPtr)
+    {
+        if (!s_wrapperTypes.TryGetValue(classPtr, out var wrapperType))
+        {
+            var classFlags = *(Class.EClassFlags*)(classPtr + GameDefine.MemberOffsets.Class__ClassFlags).ToPointer();
+            var managedType = !classFlags.HasFlag(Class.EClassFlags.CLASS_Interface)
+                ? GetManagedTypeForClassPtr(classPtr)
+                : typeof(GameObject); // Wrap CDOs of interfaces as GameObject
+            wrapperType = new WrapperType(managedType, MakeFactory(managedType));
+            s_wrapperTypes[classPtr] = wrapperType;
+        }
+
+        return wrapperType;
+    }
+
+    private sealed record WrapperType(Type ManagedType, Func<GameObject> Factory);
+
+    /// <summary>Wrapper type and constructor per UClass; an entry is dropped when its class is destroyed.</summary>
+    private static readonly Dictionary<IntPtr, WrapperType> s_wrapperTypes = [];
+
+    private static Func<GameObject> MakeFactory(Type managedType)
+    {
+        var ctor = managedType.GetConstructor(
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+            Type.EmptyTypes
+        );
+        Guard.NotNull(ctor, $"Managed type {managedType.Name} has no parameterless constructor");
+
+        return System.Linq.Expressions.Expression
+            .Lambda<Func<GameObject>>(System.Linq.Expressions.Expression.New(ctor))
+            .Compile();
     }
 
     /// <summary>
@@ -215,27 +377,30 @@ public static unsafe class MarshalUtil
         {
             if (StaticInit.TryGetManagedTypeForClassPath(GetClassPath(superPtr), out var superType))
             {
-                Debug.LogWarning(
-                    $"Couldn't find managed type for class '{classPath}', falling back to {superType.FullName}"
-                );
+                if (s_unknownClassesLogged.Add(classPath))
+                {
+                    Debug.LogWarning(
+                        $"Couldn't find managed type for class '{classPath}', falling back to {superType.FullName}"
+                    );
+                }
                 return superType;
             }
         }
 
-        Debug.LogWarning($"Couldn't find managed type for class '{classPath}'");
+        if (s_unknownClassesLogged.Add(classPath))
+        {
+            Debug.LogWarning($"Couldn't find managed type for class '{classPath}'");
+        }
         return typeof(GameObject);
     }
 
     private static IntPtr GetSuperStruct(IntPtr structPtr) =>
         *(IntPtr*)(structPtr + GameDefine.MemberOffsets.Struct__SuperStruct).ToPointer();
 
-    private static GameObject CreateManagedWrapper(IntPtr objPtr, Type managedType)
+    private static GameObject CreateManagedWrapper(IntPtr objPtr, WrapperType wrapperType)
     {
         // Create a new managed object
-        var newObj = s_managedObjects[objPtr] = Guard.NotNull(
-            (GameObject?)Activator.CreateInstance(managedType, true),
-            $"Couldn't create an instance of managed type {managedType.Name}"
-        );
+        var newObj = s_managedObjects[objPtr] = wrapperType.Factory();
         newObj.Ptr = objPtr;
         FindObjectsCache.Register(newObj);
         return newObj;
@@ -285,14 +450,36 @@ public static unsafe class MarshalUtil
 
     internal static void DestroyManagedWrapper(IntPtr objPtr)
     {
+        if (s_destroyed.Count >= MaxDestroyed)
+        {
+            // Older ones are still caught by IsLiveObject
+            s_destroyed.Clear();
+            if (s_destroyedResets++ == 0)
+            {
+                Debug.Log($"{MaxDestroyed} destroyed objects remembered: list emptied (checked against the object table from now on)");
+            }
+        }
+        s_destroyed.Add(objPtr);
+
+        if (s_pendingEarly.Count > 0)
+        {
+            s_pendingEarly.Remove(objPtr);
+        }
+
         if (s_managedObjects.TryGetValue(objPtr, out var obj))
         {
             FindObjectsCache.Unregister(obj);
 
             // Detach all script components
-            if (obj.ScriptComponents.Count > 0)
+            if (obj.HasScriptComponents)
             {
                 obj.DetachAllScriptComponents();
+            }
+
+            // A class is going away: its address may be reused by another class later.
+            if (obj is Class)
+            {
+                s_wrapperTypes.Remove(objPtr);
             }
 
             // Mark managed wrapper as invalid

@@ -78,25 +78,31 @@ public partial class SDFireteamObjectConditions : BmSDK.GameObject, BmSDK.IGameO
         where TComponent : class, Framework.IScriptComponent<SDFireteamObjectConditions>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_ExpressionToString;
     /// <summary>
     /// Function: ExpressionToString
     /// </summary>
     public unsafe virtual BmSDK.FString ExpressionToString(BmSDK.Engine.SDFireteamObjectConditions.SDExpressionType Expression)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDFireteamObjectConditions.ExpressionToString", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ExpressionToString, "Engine.SDFireteamObjectConditions.ExpressionToString");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Expression, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.FString>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_AddCondition;
     /// <summary>
     /// Function: AddCondition
     /// </summary>
     public unsafe virtual void AddCondition(BmSDK.FString Property, BmSDK.FString Value, BmSDK.Engine.SDFireteamObjectConditions.SDExpressionType Expression = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDFireteamObjectConditions.AddCondition", true);
-        byte* paramsPtr = stackalloc byte[25];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddCondition, "Engine.SDFireteamObjectConditions.AddCondition");
+        byte* paramsPtr = stackalloc byte[41];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Property, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Value, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Expression, paramsPtr + 24);
@@ -104,13 +110,16 @@ public partial class SDFireteamObjectConditions : BmSDK.GameObject, BmSDK.IGameO
         return;
     }
 
+    private static BmSDK.Function __fn_AddURIParameters;
     /// <summary>
     /// Function: AddURIParameters
     /// </summary>
     public unsafe virtual void AddURIParameters(BmSDK.Engine.SDHttpRequest Request)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDFireteamObjectConditions.AddURIParameters", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddURIParameters, "Engine.SDFireteamObjectConditions.AddURIParameters");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Request, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;

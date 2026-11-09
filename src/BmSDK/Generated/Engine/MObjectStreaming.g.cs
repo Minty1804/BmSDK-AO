@@ -78,13 +78,15 @@ public partial class MObjectStreaming : BmSDK.GameObject, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<MObjectStreaming>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_SetProperty;
     /// <summary>
     /// Function: SetProperty
     /// </summary>
     public unsafe static bool SetProperty(BmSDK.GameObject Owner, BmSDK.FName PropertyName, BmSDK.GameObject NewValue, BmSDK.Engine.MObjectStreaming.EArrayPropertyType ArrayOp)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.MObjectStreaming.SetProperty", true);
-        byte* paramsPtr = stackalloc byte[24];
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetProperty, "Engine.MObjectStreaming.SetProperty");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Owner, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PropertyName, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NewValue, paramsPtr + 12);
@@ -97,16 +99,19 @@ public partial class MObjectStreaming : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 20);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 20);
     }
 
+    private static BmSDK.Function __fn_TerminateRequest;
     /// <summary>
     /// Function: TerminateRequest
     /// </summary>
     public unsafe virtual void TerminateRequest()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.MObjectStreaming.TerminateRequest", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TerminateRequest, "Engine.MObjectStreaming.TerminateRequest");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -118,13 +123,16 @@ public partial class MObjectStreaming : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_AsyncCancelLoading;
     /// <summary>
     /// Function: AsyncCancelLoading
     /// </summary>
     public unsafe virtual bool AsyncCancelLoading(BmSDK.Engine.MObjectStreaming.FObjectStreamingId Id)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.MObjectStreaming.AsyncCancelLoading", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AsyncCancelLoading, "Engine.MObjectStreaming.AsyncCancelLoading");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -134,16 +142,19 @@ public partial class MObjectStreaming : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_AsyncLoadPackage;
     /// <summary>
     /// Function: AsyncLoadPackage
     /// </summary>
     public unsafe virtual BmSDK.Engine.MObjectStreaming.FObjectStreamingId AsyncLoadPackage(BmSDK.FString PackageName, System.IntPtr OnCompletion, bool bPriority)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.MObjectStreaming.AsyncLoadPackage", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AsyncLoadPackage, "Engine.MObjectStreaming.AsyncLoadPackage");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PackageName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OnCompletion, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bPriority, paramsPtr + 24);
@@ -155,16 +166,19 @@ public partial class MObjectStreaming : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MObjectStreaming.FObjectStreamingId>(paramsPtr + 28);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.MObjectStreaming.FObjectStreamingId>(paramsPtr + 28);
     }
 
+    private static BmSDK.Function __fn_AsyncLoadObject;
     /// <summary>
     /// Function: AsyncLoadObject
     /// </summary>
     public unsafe virtual BmSDK.Engine.MObjectStreaming.FObjectStreamingId AsyncLoadObject(BmSDK.FString PackageName, BmSDK.FString ObjectName, System.IntPtr OnCompletion, bool bPriority)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.MObjectStreaming.AsyncLoadObject", true);
-        byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AsyncLoadObject, "Engine.MObjectStreaming.AsyncLoadObject");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PackageName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ObjectName, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(OnCompletion, paramsPtr + 24);
@@ -177,40 +191,49 @@ public partial class MObjectStreaming : BmSDK.GameObject, BmSDK.IGameObject
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MObjectStreaming.FObjectStreamingId>(paramsPtr + 40);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.MObjectStreaming.FObjectStreamingId>(paramsPtr + 40);
     }
 
+    private static BmSDK.Function __fn_CallPackageLoadCompleteDelegate;
     /// <summary>
     /// Function: CallPackageLoadCompleteDelegate
     /// </summary>
     public unsafe void CallPackageLoadCompleteDelegate(BmSDK.Engine.MObjectStreaming.FLoadingPackage Value)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.MObjectStreaming.CallPackageLoadCompleteDelegate", true);
-        byte* paramsPtr = stackalloc byte[48];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CallPackageLoadCompleteDelegate, "Engine.MObjectStreaming.CallPackageLoadCompleteDelegate");
+        byte* paramsPtr = stackalloc byte[64];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Value, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CallObjectLoadCompleteDelegate;
     /// <summary>
     /// Function: CallObjectLoadCompleteDelegate
     /// </summary>
     public unsafe void CallObjectLoadCompleteDelegate(BmSDK.Engine.MObjectStreaming.FLoadingObject Value)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.MObjectStreaming.CallObjectLoadCompleteDelegate", true);
-        byte* paramsPtr = stackalloc byte[60];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CallObjectLoadCompleteDelegate, "Engine.MObjectStreaming.CallObjectLoadCompleteDelegate");
+        byte* paramsPtr = stackalloc byte[76];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Value, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_DummyPackageLoadCompletionDelegate;
     /// <summary>
     /// Function: DummyPackageLoadCompletionDelegate
     /// </summary>
     public unsafe virtual void DummyPackageLoadCompletionDelegate(BmSDK.Engine.MObjectStreaming.EStreamingResult Result, BmSDK.Package LoadedPackage, BmSDK.Engine.MObjectStreaming.FObjectStreamingId Id, BmSDK.FString PackageName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.MObjectStreaming.DummyPackageLoadCompletionDelegate", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DummyPackageLoadCompletionDelegate, "Engine.MObjectStreaming.DummyPackageLoadCompletionDelegate");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Result, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LoadedPackage, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 8);
@@ -219,13 +242,16 @@ public partial class MObjectStreaming : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_DummyObjectLoadCompletionDelegate;
     /// <summary>
     /// Function: DummyObjectLoadCompletionDelegate
     /// </summary>
     public unsafe virtual void DummyObjectLoadCompletionDelegate(BmSDK.Engine.MObjectStreaming.EStreamingResult Result, BmSDK.GameObject LoadedObject, BmSDK.Engine.MObjectStreaming.FObjectStreamingId Id, BmSDK.FString PackageName, BmSDK.FString ObjectName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.MObjectStreaming.DummyObjectLoadCompletionDelegate", true);
-        byte* paramsPtr = stackalloc byte[36];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DummyObjectLoadCompletionDelegate, "Engine.MObjectStreaming.DummyObjectLoadCompletionDelegate");
+        byte* paramsPtr = stackalloc byte[52];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Result, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LoadedObject, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Id, paramsPtr + 8);
@@ -301,7 +327,7 @@ public partial class MObjectStreaming : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Struct: FLoadingPackage
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 33)]
+    [StructLayout(LayoutKind.Explicit, Size = 36)]
     public partial record struct FLoadingPackage
     {
         /// <summary>
@@ -353,7 +379,7 @@ public partial class MObjectStreaming : BmSDK.GameObject, BmSDK.IGameObject
     /// <summary>
     /// Struct: FLoadingObject
     /// </summary>
-    [StructLayout(LayoutKind.Explicit, Size = 45)]
+    [StructLayout(LayoutKind.Explicit, Size = 48)]
     public partial record struct FLoadingObject
     {
         /// <summary>
@@ -449,5 +475,36 @@ public partial class MObjectStreaming : BmSDK.GameObject, BmSDK.IGameObject
         Streaming_FailedCantFindObject = 3,
         Streaming_Canceled = 4,
         Streaming_MAX = 5,
+    }
+}
+
+/// <summary>
+/// The static native functions of MObjectStreaming, callable on an instance. A static native may read the object it runs on, and the static form runs it on the class default object, which has no world.
+/// </summary>
+public static class MObjectStreamingStatics
+{
+    private static BmSDK.Function __fn_SetProperty;
+    /// <summary>
+    /// Function: SetProperty, run on <paramref name="self"/> rather than the class default object
+    /// </summary>
+    public unsafe static bool SetProperty(this BmSDK.Engine.MObjectStreaming self, BmSDK.GameObject Owner, BmSDK.FName PropertyName, BmSDK.GameObject NewValue, BmSDK.Engine.MObjectStreaming.EArrayPropertyType ArrayOp)
+    {
+        BmSDK.Framework.Guard.NotDestroyed(self);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetProperty, "Engine.MObjectStreaming.SetProperty");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Owner, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(PropertyName, paramsPtr + 4);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(NewValue, paramsPtr + 12);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(ArrayOp, paramsPtr + 16);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(self.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 20);
     }
 }

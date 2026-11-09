@@ -78,49 +78,61 @@ public partial class MBMBehaviour_CombatBaneBase : BmSDK.BmGame.MBMBehaviour_Com
         where TComponent : class, Framework.IScriptComponent<MBMBehaviour_CombatBaneBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_PlaySharedSpeech;
     /// <summary>
     /// Function: PlaySharedSpeech
     /// </summary>
     public unsafe virtual void PlaySharedSpeech(BmSDK.Engine.RDialogueLine BaneLine, BmSDK.Engine.RDialogueLine JokerLine)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBMBehaviour_CombatBaneBase.PlaySharedSpeech", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlaySharedSpeech, "BmGame.MBMBehaviour_CombatBaneBase.PlaySharedSpeech");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(BaneLine, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(JokerLine, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PlayJokerSpeech;
     /// <summary>
     /// Function: PlayJokerSpeech
     /// </summary>
     public unsafe virtual void PlayJokerSpeech(BmSDK.Engine.RDialogueLine JokerLine)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBMBehaviour_CombatBaneBase.PlayJokerSpeech", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlayJokerSpeech, "BmGame.MBMBehaviour_CombatBaneBase.PlayJokerSpeech");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(JokerLine, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CanPlayJokerSpeech;
     /// <summary>
     /// Function: CanPlayJokerSpeech
     /// </summary>
     public unsafe virtual bool CanPlayJokerSpeech()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBMBehaviour_CombatBaneBase.CanPlayJokerSpeech", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CanPlayJokerSpeech, "BmGame.MBMBehaviour_CombatBaneBase.CanPlayJokerSpeech");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_SetNextPhase;
     /// <summary>
     /// Function: SetNextPhase
     /// </summary>
     public unsafe virtual void SetNextPhase()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBMBehaviour_CombatBaneBase.SetNextPhase", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetNextPhase, "BmGame.MBMBehaviour_CombatBaneBase.SetNextPhase");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

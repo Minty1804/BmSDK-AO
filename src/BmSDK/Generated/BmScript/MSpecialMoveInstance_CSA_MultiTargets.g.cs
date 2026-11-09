@@ -78,13 +78,16 @@ public partial class MSpecialMoveInstance_CSA_MultiTargets : BmSDK.BmGame.RSpeci
         where TComponent : class, Framework.IScriptComponent<MSpecialMoveInstance_CSA_MultiTargets>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_Initialize;
     /// <summary>
     /// Function: Initialize
     /// </summary>
     public unsafe virtual void Initialize(BmSDK.BmGame.RPawnVillain TargetVillain, System.Numerics.Vector3 RefLoc, BmSDK.Rotator RefRot)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmScript.MSpecialMoveInstance_CSA_MultiTargets.Initialize", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Initialize, "BmScript.MSpecialMoveInstance_CSA_MultiTargets.Initialize");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TargetVillain, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RefLoc, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RefRot, paramsPtr + 16);

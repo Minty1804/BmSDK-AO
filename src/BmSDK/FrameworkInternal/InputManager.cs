@@ -2,20 +2,56 @@ namespace BmSDK.Framework;
 
 internal static class InputManager
 {
-    private static readonly bool[] s_keyStates = new bool[255];
-    private static readonly bool[] s_keyStatesPrev = new bool[255];
+    private static readonly bool[] s_keyStates = new bool[256];
+    private static readonly bool[] s_keyStatesPrev = new bool[256];
 
-    public static void Tick()
+    /// <summary>Keys the engine must not see (see <see cref="Keyboard"/>).</summary>
+    private static readonly bool[] s_swallowed = new bool[256];
+
+    /// <summary>Keys whose last press was dropped, so their release is dropped too.</summary>
+    private static readonly bool[] s_pressSwallowed = new bool[256];
+
+    /// <summary>
+    /// Whether the last key press was dropped. The character message Windows derives from a key press
+    /// (WM_CHAR) follows it at once, and must go the same way, or a swallowed letter still types into
+    /// the game's text fields.
+    /// </summary>
+    private static bool s_lastPressSwallowed;
+
+    public static bool IsDown(Keys key) => IsValidKey(key) && s_keyStates[(byte)key];
+
+    public static bool IsSwallowed(Keys key) => IsValidKey(key) && s_swallowed[(byte)key];
+
+    public static void SetSwallowed(Keys key, bool swallow)
+    {
+        if (IsValidKey(key))
+        {
+            s_swallowed[(byte)key] = swallow;
+        }
+    }
+
+    public static void UnswallowAll()
+    {
+        Array.Clear(s_swallowed);
+        InputRouting.UnswallowAll();
+    }
+
+    /// <summary>
+    /// Delivers new presses to scripts. Runs from the engine tick, so presses arrive while the game is
+    /// paused or in a cutscene too; <paramref name="dispatch"/> is false until scripts have started.
+    /// </summary>
+    public static void Tick(bool dispatch)
     {
         // Check for any new key presses.
         for (var i = 0; i < 255; i++)
         {
-            if (s_keyStates[i] && !s_keyStatesPrev[i])
+            if (s_keyStates[i] && !s_keyStatesPrev[i] && dispatch)
             {
                 // Let scripts know about the key press.
                 foreach (var script in ScriptManager.Scripts)
                 {
-                    Debug.RunWithSender(script.Name, () => script.OnKeyDown((Keys)i));
+                    var key = (Keys)i;
+                    ModGuard.Run(script, script.Name, "OnKeyDown", () => script.OnKeyDown(key));
                 }
             }
         }
@@ -24,20 +60,53 @@ internal static class InputManager
         s_keyStates.CopyTo(s_keyStatesPrev, 0);
     }
 
-    internal static void OnKeyDown(Keys key)
+    /// <summary>Records a press. Returns true if the engine must not see it.</summary>
+    internal static bool OnKeyDown(Keys key)
     {
-        if (IsValidKey(key))
+        if (!IsValidKey(key))
         {
-            s_keyStates[(byte)key] = true;
+            return false;
         }
+
+        var k = (byte)key;
+        s_keyStates[k] = true;
+
+        // Once the engine has seen a press (swallowing switched off while the key repeats), it must
+        // also see the release, or the key would stay down in the game.
+        s_pressSwallowed[k] = s_swallowed[k];
+        s_lastPressSwallowed = s_swallowed[k];
+        return s_swallowed[k];
     }
 
-    internal static void OnKeyUp(Keys key)
+    /// <summary>Records a release. Returns true if the engine must not see it.</summary>
+    internal static bool OnKeyUp(Keys key)
     {
-        if (IsValidKey(key))
+        if (!IsValidKey(key))
         {
-            s_keyStates[(byte)key] = false;
+            return false;
         }
+
+        var k = (byte)key;
+        s_keyStates[k] = false;
+
+        var swallow = s_pressSwallowed[k];
+        s_pressSwallowed[k] = false;
+        return swallow;
+    }
+
+    /// <summary>A character message (WM_CHAR and friends). Returns true if the engine must not see it.</summary>
+    internal static bool OnChar() => s_lastPressSwallowed;
+
+    /// <summary>
+    /// The window lost focus. Keys released while another window has focus send no release here, so
+    /// every key is taken as released now (the engine clears its own key states at the same point).
+    /// </summary>
+    internal static void OnFocusLost()
+    {
+        Array.Clear(s_keyStates);
+        Array.Clear(s_pressSwallowed);
+        s_lastPressSwallowed = false;
+        InputRouting.OnFocusLost();
     }
 
     private static bool IsValidKey(Keys key)

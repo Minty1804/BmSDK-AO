@@ -78,97 +78,121 @@ public partial class MWayneTechUpgradeSystem : BmSDK.GameObject, BmSDK.IGameObje
         where TComponent : class, Framework.IScriptComponent<MWayneTechUpgradeSystem>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_DebugAbilityStates;
     /// <summary>
     /// Function: DebugAbilityStates
     /// </summary>
     public unsafe virtual void DebugAbilityStates(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility eAbility)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.DebugAbilityStates", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DebugAbilityStates, "BmGame.MWayneTechUpgradeSystem.DebugAbilityStates");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(eAbility, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_InternalAbilityChanged;
     /// <summary>
     /// Function: InternalAbilityChanged
     /// </summary>
     public unsafe virtual void InternalAbilityChanged(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability, int changedflag)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.InternalAbilityChanged", true);
-        byte* paramsPtr = stackalloc byte[96];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_InternalAbilityChanged, "BmGame.MWayneTechUpgradeSystem.InternalAbilityChanged");
+        byte* paramsPtr = stackalloc byte[112];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(changedflag, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetupFlags;
     /// <summary>
     /// Function: SetupFlags
     /// </summary>
     public unsafe virtual void SetupFlags(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.SetupFlags", true);
-        byte* paramsPtr = stackalloc byte[89];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetupFlags, "BmGame.MWayneTechUpgradeSystem.SetupFlags");
+        byte* paramsPtr = stackalloc byte[105];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CheckForAllUpgradesAchievement;
     /// <summary>
     /// Function: CheckForAllUpgradesAchievement
     /// </summary>
     public unsafe virtual void CheckForAllUpgradesAchievement()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.CheckForAllUpgradesAchievement", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CheckForAllUpgradesAchievement, "BmGame.MWayneTechUpgradeSystem.CheckForAllUpgradesAchievement");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CallCallbacks;
     /// <summary>
     /// Function: CallCallbacks
     /// </summary>
     public unsafe virtual void CallCallbacks(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability, int changedflags)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.CallCallbacks", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CallCallbacks, "BmGame.MWayneTechUpgradeSystem.CallCallbacks");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(changedflags, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_UnlockGadgetForStoryMode;
     /// <summary>
     /// Function: UnlockGadgetForStoryMode
     /// </summary>
     public unsafe virtual void UnlockGadgetForStoryMode()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.UnlockGadgetForStoryMode", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnlockGadgetForStoryMode, "BmGame.MWayneTechUpgradeSystem.UnlockGadgetForStoryMode");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_UnlockGadgetForGamePlusMode;
     /// <summary>
     /// Function: UnlockGadgetForGamePlusMode
     /// </summary>
     public unsafe virtual void UnlockGadgetForGamePlusMode(bool bIsIABMode)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.UnlockGadgetForGamePlusMode", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnlockGadgetForGamePlusMode, "BmGame.MWayneTechUpgradeSystem.UnlockGadgetForGamePlusMode");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bIsIABMode, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_ShouldLockGadgetForNewGamePlusMode;
     /// <summary>
     /// Function: ShouldLockGadgetForNewGamePlusMode
     /// </summary>
     public unsafe virtual void ShouldLockGadgetForNewGamePlusMode(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability, BmSDK.FString NGPFlag, bool bIsIABMode)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.ShouldLockGadgetForNewGamePlusMode", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ShouldLockGadgetForNewGamePlusMode, "BmGame.MWayneTechUpgradeSystem.ShouldLockGadgetForNewGamePlusMode");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NGPFlag, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bIsIABMode, paramsPtr + 16);
@@ -176,326 +200,413 @@ public partial class MWayneTechUpgradeSystem : BmSDK.GameObject, BmSDK.IGameObje
         return;
     }
 
+    private static BmSDK.Function __fn_NewGamePlusDefaults;
     /// <summary>
     /// Function: NewGamePlusDefaults
     /// </summary>
     public unsafe virtual void NewGamePlusDefaults()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.NewGamePlusDefaults", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NewGamePlusDefaults, "BmGame.MWayneTechUpgradeSystem.NewGamePlusDefaults");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_EditorDefaults;
     /// <summary>
     /// Function: EditorDefaults
     /// </summary>
     public unsafe virtual void EditorDefaults()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.EditorDefaults", true);
-        byte* paramsPtr = stackalloc byte[29];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_EditorDefaults, "BmGame.MWayneTechUpgradeSystem.EditorDefaults");
+        byte* paramsPtr = stackalloc byte[45];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_ChallengesDefaults;
     /// <summary>
     /// Function: ChallengesDefaults
     /// </summary>
     public unsafe virtual void ChallengesDefaults()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.ChallengesDefaults", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ChallengesDefaults, "BmGame.MWayneTechUpgradeSystem.ChallengesDefaults");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_Defaults;
     /// <summary>
     /// Function: Defaults
     /// </summary>
     public unsafe virtual void Defaults()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.Defaults", true);
-        byte* paramsPtr = stackalloc byte[80];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Defaults, "BmGame.MWayneTechUpgradeSystem.Defaults");
+        byte* paramsPtr = stackalloc byte[96];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetupFromURL;
     /// <summary>
     /// Function: SetupFromURL
     /// </summary>
     public unsafe virtual void SetupFromURL(BmSDK.FString Params)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.SetupFromURL", true);
-        byte* paramsPtr = stackalloc byte[29];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetupFromURL, "BmGame.MWayneTechUpgradeSystem.SetupFromURL");
+        byte* paramsPtr = stackalloc byte[45];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Params, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_DebugActivateAllGadgets;
     /// <summary>
     /// Function: DebugActivateAllGadgets
     /// </summary>
     public unsafe virtual void DebugActivateAllGadgets()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.DebugActivateAllGadgets", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DebugActivateAllGadgets, "BmGame.MWayneTechUpgradeSystem.DebugActivateAllGadgets");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_DebugRevealAll;
     /// <summary>
     /// Function: DebugRevealAll
     /// </summary>
     public unsafe virtual void DebugRevealAll(bool Reveal = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.DebugRevealAll", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DebugRevealAll, "BmGame.MWayneTechUpgradeSystem.DebugRevealAll");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Reveal, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_DebugUpgradeAll;
     /// <summary>
     /// Function: DebugUpgradeAll
     /// </summary>
     public unsafe virtual void DebugUpgradeAll(bool Upgrade = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.DebugUpgradeAll", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DebugUpgradeAll, "BmGame.MWayneTechUpgradeSystem.DebugUpgradeAll");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Upgrade, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_DebugUnlockAll;
     /// <summary>
     /// Function: DebugUnlockAll
     /// </summary>
     public unsafe virtual void DebugUnlockAll(bool Unlock = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.DebugUnlockAll", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DebugUnlockAll, "BmGame.MWayneTechUpgradeSystem.DebugUnlockAll");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Unlock, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetCategoryEnum;
     /// <summary>
     /// Function: GetCategoryEnum
     /// </summary>
     public unsafe virtual BmSDK.BmGame.MWayneTechUpgradeSystem.EWayneTechCategory GetCategoryEnum(BmSDK.FName Key)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.GetCategoryEnum", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCategoryEnum, "BmGame.MWayneTechUpgradeSystem.GetCategoryEnum");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Key, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MWayneTechUpgradeSystem.EWayneTechCategory>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MWayneTechUpgradeSystem.EWayneTechCategory>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetAbilityEnum;
     /// <summary>
     /// Function: GetAbilityEnum
     /// </summary>
     public unsafe virtual BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility GetAbilityEnum(BmSDK.FName Key)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.GetAbilityEnum", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetAbilityEnum, "BmGame.MWayneTechUpgradeSystem.GetAbilityEnum");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Key, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_GetPromptList;
     /// <summary>
     /// Function: GetPromptList
     /// </summary>
     public unsafe virtual void GetPromptList(out BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechPrompt> PromptList, BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.GetPromptList", true);
-        byte* paramsPtr = stackalloc byte[100];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetPromptList, "BmGame.MWayneTechUpgradeSystem.GetPromptList");
+        byte* paramsPtr = stackalloc byte[116];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        PromptList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechPrompt>>(paramsPtr + 0);
+        PromptList = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechPrompt>>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CategoryHasAvailableUpgrades;
     /// <summary>
     /// Function: CategoryHasAvailableUpgrades
     /// </summary>
     public unsafe virtual bool CategoryHasAvailableUpgrades(BmSDK.BmGame.MWayneTechUpgradeSystem.EWayneTechCategory Category, BmSDK.FName SubCategory = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.CategoryHasAvailableUpgrades", true);
-        byte* paramsPtr = stackalloc byte[108];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CategoryHasAvailableUpgrades, "BmGame.MWayneTechUpgradeSystem.CategoryHasAvailableUpgrades");
+        byte* paramsPtr = stackalloc byte[124];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Category, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SubCategory, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_CategoryHasNewUpgrade;
     /// <summary>
     /// Function: CategoryHasNewUpgrade
     /// </summary>
     public unsafe virtual bool CategoryHasNewUpgrade(BmSDK.BmGame.MWayneTechUpgradeSystem.EWayneTechCategory Category, BmSDK.FName SubCategory = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.CategoryHasNewUpgrade", true);
-        byte* paramsPtr = stackalloc byte[96];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CategoryHasNewUpgrade, "BmGame.MWayneTechUpgradeSystem.CategoryHasNewUpgrade");
+        byte* paramsPtr = stackalloc byte[112];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Category, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SubCategory, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_CountByCategory;
     /// <summary>
     /// Function: CountByCategory
     /// </summary>
     public unsafe virtual void CountByCategory(out int Count, out int Total, BmSDK.BmGame.MWayneTechUpgradeSystem.EWayneTechCategory Category, BmSDK.FName SubCategory = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.CountByCategory", true);
-        byte* paramsPtr = stackalloc byte[100];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CountByCategory, "BmGame.MWayneTechUpgradeSystem.CountByCategory");
+        byte* paramsPtr = stackalloc byte[116];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Count);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Count, paramsPtr + 0);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Total);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Total, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Category, paramsPtr + 8);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SubCategory, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        Count = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
-        Total = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 4);
+        Count = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
+        Total = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 4);
         return;
     }
 
+    private static BmSDK.Function __fn_Count;
     /// <summary>
     /// Function: Count
     /// </summary>
     public unsafe virtual void Count(out int _Count)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.Count", true);
-        byte* paramsPtr = stackalloc byte[72];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Count, "BmGame.MWayneTechUpgradeSystem.Count");
+        byte* paramsPtr = stackalloc byte[88];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out _Count);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(_Count, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        _Count = BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        _Count = BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetTotalUpgradesSpending;
     /// <summary>
     /// Function: GetTotalUpgradesSpending
     /// </summary>
     public unsafe virtual int GetTotalUpgradesSpending()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.GetTotalUpgradesSpending", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTotalUpgradesSpending, "BmGame.MWayneTechUpgradeSystem.GetTotalUpgradesSpending");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_GetTotalUpgradesNum;
     /// <summary>
     /// Function: GetTotalUpgradesNum
     /// </summary>
     public unsafe virtual int GetTotalUpgradesNum()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.GetTotalUpgradesNum", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetTotalUpgradesNum, "BmGame.MWayneTechUpgradeSystem.GetTotalUpgradesNum");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_GetUpgradeByKey;
     /// <summary>
     /// Function: GetUpgradeByKey
     /// </summary>
     public unsafe virtual BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechUpgrade GetUpgradeByKey(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.GetUpgradeByKey", true);
-        byte* paramsPtr = stackalloc byte[72];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetUpgradeByKey, "BmGame.MWayneTechUpgradeSystem.GetUpgradeByKey");
+        byte* paramsPtr = stackalloc byte[88];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechUpgrade>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechUpgrade>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_GetUpgradesByCategory;
     /// <summary>
     /// Function: GetUpgradesByCategory
     /// </summary>
     public unsafe virtual void GetUpgradesByCategory(out BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechUpgrade> upgradeList, BmSDK.BmGame.MWayneTechUpgradeSystem.EWayneTechCategory Category, BmSDK.FName SubCategory = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.GetUpgradesByCategory", true);
-        byte* paramsPtr = stackalloc byte[92];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetUpgradesByCategory, "BmGame.MWayneTechUpgradeSystem.GetUpgradesByCategory");
+        byte* paramsPtr = stackalloc byte[108];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Category, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SubCategory, paramsPtr + 16);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        upgradeList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechUpgrade>>(paramsPtr + 0);
+        upgradeList = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechUpgrade>>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetAllUpgrades;
     /// <summary>
     /// Function: GetAllUpgrades
     /// </summary>
     public unsafe virtual void GetAllUpgrades(out BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechUpgrade> upgradeList)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.GetAllUpgrades", true);
-        byte* paramsPtr = stackalloc byte[80];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetAllUpgrades, "BmGame.MWayneTechUpgradeSystem.GetAllUpgrades");
+        byte* paramsPtr = stackalloc byte[96];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        upgradeList = BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechUpgrade>>(paramsPtr + 0);
+        upgradeList = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.FWayneTechUpgrade>>(paramsPtr + 0);
         return;
     }
 
+    private static BmSDK.Function __fn_HasTutorial;
     /// <summary>
     /// Function: HasTutorial
     /// </summary>
     public unsafe virtual bool HasTutorial(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.HasTutorial", true);
-        byte* paramsPtr = stackalloc byte[76];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_HasTutorial, "BmGame.MWayneTechUpgradeSystem.HasTutorial");
+        byte* paramsPtr = stackalloc byte[92];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_IsAvailable;
     /// <summary>
     /// Function: IsAvailable
     /// </summary>
     public unsafe virtual bool IsAvailable(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsAvailable", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsAvailable, "BmGame.MWayneTechUpgradeSystem.IsAvailable");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_MakeAvailable;
     /// <summary>
     /// Function: MakeAvailable
     /// </summary>
     public unsafe virtual void MakeAvailable(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.MakeAvailable", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_MakeAvailable, "BmGame.MWayneTechUpgradeSystem.MakeAvailable");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsRevealed;
     /// <summary>
     /// Function: IsRevealed
     /// </summary>
     public unsafe virtual bool IsRevealed(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsRevealed", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsRevealed, "BmGame.MWayneTechUpgradeSystem.IsRevealed");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_Reveal;
     /// <summary>
     /// Function: Reveal
     /// </summary>
     public unsafe virtual void Reveal(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.Reveal", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Reveal, "BmGame.MWayneTechUpgradeSystem.Reveal");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_HasUpgrade;
     /// <summary>
     /// Function: HasUpgrade
     /// </summary>
     public unsafe virtual bool HasUpgrade(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.HasUpgrade", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_HasUpgrade, "BmGame.MWayneTechUpgradeSystem.HasUpgrade");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -505,245 +616,305 @@ public partial class MWayneTechUpgradeSystem : BmSDK.GameObject, BmSDK.IGameObje
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_UndoUpgrade;
     /// <summary>
     /// Function: UndoUpgrade
     /// </summary>
     public unsafe virtual void UndoUpgrade(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.UndoUpgrade", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UndoUpgrade, "BmGame.MWayneTechUpgradeSystem.UndoUpgrade");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_ProcessIndividualChallengeModeUnlock;
     /// <summary>
     /// Function: ProcessIndividualChallengeModeUnlock
     /// </summary>
     public unsafe virtual bool ProcessIndividualChallengeModeUnlock(BmSDK.BmGame.MWayneTechUpgradeSystem.FChallengeUnlockWayneTech challengeUnlockWT, bool showMessage = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.ProcessIndividualChallengeModeUnlock", true);
-        byte* paramsPtr = stackalloc byte[44];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ProcessIndividualChallengeModeUnlock, "BmGame.MWayneTechUpgradeSystem.ProcessIndividualChallengeModeUnlock");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(challengeUnlockWT, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(showMessage, paramsPtr + 24);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 28);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 28);
     }
 
+    private static BmSDK.Function __fn_ProcessChallengeModeUnlocks;
     /// <summary>
     /// Function: ProcessChallengeModeUnlocks
     /// </summary>
     public unsafe virtual void ProcessChallengeModeUnlocks(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.ProcessChallengeModeUnlocks", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ProcessChallengeModeUnlocks, "BmGame.MWayneTechUpgradeSystem.ProcessChallengeModeUnlocks");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_Upgrade;
     /// <summary>
     /// Function: Upgrade
     /// </summary>
     public unsafe virtual void Upgrade(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.Upgrade", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Upgrade, "BmGame.MWayneTechUpgradeSystem.Upgrade");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsViewed;
     /// <summary>
     /// Function: IsViewed
     /// </summary>
     public unsafe virtual bool IsViewed(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsViewed", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsViewed, "BmGame.MWayneTechUpgradeSystem.IsViewed");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_View;
     /// <summary>
     /// Function: View
     /// </summary>
     public unsafe virtual void View(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.View", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_View, "BmGame.MWayneTechUpgradeSystem.View");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsPurchased;
     /// <summary>
     /// Function: IsPurchased
     /// </summary>
     public unsafe virtual bool IsPurchased(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsPurchased", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsPurchased, "BmGame.MWayneTechUpgradeSystem.IsPurchased");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_Purchase;
     /// <summary>
     /// Function: Purchase
     /// </summary>
     public unsafe virtual void Purchase(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.Purchase", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Purchase, "BmGame.MWayneTechUpgradeSystem.Purchase");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsRevealedByMostWanted;
     /// <summary>
     /// Function: IsRevealedByMostWanted
     /// </summary>
     public unsafe virtual bool IsRevealedByMostWanted(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsRevealedByMostWanted", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsRevealedByMostWanted, "BmGame.MWayneTechUpgradeSystem.IsRevealedByMostWanted");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_HideByMostWanted;
     /// <summary>
     /// Function: HideByMostWanted
     /// </summary>
     public unsafe virtual void HideByMostWanted(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.HideByMostWanted", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_HideByMostWanted, "BmGame.MWayneTechUpgradeSystem.HideByMostWanted");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RevealByMostWanted;
     /// <summary>
     /// Function: RevealByMostWanted
     /// </summary>
     public unsafe virtual void RevealByMostWanted(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.RevealByMostWanted", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RevealByMostWanted, "BmGame.MWayneTechUpgradeSystem.RevealByMostWanted");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsRevealedByChallenges;
     /// <summary>
     /// Function: IsRevealedByChallenges
     /// </summary>
     public unsafe virtual bool IsRevealedByChallenges(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsRevealedByChallenges", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsRevealedByChallenges, "BmGame.MWayneTechUpgradeSystem.IsRevealedByChallenges");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_HideByChallenges;
     /// <summary>
     /// Function: HideByChallenges
     /// </summary>
     public unsafe virtual void HideByChallenges(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.HideByChallenges", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_HideByChallenges, "BmGame.MWayneTechUpgradeSystem.HideByChallenges");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RevealByChallenges;
     /// <summary>
     /// Function: RevealByChallenges
     /// </summary>
     public unsafe virtual void RevealByChallenges(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.RevealByChallenges", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RevealByChallenges, "BmGame.MWayneTechUpgradeSystem.RevealByChallenges");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsRevealedByStory;
     /// <summary>
     /// Function: IsRevealedByStory
     /// </summary>
     public unsafe virtual bool IsRevealedByStory(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsRevealedByStory", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsRevealedByStory, "BmGame.MWayneTechUpgradeSystem.IsRevealedByStory");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_HideByStory;
     /// <summary>
     /// Function: HideByStory
     /// </summary>
     public unsafe virtual void HideByStory(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.HideByStory", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_HideByStory, "BmGame.MWayneTechUpgradeSystem.HideByStory");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RevealByStory;
     /// <summary>
     /// Function: RevealByStory
     /// </summary>
     public unsafe virtual void RevealByStory(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.RevealByStory", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RevealByStory, "BmGame.MWayneTechUpgradeSystem.RevealByStory");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsUnlocked;
     /// <summary>
     /// Function: IsUnlocked
     /// </summary>
     public unsafe virtual bool IsUnlocked(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsUnlocked", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsUnlocked, "BmGame.MWayneTechUpgradeSystem.IsUnlocked");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 4);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 4);
     }
 
+    private static BmSDK.Function __fn_Unlock;
     /// <summary>
     /// Function: Unlock
     /// </summary>
     public unsafe virtual void Unlock(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.Unlock", true);
-        byte* paramsPtr = stackalloc byte[1];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Unlock, "BmGame.MWayneTechUpgradeSystem.Unlock");
+        byte* paramsPtr = stackalloc byte[17];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsFlagSet;
     /// <summary>
     /// Function: IsFlagSet
     /// </summary>
     public unsafe virtual bool IsFlagSet(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability, int Flags)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsFlagSet", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsFlagSet, "BmGame.MWayneTechUpgradeSystem.IsFlagSet");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Flags, paramsPtr + 4);
         var oldFlags = funcManaged.FunctionFlags;
@@ -754,78 +925,96 @@ public partial class MWayneTechUpgradeSystem : BmSDK.GameObject, BmSDK.IGameObje
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_UnSetFlags;
     /// <summary>
     /// Function: UnSetFlags
     /// </summary>
     public unsafe virtual void UnSetFlags(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability, int Flags)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.UnSetFlags", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UnSetFlags, "BmGame.MWayneTechUpgradeSystem.UnSetFlags");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Flags, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetFlags;
     /// <summary>
     /// Function: SetFlags
     /// </summary>
     public unsafe virtual void SetFlags(BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility ability, int Flags)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.SetFlags", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetFlags, "BmGame.MWayneTechUpgradeSystem.SetFlags");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ability, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Flags, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_IsAllUpgraded;
     /// <summary>
     /// Function: IsAllUpgraded
     /// </summary>
     public unsafe virtual bool IsAllUpgraded(BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility> AbilityList)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsAllUpgraded", true);
-        byte* paramsPtr = stackalloc byte[21];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsAllUpgraded, "BmGame.MWayneTechUpgradeSystem.IsAllUpgraded");
+        byte* paramsPtr = stackalloc byte[37];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AbilityList, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_IsAllPurchased;
     /// <summary>
     /// Function: IsAllPurchased
     /// </summary>
     public unsafe virtual bool IsAllPurchased(BmSDK.TArray<BmSDK.BmGame.MWayneTechUpgradeSystem.ECharacterAbility> AbilityList)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.IsAllPurchased", true);
-        byte* paramsPtr = stackalloc byte[21];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_IsAllPurchased, "BmGame.MWayneTechUpgradeSystem.IsAllPurchased");
+        byte* paramsPtr = stackalloc byte[37];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AbilityList, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 12);
     }
 
+    private static BmSDK.Function __fn_SetPlayerController;
     /// <summary>
     /// Function: SetPlayerController
     /// </summary>
     public unsafe virtual void SetPlayerController(BmSDK.BmGame.RPlayerController RPC)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.SetPlayerController", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetPlayerController, "BmGame.MWayneTechUpgradeSystem.SetPlayerController");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(RPC, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_Init;
     /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe virtual void Init()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MWayneTechUpgradeSystem.Init", true);
-        byte* paramsPtr = stackalloc byte[104];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Init, "BmGame.MWayneTechUpgradeSystem.Init");
+        byte* paramsPtr = stackalloc byte[120];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

@@ -78,13 +78,16 @@ public partial class MAnimLinkNotifies : BmSDK.GameObject, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<MAnimLinkNotifies>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_Update;
     /// <summary>
     /// Function: Update
     /// </summary>
     public unsafe virtual void Update(float DeltaTime)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MAnimLinkNotifies.Update", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Update, "BmGame.MAnimLinkNotifies.Update");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
@@ -97,13 +100,16 @@ public partial class MAnimLinkNotifies : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_RemoveNotify;
     /// <summary>
     /// Function: RemoveNotify
     /// </summary>
     public unsafe virtual void RemoveNotify(BmSDK.Engine.AnimSequence AnimSequence, int NotifyIndex, int TransitionId)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MAnimLinkNotifies.RemoveNotify", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RemoveNotify, "BmGame.MAnimLinkNotifies.RemoveNotify");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AnimSequence, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NotifyIndex, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TransitionId, paramsPtr + 8);
@@ -118,13 +124,16 @@ public partial class MAnimLinkNotifies : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_AddNotify;
     /// <summary>
     /// Function: AddNotify
     /// </summary>
     public unsafe virtual void AddNotify(BmSDK.Engine.AnimSequence Anim, int NotifyIndex, int TransitionId, bool bMirrored, float DeltaTime)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MAnimLinkNotifies.AddNotify", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddNotify, "BmGame.MAnimLinkNotifies.AddNotify");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Anim, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(NotifyIndex, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TransitionId, paramsPtr + 8);

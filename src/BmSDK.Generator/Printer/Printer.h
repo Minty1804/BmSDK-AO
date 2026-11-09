@@ -15,8 +15,9 @@ private:
 	static void PrintStruct(const struct StructInfo& _struct, ostream& out);
 	static void PrintEnum(const struct EnumInfo& _enum, ostream& out);
 	static void PrintProperty(const struct PropertyInfo& prop, ostream& out);
-	static void PrintFunction(const struct FunctionInfo& func, bool isInInterface, ostream& out);
+	static void PrintFunction(const struct FunctionInfo& func, bool isInInterface, ostream& out, const struct ClassInfo* instanceOf = nullptr);
 	static void PrintMember(const struct MemberInfo* member, bool isInInterface, ostream& out);
+	static void PrintStatics(const struct ClassInfo& _class, ostream& out);
 
 	static void PushIndent() { IndentLevel++; };
 	static void PopIndent() { IndentLevel--; };

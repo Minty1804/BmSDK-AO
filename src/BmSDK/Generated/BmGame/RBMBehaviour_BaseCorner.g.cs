@@ -73,13 +73,16 @@ public partial class RBMBehaviour_BaseCorner : BmSDK.BmGame.RBMBehaviour, BmSDK.
         where TComponent : class, Framework.IScriptComponent<RBMBehaviour_BaseCorner>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_Abort_SpottedFriendlyAhead;
     /// <summary>
     /// Function: Abort_SpottedFriendlyAhead
     /// </summary>
     public unsafe virtual void Abort_SpottedFriendlyAhead()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RBMBehaviour_BaseCorner.Abort_SpottedFriendlyAhead", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Abort_SpottedFriendlyAhead, "BmGame.RBMBehaviour_BaseCorner.Abort_SpottedFriendlyAhead");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

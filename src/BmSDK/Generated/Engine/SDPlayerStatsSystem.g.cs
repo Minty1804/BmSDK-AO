@@ -78,70 +78,87 @@ public partial class SDPlayerStatsSystem : BmSDK.GameObject, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<SDPlayerStatsSystem>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_ClearStatsObjects;
     /// <summary>
     /// Function: ClearStatsObjects
     /// </summary>
     public unsafe virtual void ClearStatsObjects()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.ClearStatsObjects", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ClearStatsObjects, "Engine.SDPlayerStatsSystem.ClearStatsObjects");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_OnPlayerStatsDownloaded;
     /// <summary>
     /// Function: OnPlayerStatsDownloaded
     /// </summary>
     public unsafe virtual void OnPlayerStatsDownloaded()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.OnPlayerStatsDownloaded", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnPlayerStatsDownloaded, "Engine.SDPlayerStatsSystem.OnPlayerStatsDownloaded");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_ClearPlayerStatsDownloadedDelegate;
     /// <summary>
     /// Function: ClearPlayerStatsDownloadedDelegate
     /// </summary>
     public unsafe virtual void ClearPlayerStatsDownloadedDelegate(System.IntPtr callback)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.ClearPlayerStatsDownloadedDelegate", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ClearPlayerStatsDownloadedDelegate, "Engine.SDPlayerStatsSystem.ClearPlayerStatsDownloadedDelegate");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(callback, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AddPlayerStatsDownloadedDelegate;
     /// <summary>
     /// Function: AddPlayerStatsDownloadedDelegate
     /// </summary>
     public unsafe virtual void AddPlayerStatsDownloadedDelegate(System.IntPtr callback)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.AddPlayerStatsDownloadedDelegate", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddPlayerStatsDownloadedDelegate, "Engine.SDPlayerStatsSystem.AddPlayerStatsDownloadedDelegate");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(callback, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetInstance;
     /// <summary>
     /// Function: GetInstance
     /// </summary>
     public unsafe static BmSDK.Engine.SDPlayerStatsSystem GetInstance()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.GetInstance", true);
-        byte* paramsPtr = stackalloc byte[4];
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetInstance, "Engine.SDPlayerStatsSystem.GetInstance");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SDPlayerStatsSystem>(paramsPtr + 0);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.Engine.SDPlayerStatsSystem>(paramsPtr + 0);
     }
 
+    private static BmSDK.Function __fn_OnStatRequestCompleted;
     /// <summary>
     /// Function: OnStatRequestCompleted
     /// </summary>
     public unsafe virtual void OnStatRequestCompleted(BmSDK.FString ObjectType, BmSDK.Engine.SDFireteamObject ObjectGot, bool bSucceeded)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.OnStatRequestCompleted", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnStatRequestCompleted, "Engine.SDPlayerStatsSystem.OnStatRequestCompleted");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ObjectType, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ObjectGot, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bSucceeded, paramsPtr + 16);
@@ -149,46 +166,58 @@ public partial class SDPlayerStatsSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_ModifyPlayerStats;
     /// <summary>
     /// Function: ModifyPlayerStats
     /// </summary>
     public unsafe virtual void ModifyPlayerStats()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.ModifyPlayerStats", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ModifyPlayerStats, "Engine.SDPlayerStatsSystem.ModifyPlayerStats");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_UploadPlayerStats;
     /// <summary>
     /// Function: UploadPlayerStats
     /// </summary>
     public unsafe virtual void UploadPlayerStats()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.UploadPlayerStats", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UploadPlayerStats, "Engine.SDPlayerStatsSystem.UploadPlayerStats");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_DownloadPlayerStats;
     /// <summary>
     /// Function: DownloadPlayerStats
     /// </summary>
     public unsafe virtual void DownloadPlayerStats()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.DownloadPlayerStats", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DownloadPlayerStats, "Engine.SDPlayerStatsSystem.DownloadPlayerStats");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AddStatsObjectEntry;
     /// <summary>
     /// Function: AddStatsObjectEntry
     /// </summary>
     public unsafe virtual void AddStatsObjectEntry(BmSDK.FString FireteamId, BmSDK.FString ObjectType, BmSDK.Engine.SDFireteamObject StatsObject)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.AddStatsObjectEntry", true);
-        byte* paramsPtr = stackalloc byte[56];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AddStatsObjectEntry, "Engine.SDPlayerStatsSystem.AddStatsObjectEntry");
+        byte* paramsPtr = stackalloc byte[72];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(FireteamId, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ObjectType, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(StatsObject, paramsPtr + 24);
@@ -196,13 +225,16 @@ public partial class SDPlayerStatsSystem : BmSDK.GameObject, BmSDK.IGameObject
         return;
     }
 
+    private static BmSDK.Function __fn_PlayerStatsDownloadedDelegate;
     /// <summary>
     /// Function: PlayerStatsDownloadedDelegate
     /// </summary>
     public unsafe virtual void PlayerStatsDownloadedDelegate(BmSDK.TArray<BmSDK.Engine.SDPlayerStatsSystem.FStatsObjectEntry> UpdatedStatsObjects)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.SDPlayerStatsSystem.PlayerStatsDownloadedDelegate", true);
-        byte* paramsPtr = stackalloc byte[12];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlayerStatsDownloadedDelegate, "Engine.SDPlayerStatsSystem.PlayerStatsDownloadedDelegate");
+        byte* paramsPtr = stackalloc byte[28];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(UpdatedStatsObjects, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;

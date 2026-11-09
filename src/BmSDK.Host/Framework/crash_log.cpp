@@ -8,6 +8,7 @@
 
 namespace {
     const char* volatile s_context[2] = {nullptr, nullptr};
+    BmSDK_ScriptStack s_scripts = {};
 
     PVOID s_handle = nullptr;
     volatile LONG s_busy = 0;
@@ -171,6 +172,18 @@ namespace {
         read_context_string(s_context[1], last, sizeof(last));
         ao_boot::log("BmSDK running: %s", now);
         ao_boot::log("BmSDK last started: %s", last);
+        int depth = s_scripts.depth;
+        if (depth > 0) {
+            ao_boot::log("UnrealScript running (innermost first, %d deep):", depth);
+            int shown = 0;
+            for (int i = (depth < 32 ? depth : 32) - 1; i >= 0 && shown < 8; i--, shown++) {
+                char name[512];
+                read_context_string(s_scripts.frames[i], name, sizeof(name));
+                ao_boot::log("  %s", name);
+            }
+        } else {
+            ao_boot::log("UnrealScript running: (none)");
+        }
 
         if (code == EXCEPTION_STACK_OVERFLOW) {
             return;  // little stack left: skip the rest
@@ -267,4 +280,8 @@ BMSDK_CRASH_API const char* volatile* __cdecl BmSDK_Crash_ContextSlot() {
         ao_boot::log(s_handle ? "Crash log moved in front of .NET's handler" : "WARNING: crash log handler lost");
     }
     return s_context;
+}
+
+BMSDK_CRASH_API BmSDK_ScriptStack* __cdecl BmSDK_Crash_ScriptStack() {
+    return &s_scripts;
 }

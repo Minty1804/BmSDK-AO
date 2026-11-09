@@ -78,24 +78,30 @@ public partial class MSeqEvent_PlayerRestartOrExit : BmSDK.Engine.SequenceEvent,
         where TComponent : class, Framework.IScriptComponent<MSeqEvent_PlayerRestartOrExit>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_PlayerExit;
     /// <summary>
     /// Function: PlayerExit
     /// </summary>
     public unsafe virtual void PlayerExit()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MSeqEvent_PlayerRestartOrExit.PlayerExit", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlayerExit, "BmGame.MSeqEvent_PlayerRestartOrExit.PlayerExit");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PlayerRestart;
     /// <summary>
     /// Function: PlayerRestart
     /// </summary>
     public unsafe virtual void PlayerRestart()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MSeqEvent_PlayerRestartOrExit.PlayerRestart", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PlayerRestart, "BmGame.MSeqEvent_PlayerRestartOrExit.PlayerRestart");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }

@@ -78,47 +78,59 @@ public partial class RGFxMovieUI_PauseOptionsKeyboardControls : BmSDK.BmGame.RGF
         where TComponent : class, Framework.IScriptComponent<RGFxMovieUI_PauseOptionsKeyboardControls>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_OnBack;
     /// <summary>
     /// Function: OnBack
     /// </summary>
     public unsafe override void OnBack()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.OnBack", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnBack, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.OnBack");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SetAssigningKeys;
     /// <summary>
     /// Function: SetAssigningKeys
     /// </summary>
     public unsafe virtual void SetAssigningKeys(bool IsAssigningKeys)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.SetAssigningKeys", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetAssigningKeys, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.SetAssigningKeys");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(IsAssigningKeys, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_CloseScreen;
     /// <summary>
     /// Function: CloseScreen
     /// </summary>
     public unsafe override void CloseScreen()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.CloseScreen", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CloseScreen, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.CloseScreen");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RequestSetBindByAbility;
     /// <summary>
     /// Function: RequestSetBindByAbility
     /// </summary>
     public unsafe virtual void RequestSetBindByAbility(int AbilityId, int PreviousKeyCode, int KeyId, bool IsPrimary)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.RequestSetBindByAbility", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RequestSetBindByAbility, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.RequestSetBindByAbility");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AbilityId, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PreviousKeyCode, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(KeyId, paramsPtr + 8);
@@ -127,13 +139,16 @@ public partial class RGFxMovieUI_PauseOptionsKeyboardControls : BmSDK.BmGame.RGF
         return;
     }
 
+    private static BmSDK.Function __fn_RequestSetBindsByAbilityAndGetKeyNames;
     /// <summary>
     /// Function: RequestSetBindsByAbilityAndGetKeyNames
     /// </summary>
     public unsafe virtual void RequestSetBindsByAbilityAndGetKeyNames(int AbilityId, int PreviousKey1Code, int PreviousKey2Code, int Key1Code, int Key2Code, BmSDK.FString ReturnKeyNamePath1, BmSDK.FString ReturnKeyNamePath2)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.RequestSetBindsByAbilityAndGetKeyNames", true);
-        byte* paramsPtr = stackalloc byte[64];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RequestSetBindsByAbilityAndGetKeyNames, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.RequestSetBindsByAbilityAndGetKeyNames");
+        byte* paramsPtr = stackalloc byte[80];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AbilityId, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PreviousKey1Code, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(PreviousKey2Code, paramsPtr + 8);
@@ -145,13 +160,16 @@ public partial class RGFxMovieUI_PauseOptionsKeyboardControls : BmSDK.BmGame.RGF
         return;
     }
 
+    private static BmSDK.Function __fn_RequestRemoveBind;
     /// <summary>
     /// Function: RequestRemoveBind
     /// </summary>
     public unsafe virtual void RequestRemoveBind(int AbilityId, int KeyId, bool IsPrimary)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.RequestRemoveBind", true);
-        byte* paramsPtr = stackalloc byte[24];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RequestRemoveBind, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.RequestRemoveBind");
+        byte* paramsPtr = stackalloc byte[40];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AbilityId, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(KeyId, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(IsPrimary, paramsPtr + 8);
@@ -159,65 +177,80 @@ public partial class RGFxMovieUI_PauseOptionsKeyboardControls : BmSDK.BmGame.RGF
         return;
     }
 
+    private static BmSDK.Function __fn_DisplayAreYouSure;
     /// <summary>
     /// Function: DisplayAreYouSure
     /// </summary>
     public unsafe virtual void DisplayAreYouSure(BmSDK.FString Path, int KeyCodeToSet)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.DisplayAreYouSure", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_DisplayAreYouSure, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.DisplayAreYouSure");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Path, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(KeyCodeToSet, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PopupRequester_Callback;
     /// <summary>
     /// Function: PopupRequester_Callback
     /// </summary>
     public unsafe override void PopupRequester_Callback(BmSDK.BmGame.RGFxMoviePopupRequester ThePopUpMsg, int ButtonId)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.PopupRequester_Callback", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PopupRequester_Callback, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.PopupRequester_Callback");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ThePopUpMsg, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ButtonId, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_RequestGetKeyNameFromKeyCode;
     /// <summary>
     /// Function: RequestGetKeyNameFromKeyCode
     /// </summary>
     public unsafe virtual void RequestGetKeyNameFromKeyCode(BmSDK.FString Path, int keyCode)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.RequestGetKeyNameFromKeyCode", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RequestGetKeyNameFromKeyCode, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.RequestGetKeyNameFromKeyCode");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Path, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(keyCode, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_GetDefaultKeyCode;
     /// <summary>
     /// Function: GetDefaultKeyCode
     /// </summary>
     public unsafe virtual int GetDefaultKeyCode(bool IsPrimary, int KeyIndex)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.GetDefaultKeyCode", true);
-        byte* paramsPtr = stackalloc byte[16];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetDefaultKeyCode, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.GetDefaultKeyCode");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(IsPrimary, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(KeyIndex, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<int>(paramsPtr + 8);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<int>(paramsPtr + 8);
     }
 
+    private static BmSDK.Function __fn_RequestControlData;
     /// <summary>
     /// Function: RequestControlData
     /// </summary>
     public unsafe virtual void RequestControlData(BmSDK.FString AbilityNamesPath, BmSDK.FString KeysPath, BmSDK.FString ModifiersPath, BmSDK.FString KeyCodesPath, BmSDK.FString Keys2Path, BmSDK.FString Modifiers2Path, BmSDK.FString KeyCodes2Path, BmSDK.FString HoldsPath)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.RequestControlData", true);
-        byte* paramsPtr = stackalloc byte[196];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_RequestControlData, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.RequestControlData");
+        byte* paramsPtr = stackalloc byte[212];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(AbilityNamesPath, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(KeysPath, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ModifiersPath, paramsPtr + 24);
@@ -230,13 +263,16 @@ public partial class RGFxMovieUI_PauseOptionsKeyboardControls : BmSDK.BmGame.RGF
         return;
     }
 
+    private static BmSDK.Function __fn_Init;
     /// <summary>
     /// Function: Init
     /// </summary>
     public unsafe override void Init(BmSDK.Engine.LocalPlayer LocPlay = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.Init", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Init, "BmGame.RGFxMovieUI_PauseOptionsKeyboardControls.Init");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(LocPlay, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;

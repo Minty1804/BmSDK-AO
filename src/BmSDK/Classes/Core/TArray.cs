@@ -57,11 +57,42 @@ public unsafe class TArray<TManaged> : IArray, IList<TManaged>, IDisposable
     }
 
     /// <summary>
+    /// Creates a new TArray with C#-owned memory holding copies of the given items.
+    /// </summary>
+    public TArray(ReadOnlySpan<TManaged> items)
+        : this(Math.Max(items.Length, 1))
+    {
+        AddRange(items);
+    }
+
+    /// <summary>
     /// Creates a managed wrapper around an existing native TArray.
     /// </summary>
     internal TArray(IntPtr ptr)
     {
         Ptr = ptr;
+        _ownsMemory = false;
+    }
+
+    /// <summary>
+    /// Keeps the copied header of <see cref="TArray(IntPtr, bool)"/> alive (and pinned) for as long as
+    /// this wrapper is.
+    /// </summary>
+    private readonly NativeData[]? _headerCopy;
+
+    /// <summary>
+    /// Wraps a native TArray whose header lives in temporary memory (e.g. a function call's parameter
+    /// buffer, which is gone once the call returns). The header is copied into pinned managed memory
+    /// that is freed with this wrapper. The elements are left alone: they are never freed here,
+    /// because whether the game still owns them depends on the function.
+    /// </summary>
+    internal TArray(IntPtr source, bool copyHeader)
+    {
+        Guard.Require(copyHeader, "Use TArray(IntPtr) to wrap an array in place");
+
+        _headerCopy = GC.AllocateArray<NativeData>(1, pinned: true);
+        _headerCopy[0] = *(NativeData*)source.ToPointer();
+        Ptr = (IntPtr)System.Runtime.CompilerServices.Unsafe.AsPointer(ref _headerCopy[0]);
         _ownsMemory = false;
     }
 
@@ -109,6 +140,57 @@ public unsafe class TArray<TManaged> : IArray, IList<TManaged>, IDisposable
         {
             var idx = oldCount + i;
             MarshalUtil.ToUnmanaged(items[i], Data.AllocatorInstance + (idx * Stride));
+        }
+    }
+
+    /// <summary>
+    /// Adds the given items to the end of the array in one go. Blittable items (numbers, plain structs)
+    /// are copied as a block, so filling a large array is cheap.
+    /// </summary>
+    public void AddRange(ReadOnlySpan<TManaged> items)
+    {
+        if (items.IsEmpty)
+        {
+            return;
+        }
+
+        var oldCount = Count;
+        Resize(oldCount + items.Length);
+
+        var dest = (byte*)Data.AllocatorInstance + (oldCount * Stride);
+        if (
+            !System.Runtime.CompilerServices.RuntimeHelpers.IsReferenceOrContainsReferences<TManaged>()
+            && Stride == System.Runtime.CompilerServices.Unsafe.SizeOf<TManaged>()
+        )
+        {
+            System.Runtime.CompilerServices.Unsafe.CopyBlockUnaligned(
+                ref *dest,
+                ref System.Runtime.CompilerServices.Unsafe.As<TManaged, byte>(
+                    ref System.Runtime.InteropServices.MemoryMarshal.GetReference(items)
+                ),
+                (uint)(items.Length * Stride)
+            );
+            return;
+        }
+
+        for (var i = 0; i < items.Length; i++)
+        {
+            MarshalUtil.ToUnmanaged(items[i], (IntPtr)(dest + (i * Stride)));
+        }
+    }
+
+    /// <inheritdoc cref="AddRange(ReadOnlySpan{TManaged})"/>
+    public void AddRange(IEnumerable<TManaged> items)
+    {
+        if (items is TManaged[] array)
+        {
+            AddRange(array.AsSpan());
+            return;
+        }
+
+        foreach (var item in items)
+        {
+            Push(item);
         }
     }
 

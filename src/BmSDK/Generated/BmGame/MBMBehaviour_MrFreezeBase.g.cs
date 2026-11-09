@@ -78,13 +78,16 @@ public partial class MBMBehaviour_MrFreezeBase : BmSDK.BmGame.MBMBehaviour_Deads
         where TComponent : class, Framework.IScriptComponent<MBMBehaviour_MrFreezeBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_TestLineOfSight;
     /// <summary>
     /// Function: TestLineOfSight
     /// </summary>
     public unsafe override bool TestLineOfSight(BmSDK.BmGame.RPawnCombat TestPawn, System.Numerics.Vector3 SourcePosition, System.Numerics.Vector3 DestPosition)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBMBehaviour_MrFreezeBase.TestLineOfSight", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TestLineOfSight, "BmGame.MBMBehaviour_MrFreezeBase.TestLineOfSight");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TestPawn, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SourcePosition, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DestPosition, paramsPtr + 16);
@@ -96,16 +99,19 @@ public partial class MBMBehaviour_MrFreezeBase : BmSDK.BmGame.MBMBehaviour_Deads
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 28);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 28);
     }
 
+    private static BmSDK.Function __fn_FindShotToLocation;
     /// <summary>
     /// Function: FindShotToLocation
     /// </summary>
     public unsafe override bool FindShotToLocation(System.Numerics.Vector3 StartingLocation, System.Numerics.Vector3 TargetLocation)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBMBehaviour_MrFreezeBase.FindShotToLocation", true);
-        byte* paramsPtr = stackalloc byte[28];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_FindShotToLocation, "BmGame.MBMBehaviour_MrFreezeBase.FindShotToLocation");
+        byte* paramsPtr = stackalloc byte[44];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(StartingLocation, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(TargetLocation, paramsPtr + 12);
         var oldFlags = funcManaged.FunctionFlags;
@@ -116,6 +122,6 @@ public partial class MBMBehaviour_MrFreezeBase : BmSDK.BmGame.MBMBehaviour_Deads
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         funcManaged.iNative = oldNative;
         funcManaged.FunctionFlags = oldFlags;
-        return BmSDK.Framework.MarshalUtil.ToManaged<bool>(paramsPtr + 24);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 24);
     }
 }

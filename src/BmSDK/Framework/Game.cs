@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using BmSDK.BmGame;
 using BmSDK.Engine;
@@ -90,6 +91,67 @@ public static partial class Game
         var gameViewport = GetGameViewportClient();
         return Guard.NotNull(gameViewport.ViewportConsole);
     }
+
+    // The Get* functions above throw when the object is missing (main menu, loading, teardown).
+    // These report that instead, for code that runs in every state.
+
+    /// <summary>Gets the world info object, or false when no world is loaded.</summary>
+    public static bool TryGetWorldInfo([NotNullWhen(true)] out WorldInfo? worldInfo)
+    {
+        worldInfo = WorldInfo.GetWorldInfo();
+        return Alive(worldInfo);
+    }
+
+    /// <summary>Gets the local player's controller, or false when there is none (yet).</summary>
+    public static bool TryGetPlayerController([NotNullWhen(true)] out RPlayerController? playerController, int controllerId = 0)
+    {
+        playerController = null;
+        if (!TryGetGameViewportClient(out var viewport))
+        {
+            return false;
+        }
+
+        var player = viewport.FindPlayerByControllerId(controllerId);
+        playerController = player is { IsValid: true } ? player.Actor as RPlayerController : null;
+        return Alive(playerController);
+    }
+
+    /// <summary>Gets the game info object, or false when no world is loaded.</summary>
+    public static bool TryGetGameInfo([NotNullWhen(true)] out RGameInfo? gameInfo)
+    {
+        gameInfo = TryGetWorldInfo(out var worldInfo) ? worldInfo.Game as RGameInfo : null;
+        return Alive(gameInfo);
+    }
+
+    /// <summary>Gets the replication info object, or false when no world is loaded.</summary>
+    public static bool TryGetGameRI([NotNullWhen(true)] out RGameRI? gameRI)
+    {
+        gameRI = TryGetWorldInfo(out var worldInfo) ? worldInfo.GRI as RGameRI : null;
+        return Alive(gameRI);
+    }
+
+    /// <summary>Gets the persistent data object, or false when there is none.</summary>
+    public static bool TryGetPersistentData([NotNullWhen(true)] out RPersistentData? persistentData)
+    {
+        persistentData = TryGetGameInfo(out var gameInfo) ? gameInfo.PersistentData : null;
+        return Alive(persistentData);
+    }
+
+    /// <summary>Gets the global engine object, or false before it exists.</summary>
+    public static bool TryGetEngine([NotNullWhen(true)] out GameEngine? engine)
+    {
+        engine = _Engine.GetEngine() as GameEngine;
+        return Alive(engine);
+    }
+
+    /// <summary>Gets the global viewport client, or false before it exists.</summary>
+    public static bool TryGetGameViewportClient([NotNullWhen(true)] out RGFxGameViewportClient? viewportClient)
+    {
+        viewportClient = TryGetEngine(out var engine) ? engine.GameViewport as RGFxGameViewportClient : null;
+        return Alive(viewportClient);
+    }
+
+    private static bool Alive([NotNullWhen(true)] GameObject? obj) => obj is { IsValid: true };
 
     /// <summary>
     /// Gets the time in seconds since the last world tick.

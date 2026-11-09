@@ -56,6 +56,24 @@ public static class Guard
         return obj.Value;
     }
 
+    /// <summary>
+    /// Throws when a wrapper's object is gone: destroyed or garbage collected by the game, so its
+    /// <see cref="GameObject.Ptr"/> was cleared. Generated calls check this before running the function,
+    /// since the engine would otherwise fault on a null object. Check <see cref="GameObject.IsValid"/>
+    /// before using a wrapper you have kept hold of.
+    /// </summary>
+    [DebuggerHidden]
+    public static void NotDestroyed(GameObject obj)
+    {
+        if (obj.Ptr == IntPtr.Zero)
+        {
+            throw new ObjectDisposedException(
+                obj.GetType().Name,
+                "The game object behind this wrapper has been destroyed; check IsValid before using it."
+            );
+        }
+    }
+
     [DebuggerHidden]
     public static string NotNullOrWhitespace([NotNull] string? obj, string? message = null)
     {

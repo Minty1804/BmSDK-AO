@@ -73,24 +73,30 @@ public partial class MGlueGrenadeProjectile : BmSDK.BmGame.MGrenadeGadgetProject
         where TComponent : class, Framework.IScriptComponent<MGlueGrenadeProjectile>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_TriggerGlueBlastHitEvent;
     /// <summary>
     /// Function: TriggerGlueBlastHitEvent
     /// </summary>
     public unsafe virtual void TriggerGlueBlastHitEvent()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGlueGrenadeProjectile.TriggerGlueBlastHitEvent", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TriggerGlueBlastHitEvent, "BmGame.MGlueGrenadeProjectile.TriggerGlueBlastHitEvent");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_SockVictimBody;
     /// <summary>
     /// Function: SockVictimBody
     /// </summary>
     public unsafe override void SockVictimBody(BmSDK.BmGame.RPawnVillain Victim, bool bInstant = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGlueGrenadeProjectile.SockVictimBody", true);
-        byte* paramsPtr = stackalloc byte[8];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SockVictimBody, "BmGame.MGlueGrenadeProjectile.SockVictimBody");
+        byte* paramsPtr = stackalloc byte[24];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Victim, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(bInstant, paramsPtr + 4);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);

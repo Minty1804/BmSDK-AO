@@ -18,6 +18,9 @@ internal interface IGenericRedirect
     /// Function called from within the UObject::ProcessInternal() context to execute the redirect.
     /// </summary>
     unsafe void Run(GameObject selfObj, Function funcObj, FFrame* stackPtr, IntPtr Result);
+
+    /// <summary>Who to blame in the log when the redirect throws.</summary>
+    string SenderName { get; }
 }
 
 /// <summary>
@@ -65,6 +68,8 @@ internal sealed record GlobalRedirectorInfo(
             CrashContext.Leave(prevContext);
         }
     }
+
+    public string SenderName => RedirectMethod.DeclaringType?.FullName ?? SourceAssembly.GetName().Name ?? "redirect";
 }
 
 /// <summary>
@@ -97,6 +102,8 @@ internal sealed record LocalRedirectorInfo(
             CrashContext.Leave(prevContext);
         }
     }
+
+    public string SenderName => Component.GetType().FullName ?? "component redirect";
 }
 
 /// <summary>
@@ -132,20 +139,44 @@ internal sealed record RedirectCall(
 {
     private int _currIndex = 0;
 
+    /// <summary>Whether the original function has run for this call (by a redirect, or as the base).</summary>
+    public bool OriginalRan;
+
+    /// <summary>The frame and result buffer of the call being redirected, for <see cref="Framework.Redirects.RunOriginal()"/>.</summary>
+    public IntPtr Stack;
+    public IntPtr Result;
+
     public IGenericRedirect? NextRedirect() =>
         _currIndex < Redirs.Length ? Redirs[_currIndex++] : null;
 
     public unsafe void RunOriginal(FFrame* stackPtr, IntPtr result)
     {
+        OriginalRan = true;
+
         // Copy over args to new buffer for call to original function
-        var paramsSize = TargetFunc.EnumerateParams().Sum(p => p.ElementSize);
-        var argsPtr = stackalloc byte[TargetFunc.PropertiesSize];
+        var paramsSize = TargetFunc.GetParamsBytes();
+
+        // 16-aligned like the engine's own parameter frames (natives store SSE returns with movdqa).
+        var argsPtr = stackalloc byte[TargetFunc.PropertiesSize + 16];
+        argsPtr = (byte*)(((nint)argsPtr + 15) & ~(nint)15);
         Buffer.MemoryCopy(
             stackPtr->Locals.ToPointer(),
             argsPtr,
             paramsSize,
             paramsSize
         );
+
+        // Out parameters live with the caller, not in the frame's locals (see FFrame.OutParms): pass
+        // their current values in, and hand the function's results back to the caller afterwards.
+        var layout = TargetFunc.GetParamLayout();
+        foreach (ref readonly var param in layout.AsSpan())
+        {
+            if (param.IsOut)
+            {
+                var addr = stackPtr->ParamAddress(param);
+                Buffer.MemoryCopy(addr.ToPointer(), argsPtr + param.Offset, param.Size, param.Size);
+            }
+        }
 
         // Call the actual target function and not an override
         GameFunctions.ProcessEvent(
@@ -155,15 +186,24 @@ internal sealed record RedirectCall(
             IntPtr.Zero
         );
 
+        foreach (ref readonly var param in layout.AsSpan())
+        {
+            if (param.IsOut)
+            {
+                var addr = stackPtr->ParamAddress(param);
+                Buffer.MemoryCopy(argsPtr + param.Offset, addr.ToPointer(), param.Size, param.Size);
+            }
+        }
+
         // If there is a return value, pass it through
-        var returnField = TargetFunc.GetReturnParam();
-        if (returnField is not null)
+        TargetFunc.ResolveReturn();
+        if (TargetFunc.ReturnSize > 0)
         {
             Buffer.MemoryCopy(
-                argsPtr + returnField.Offset,
+                argsPtr + TargetFunc.ReturnOffset,
                 result.ToPointer(),
-                returnField.ElementSize,
-                returnField.ElementSize
+                TargetFunc.ReturnSize,
+                TargetFunc.ReturnSize
             );
         }
     }

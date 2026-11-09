@@ -78,13 +78,16 @@ public partial class RPhysOnContactHandler : BmSDK.GameObject, BmSDK.IGameObject
         where TComponent : class, Framework.IScriptComponent<RPhysOnContactHandler>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_OnContact;
     /// <summary>
     /// Function: OnContact
     /// </summary>
     public unsafe virtual void OnContact(BmSDK.Engine.RB_BodyInstance BodyInst0, BmSDK.Engine.RB_BodyInstance BodyInst1, System.Numerics.Vector3 SumNormalForce, System.Numerics.Vector3 SumFrictionForce)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "Engine.RPhysOnContactHandler.OnContact", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnContact, "Engine.RPhysOnContactHandler.OnContact");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(BodyInst0, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(BodyInst1, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(SumNormalForce, paramsPtr + 8);

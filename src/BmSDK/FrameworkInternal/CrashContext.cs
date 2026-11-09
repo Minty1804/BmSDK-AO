@@ -13,6 +13,11 @@ internal static unsafe partial class CrashContext
     // [0] running now, [1] last started
     private static IntPtr* s_slot;
 
+    // The host's BmSDK_ScriptStack: int depth, then 32 frame pointers (UTF-8 paths of the running script functions)
+    private const int ScriptFrames = 32;
+    private static int* s_scriptDepth;
+    private static IntPtr* s_scriptFrames;
+
     private static readonly Dictionary<(string, MethodInfo), IntPtr> s_labels = [];
     private static readonly object s_lock = new();
 
@@ -25,6 +30,12 @@ internal static unsafe partial class CrashContext
         if (host != IntPtr.Zero && NativeLibrary.TryGetExport(host, "BmSDK_Crash_ContextSlot", out var fn))
         {
             s_slot = ((delegate* unmanaged[Cdecl]<IntPtr*>)fn)();
+        }
+        if (host != IntPtr.Zero && NativeLibrary.TryGetExport(host, "BmSDK_Crash_ScriptStack", out var st))
+        {
+            var p = ((delegate* unmanaged[Cdecl]<IntPtr>)st)();
+            s_scriptDepth = (int*)p;
+            s_scriptFrames = (IntPtr*)(p + 4);
         }
     }
 
@@ -49,6 +60,34 @@ internal static unsafe partial class CrashContext
             s_slot[0] = prev;
         }
     }
+
+    /// <summary>
+    /// ProcessInternal: script function <paramref name="label"/> (a UTF-8 path that is never freed) starts. Pair with
+    /// <see cref="LeaveScript"/>.
+    /// </summary>
+    public static void EnterScript(IntPtr label)
+    {
+        if (s_scriptDepth == null)
+        {
+            return;
+        }
+        var d = *s_scriptDepth;
+        if (d >= 0 && d < ScriptFrames)
+        {
+            s_scriptFrames[d] = label;
+        }
+        *s_scriptDepth = d + 1;
+    }
+
+    public static void LeaveScript()
+    {
+        if (s_scriptDepth != null && *s_scriptDepth > 0)
+        {
+            *s_scriptDepth -= 1;
+        }
+    }
+
+    public static bool TracksScripts => s_scriptDepth != null;
 
     private static IntPtr Label(string owner, MethodInfo method)
     {

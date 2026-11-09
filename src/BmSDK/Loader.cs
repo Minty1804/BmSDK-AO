@@ -96,121 +96,236 @@ internal static partial class Loader
         // Run the scheduled callbacks
         EngineSynchronizationContext.Instance.ExecutePending();
 
+        // Key presses are delivered from here rather than the world tick, so they still arrive while
+        // the game is paused or in a cutscene. Scripts hear about them once they have run Main().
+        try
+        {
+            InputManager.Tick(dispatch: s_hasGameInited);
+            InputRouting.Tick();
+        }
+        catch (Exception ex)
+        {
+            Abort(ex);
+        }
+
         // BmSDK-AO: options menu, also while the game is paused (RGameInfo.Tick stops then)
-        RunGuarded(OptionsManager.EngineTick);
+        RunTracked(s_optionsTick, OptionsManager.EngineTick);
+        RunTracked(s_modScreenTick, PauseModScreen.Tick); // BmSDK-AO: the pause menu's MODS screen
+
+        // BmSDK-AO: scripts' engine tick, also while paused
+        if (s_hasGameInited)
+        {
+            foreach (var script in ScriptManager.Scripts)
+            {
+                ModGuard.Run(script, script.Name, "OnEngineTick", script.OnEngineTick);
+            }
+        }
         return _EngineTickDetourBase!.Invoke(self);
     }
 
     private static bool s_hasGameStarted = false;
     private static bool s_hasGameInited = false;
 
-    // Detour for UObject::ProcessInternal()
+    // Detour for UObject::ProcessInternal(). Runs on every UnrealScript call in the game, so it must
+    // not allocate: a function's path and lifecycle role are worked out once per UFunction (see
+    // Classify), whether any redirect targets it is cached until the set of redirects changes, and
+    // the guard is a plain try/catch rather than a captured lambda.
     private static unsafe void ProcessInternalDetour(IntPtr self, IntPtr Stack, IntPtr Result)
     {
-        RunGuarded(() =>
+        // Kept outside the try so a native fault inside the game's own function body can be named below.
+        string? funcName = null;
+        GameObject? selfObj = null;
+        try
         {
             IntPtr selfPtr = self;
             FFrame* stackPtr = (FFrame*)Stack.ToPointer();
-            var selfObj = MarshalUtil.ToManaged<GameObject>(&selfPtr);
+            selfObj = MarshalUtil.ToManaged<GameObject>(&selfPtr);
             var funcObj = MarshalUtil.ToManaged<Function>(&stackPtr->Node);
-            // BmSDK-AO: cached per function (GetPathName on every script call was the main cost of this detour)
-            var funcInfo = FunctionCache.Get(funcObj);
-            var funcName = funcInfo.Path;
+            // BmSDK-AO: path, super paths and crash-log label, cached on the function's wrapper
+            var funcInfo = funcObj.CacheEntry ?? Classify(funcObj);
+            funcName = funcInfo.Path;
 
-            // Notify scripts of game init
-            if (!s_hasGameInited && UENames.Equal(funcName, InitFuncName))
+            switch (funcObj.LifecycleKind)
             {
-                // Install DLC bundles
-                DLCManager.Run(true);
+                // Notify scripts of game init
+                case Function.Lifecycle.Init when !s_hasGameInited:
+                    // Install DLC bundles
+                    DLCManager.Run(true);
 
-                // Preload packages and root keep-alive objects before any world loads
-                PreloadManager.Run();
+                    // Preload packages and root keep-alive objects before any world loads
+                    PreloadManager.Run();
 
-                ScriptManager.Scripts.ForEach(script =>
-                    Debug.RunWithSender(script.Name, script.Main)
-                );
-                s_hasGameInited = true;
-            }
-
-            // The game's own DLC scan begins by clearing every bundle, so reinstall once it completes.
-            if (UENames.Equal(funcName, DLCScanCompleteFuncName))
-            {
-                DLCManager.Run(false);
-            }
-
-            // Notify scripts of game start
-            if (!s_hasGameStarted && UENames.Equal(funcName, EnterMenuFuncName))
-            {
-                ScriptManager.Scripts.ForEach(script =>
-                    Debug.RunWithSender(script.Name, script.OnEnterMenu)
-                );
-                s_hasGameStarted = true;
-            }
-
-            // Notify scripts of game begin play
-            if (UENames.Equal(funcName, EnterGameFuncName))
-            {
-                ScriptManager.Scripts.ForEach(script =>
-                    Debug.RunWithSender(script.Name, script.OnEnterGame)
-                );
-            }
-
-            // Notify scripts of game tick
-            if (UENames.Equal(funcName, TickFuncName))
-            {
-                // Tick framework stuff
-                InputManager.Tick();
-                OptionsManager.Tick(); // BmSDK-AO: tells the options menu the game is running
-
-                // Call OnTick() for scripts
-                ScriptManager.Scripts.ForEach(script =>
-                    Debug.RunWithSender(script.Name, script.OnTick)
-                );
-
-                // Call OnTick() for script components
-                if (GameObject.AllScriptComponents.Count > 0)
-                {
-                    foreach (var scriptComponent in GameObject.AllScriptComponents.ToArray())
+                    foreach (var script in ScriptManager.Scripts)
                     {
-                        Debug.RunWithSender(scriptComponent.GetType().Name, scriptComponent.OnTick);
+                        ModGuard.Run(script, script.Name, "Main", script.Main);
                     }
+                    s_hasGameInited = true;
+                    break;
+
+                // The game's own DLC scan begins by clearing every bundle, so reinstall once it completes.
+                case Function.Lifecycle.DLCScanComplete:
+                    DLCManager.Run(false);
+                    break;
+
+                // Notify scripts of game start
+                case Function.Lifecycle.EnterMenu when !s_hasGameStarted:
+                    foreach (var script in ScriptManager.Scripts)
+                    {
+                        ModGuard.Run(script, script.Name, "OnEnterMenu", script.OnEnterMenu);
+                    }
+                    s_hasGameStarted = true;
+                    break;
+
+                // Notify scripts of game begin play
+                case Function.Lifecycle.EnterGame:
+                    foreach (var script in ScriptManager.Scripts)
+                    {
+                        ModGuard.Run(script, script.Name, "OnEnterGame", script.OnEnterGame);
+                    }
+                    break;
+
+                // Notify scripts of game tick
+                case Function.Lifecycle.Tick:
+                    OptionsManager.Tick(); // BmSDK-AO: tells the options menu the game is running
+
+                    // Call OnTick() for scripts
+                    foreach (var script in ScriptManager.Scripts)
+                    {
+                        ModGuard.Run(script, script.Name, "OnTick", script.OnTick);
+                    }
+
+                    // Call OnTick() for script components
+                    if (GameObject.AllScriptComponents.Count > 0)
+                    {
+                        foreach (var scriptComponent in GameObject.AllScriptComponents.ToArray())
+                        {
+                            ModGuard.Run(scriptComponent, scriptComponent.GetType().Name, "OnTick", scriptComponent.OnTick);
+                        }
+                    }
+                    break;
+            }
+
+            // BmSDK-AO: the crash log names the script functions running (a native crash inside a script's native
+            // call, GFx for example, shows no BmSDK code at all)
+            var tracked = CrashContext.TracksScripts;
+            if (tracked)
+            {
+                CrashContext.EnterScript(funcInfo.Label);
+            }
+            try
+            {
+                // Run redirect and skip base implementation if applicable to this function
+                if (
+                    RedirectManager.MayRedirect(funcObj, funcName, funcInfo.Supers)
+                    && RedirectManager.ExecuteRedirector(selfObj, funcObj, funcName, stackPtr, Result, funcInfo.Supers)
+                )
+                {
+                    return;
+                }
+
+                // Call base impl. Redirected implementations are expected to reach this by calling "themselves" a second time.
+                _ProcessInternalDetourBase!.Invoke(self, Stack, Result);
+            }
+            finally
+            {
+                if (tracked)
+                {
+                    CrashContext.LeaveScript();
                 }
             }
-
-            // Run redirect and skip base implementation if applicable to this function
-            if (RedirectManager.ExecuteRedirector(selfObj, funcObj, funcName, stackPtr, Result, funcInfo.Supers))
+        }
+        catch (Exception ex)
+        {
+            // A hardware fault in the game's code surfaces here as an SEHException with no clue where it was: name
+            // the UnrealScript function that was running and the object it ran on, which is usually enough to find it.
+            string where = "?";
+            try
             {
-                return;
+                where = (funcName ?? "?") + " on " + (selfObj != null ? selfObj.GetPathName() : "?");
+            }
+            catch
+            {
+                // Naming the object must never hide the original failure.
             }
 
-            // Call base impl. Redirected implementations are expected to reach this by calling "themselves" a second time.
-            _ProcessInternalDetourBase!.Invoke(self, Stack, Result);
-        });
+            Debug.LogError("ProcessInternal failed while the game ran " + where);
+            Abort(ex);
+        }
     }
 
-    // Detour for FWindowsViewport::ProcessDeferredMessage()
+    /// <summary>Works out a function's path, super paths and lifecycle role, once per UFunction wrapper.</summary>
+    private static FunctionCache.Entry Classify(Function func)
+    {
+        var entry = FunctionCache.Get(func);
+        var path = entry.Path;
+        func.LifecycleKind =
+            UENames.Equal(path, InitFuncName) ? Function.Lifecycle.Init
+            : UENames.Equal(path, EnterMenuFuncName) ? Function.Lifecycle.EnterMenu
+            : UENames.Equal(path, EnterGameFuncName) ? Function.Lifecycle.EnterGame
+            : UENames.Equal(path, TickFuncName) ? Function.Lifecycle.Tick
+            : UENames.Equal(path, DLCScanCompleteFuncName) ? Function.Lifecycle.DLCScanComplete
+            : Function.Lifecycle.None;
+        func.CacheEntry = entry;
+        return entry;
+    }
+
+    // Detour for FWindowsViewport::ProcessDeferredMessage(). Key and mouse-button messages are
+    // recorded for scripts, and dropped before the engine sees them when a mod swallowed the key.
     private static void ProcessDeferredMessageDetour(IntPtr self, ref FDeferredMessage message)
     {
-        var key = (Keys)(uint)message.WParam;
-
-        switch (message.Message)
+        // WM_KILLFOCUS, or WM_ACTIVATE with WA_INACTIVE: every key counts as released.
+        if (message.Message == 0x08 || (message.Message == 0x06 && (message.WParam & 0xFFFF) == 0))
         {
-            // WM_KEYDOWN
-            case 0x100:
-            // WM_SYSKEYDOWN
-            case 0x104:
-                InputManager.OnKeyDown(key);
-                break;
-            // WM_KEYUP
-            case 0x101:
-            // WM_SYSKEYUP
-            case 0x105:
-                InputManager.OnKeyUp(key);
-                break;
+            InputManager.OnFocusLost();
+        }
+
+        var swallow = message.Message switch
+        {
+            // WM_KEYDOWN, WM_SYSKEYDOWN
+            0x100 or 0x104 => InputManager.OnKeyDown((Keys)(uint)message.WParam),
+            // WM_KEYUP, WM_SYSKEYUP
+            0x101 or 0x105 => InputManager.OnKeyUp((Keys)(uint)message.WParam),
+            // WM_CHAR, WM_DEADCHAR, WM_SYSCHAR, WM_SYSDEADCHAR: the text form of the press before it
+            0x102 or 0x103 or 0x106 or 0x107 => InputManager.OnChar(),
+            // WM_LBUTTONDOWN, WM_LBUTTONDBLCLK / WM_LBUTTONUP
+            0x201 or 0x203 => InputManager.OnKeyDown(Keys.LButton),
+            0x202 => InputManager.OnKeyUp(Keys.LButton),
+            // WM_RBUTTONDOWN, WM_RBUTTONDBLCLK / WM_RBUTTONUP
+            0x204 or 0x206 => InputManager.OnKeyDown(Keys.RButton),
+            0x205 => InputManager.OnKeyUp(Keys.RButton),
+            // WM_MBUTTONDOWN, WM_MBUTTONDBLCLK / WM_MBUTTONUP
+            0x207 or 0x209 => InputManager.OnKeyDown(Keys.MButton),
+            0x208 => InputManager.OnKeyUp(Keys.MButton),
+            // WM_XBUTTONDOWN, WM_XBUTTONDBLCLK / WM_XBUTTONUP (button in the high word of wParam)
+            0x20B or 0x20D => InputManager.OnKeyDown(XButton(message.WParam)),
+            0x20C => InputManager.OnKeyUp(XButton(message.WParam)),
+            _ => false,
+        };
+
+        if (swallow)
+        {
+            return;
         }
 
         // Call base impl
         _ProcessDeferredMessageDetourBase!.Invoke(self, ref message);
+    }
+
+    private static Keys XButton(nuint wParam) =>
+        ((wParam >> 16) & 0xFFFF) == 2 ? Keys.XButton2 : Keys.XButton1;
+
+    /// <summary>Gives every script its OnDraw, from BmSDK's PostRender redirect.</summary>
+    internal static void DispatchDraw(Engine.Canvas canvas)
+    {
+        if (!s_hasGameInited)
+        {
+            return;
+        }
+
+        foreach (var script in ScriptManager.Scripts)
+        {
+            ModGuard.Run(script, script.Name, "OnDraw", () => script.OnDraw(canvas));
+        }
     }
 
     // Detour for UObject::AddObject()
@@ -218,8 +333,10 @@ internal static partial class Loader
     {
         // Call base impl to instantiate UObject
         _AddObjectDelegateDetourBase!.Invoke(self, InIndex);
+        MarshalUtil.NoteCreated(self); // BmSDK-AO: the address holds a live object again
 
-        RunGuarded(() =>
+        // Runs for every object the game creates: no captured lambda here.
+        try
         {
             var obj = MarshalUtil.GetOrCreateWrapper(self);
 
@@ -228,7 +345,11 @@ internal static partial class Loader
             {
                 ScriptComponentManager.TryAutoAttachComponents(obj, objNotLoaded: true);
             }
-        });
+        }
+        catch (Exception ex)
+        {
+            Abort(ex);
+        }
     }
 
     // Detour for UObject::ConditionalPostLoad()
@@ -238,7 +359,7 @@ internal static partial class Loader
         _ConditionalPostLoadDetourBase!.Invoke(self);
 
         // Configure redirected functions
-        RunGuarded(() =>
+        try
         {
             var obj = MarshalUtil.GetOrCreateWrapper(self);
             if (obj is Function func)
@@ -251,17 +372,45 @@ internal static partial class Loader
             {
                 ScriptComponentManager.TryAutoAttachComponents(obj, objNotLoaded: true);
             }
-        });
+        }
+        catch (Exception ex)
+        {
+            Abort(ex);
+        }
     }
 
     // Detour for UObject::ConditionalDestroy()
     private static void ConditionalDestroyDetour(IntPtr self)
     {
         // Destroy this object's managed instance
-        RunGuarded(() => MarshalUtil.DestroyManagedWrapper(self));
+        try
+        {
+            MarshalUtil.DestroyManagedWrapper(self);
+        }
+        catch (Exception ex)
+        {
+            Abort(ex);
+        }
 
         // Call base impl
         _ConditionalDestroyDetourBase!.Invoke(self);
+    }
+
+    // BmSDK-AO: framework code run from the engine tick, named in the crash log like scripts and redirects are
+    private static readonly System.Reflection.MethodInfo s_optionsTick = ((Action)OptionsManager.EngineTick).Method;
+    private static readonly System.Reflection.MethodInfo s_modScreenTick = ((Action)PauseModScreen.Tick).Method;
+
+    private static void RunTracked(System.Reflection.MethodInfo method, Action action)
+    {
+        var prev = CrashContext.Enter("BmSDK", method);
+        try
+        {
+            RunGuarded(action);
+        }
+        finally
+        {
+            CrashContext.Leave(prev);
+        }
     }
 
     private static void RunGuarded(Action action)
@@ -272,10 +421,16 @@ internal static partial class Loader
         }
         catch (Exception ex)
         {
-            // Just abort, because otherwise UE3 will crash anyway but print
-            // its more-or-less useless DBGHELP messages.
-            Debug.LogError(ex.ToString());
-            Environment.Exit(1);
+            Abort(ex);
         }
+    }
+
+    /// <summary>A fault inside BmSDK itself (mod exceptions are handled by <see cref="ModGuard"/>).</summary>
+    private static void Abort(Exception ex)
+    {
+        // Just abort, because otherwise UE3 will crash anyway but print
+        // its more-or-less useless DBGHELP messages.
+        Debug.LogError(ex.ToString());
+        Environment.Exit(1);
     }
 }

@@ -78,13 +78,16 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
         where TComponent : class, Framework.IScriptComponent<RWeatherAttachedToCameraBase>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_StopPlayerSnowEffect;
     /// <summary>
     /// Function: StopPlayerSnowEffect
     /// </summary>
     public unsafe virtual void StopPlayerSnowEffect()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RWeatherAttachedToCameraBase.StopPlayerSnowEffect", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StopPlayerSnowEffect, "BmGame.RWeatherAttachedToCameraBase.StopPlayerSnowEffect");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -96,13 +99,16 @@ public partial class RWeatherAttachedToCameraBase : BmSDK.Engine.Actor, BmSDK.IG
         return;
     }
 
+    private static BmSDK.Function __fn_UpdatePlayerSnowEffect;
     /// <summary>
     /// Function: UpdatePlayerSnowEffect
     /// </summary>
     public unsafe virtual void UpdatePlayerSnowEffect(float DeltaTime)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.RWeatherAttachedToCameraBase.UpdatePlayerSnowEffect", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdatePlayerSnowEffect, "BmGame.RWeatherAttachedToCameraBase.UpdatePlayerSnowEffect");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 0);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;

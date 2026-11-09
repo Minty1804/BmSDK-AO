@@ -78,35 +78,44 @@ public partial class MGFxMovieControllerMultiScreen : BmSDK.BmGame.MGFxMovieCont
         where TComponent : class, Framework.IScriptComponent<MGFxMovieControllerMultiScreen>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_CloseScreen;
     /// <summary>
     /// Function: CloseScreen
     /// </summary>
     public unsafe virtual void CloseScreen()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.CloseScreen", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CloseScreen, "BmGame.MGFxMovieControllerMultiScreen.CloseScreen");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_OnClose;
     /// <summary>
     /// Function: OnClose
     /// </summary>
     public unsafe override void OnClose()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.OnClose", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OnClose, "BmGame.MGFxMovieControllerMultiScreen.OnClose");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_OpenScreen;
     /// <summary>
     /// Function: OpenScreen
     /// </summary>
     public unsafe virtual void OpenScreen(BmSDK.FString ScreenName, BmSDK.BmGame.MScreenParameters screenParams = default, bool simultaneous = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.OpenScreen", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_OpenScreen, "BmGame.MGFxMovieControllerMultiScreen.OpenScreen");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ScreenName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(screenParams, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(simultaneous, paramsPtr + 16);
@@ -114,35 +123,44 @@ public partial class MGFxMovieControllerMultiScreen : BmSDK.BmGame.MGFxMovieCont
         return;
     }
 
+    private static BmSDK.Function __fn_TransitionInComplete;
     /// <summary>
     /// Function: TransitionInComplete
     /// </summary>
     public unsafe virtual void TransitionInComplete()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.TransitionInComplete", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TransitionInComplete, "BmGame.MGFxMovieControllerMultiScreen.TransitionInComplete");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_TransitionOutComplete;
     /// <summary>
     /// Function: TransitionOutComplete
     /// </summary>
     public unsafe virtual void TransitionOutComplete()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.TransitionOutComplete", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TransitionOutComplete, "BmGame.MGFxMovieControllerMultiScreen.TransitionOutComplete");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_TransitionToAndClose;
     /// <summary>
     /// Function: TransitionToAndClose
     /// </summary>
     public unsafe override void TransitionToAndClose(bool isIntro, BmSDK.FString State, BmSDK.Engine.AkEvent Sound)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.TransitionToAndClose", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TransitionToAndClose, "BmGame.MGFxMovieControllerMultiScreen.TransitionToAndClose");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(isIntro, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(State, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Sound, paramsPtr + 16);
@@ -150,13 +168,16 @@ public partial class MGFxMovieControllerMultiScreen : BmSDK.BmGame.MGFxMovieCont
         return;
     }
 
+    private static BmSDK.Function __fn_TransitionTo;
     /// <summary>
     /// Function: TransitionTo
     /// </summary>
     public unsafe override void TransitionTo(bool isIntro, BmSDK.FString State, BmSDK.Engine.AkEvent Sound)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.TransitionTo", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TransitionTo, "BmGame.MGFxMovieControllerMultiScreen.TransitionTo");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(isIntro, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(State, paramsPtr + 4);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Sound, paramsPtr + 16);
@@ -164,60 +185,75 @@ public partial class MGFxMovieControllerMultiScreen : BmSDK.BmGame.MGFxMovieCont
         return;
     }
 
+    private static BmSDK.Function __fn_TransitionOut;
     /// <summary>
     /// Function: TransitionOut
     /// </summary>
     public unsafe override void TransitionOut(BmSDK.Engine.AkEvent Sound)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.TransitionOut", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_TransitionOut, "BmGame.MGFxMovieControllerMultiScreen.TransitionOut");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(Sound, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_AssignNewScreenToCurrentIfAble;
     /// <summary>
     /// Function: AssignNewScreenToCurrentIfAble
     /// </summary>
     public unsafe virtual void AssignNewScreenToCurrentIfAble()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.AssignNewScreenToCurrentIfAble", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_AssignNewScreenToCurrentIfAble, "BmGame.MGFxMovieControllerMultiScreen.AssignNewScreenToCurrentIfAble");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_NewScreenLoadComplete;
     /// <summary>
     /// Function: NewScreenLoadComplete
     /// </summary>
     public unsafe virtual void NewScreenLoadComplete()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.NewScreenLoadComplete", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_NewScreenLoadComplete, "BmGame.MGFxMovieControllerMultiScreen.NewScreenLoadComplete");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_LoadNewScreen;
     /// <summary>
     /// Function: LoadNewScreen
     /// </summary>
     public unsafe virtual void LoadNewScreen(BmSDK.FString ScreenName, BmSDK.BmGame.MScreenParameters screenParams = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.LoadNewScreen", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_LoadNewScreen, "BmGame.MGFxMovieControllerMultiScreen.LoadNewScreen");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ScreenName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(screenParams, paramsPtr + 12);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_StartScreenTransition;
     /// <summary>
     /// Function: StartScreenTransition
     /// </summary>
     public unsafe virtual void StartScreenTransition(BmSDK.FString ScreenName, BmSDK.BmGame.MScreenParameters screenParams = default, bool simultaneous = default)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.StartScreenTransition", true);
-        byte* paramsPtr = stackalloc byte[20];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_StartScreenTransition, "BmGame.MGFxMovieControllerMultiScreen.StartScreenTransition");
+        byte* paramsPtr = stackalloc byte[36];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ScreenName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(screenParams, paramsPtr + 12);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(simultaneous, paramsPtr + 16);
@@ -225,16 +261,19 @@ public partial class MGFxMovieControllerMultiScreen : BmSDK.BmGame.MGFxMovieCont
         return;
     }
 
+    private static BmSDK.Function __fn_GetScreenMapEntry;
     /// <summary>
     /// Function: GetScreenMapEntry
     /// </summary>
     public unsafe virtual BmSDK.BmGame.MGFxMovieControllerMultiScreen.FScreenMapEntry GetScreenMapEntry(BmSDK.FString ScreenName)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MGFxMovieControllerMultiScreen.GetScreenMapEntry", true);
-        byte* paramsPtr = stackalloc byte[32];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetScreenMapEntry, "BmGame.MGFxMovieControllerMultiScreen.GetScreenMapEntry");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(ScreenName, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
-        return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.MGFxMovieControllerMultiScreen.FScreenMapEntry>(paramsPtr + 12);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.MGFxMovieControllerMultiScreen.FScreenMapEntry>(paramsPtr + 12);
     }
 
     /// <summary>

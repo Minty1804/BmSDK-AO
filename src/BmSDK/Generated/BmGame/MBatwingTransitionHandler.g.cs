@@ -78,47 +78,59 @@ public partial class MBatwingTransitionHandler : BmSDK.Engine.Actor, BmSDK.IGame
         where TComponent : class, Framework.IScriptComponent<MBatwingTransitionHandler>
         => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
 
+    private static BmSDK.Function __fn_UpdateBatwingTransition;
     /// <summary>
     /// Function: UpdateBatwingTransition
     /// </summary>
     public unsafe virtual void UpdateBatwingTransition(float DeltaTime)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatwingTransitionHandler.UpdateBatwingTransition", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdateBatwingTransition, "BmGame.MBatwingTransitionHandler.UpdateBatwingTransition");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(DeltaTime, paramsPtr + 0);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_PreventLoadingIconWhileGlidingDown;
     /// <summary>
     /// Function: PreventLoadingIconWhileGlidingDown
     /// </summary>
     public unsafe virtual void PreventLoadingIconWhileGlidingDown()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatwingTransitionHandler.PreventLoadingIconWhileGlidingDown", true);
-        byte* paramsPtr = stackalloc byte[4];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_PreventLoadingIconWhileGlidingDown, "BmGame.MBatwingTransitionHandler.PreventLoadingIconWhileGlidingDown");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_FinishTransition;
     /// <summary>
     /// Function: FinishTransition
     /// </summary>
     public unsafe virtual void FinishTransition()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatwingTransitionHandler.FinishTransition", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_FinishTransition, "BmGame.MBatwingTransitionHandler.FinishTransition");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
         return;
     }
 
+    private static BmSDK.Function __fn_LaunchVideoAndWait;
     /// <summary>
     /// Function: LaunchVideoAndWait
     /// </summary>
     public unsafe virtual void LaunchVideoAndWait(BmSDK.FName aTransitionName, BmSDK.FName aDestinationLevel, BmSDK.TArray<BmSDK.FName> aPersistentLevelNames, BmSDK.TArray<BmSDK.FName> aDontUnloadDuringPersistentChange, System.Numerics.Vector3 Loc, BmSDK.Rotator Rot, BmSDK.FString aIntroMovieName, BmSDK.FString aLoopingMovieName, BmSDK.FString aOutroMovieName, BmSDK.BmGame.MLevelTransitionBatwingBase aBatwingTransition)
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatwingTransitionHandler.LaunchVideoAndWait", true);
-        byte* paramsPtr = stackalloc byte[108];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_LaunchVideoAndWait, "BmGame.MBatwingTransitionHandler.LaunchVideoAndWait");
+        byte* paramsPtr = stackalloc byte[124];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(aTransitionName, paramsPtr + 0);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(aDestinationLevel, paramsPtr + 8);
         BmSDK.Framework.MarshalUtil.ToUnmanaged(aPersistentLevelNames, paramsPtr + 16);
@@ -133,13 +145,16 @@ public partial class MBatwingTransitionHandler : BmSDK.Engine.Actor, BmSDK.IGame
         return;
     }
 
+    private static BmSDK.Function __fn_ClearURLFlag;
     /// <summary>
     /// Function: ClearURLFlag
     /// </summary>
     public unsafe virtual void ClearURLFlag()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatwingTransitionHandler.ClearURLFlag", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_ClearURLFlag, "BmGame.MBatwingTransitionHandler.ClearURLFlag");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -151,13 +166,16 @@ public partial class MBatwingTransitionHandler : BmSDK.Engine.Actor, BmSDK.IGame
         return;
     }
 
+    private static BmSDK.Function __fn_UpdateStreaming;
     /// <summary>
     /// Function: UpdateStreaming
     /// </summary>
     public unsafe virtual void UpdateStreaming()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatwingTransitionHandler.UpdateStreaming", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdateStreaming, "BmGame.MBatwingTransitionHandler.UpdateStreaming");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
@@ -169,13 +187,16 @@ public partial class MBatwingTransitionHandler : BmSDK.Engine.Actor, BmSDK.IGame
         return;
     }
 
+    private static BmSDK.Function __fn_EnterNewBatwingLocation;
     /// <summary>
     /// Function: EnterNewBatwingLocation
     /// </summary>
     public unsafe virtual void EnterNewBatwingLocation()
     {
-        var funcManaged = BmSDK.GameObject.StaticFindObjectChecked<BmSDK.Function>(BmSDK.Function.StaticClass(), null, "BmGame.MBatwingTransitionHandler.EnterNewBatwingLocation", true);
-        byte* paramsPtr = stackalloc byte[0];
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_EnterNewBatwingLocation, "BmGame.MBatwingTransitionHandler.EnterNewBatwingLocation");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
         var oldFlags = funcManaged.FunctionFlags;
         var oldNative = funcManaged.iNative;
         funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
