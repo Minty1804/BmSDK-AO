@@ -31,7 +31,7 @@ body:
     id: version
     attributes:
       label: BmSDK-AO version
-      description: Shown in the installer, or in the first lines of BmSDK.log
+      description: The version of the installer or zip you used (e.g. BmSDK_AO_Installer_v1.2.exe)
       placeholder: "1.2"
     validations:
       required: true
