@@ -68,7 +68,9 @@ Check out the [BmSDK documentation](https://bmsdk.dev/docs) for more info. It is
 
 ## 🦇 What this fork adds
 - **Arkham Origins support** (single player, Steam version): the game's address table, startup on the protected Steam executable, and C# classes generated from Arkham Origins itself.
-- **In-game options menu** (F10, or Insert while the Ultimate UI AO `.asi` is installed): mods declare their settings with `[Option]` and get their own tab. Settings are saved to an `options.ini` next to each mod. The menu supports toggles, sliders, choices (also filled at run time with `OptionsMenu.SetChoices`), colours, text, sections, English and Spanish.
+- **In-game options menu** (F10, or Insert while the Ultimate UI AO `.asi` is installed): mods declare their settings with `[Option]` and get their own tab. Settings are saved to an `options.ini` next to each mod. The menu supports toggles, sliders, choices (also filled at run time with `OptionsMenu.SetChoices`), colours, text and sections, and follows the game's language: English, Spanish or Portuguese (`LabelEs`/`LabelPt`, `OptionsMenu.T(en, es, pt)`...).
+- **MODS in the pause menu:** a MODS entry right after RESUME opens a screen in the game's own style with the mods' main options, made for a controller (colour, text and advanced options stay in F10; `[Option(..., ModsScreen = false)]` keeps one out). Mods can add entries of their own between RESUME and MODS with `PauseMenu.AddEntry`.
+- **`Script.OnEngineTick()`:** called every frame, also while the game is paused (`OnTick` stops in the pause).
 - **Native hooks for scripts:** `DetourUtil.Hook` hooks a function of the game executable. BmSDK removes a mod's hooks when it is unloaded or reloaded.
 - **`[Redirect(..., IncludeOverrides = true)]`:** a redirect that also runs when a subclass or a state overrides the function. Off by default, as in the original.
 - **Crash log:** when the game crashes in native code (the game, an `.asi` or a mod), `Binaries\Win32\BmSDK.Host.log` records the real cause: error, address as `module+offset`, registers, likely return addresses and the script or redirect that was running.
@@ -81,7 +83,7 @@ If you want to use mods, here's how you get set up:
 
 1. Download [the latest installer](https://github.com/Minty1804/BmSDK-AO/releases/latest) and run it.
 2. Pick your Arkham Origins folder. The Steam installation is detected automatically, and you can browse for it yourself if it isn't listed.
-3. Press **Install**, then start the game. Script mods go in your `SinglePlayer\BmGame\Mods` folder (one folder per mod) or in `SinglePlayer\BmGame\Scripts` as .cs files. Press F10 in game to open your mods' options.
+3. Press **Install**, then start the game. Script mods go in your `SinglePlayer\BmGame\Mods` folder (one folder per mod) or in `SinglePlayer\BmGame\Scripts` as .cs files. Pause the game and choose MODS, or press F10, to open your mods' options.
 
 The installer isn't code-signed, so Windows SmartScreen may warn you the first time you run it. Choose "More info" → "Run anyway" to continue.
 
@@ -90,7 +92,7 @@ The installer isn't code-signed, so Windows SmartScreen may warn you the first t
 
 1. Download the `BmSDK_AO_v*.zip` from the latest [release](https://github.com/Minty1804/BmSDK-AO/releases/latest) and open it.
 2. Inside you'll see a `Binaries` folder. Copy it to your game's `SinglePlayer` folder (likely `C:\Program Files (x86)\Steam\steamapps\common\Batman Arkham Origins\SinglePlayer`). There should already be a folder there with the same name: merge them and replace the files. If your game already has a `Binaries\Win32\dinput8.dll` from another mod, keep yours when it is Ultimate ASI Loader; otherwise BmSDK-AO won't start.
-3. BmSDK-AO is now installed! Script mods go in your `SinglePlayer\BmGame\Mods` folder (one folder per mod) or in `SinglePlayer\BmGame\Scripts` as .cs files. Press F10 in game to open your mods' options.
+3. BmSDK-AO is now installed! Script mods go in your `SinglePlayer\BmGame\Mods` folder (one folder per mod) or in `SinglePlayer\BmGame\Scripts` as .cs files. Pause the game and choose MODS, or press F10, to open your mods' options.
 
 To uninstall, delete `Binaries\Win32\plugins\BmSDK.Host.asi` and the `Binaries\Win32\sdk` folder. `Binaries\Win32\dinput8.dll` (Ultimate ASI Loader) can stay if other `.asi` mods use it.
 </details>
