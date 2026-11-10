@@ -95,7 +95,7 @@ internal static class OptionsManager
     private static readonly Dictionary<string, ModOptions> s_mods = new(StringComparer.OrdinalIgnoreCase);
     private static readonly Dictionary<int, Entry> s_byId = [];
     private static readonly List<Entry> s_pending = [];
-    private static ModOptions[] s_modList = []; // s_mods.Values, rebuilt when a mod comes or goes
+    private static ModOptions[] s_modList = []; // s_mods.Values by menu_order, rebuilt when a mod comes or goes
     private static readonly int[] s_pollIds = new int[64];
     private static readonly double[] s_pollValues = new double[64];
     private static bool s_nativeTried;
@@ -134,8 +134,25 @@ internal static class OptionsManager
             Save(options);
         }
         s_mods[options.IniPath] = options;
-        s_modList = [.. s_mods.Values];
-        AddTab(options);
+        s_modList = SortedMods();
+        if (s_modList[^1] == options || options.OnChanged != null)
+        {
+            AddTab(options);
+        }
+        else
+        {
+            // A mod that goes before others already in the menu (menu_order): the tabs after it are added again,
+            // since the menu shows them in the order they were added
+            var after = s_modList[Array.IndexOf(s_modList, options)..];
+            foreach (var o in after.Where(o => o != options && o.OnChanged == null))
+            {
+                RemoveTab(o);
+            }
+            foreach (var o in after.Where(o => o.OnChanged == null))
+            {
+                AddTab(o);
+            }
+        }
         Debug.Log($"[{options.Mod.Name}] {options.Entries.Count} option(s) from .\\{Path.GetRelativePath(FileUtils.GetBasePath(), options.IniPath)}");
     }
 
@@ -180,7 +197,7 @@ internal static class OptionsManager
             return;
         }
         s_mods.Remove(options.IniPath);
-        s_modList = [.. s_mods.Values];
+        s_modList = SortedMods();
         if (options.SaveAt != DateTime.MaxValue)
         {
             Save(options);
@@ -237,6 +254,13 @@ internal static class OptionsManager
     }
 
     // ---- menu tabs ----
+
+    // Tabs (F10 menu and the pause menu's MODS screen) by the mod's menu_order in mod.toml (default 0, lower first;
+    // Ultimate UI AO uses -1, user 2026-11-10), then in the order the mods loaded
+    private static ModOptions[] SortedMods() => [.. s_mods.Values.OrderBy(MenuOrder)];
+
+    private static long MenuOrder(ModOptions options) =>
+        options.Mod.Config.TryGetValue("menu_order", out var v) && v is long n ? n : 0;
 
     private static string TabName(ModOptions options) => options.OnChanged != null ? SdkTab : options.Mod.Name;
 

@@ -18,6 +18,7 @@
 #include <vector>
 
 #include <imgui.h>
+#include <imgui_internal.h>  // ClosePopupsOverWindow
 #include <imgui_impl_dx11.h>
 #include <imgui_impl_win32.h>
 
@@ -64,6 +65,7 @@ namespace {
     bool g_imgui = false, g_failed = false;
     std::atomic<bool> g_installed{false};
     std::atomic<bool> g_open{false};
+    bool s_closePopups = false;  // the menu was closed: drop-down lists close on the next frame drawn
     std::atomic<int> g_key{VK_F10};
     std::atomic<DWORD> g_lastToggle{0};
     bool g_escClosed = false;  // Esc closed the menu: its key-up does not reach the game either
@@ -228,8 +230,10 @@ namespace {
                     ImGui::SetNextWindowSizeConstraints(ImVec2(0, 0),
                         ImVec2(FLT_MAX, (ImGui::GetFontSize() + st.ItemSpacing.y) * 16 - st.ItemSpacing.y + st.WindowPadding.y * 2));
                     if (ImGui::BeginCombo(o.label.c_str(), preview)) {
+                        // The list stays open after a choice, so several can be tried in a row (a suit list:
+                        // user, 2026-11-10); a click outside it or Esc closes it
                         for (int i = 0; i < int(o.choices.size()); i++) {
-                            if (ImGui::Selectable(o.choices[i].c_str(), v == i) && v != i) {
+                            if (ImGui::Selectable(o.choices[i].c_str(), v == i, ImGuiSelectableFlags_NoAutoClosePopups) && v != i) {
                                 v = i;
                                 changed = true;
                             }
@@ -441,6 +445,7 @@ namespace {
         ImGui::GetIO().MouseDrawCursor = g_open;
         if (!g_open) {
             g_activeId = 0;  // closed in the middle of a drag
+            s_closePopups = true;
             return;
         }
         if (!g_rtv) {
@@ -453,6 +458,12 @@ namespace {
         ImGui_ImplDX11_NewFrame();
         ImGui_ImplWin32_NewFrame();
         ImGui::NewFrame();
+        if (s_closePopups) {
+            // A drop-down list left open when the menu closed (Esc, the menu key) opens closed again: drop-downs
+            // no longer close on a choice, so they were often still open (user, 2026-11-10)
+            s_closePopups = false;
+            ImGui::ClosePopupsOverWindow(nullptr, false);
+        }
         draw_menu();
         ImGui::Render();
         if (g_rtv) {
