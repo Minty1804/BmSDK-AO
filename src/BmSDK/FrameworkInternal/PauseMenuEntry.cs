@@ -66,6 +66,7 @@ internal static class PauseMenuEntry
     private static readonly FString TextField = new("textField");
     private static readonly FString LabelMember = new("label");
     private static readonly FString Index = new("index");
+    private static readonly FString DetailsAlpha = new("_root.ScreenRoot.TheScreen.DetailsItem._alpha");
     private static readonly Dictionary<int, FString> s_rendererNames = [];
 
     private static bool Enabled => NativeMenu.CanOpen;
@@ -222,6 +223,10 @@ internal static class PauseMenuEntry
         {
             try
             {
+                // The box under the list that describes the selected entry stays where the game put it, so with our
+                // rows the last ones went over it (issue #1, 2026-11-10): it is always hidden. _alpha, not _visible:
+                // the movie sets noInvisibleAdvance and a hidden clip would stop advancing.
+                self.SetVariableNumber(DetailsAlpha, 0f);
                 FixLabels(self);
             }
             catch (Exception e)
