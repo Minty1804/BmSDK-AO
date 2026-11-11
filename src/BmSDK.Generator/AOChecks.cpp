@@ -66,7 +66,7 @@ void Runtime::CheckLayoutAO()
         {
             auto entry = (const BYTE*)Runtime::GNames->ElementAt(i);
             if (!entry) continue;
-            auto idx = *(const INT*)entry;
+            auto idx = *(const INT*)(entry + (GameOffsets::IsAOOnline ? 8 : 0));  // AO Online: City's layout
             if ((idx >> NAME_INDEX_SHIFT) == i) indexOk++;
             if (idx & NAME_UNICODE_MASK) unicode++;
         }

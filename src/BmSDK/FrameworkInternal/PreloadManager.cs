@@ -29,10 +29,19 @@ internal static class PreloadManager
 
         if (preload.TryGetValue("packages", out var pkgsObj) && pkgsObj is TomlArray pkgs)
         {
+            // BmSDK-AO: one mod.toml serves SinglePlayer and Online, and many campaign packages don't exist in
+            // Online. A package missing from this game's CookedPCConsole is skipped with a note, not a warning.
+            var cooked = Path.Combine(FileUtils.GetGamePath(), "CookedPCConsole");
             foreach (var entry in pkgs)
             {
                 if (entry is not string pkgName)
                 {
+                    continue;
+                }
+
+                if (Directory.Exists(cooked) && !File.Exists(Path.Combine(cooked, pkgName + ".upk")))
+                {
+                    Debug.Log($"[{mod.Name}] Preload: package '{pkgName}' is not in this game, skipped");
                     continue;
                 }
 

@@ -20,7 +20,7 @@ class UClass : public UState
 {
     // TODO
     FIELD(EClassFlags, ClassFlags)
-    BYTE UNK[200];
+    BYTE UNK[AO_SIZE(200, 224)];  // Interfaces: SP +384, AO Online +440
     FIELD(TArray<FImplementedInterface>, Interfaces)
 
 public:

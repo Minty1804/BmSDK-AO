@@ -9,13 +9,9 @@
 #include "crash_log.h"
 #include "detour_manager.h"
 #include "offsets.h"
+#include "options_menu.h"
 
 namespace ao_boot {
-    // First bytes of FEngineLoop::PreInit (RVA 0x87CC90): push -1; push 0x12AA525 (SEH handler); mov eax, fs:[0]...
-    static const unsigned char kPreInitGuard[] = {
-        0x6A, 0xFF, 0x68, 0x25, 0xA5, 0x2A, 0x01, 0x64, 0xA1, 0x00, 0x00, 0x00, 0x00, 0x50, 0x81, 0xEC,
-    };
-
     static ULONGLONG s_start = 0;
     static FILE* s_log = nullptr;
     static CRITICAL_SECTION s_lock;
@@ -44,7 +40,8 @@ namespace ao_boot {
 
     static bool preinit_decrypted() {
         auto code = (const unsigned char*)(offsets::BaseAddress + offsets::EngineLoopPreInit);
-        return memcmp(code, kPreInitGuard, sizeof(kPreInitGuard)) == 0;
+        // First 16 bytes of FEngineLoop::PreInit for this build (offsets.h)
+        return memcmp(code, offsets::PreInitGuard, 16) == 0;
     }
 
     static void attach(const char* how) {
@@ -68,7 +65,8 @@ namespace ao_boot {
     void start() {
         s_start = GetTickCount64();
         open_log();
-        log("BmSDK.Host on Arkham Origins (TimeDateStamp 0x%08X)", offsets::TimeDateStampAOSteam);
+        log("BmSDK.Host on Arkham Origins%s (TimeDateStamp 0x%08X)", offsets::IsAOOnline ? " Online" : "",
+            offsets::TimeDateStamp);
         crash_log::install();
 
         if (preinit_decrypted()) {
@@ -83,6 +81,9 @@ namespace ao_boot {
     }
 
     void on_preinit() {
+        // Before the engine creates its renderer: AO Online draws with Direct3D 9 (options_menu.cpp). Only there:
+        // SinglePlayer draws with 11, and ReShade has crashed on throwaway D3D objects made during its start-up.
+        if (offsets::IsAOOnline) options_menu_hook_d3d9_creation();
         log("EngineLoopPreInit reached; starting .NET");
     }
 }

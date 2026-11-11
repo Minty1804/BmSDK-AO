@@ -35,6 +35,18 @@ void Runtime::OnAttach()
         return;
     }
 
+    // The object layout is fixed at compile time: AO Online needs BmSDK.Generator.AOO.asi (BMSDK_AOO)
+#ifdef BMSDK_AOO
+    constexpr bool builtForAOO = true;
+#else
+    constexpr bool builtForAOO = false;
+#endif
+    if (GameOffsets::IsAOOnline != builtForAOO)
+    {
+        TRACE("This generator was built for {}, aborting", builtForAOO ? "AO Online" : "another game");
+        return;
+    }
+
     // Get the main thread Id
     Runtime::MainThreadId = GetCurrentThreadId();
 

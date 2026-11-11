@@ -5,12 +5,15 @@
 
 #include <Windows.h>
 #include <d3d11.h>
+#include <d3d9.h>
 #include <dxgi.h>
 
 #include <algorithm>
 #include <atomic>
 #include <cfloat>
 #include <cmath>
+#include <cstdio>
+#include <cstring>
 #include <limits>
 #include <mutex>
 #include <string>
@@ -20,7 +23,10 @@
 #include <imgui.h>
 #include <imgui_internal.h>  // ClosePopupsOverWindow
 #include <imgui_impl_dx11.h>
+#include <imgui_impl_dx9.h>
 #include <imgui_impl_win32.h>
+
+#pragma comment(lib, "d3d9.lib")
 
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "dxgi.lib")
@@ -57,6 +63,34 @@ namespace {
     using ResizeFn = HRESULT(STDMETHODCALLTYPE*)(IDXGISwapChain*, UINT, UINT, UINT, DXGI_FORMAT, UINT);
     PresentFn g_origPresent = nullptr;
     ResizeFn g_origResize = nullptr;
+    // Direct3D 9 (AO Online draws with it): IDirect3DDevice9::Reset (slot 16) and Present (17); a D3D9Ex device also
+    // has PresentEx (121) and ResetEx (132). Device classes differ in d3d9.dll (plain, Ex...), so the originals are
+    // kept per vtable: the game's own device is hooked when it is created (hook_d3d9_creation).
+    using Present9Fn = HRESULT(STDMETHODCALLTYPE*)(IDirect3DDevice9*, const RECT*, const RECT*, HWND, const RGNDATA*);
+    using Reset9Fn = HRESULT(STDMETHODCALLTYPE*)(IDirect3DDevice9*, D3DPRESENT_PARAMETERS*);
+    using PresentEx9Fn = HRESULT(STDMETHODCALLTYPE*)(IDirect3DDevice9Ex*, const RECT*, const RECT*, HWND,
+                                                     const RGNDATA*, DWORD);
+    using ResetEx9Fn = HRESULT(STDMETHODCALLTYPE*)(IDirect3DDevice9Ex*, D3DPRESENT_PARAMETERS*, D3DDISPLAYMODEEX*);
+    struct Hooked9 {
+        void** vt;
+        Present9Fn present;
+        Reset9Fn reset;
+        PresentEx9Fn presentEx;
+        ResetEx9Fn resetEx;
+    };
+    Hooked9 g_hooked9[8] = {};
+    std::mutex g_hook9Lock;
+
+    Hooked9* hooked9(void* dev) {
+        void** vt = *reinterpret_cast<void***>(dev);
+        for (auto& h : g_hooked9) {
+            if (h.vt == vt) return &h;
+        }
+        return nullptr;
+    }
+    // The renderer whose Present arrived first draws the menu; the other hook then only passes through
+    enum class Backend { None, DX11, DX9 };
+    Backend g_backend = Backend::None;
     WNDPROC g_origWndProc = nullptr;
     HWND g_hwnd = nullptr;
     ID3D11Device* g_dev = nullptr;
@@ -115,12 +149,9 @@ namespace {
         return CallWindowProcW(g_origWndProc, h, msg, w, l);
     }
 
-    bool init(IDXGISwapChain* sc) {
-        DXGI_SWAP_CHAIN_DESC d{};
-        if (FAILED(sc->GetDesc(&d)) || !d.OutputWindow) return false;
-        if (FAILED(sc->GetDevice(__uuidof(ID3D11Device), reinterpret_cast<void**>(&g_dev))) || !g_dev) return false;
-        g_dev->GetImmediateContext(&g_ctx);
-        g_hwnd = d.OutputWindow;
+    // Everything but the renderer: ImGui context, style, Win32 input and the window procedure
+    bool init_common(HWND hwnd, unsigned width, unsigned height) {
+        g_hwnd = hwnd;
         ImGui::CreateContext();
         ImGuiIO& io = ImGui::GetIO();
         io.IniFilename = nullptr;
@@ -129,13 +160,39 @@ namespace {
         ImGuiStyle& st = ImGui::GetStyle();
         st.WindowRounding = 6.f;
         st.FrameRounding = 4.f;
-        const float scale = (std::max)(1.f, float(d.BufferDesc.Height) / 1080.f);
+        const float scale = (std::max)(1.f, float(height) / 1080.f);
         st.ScaleAllSizes(scale);
         io.FontGlobalScale = scale * 1.15f;
-        if (!ImGui_ImplWin32_Init(g_hwnd) || !ImGui_ImplDX11_Init(g_dev, g_ctx)) return false;
+        if (!ImGui_ImplWin32_Init(g_hwnd)) return false;
         g_origWndProc = reinterpret_cast<WNDPROC>(SetWindowLongPtrW(g_hwnd, GWLP_WNDPROC, reinterpret_cast<LONG_PTR>(wnd_proc)));
-        ao_boot::log("[menu] ImGui ready on %ux%u window %p", d.BufferDesc.Width, d.BufferDesc.Height, g_hwnd);
+        ao_boot::log("[menu] ImGui ready on %ux%u window %p", width, height, g_hwnd);
         return true;
+    }
+
+    bool init(IDXGISwapChain* sc) {
+        DXGI_SWAP_CHAIN_DESC d{};
+        if (FAILED(sc->GetDesc(&d)) || !d.OutputWindow) return false;
+        if (FAILED(sc->GetDevice(__uuidof(ID3D11Device), reinterpret_cast<void**>(&g_dev))) || !g_dev) return false;
+        g_dev->GetImmediateContext(&g_ctx);
+        if (!init_common(d.OutputWindow, d.BufferDesc.Width, d.BufferDesc.Height)) return false;
+        g_backend = Backend::DX11;
+        return ImGui_ImplDX11_Init(g_dev, g_ctx);
+    }
+
+    bool init9(IDirect3DDevice9* dev) {
+        D3DDEVICE_CREATION_PARAMETERS cp{};
+        D3DPRESENT_PARAMETERS pp{};
+        IDirect3DSwapChain9* sc = nullptr;
+        if (FAILED(dev->GetCreationParameters(&cp))) return false;
+        if (SUCCEEDED(dev->GetSwapChain(0, &sc)) && sc) {
+            sc->GetPresentParameters(&pp);
+            sc->Release();
+        }
+        const HWND hwnd = pp.hDeviceWindow ? pp.hDeviceWindow : cp.hFocusWindow;
+        if (!hwnd || !init_common(hwnd, pp.BackBufferWidth, pp.BackBufferHeight)) return false;
+        g_backend = Backend::DX9;
+        ao_boot::log("[menu] drawing with Direct3D 9");
+        return ImGui_ImplDX9_Init(dev);
     }
 
     ImVec4 status_color(int state) {
@@ -434,28 +491,21 @@ namespace {
         g_rtv = nullptr;
     }
 
-    void render(IDXGISwapChain* sc) {
-        if (!g_imgui && !(g_imgui = init(sc))) {
-            g_failed = true;
-            ao_boot::log("[menu] ImGui init failed: no menu");
-            return;
-        }
+    // Shared by both renderers. False while the menu is closed (nothing to draw this frame).
+    bool frame_prologue() {
         // Backup for key presses that never arrive as window messages
         if (key_edge(g_key) && GetForegroundWindow() == g_hwnd) toggle();
         ImGui::GetIO().MouseDrawCursor = g_open;
         if (!g_open) {
             g_activeId = 0;  // closed in the middle of a drag
             s_closePopups = true;
-            return;
+            return false;
         }
-        if (!g_rtv) {
-            ID3D11Texture2D* bb = nullptr;
-            if (SUCCEEDED(sc->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<void**>(&bb))) && bb) {
-                g_dev->CreateRenderTargetView(bb, nullptr, &g_rtv);
-                bb->Release();
-            }
-        }
-        ImGui_ImplDX11_NewFrame();
+        return true;
+    }
+
+    // After the renderer's NewFrame: the menu itself
+    void frame_ui() {
         ImGui_ImplWin32_NewFrame();
         ImGui::NewFrame();
         if (s_closePopups) {
@@ -466,6 +516,29 @@ namespace {
         }
         draw_menu();
         ImGui::Render();
+    }
+
+    bool ensure_init(bool ok_so_far) {
+        if (!ok_so_far) {
+            g_failed = true;
+            ao_boot::log("[menu] ImGui init failed: no menu");
+        }
+        return ok_so_far;
+    }
+
+    void render(IDXGISwapChain* sc) {
+        if (g_backend == Backend::DX9) return;
+        if (!g_imgui && !ensure_init(g_imgui = init(sc))) return;
+        if (!frame_prologue()) return;
+        if (!g_rtv) {
+            ID3D11Texture2D* bb = nullptr;
+            if (SUCCEEDED(sc->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<void**>(&bb))) && bb) {
+                g_dev->CreateRenderTargetView(bb, nullptr, &g_rtv);
+                bb->Release();
+            }
+        }
+        ImGui_ImplDX11_NewFrame();
+        frame_ui();
         if (g_rtv) {
             ID3D11RenderTargetView* oldRtv = nullptr;
             ID3D11DepthStencilView* oldDsv = nullptr;
@@ -488,6 +561,11 @@ namespace {
     }
 
     HRESULT STDMETHODCALLTYPE present(IDXGISwapChain* sc, UINT sync, UINT flags) {
+        static bool s_first = true;
+        if (s_first) {
+            s_first = false;
+            ao_boot::log("[menu] first Present through our hook (swapchain %p)", sc);
+        }
         if (!g_failed) guarded_render(sc);
         return g_origPresent(sc, sync, flags);
     }
@@ -495,6 +573,173 @@ namespace {
     HRESULT STDMETHODCALLTYPE resize(IDXGISwapChain* sc, UINT n, UINT w, UINT h, DXGI_FORMAT f, UINT fl) {
         release_rtv();
         return g_origResize(sc, n, w, h, f, fl);
+    }
+
+    // ---- Direct3D 9 (AO Online) ----
+    void render9(IDirect3DDevice9* dev) {
+        // Hooked from start-up: nothing to draw until BmSDK.dll has set the menu up
+        if (g_backend == Backend::DX11 || !g_installed) return;
+        if (!g_imgui && !ensure_init(g_imgui = init9(dev))) return;
+        if (!frame_prologue()) return;
+        ImGui_ImplDX9_NewFrame();
+        frame_ui();
+        // Present comes after the game's EndScene: draw in a scene of our own (the backend saves the state)
+        if (SUCCEEDED(dev->BeginScene())) {
+            ImGui_ImplDX9_RenderDrawData(ImGui::GetDrawData());
+            dev->EndScene();
+        }
+    }
+
+    void guarded_render9(IDirect3DDevice9* dev) {
+        __try {
+            render9(dev);
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            g_failed = true;
+            ao_boot::log("[menu] exception in Present (D3D9): menu disabled");
+        }
+    }
+
+    void on_present9(IDirect3DDevice9* dev, const char* how) {
+        static bool s_first = true;
+        if (s_first) {
+            s_first = false;
+            ao_boot::log("[menu] first %s through our D3D9 hook (device %p)", how, dev);
+        }
+        if (!g_failed) guarded_render9(dev);
+    }
+
+    HRESULT STDMETHODCALLTYPE present9(IDirect3DDevice9* dev, const RECT* src, const RECT* dst, HWND wnd,
+                                       const RGNDATA* dirty) {
+        on_present9(dev, "Present");
+        return hooked9(dev)->present(dev, src, dst, wnd, dirty);
+    }
+
+    HRESULT STDMETHODCALLTYPE presentEx9(IDirect3DDevice9Ex* dev, const RECT* src, const RECT* dst, HWND wnd,
+                                         const RGNDATA* dirty, DWORD flags) {
+        on_present9(dev, "PresentEx");
+        return hooked9(dev)->presentEx(dev, src, dst, wnd, dirty, flags);
+    }
+
+    // Reset drops the backend's buffers and textures (window resize, fullscreen switch): rebuild them after
+    HRESULT STDMETHODCALLTYPE reset9(IDirect3DDevice9* dev, D3DPRESENT_PARAMETERS* pp) {
+        const bool ours = g_imgui && g_backend == Backend::DX9;
+        if (ours) ImGui_ImplDX9_InvalidateDeviceObjects();
+        const HRESULT hr = hooked9(dev)->reset(dev, pp);
+        if (ours && SUCCEEDED(hr)) ImGui_ImplDX9_CreateDeviceObjects();
+        return hr;
+    }
+
+    HRESULT STDMETHODCALLTYPE resetEx9(IDirect3DDevice9Ex* dev, D3DPRESENT_PARAMETERS* pp, D3DDISPLAYMODEEX* mode) {
+        const bool ours = g_imgui && g_backend == Backend::DX9;
+        if (ours) ImGui_ImplDX9_InvalidateDeviceObjects();
+        const HRESULT hr = hooked9(dev)->resetEx(dev, pp, mode);
+        if (ours && SUCCEEDED(hr)) ImGui_ImplDX9_CreateDeviceObjects();
+        return hr;
+    }
+
+    bool patch_slot(void** slot, void* fn, void** orig);
+    std::string module_of(const void* addr);
+
+    // Hooks Present/Reset (and PresentEx/ResetEx) in one device vtable, once
+    bool hook_device9_vtable(void** vt, bool ex, const char* why) {
+        std::lock_guard<std::mutex> lock(g_hook9Lock);
+        Hooked9* slot = nullptr;
+        for (auto& h : g_hooked9) {
+            if (h.vt == vt) return true;  // already ours
+            if (!h.vt && !slot) slot = &h;
+        }
+        if (!slot) return false;
+        // The entry is filled before each slot is patched (patch_slot stores the original first), so another thread's
+        // Present already finds its original
+        slot->vt = vt;
+        bool ok = patch_slot(&vt[16], reinterpret_cast<void*>(&reset9), reinterpret_cast<void**>(&slot->reset)) &&
+                  patch_slot(&vt[17], reinterpret_cast<void*>(&present9), reinterpret_cast<void**>(&slot->present));
+        if (ok && ex) {
+            ok = patch_slot(&vt[121], reinterpret_cast<void*>(&presentEx9),
+                            reinterpret_cast<void**>(&slot->presentEx)) &&
+                 patch_slot(&vt[132], reinterpret_cast<void*>(&resetEx9), reinterpret_cast<void**>(&slot->resetEx));
+        }
+        if (!ok) return false;
+        ao_boot::log("[menu] D3D9%s device hooked (%s; vtable %p, Present was %s)", ex ? "Ex" : "", why, vt,
+                     module_of(reinterpret_cast<void*>(slot->present)).c_str());
+        return true;
+    }
+
+    // ---- the game's device, hooked when it is created ----
+    using CreateDevice9Fn = HRESULT(STDMETHODCALLTYPE*)(IDirect3D9*, UINT, D3DDEVTYPE, HWND, DWORD,
+                                                        D3DPRESENT_PARAMETERS*, IDirect3DDevice9**);
+    using CreateDeviceEx9Fn = HRESULT(STDMETHODCALLTYPE*)(IDirect3D9Ex*, UINT, D3DDEVTYPE, HWND, DWORD,
+                                                          D3DPRESENT_PARAMETERS*, D3DDISPLAYMODEEX*,
+                                                          IDirect3DDevice9Ex**);
+    CreateDevice9Fn g_origCreateDevice9 = nullptr;     // IDirect3D9 (Direct3DCreate9)
+    CreateDevice9Fn g_origCreateDevice9x = nullptr;    // IDirect3D9Ex's CreateDevice (Direct3DCreate9Ex)
+    CreateDeviceEx9Fn g_origCreateDeviceEx9 = nullptr;
+
+    void on_device_created(IDirect3DDevice9* dev, bool ex, DWORD flags) {
+        // A device made through IDirect3D9Ex is an Ex device even from plain CreateDevice
+        IDirect3DDevice9Ex* asEx = nullptr;
+        if (!ex && SUCCEEDED(dev->QueryInterface(__uuidof(IDirect3DDevice9Ex), reinterpret_cast<void**>(&asEx))) &&
+            asEx) {
+            ex = true;
+            asEx->Release();
+        }
+        char why[64];
+        snprintf(why, sizeof(why), "the game's, flags 0x%X", unsigned(flags));
+        if (!hook_device9_vtable(*reinterpret_cast<void***>(dev), ex, why)) {
+            ao_boot::log("[menu] could not hook the game's D3D9 device");
+        }
+    }
+
+    HRESULT STDMETHODCALLTYPE create_device9(IDirect3D9* d3d, UINT a, D3DDEVTYPE t, HWND w, DWORD f,
+                                             D3DPRESENT_PARAMETERS* pp, IDirect3DDevice9** out) {
+        const HRESULT hr = g_origCreateDevice9(d3d, a, t, w, f, pp, out);
+        if (SUCCEEDED(hr) && out && *out) on_device_created(*out, false, f);
+        return hr;
+    }
+
+    HRESULT STDMETHODCALLTYPE create_device9x(IDirect3D9* d3d, UINT a, D3DDEVTYPE t, HWND w, DWORD f,
+                                              D3DPRESENT_PARAMETERS* pp, IDirect3DDevice9** out) {
+        const HRESULT hr = g_origCreateDevice9x(d3d, a, t, w, f, pp, out);
+        if (SUCCEEDED(hr) && out && *out) on_device_created(*out, true, f);
+        return hr;
+    }
+
+    HRESULT STDMETHODCALLTYPE create_device_ex9(IDirect3D9Ex* d3d, UINT a, D3DDEVTYPE t, HWND w, DWORD f,
+                                                D3DPRESENT_PARAMETERS* pp, D3DDISPLAYMODEEX* m,
+                                                IDirect3DDevice9Ex** out) {
+        const HRESULT hr = g_origCreateDeviceEx9(d3d, a, t, w, f, pp, m, out);
+        if (SUCCEEDED(hr) && out && *out) on_device_created(*out, true, f);
+        return hr;
+    }
+
+    // vtable of the D3D9 device class, from a throwaway device on a hidden window (shared by every device of it)
+    bool device9_vtable(void*** out) {
+        WNDCLASSEXW wc{sizeof(wc)};
+        wc.lpfnWndProc = DefWindowProcW;
+        wc.hInstance = GetModuleHandleW(nullptr);
+        wc.lpszClassName = L"BmSDKMenuDummy9";
+        RegisterClassExW(&wc);
+        HWND w = CreateWindowExW(0, wc.lpszClassName, L"", WS_OVERLAPPED, 0, 0, 64, 64, nullptr, nullptr, wc.hInstance, nullptr);
+        if (!w) return false;
+        bool ok = false;
+        if (IDirect3D9* d3d = Direct3DCreate9(D3D_SDK_VERSION)) {
+            D3DPRESENT_PARAMETERS pp{};
+            pp.Windowed = TRUE;
+            pp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+            pp.hDeviceWindow = w;
+            IDirect3DDevice9* dev = nullptr;
+            if (SUCCEEDED(d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, w,
+                                            D3DCREATE_SOFTWARE_VERTEXPROCESSING | D3DCREATE_DISABLE_DRIVER_MANAGEMENT,
+                                            &pp, &dev)) && dev) {
+                *out = *reinterpret_cast<void***>(dev);
+                ok = true;
+                dev->Release();
+            }
+            d3d->Release();
+        }
+        DestroyWindow(w);
+        UnregisterClassW(wc.lpszClassName, wc.hInstance);
+        return ok;
     }
 
     bool swapchain_vtable(void*** out) {
@@ -529,7 +774,34 @@ namespace {
         return ok;
     }
 
+    // "dxgi.dll+0x1170" for a code address, to tell whose Present we chain to
+    std::string module_of(const void* addr) {
+        HMODULE mod = nullptr;
+        char path[MAX_PATH] = "?";
+        if (GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                               static_cast<LPCSTR>(addr), &mod) && mod) {
+            GetModuleFileNameA(mod, path, MAX_PATH);
+        }
+        const char* name = strrchr(path, '\\');
+        char out[MAX_PATH + 32];
+        snprintf(out, sizeof(out), "%s+0x%X", name ? name + 1 : path,
+                 mod ? unsigned(uintptr_t(addr) - uintptr_t(mod)) : unsigned(uintptr_t(addr)));
+        return out;
+    }
+
+    // Which renderer the game loaded (AO Online: the menu never saw a Present, 2026-11-10)
+    void log_graphics_modules() {
+        const char* mods[] = {"d3d9.dll", "d3d11.dll", "dxgi.dll", "EasyHook32.dll", "GameOverlayRenderer.dll"};
+        std::string line;
+        for (auto m : mods) {
+            line += m;
+            line += GetModuleHandleA(m) ? " yes, " : " no, ";
+        }
+        ao_boot::log("[menu] loaded: %s", line.c_str());
+    }
+
     bool patch_slot(void** slot, void* fn, void** orig) {
+        if (*slot == fn) return true;  // already ours (two interfaces sharing one vtable): keep the real original
         DWORD old = 0;
         if (!VirtualProtect(slot, sizeof(void*), PAGE_READWRITE, &old)) return false;
         *orig = *slot;
@@ -548,6 +820,28 @@ namespace {
 
 int __cdecl BmSDK_Menu_ApiVersion() { return 3; }
 
+// Called at EngineLoopPreInit on Arkham Origins, before the engine creates its device: hooks CreateDevice of
+// IDirect3D9 / IDirect3D9Ex (shared vtables, found through throwaway objects), so the game's own device gets its
+// Present hooked whatever its class. AO Online draws with Direct3D 9 and its device is not the class a dummy device
+// has (2026-11-10).
+void options_menu_hook_d3d9_creation() {
+    if (IDirect3D9* d3d = Direct3DCreate9(D3D_SDK_VERSION)) {
+        void** vt = *reinterpret_cast<void***>(d3d);
+        if (patch_slot(&vt[16], reinterpret_cast<void*>(&create_device9), reinterpret_cast<void**>(&g_origCreateDevice9)))
+            ao_boot::log("[menu] IDirect3D9::CreateDevice hooked (vtable %p)", vt);
+        d3d->Release();
+    }
+    IDirect3D9Ex* d3dx = nullptr;
+    if (SUCCEEDED(Direct3DCreate9Ex(D3D_SDK_VERSION, &d3dx)) && d3dx) {
+        void** vt = *reinterpret_cast<void***>(d3dx);
+        if (vt[16] != reinterpret_cast<void*>(&create_device9))  // its own vtable (not the plain one again)
+            patch_slot(&vt[16], reinterpret_cast<void*>(&create_device9x), reinterpret_cast<void**>(&g_origCreateDevice9x));
+        if (patch_slot(&vt[20], reinterpret_cast<void*>(&create_device_ex9), reinterpret_cast<void**>(&g_origCreateDeviceEx9)))
+            ao_boot::log("[menu] IDirect3D9Ex::CreateDevice/CreateDeviceEx hooked (vtable %p)", vt);
+        d3dx->Release();
+    }
+}
+
 int __cdecl BmSDK_Menu_Install(int menuKeyVk) {
     static std::mutex installLock;
     std::lock_guard<std::mutex> lock(installLock);
@@ -555,18 +849,44 @@ int __cdecl BmSDK_Menu_Install(int menuKeyVk) {
     if (g_installed) return 1;
     // Slots replaced instead of an inline hook on dxgi's Present: overlays (RivaTuner, Steam) re-assert their own
     // inline patch there. If Ultimate UI patched the slots first, we chain in front of it.
+    // Both renderers are hooked: the game picks Direct3D 11 or 9 at start-up (AO SinglePlayer draws with 11, AO Online
+    // with 9), and the first Present that arrives decides which one draws the menu.
+    bool any = false;
     void** vt = nullptr;
     if (!swapchain_vtable(&vt)) {
-        ao_boot::log("[menu] could not create the dummy swapchain: no in-game menu");
-        return 0;
-    }
-    if (!patch_slot(&vt[8], reinterpret_cast<void*>(&present), reinterpret_cast<void**>(&g_origPresent)) ||
-        !patch_slot(&vt[13], reinterpret_cast<void*>(&resize), reinterpret_cast<void**>(&g_origResize))) {
+        ao_boot::log("[menu] could not create the dummy D3D11 swapchain");
+    } else if (!patch_slot(&vt[8], reinterpret_cast<void*>(&present), reinterpret_cast<void**>(&g_origPresent)) ||
+               !patch_slot(&vt[13], reinterpret_cast<void*>(&resize), reinterpret_cast<void**>(&g_origResize))) {
         ao_boot::log("[menu] could not patch the swapchain vtable");
+    } else {
+        any = true;
+        ao_boot::log("[menu] D3D11 Present hooked (vtable %p, previous %s)", vt,
+                     module_of(reinterpret_cast<void*>(g_origPresent)).c_str());
+    }
+    // The game's own D3D9 device, hooked when it was created (AO Online: a multithreaded device, flags 0x142, whose
+    // class a dummy device doesn't share): no dummy device then
+    bool gameDevice9 = false;
+    {
+        std::lock_guard<std::mutex> lock(g_hook9Lock);
+        for (auto& h : g_hooked9) gameDevice9 |= h.vt != nullptr;
+    }
+    void** vt9 = nullptr;
+    if (gameDevice9) {
+        any = true;
+    } else if (!device9_vtable(&vt9)) {
+        ao_boot::log("[menu] could not create the dummy D3D9 device");
+    } else if (!hook_device9_vtable(vt9, false, "dummy device")) {
+        ao_boot::log("[menu] could not patch the D3D9 device vtable");
+    } else {
+        any = true;
+    }
+    if (!any) {
+        ao_boot::log("[menu] no renderer hooked: no in-game menu");
         return 0;
     }
     g_installed = true;
-    ao_boot::log("[menu] Present hooked (vtable %p, previous %p), key 0x%02X", vt, g_origPresent, int(g_key));
+    ao_boot::log("[menu] key 0x%02X", int(g_key));
+    log_graphics_modules();
     return 1;
 }
 

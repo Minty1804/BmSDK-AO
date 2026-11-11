@@ -2,7 +2,7 @@
 
 #include "UObject.h"
 
-CLASS(UField, 48)
+CLASS(UField, AO_SIZE(48, 52))
 class UField : public UObject
 {
     FIELD(UField*, Next)

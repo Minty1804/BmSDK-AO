@@ -24,6 +24,14 @@ public:                                                                         
                                                                                                    \
 private:
 
+// BmSDK-AO: BMSDK_AOO builds BmSDK.Generator.AOO.asi for Arkham Origins Online, whose object layout differs
+// (measured live with BmSDK-AO/Online/tools/aoo_layout.py). AO_SIZE(sp, aoo) / AO_PAD(sp, aoo) pick per build.
+#ifdef BMSDK_AOO
+#define AO_SIZE(SP, AOO) AOO
+#else
+#define AO_SIZE(SP, AOO) SP
+#endif
+
 // CLASS() macro. Used to declare a class with a specific size.
 #define CLASS(NAME, SIZE) static constexpr int SIZE_##NAME = SIZE;
 

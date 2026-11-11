@@ -20,7 +20,7 @@ public partial class Property
     /// </summary>
     public int ArrayDim
     {
-        get => MarshalUtil.ToManaged<int>(Ptr + 48);
+        get => MarshalUtil.ToManaged<int>(Ptr + NativeLayout.Property_ArrayDim);
     }
 
     /// <summary>
@@ -28,8 +28,8 @@ public partial class Property
     /// </summary>
     public unsafe EPropertyFlags PropertyFlags
     {
-        get => MarshalUtil.ToManaged<EPropertyFlags>(Ptr + 52);
-        set => MarshalUtil.ToUnmanaged(value, (Ptr + 52).ToPointer());
+        get => MarshalUtil.ToManaged<EPropertyFlags>(Ptr + NativeLayout.Property_PropertyFlags);
+        set => MarshalUtil.ToUnmanaged(value, (Ptr + NativeLayout.Property_PropertyFlags).ToPointer());
     }
 
     /// <summary>
@@ -37,7 +37,7 @@ public partial class Property
     /// </summary>
     public ushort ElementSize
     {
-        get => MarshalUtil.ToManaged<ushort>(Ptr + 52 + 4 + 4);
+        get => MarshalUtil.ToManaged<ushort>(Ptr + NativeLayout.Property_ElementSize);
     }
 
     /// <summary>
@@ -45,6 +45,6 @@ public partial class Property
     /// </summary>
     public ushort Offset
     {
-        get => MarshalUtil.ToManaged<ushort>(Ptr + 52 + 4 + 4 + 2);
+        get => MarshalUtil.ToManaged<ushort>(Ptr + NativeLayout.Property_Offset);
     }
 }

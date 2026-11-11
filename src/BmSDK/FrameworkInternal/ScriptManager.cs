@@ -20,9 +20,15 @@ namespace BmSDK.Framework;
 internal static class ScriptManager
 {
     public const LanguageVersion LangVer = LanguageVersion.CSharp14;
+    // BmSDK-AO: in the Arkham Origins Online build mods also get BMSDK_AOO, so one mod can keep code for each game
+    // (#if BMSDK_AOO / #if !BMSDK_AOO): Online lacks many campaign classes and functions (Online/PLAN.md)
     public static readonly CSharpParseOptions ParseOptions = CSharpParseOptions
         .Default.WithLanguageVersion(LangVer)
+#if BMSDK_AOO
+        .WithPreprocessorSymbols("BATMAN2", "BMSDK_AOO");
+#else
         .WithPreprocessorSymbols("BATMAN2");
+#endif
     public static readonly ImmutableArray<PortableExecutableReference> DotNetAssemblies =
         ReferenceAssemblies.Net100.References.All;
     public static readonly ImmutableList<MetadataReference> MetadataReferences =

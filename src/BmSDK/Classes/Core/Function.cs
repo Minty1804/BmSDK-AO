@@ -81,8 +81,8 @@ public partial class Function
     /// </summary>
     public unsafe EFunctionFlags FunctionFlags
     {
-        get => MarshalUtil.ToManaged<EFunctionFlags>(Ptr + 108);
-        set => MarshalUtil.ToUnmanaged(value, (Ptr + 108).ToPointer());
+        get => MarshalUtil.ToManaged<EFunctionFlags>(Ptr + NativeLayout.Function_FunctionFlags);
+        set => MarshalUtil.ToUnmanaged(value, (Ptr + NativeLayout.Function_FunctionFlags).ToPointer());
     }
 
     /// <summary>
@@ -90,8 +90,8 @@ public partial class Function
     /// </summary>
     public unsafe ushort iNative
     {
-        get => MarshalUtil.ToManaged<ushort>(Ptr + 112);
-        set => MarshalUtil.ToUnmanaged(value, (Ptr + 112).ToPointer());
+        get => MarshalUtil.ToManaged<ushort>(Ptr + NativeLayout.Function_iNative);
+        set => MarshalUtil.ToUnmanaged(value, (Ptr + NativeLayout.Function_iNative).ToPointer());
     }
 
     public IEnumerable<Property> EnumerateParams()

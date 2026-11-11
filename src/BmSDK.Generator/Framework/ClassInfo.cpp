@@ -168,6 +168,13 @@ StructInfo::StructInfo(UScriptStruct* _struct) : StructInfo((UStruct*)_struct)
             {
                 Members.push_back(new PropertyInfo((UProperty*)field, true));
             }
+            // A struct declared inside this struct (AO Online: OnlineSubsystem.SessionDetails.SessionMember).
+            // Its type name already goes through this struct, so print it nested here; only for our own
+            // children, a parent's nested structs are printed with the parent.
+            else if (s == (UStruct*)_struct && field->IsA(UScriptStruct::StaticClass()))
+            {
+                Members.push_back(new StructInfo((UScriptStruct*)field));
+            }
         }
     }
 }

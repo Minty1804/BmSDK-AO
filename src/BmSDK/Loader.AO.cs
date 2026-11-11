@@ -43,13 +43,19 @@ internal static partial class Loader
 
     private static unsafe void CheckGuards()
     {
-        if (GameDefine.Current is not GameDefineAO)
+        var guards = GameDefine.Current switch
+        {
+            GameDefineAO => GameDefineAO.Guards,
+            GameDefineAOOnline => GameDefineAOOnline.Guards,
+            _ => null,
+        };
+        if (guards == null)
         {
             return;
         }
 
         int ok = 0;
-        foreach (var (name, rva, guard) in GameDefineAO.Guards)
+        foreach (var (name, rva, guard) in guards)
         {
             var code = MemUtil.GetPointer<byte>(rva);
             var live = Convert.ToHexString(new ReadOnlySpan<byte>(code, guard.Length / 2)).ToLowerInvariant();
@@ -68,7 +74,7 @@ internal static partial class Loader
             }
         }
 
-        Debug.Log($"Guards: {ok}/{GameDefineAO.Guards.Length} match");
+        Debug.Log($"Guards: {ok}/{guards.Length} match");
     }
 
     // Side-effect-free calls through the new table entries (game thread, engine running)
@@ -120,7 +126,7 @@ internal static partial class Loader
         return $"GNames.Num={names[1]}, GObjObjects.Num={objects[1]}";
     }
 
-    // AO's FNameEntry keeps the ANSI name at +12 (City: UTF-16 at +16)
+    // FNameEntry text: AO SinglePlayer ANSI at +12; AO Online and City UTF-16 at +16
     private static unsafe string? NameAt(int index)
     {
         var names = MemUtil.GetPointer<IntPtr>(GameDefine.Current.GNames);
@@ -131,7 +137,8 @@ internal static partial class Loader
             return null;
         }
 
-        return Marshal.PtrToStringAnsi(data[index] + 12);
+        var text = data[index] + GameDefine.Current.NameEntryTextOffset;
+        return GameDefine.Current.NameEntryIsAnsi ? Marshal.PtrToStringAnsi(text) : Marshal.PtrToStringUni(text);
     }
 
     private static unsafe int FindNameIndex(string text)

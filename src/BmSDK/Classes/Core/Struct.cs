@@ -7,17 +7,17 @@ public partial class Struct
     /// <summary>
     /// Property: Children
     /// </summary>
-    public Struct SuperStruct => MarshalUtil.ToManaged<Struct>(Ptr + 56);
+    public Struct SuperStruct => MarshalUtil.ToManaged<Struct>(Ptr + NativeLayout.Struct_SuperStruct);
 
     /// <summary>
     /// Property: Children
     /// </summary>
-    public Field Children => MarshalUtil.ToManaged<Field>(Ptr + 60);
+    public Field Children => MarshalUtil.ToManaged<Field>(Ptr + NativeLayout.Struct_Children);
 
     /// <summary>
     /// Property: PropertiesSize
     /// </summary>
-    public short PropertiesSize => MarshalUtil.ToManaged<short>(Ptr + 64);
+    public short PropertiesSize => MarshalUtil.ToManaged<short>(Ptr + NativeLayout.Struct_PropertiesSize);
 
     public IEnumerable<Field> EnumerateFields()
     {

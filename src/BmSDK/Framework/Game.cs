@@ -60,6 +60,7 @@ public static partial class Game
         return Guard.NotNull(worldInfo.GRI as RGameRI);
     }
 
+#if !BMSDK_AOO // AO Online's RGameInfo has no PersistentData (campaign save data)
     /// <summary>
     /// Gets the persistent data object for the currently-loaded world.
     /// </summary>
@@ -68,6 +69,7 @@ public static partial class Game
         var gameInfo = GetGameInfo();
         return Guard.NotNull(gameInfo.PersistentData);
     }
+#endif
 
     /// <summary>
     /// Gets the global engine object.
@@ -130,12 +132,14 @@ public static partial class Game
         return Alive(gameRI);
     }
 
+#if !BMSDK_AOO
     /// <summary>Gets the persistent data object, or false when there is none.</summary>
     public static bool TryGetPersistentData([NotNullWhen(true)] out RPersistentData? persistentData)
     {
         persistentData = TryGetGameInfo(out var gameInfo) ? gameInfo.PersistentData : null;
         return Alive(persistentData);
     }
+#endif
 
     /// <summary>Gets the global engine object, or false before it exists.</summary>
     public static bool TryGetEngine([NotNullWhen(true)] out GameEngine? engine)
@@ -210,6 +214,7 @@ public static partial class Game
         where T : Actor, IGameObject =>
         SpawnActor(T.StaticClass(), Name, Location, Rotation, Template, Owner, Instigator, Level) as T;
 
+#if !BMSDK_AOO // AO Online's RCharacter has no StaticCreatePawn
     /// <summary>
     /// Spawns a new actor of the given pawn and character types.
     /// </summary>
@@ -230,6 +235,7 @@ public static partial class Game
                 FName.None
             );
     }
+#endif
 
     internal static unsafe IntPtr SpawnActorInternal(
         Class Class,

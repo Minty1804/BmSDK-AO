@@ -33,6 +33,22 @@
     <AdditionalFiles Include="NativeMethods.txt" />
   </ItemGroup>
 
+  <!-- BmSDK-AO: Arkham Origins Online build (/p:BmSDKGame=AOO). Same framework code, with the classes generated
+       for AO Online (Generated.AOO, other object layout) instead of SinglePlayer's, into bin\AOO\...\sdk. -->
+  <PropertyGroup Condition="'$(BmSDKGame)' == 'AOO'">
+    <DefineConstants>$(DefineConstants);BMSDK_AOO</DefineConstants>
+    <OutputPath>$(SolutionDir)\bin\AOO\Binaries\Win32\sdk\</OutputPath>
+    <IntermediateOutputPath>obj\AOO\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(BmSDKGame)' == 'AOO'">
+    <Compile Remove="Generated\**" />
+    <!-- SinglePlayer's pause menu (MODS entry/screen); stand-ins in PauseMenu.AOO.cs -->
+    <Compile Remove="FrameworkInternal\PauseMenuEntry.cs;FrameworkInternal\PauseModScreen.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(BmSDKGame)' != 'AOO'">
+    <Compile Remove="Generated.AOO\**" />
+  </ItemGroup>
+
   <!-- Dependencies -->
   <ItemGroup>
     <PackageReference Include="Basic.Reference.Assemblies.Net100" Version="1.8.4" />

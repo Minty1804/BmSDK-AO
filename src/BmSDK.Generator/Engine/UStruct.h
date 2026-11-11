@@ -3,7 +3,7 @@
 #include "TArray.h"
 #include "UField.h"
 
-CLASS(UStruct, 108)
+CLASS(UStruct, AO_SIZE(108, 172))
 class UStruct : public UField
 {
     BYTE UNK1[8];
@@ -14,7 +14,7 @@ class UStruct : public UField
         // if PropertiesSize is really an INT here it reads 0, and StructInfo::GetAlignedSize then keeps PropertiesSize.
         FIELD(WORD, MinAlignment)
 
-    BYTE UNK2[40];
+    BYTE UNK2[AO_SIZE(40, 100)];  // AO Online: UFunction.FunctionFlags still right after (+172)
 
 public:
     STATIC_CLASS("Core.Struct")

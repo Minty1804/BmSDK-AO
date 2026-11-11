@@ -9,6 +9,10 @@
 
 #define BMSDK_MENU_API extern "C" __declspec(dllexport)
 
+// Host-internal (not exported): hooks the creation of Direct3D 9 devices so the game's own one gets the menu.
+// Called from ao_boot at EngineLoopPreInit, before the engine creates its renderer.
+void options_menu_hook_d3d9_creation();
+
 // Bumped when an export changes meaning or is added; OptionsManager checks it (now 3).
 BMSDK_MENU_API int __cdecl BmSDK_Menu_ApiVersion();
 

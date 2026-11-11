@@ -1,3 +1,4 @@
+#if !BMSDK_AOO // AO Online's RBMPawnAI has no InitCharacter(FInitCharacterDescription)
 namespace BmSDK.BmGame;
 
 public partial class RBMPawnAI
@@ -10,3 +11,4 @@ public partial class RBMPawnAI
         InitCharacter(new FInitCharacterDescription { Character = characterClass, WeaponType = weaponType });
     }
 }
+#endif

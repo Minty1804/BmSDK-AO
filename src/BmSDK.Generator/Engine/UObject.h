@@ -11,13 +11,16 @@ enum class EObjectFlags : QWORD
     RF_ClassDefaultObject = 0x80
 };
 
-CLASS(UObject, 44)
+CLASS(UObject, AO_SIZE(44, 48))
 class UObject
 {
     FIELD(INT, Index)
     FIELD(QWORD, ObjectFlags)
     UObject* HashNext;
     UObject* HashOuterNext;
+#ifdef BMSDK_AOO
+    INT NetIndex;  // AO Online: -1 on Core.Field; Outer/Name/Class move 4 bytes
+#endif
     FIELD(UObject*, Outer)
         FIELD(FName, Name)
         FIELD(UObject*, Class)

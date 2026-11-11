@@ -58,15 +58,23 @@ public abstract class GameDefine
     // FString (local)
     public abstract IntPtr StringCtor { get; }
 
-    // Identical across builds, so not per-define
+    // UObject Outer/Name/Class: City and AO SinglePlayer 24/28/36; AO Online has 4 more bytes before Outer
+    public virtual int ObjectOuterOffset => 24;
+    public virtual int ObjectNameOffset => 28;
+    public virtual int ObjectClassOffset => 36;
+    public virtual int StructSuperStructOffset => 56;
+    public virtual int ClassClassFlagsOffset => 180;
+
     public static class MemberOffsets
     {
         public const IntPtr Object__ObjectInternalInteger = 4;
-        public const IntPtr Object__Outer = 24;
-        public const IntPtr Object__Name = 28;
-        public const IntPtr Object__Class = 36;
-        public const IntPtr Struct__SuperStruct = 56;
-        public const IntPtr Class__ClassFlags = 180;
+
+        // Per build (read once from GameDefine.Current)
+        public static readonly IntPtr Object__Outer = Current.ObjectOuterOffset;
+        public static readonly IntPtr Object__Name = Current.ObjectNameOffset;
+        public static readonly IntPtr Object__Class = Current.ObjectClassOffset;
+        public static readonly IntPtr Struct__SuperStruct = Current.StructSuperStructOffset;
+        public static readonly IntPtr Class__ClassFlags = Current.ClassClassFlagsOffset;
     }
 
     // Identical across builds, so not per-define
@@ -89,6 +97,7 @@ public abstract class GameDefine
             GameDefineEpic.TimeDateStamp => new GameDefineEpic(),
             GameDefineSteam.TimeDateStamp => new GameDefineSteam(),
             GameDefineAO.TimeDateStamp => new GameDefineAO(),
+            GameDefineAOOnline.TimeDateStamp => new GameDefineAOOnline(),
             _ => throw new NotSupportedException(
                 $"Unrecognized game executable build (TimeDateStamp 0x{timeDateStamp:X8})"
             ),

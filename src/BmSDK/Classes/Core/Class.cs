@@ -17,8 +17,8 @@ public partial class Class
     /// </summary>
     public unsafe EClassFlags ClassFlags
     {
-        get => MarshalUtil.ToManaged<EClassFlags>(Ptr + 180);
-        set => MarshalUtil.ToUnmanaged(value, (Ptr + 180).ToPointer());
+        get => MarshalUtil.ToManaged<EClassFlags>(Ptr + NativeLayout.Class_ClassFlags);
+        set => MarshalUtil.ToUnmanaged(value, (Ptr + NativeLayout.Class_ClassFlags).ToPointer());
     }
 
     /// <summary>

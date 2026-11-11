@@ -57,6 +57,19 @@ internal sealed class GlobalRedirectManager(BindingFlags genericRedirSearchFlags
             );
         }
 
+        // BmSDK-AO: the redirector must take the function's parameters. The compiler can't tell when the call inside it
+        // leaves out parameters that have a default value (Ultimate UI on AO Online: SetToolTip(Text) where Online has
+        // SetToolTip(Text, Colour)), and it then threw on every call. Such a redirector is not registered: one clear
+        // warning instead of an error per call.
+        if (redirAttr.FunctionPath == null && !ParametersMatch(targetType, redirAttr.TargetMethod, redirectMi, out var expected))
+        {
+            Debug.LogWarning(
+                $"{redirectMi.DeclaringType?.FullName}.{redirectMi.Name}: redirect of {targetType.Name}.{redirAttr.TargetMethod} "
+                    + $"takes {redirectMi.GetParameters().Length} parameter(s), the function needs {expected}: not registered"
+            );
+            return;
+        }
+
         // Get the full path of the function (as originally declared), unless the attribute names it outright.
         var declaringFuncPath = redirAttr.FunctionPath ?? StaticInit.GetDeclaringFuncPath(targetType, redirAttr.TargetMethod);
 
@@ -97,6 +110,20 @@ internal sealed class GlobalRedirectManager(BindingFlags genericRedirSearchFlags
         RedirectManager.QueueConfigureFunction(declaringFuncPath);
         redirects.Add(redirInfo);
         RedirectManager.BumpGeneration();
+    }
+
+    // The generated wrappers of that name take one parameter per parameter of the in-game function; an instance
+    // redirector also takes the object first. Any wrapper (or hand-written overload) of the right size counts; with no
+    // method of that name there is nothing to check against.
+    private static bool ParametersMatch(Type targetType, string funcName, MethodInfo redirectMi, out string expected)
+    {
+        var candidates = targetType
+            .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.FlattenHierarchy)
+            .Where(m => m.Name == funcName)
+            .ToArray();
+        var given = redirectMi.GetParameters().Length;
+        expected = string.Join(" or ", candidates.Select(m => (m.GetParameters().Length + (m.IsStatic ? 0 : 1)).ToString()).Distinct());
+        return candidates.Length == 0 || candidates.Any(m => m.GetParameters().Length + (m.IsStatic ? 0 : 1) == given);
     }
 
     /// <summary>Whether any global redirect targets the given function path.</summary>

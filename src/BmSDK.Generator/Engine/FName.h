@@ -23,6 +23,13 @@ class FNameEntry
 public:
     string ToString() const
     {
+        // Arkham Origins Online: UTF-16 at +16 like City, but without relying on the unicode bit
+        if (GameOffsets::IsAOOnline)
+        {
+            wstring wstr = wstring(UniName);
+            return string(wstr.begin(), wstr.end());
+        }
+
         // Arkham Origins: the name is ANSI at +12 (all 96k names checked, see AOChecks.cpp)
         if (GameOffsets::IsAO)
         {

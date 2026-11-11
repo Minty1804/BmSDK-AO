@@ -40,6 +40,15 @@ internal static partial class Loader
         Debug.InitFileLog();
         Debug.Log($"Detected {GameDefine.Current.Name} build");
 
+#if BMSDK_AOO
+        // This BmSDK.dll carries AO Online's classes and object layout: nothing else can run it
+        if (GameDefine.Current is not GameDefineAOOnline)
+        {
+            Debug.LogError("This BmSDK.dll is the Arkham Origins Online build; install the SinglePlayer one here");
+            return;
+        }
+#endif
+
         // Arkham Origins port: run only what the known addresses allow (Loader.AO.cs)
         if (!GameDefine.Current.SupportsFullRuntime)
         {

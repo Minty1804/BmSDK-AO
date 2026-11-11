@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "UField.h"
 
@@ -11,7 +11,7 @@ enum class EPropertyFlags : DWORD
     CPF_ReturnParm = 0x80
 };
 
-CLASS(UProperty, 88)
+CLASS(UProperty, AO_SIZE(88, 100))
 class UProperty : public UField
 {
     FIELD(INT, ArrayDim)
@@ -19,7 +19,7 @@ class UProperty : public UField
     BYTE UNK1[4];
     FIELD(WORD, ElementSize)
     FIELD(WORD, Offset)
-    BYTE UNK2[24];
+    BYTE UNK2[AO_SIZE(24, 32)];
 
 public:
     string GetInnerTypeNameManaged() const;
@@ -27,7 +27,7 @@ public:
     STATIC_CLASS("Core.Property")
 };
 
-CLASS(UStructProperty, 92)
+CLASS(UStructProperty, AO_SIZE(92, 104))
 class UStructProperty : public UProperty
 {
     FIELD(class UScriptStruct*, Struct)
@@ -36,7 +36,7 @@ public:
     STATIC_CLASS("Core.StructProperty")
 };
 
-CLASS(UObjectProperty, 92)
+CLASS(UObjectProperty, AO_SIZE(92, 104))
 class UObjectProperty : public UProperty
 {
     FIELD(class UClass*, PropertyClass)
@@ -45,7 +45,7 @@ public:
     STATIC_CLASS("Core.ObjectProperty")
 };
 
-CLASS(UByteProperty, 92)
+CLASS(UByteProperty, AO_SIZE(92, 104))
 class UByteProperty : public UProperty
 {
     FIELD(class UEnum*, Enum)
@@ -54,7 +54,7 @@ public:
     STATIC_CLASS("Core.ByteProperty")
 };
 
-CLASS(UArrayProperty, 92)
+CLASS(UArrayProperty, AO_SIZE(92, 104))
 class UArrayProperty : public UProperty
 {
     FIELD(class UProperty*, Inner)
@@ -63,7 +63,7 @@ public:
     STATIC_CLASS("Core.ArrayProperty")
 };
 
-CLASS(UBoolProperty, 92)
+CLASS(UBoolProperty, AO_SIZE(92, 104))
 class UBoolProperty : public UProperty
 {
     FIELD(INT, BitMask)

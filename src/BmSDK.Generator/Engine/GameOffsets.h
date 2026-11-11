@@ -9,7 +9,10 @@ namespace GameOffsets
     inline constexpr uint32_t TimeDateStampSteam = 0x520000F7;
     // Batman: Arkham Origins (Steam, SinglePlayer). AO specifics live in AOChecks.cpp.
     inline constexpr uint32_t TimeDateStampAOSteam = 0x53597942;
-    inline bool IsAO = false;
+    // Batman: Arkham Origins Online (Steam, Online). Notes in BmSDK-AO/Online/PLAN.md.
+    inline constexpr uint32_t TimeDateStampAOOnline = 0x53116012;
+    inline bool IsAO = false;        // any Arkham Origins build (SinglePlayer or Online)
+    inline bool IsAOOnline = false;
 
     // Globals
     inline uintptr_t GObjects = 0;
@@ -47,6 +50,15 @@ namespace GameOffsets
                 LoadPackage = 0x92210;
                 CollectGarbage = 0x9D4E0;
                 IsAO = true;
+                return true;
+            case TimeDateStampAOOnline:
+                GObjects = 0x1407698;
+                GNames = 0x13C5358;
+                StaticFindObject = 0x93880;
+                LoadPackage = 0xA0F10;
+                CollectGarbage = 0xACE80;
+                IsAO = true;
+                IsAOOnline = true;
                 return true;
             default:
                 return false;

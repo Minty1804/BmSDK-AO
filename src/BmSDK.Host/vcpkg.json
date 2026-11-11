@@ -4,7 +4,7 @@
     "nethost",
     {
       "name": "imgui",
-      "features": [ "dx11-binding", "win32-binding" ]
+      "features": [ "dx9-binding", "dx11-binding", "win32-binding" ]
     }
   ]
 }
