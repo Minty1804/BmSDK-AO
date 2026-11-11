@@ -1,0 +1,138 @@
+#pragma warning disable CS0108
+#pragma warning disable CS1591
+
+namespace BmSDK.Engine;
+
+/// <summary>
+/// Class: MaterialExpressionBlurTextureSample<br/>
+/// (size = 168)
+/// (flags = 134258834)
+/// </summary>
+public partial class MaterialExpressionBlurTextureSample : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
+{
+    static BmSDK.Class s_staticClass = null;
+    public static BmSDK.Class StaticClass()
+    {
+        if (s_staticClass is null)
+        {
+            s_staticClass = StaticFindObjectChecked<Class>(null, null, "Engine.MaterialExpressionBlurTextureSample", false);
+            s_staticClass.AddToRoot();
+        }
+        return s_staticClass;
+    }
+
+    /// <summary>
+    /// Gets the class default object as MaterialExpressionBlurTextureSample.
+    /// </summary>
+    public static MaterialExpressionBlurTextureSample DefaultObject => (MaterialExpressionBlurTextureSample)StaticClass().DefaultObject;
+
+    internal MaterialExpressionBlurTextureSample() { }
+
+    /// <summary>
+    /// Constructs a new MaterialExpressionBlurTextureSample
+    /// </summary>
+    public MaterialExpressionBlurTextureSample(BmSDK.GameObject Outer, string Name = null, BmSDK.GameObject.EObjectFlags SetFlags = 0, MaterialExpressionBlurTextureSample Template = null) : base(ConstructObjectInternal(StaticClass(), Outer, Name, SetFlags, Template)) { }
+
+    /// <summary>
+    /// Constructs a new wrapper instance from the given object pointer.
+    /// </summary>
+    protected MaterialExpressionBlurTextureSample(nint ptr) : base(ptr) { }
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Framework.IScriptComponent)"/>
+    public void AttachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlurTextureSample>
+        => ((GameObject)this).AttachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Type)"/>
+    public TComponent AttachScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlurTextureSample>, new()
+        => (TComponent)((GameObject)this).AttachScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Framework.IScriptComponent)"/>
+    public bool HasScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlurTextureSample>
+        => ((GameObject)this).HasScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Type)"/>
+    public bool HasScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlurTextureSample>
+        => ((GameObject)this).HasScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponent(Type)"/>
+    public TComponent GetScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlurTextureSample>
+        => (TComponent)((GameObject)this).GetScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponents(Type)"/>
+    public System.Collections.Generic.IReadOnlyList<TComponent> GetScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlurTextureSample>
+        => ((GameObject)this).GetScriptComponents(typeof(TComponent)).Cast<TComponent>().ToList();
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponent(Framework.IScriptComponent)"/>
+    public void DetachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlurTextureSample>
+        => ((GameObject)this).DetachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponents(Type)"/>
+    public void DetachScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlurTextureSample>
+        => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// Enum: ESampleBlurType
+    /// </summary>
+    public enum ESampleBlurType : byte
+    {
+        SampleBlur_PoissonDisc = 0,
+        SampleBlur_Mip = 1,
+        SampleBlur_MAX = 2,
+    }
+
+    /// <summary>
+    /// ObjectProperty: Texture
+    /// </summary>
+    public unsafe BmSDK.Engine.Texture Texture
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.Texture>(Ptr + 96); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 96); }
+    }
+
+    /// <summary>
+    /// StructProperty: Coordinates
+    /// </summary>
+    public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Coordinates
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 100);
+
+    /// <summary>
+    /// StructProperty: SampleRadius
+    /// </summary>
+    public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput SampleRadius
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 128);
+
+    /// <summary>
+    /// ByteProperty: SampleBlurType
+    /// </summary>
+    public unsafe BmSDK.Engine.MaterialExpressionBlurTextureSample.ESampleBlurType SampleBlurType
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionBlurTextureSample.ESampleBlurType>(Ptr + 156); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 156); }
+    }
+
+    /// <summary>
+    /// IntProperty: SampleNum
+    /// </summary>
+    public unsafe int SampleNum
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 160); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 160); }
+    }
+
+    /// <summary>
+    /// FloatProperty: SampleRadiusDefault
+    /// </summary>
+    public unsafe float SampleRadiusDefault
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 164); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 164); }
+    }
+}

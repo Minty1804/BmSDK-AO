@@ -1,0 +1,141 @@
+#pragma warning disable CS0108
+#pragma warning disable CS1591
+
+namespace BmSDK.Engine;
+
+/// <summary>
+/// Class: MaterialExpressionBlendMode<br/>
+/// (size = 185)
+/// (flags = 134258834)
+/// </summary>
+public partial class MaterialExpressionBlendMode : BmSDK.Engine.MaterialExpression, BmSDK.IGameObject
+{
+    static BmSDK.Class s_staticClass = null;
+    public static BmSDK.Class StaticClass()
+    {
+        if (s_staticClass is null)
+        {
+            s_staticClass = StaticFindObjectChecked<Class>(null, null, "Engine.MaterialExpressionBlendMode", false);
+            s_staticClass.AddToRoot();
+        }
+        return s_staticClass;
+    }
+
+    /// <summary>
+    /// Gets the class default object as MaterialExpressionBlendMode.
+    /// </summary>
+    public static MaterialExpressionBlendMode DefaultObject => (MaterialExpressionBlendMode)StaticClass().DefaultObject;
+
+    internal MaterialExpressionBlendMode() { }
+
+    /// <summary>
+    /// Constructs a new MaterialExpressionBlendMode
+    /// </summary>
+    public MaterialExpressionBlendMode(BmSDK.GameObject Outer, string Name = null, BmSDK.GameObject.EObjectFlags SetFlags = 0, MaterialExpressionBlendMode Template = null) : base(ConstructObjectInternal(StaticClass(), Outer, Name, SetFlags, Template)) { }
+
+    /// <summary>
+    /// Constructs a new wrapper instance from the given object pointer.
+    /// </summary>
+    protected MaterialExpressionBlendMode(nint ptr) : base(ptr) { }
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Framework.IScriptComponent)"/>
+    public void AttachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlendMode>
+        => ((GameObject)this).AttachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Type)"/>
+    public TComponent AttachScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlendMode>, new()
+        => (TComponent)((GameObject)this).AttachScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Framework.IScriptComponent)"/>
+    public bool HasScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlendMode>
+        => ((GameObject)this).HasScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Type)"/>
+    public bool HasScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlendMode>
+        => ((GameObject)this).HasScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponent(Type)"/>
+    public TComponent GetScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlendMode>
+        => (TComponent)((GameObject)this).GetScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponents(Type)"/>
+    public System.Collections.Generic.IReadOnlyList<TComponent> GetScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlendMode>
+        => ((GameObject)this).GetScriptComponents(typeof(TComponent)).Cast<TComponent>().ToList();
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponent(Framework.IScriptComponent)"/>
+    public void DetachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlendMode>
+        => ((GameObject)this).DetachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponents(Type)"/>
+    public void DetachScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<MaterialExpressionBlendMode>
+        => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// Enum: EBlendModeFilter
+    /// </summary>
+    public enum EBlendModeFilter : byte
+    {
+        BlendMode_Normal = 0,
+        BlendMode_Darken = 1,
+        BlendMode_Multiply = 2,
+        BlendMode_ColourBurn = 3,
+        BlendMode_Lighten = 4,
+        BlendMode_Screen_EXPENSIVE = 5,
+        BlendMode_Screen_CHEAP = 6,
+        BlendMode_ColourDodge = 7,
+        BlendMode_LinearDodge = 8,
+        BlendMode_Overlay_EXPENSIVE = 9,
+        BlendMode_Overlay_CHEAP = 10,
+        BlendMode_SoftLight_EXPENSIVE = 11,
+        BlendMode_SoftLight_CHEAP = 12,
+        BlendMode_HardLight = 13,
+        BlendMode_Difference = 14,
+        BlendMode_Exclusion = 15,
+        BlendMode_Negation = 16,
+        BlendMode_MAX = 17,
+    }
+
+    /// <summary>
+    /// StructProperty: A
+    /// </summary>
+    public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput A
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 96);
+
+    /// <summary>
+    /// StructProperty: B
+    /// </summary>
+    public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput B
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 124);
+
+    /// <summary>
+    /// StructProperty: Percent
+    /// </summary>
+    public unsafe ref BmSDK.Engine.MaterialExpression.FExpressionInput Percent
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.MaterialExpression.FExpressionInput>(Ptr + 152);
+
+    /// <summary>
+    /// FloatProperty: DefaultPercent
+    /// </summary>
+    public unsafe float DefaultPercent
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 180); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 180); }
+    }
+
+    /// <summary>
+    /// ByteProperty: BlendModeSelect
+    /// </summary>
+    public unsafe BmSDK.Engine.MaterialExpressionBlendMode.EBlendModeFilter BlendModeSelect
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialExpressionBlendMode.EBlendModeFilter>(Ptr + 184); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 184); }
+    }
+}

@@ -1,0 +1,387 @@
+#pragma warning disable CS0108
+#pragma warning disable CS1591
+
+namespace BmSDK.Engine;
+
+/// <summary>
+/// Class: PhysXParticleSystem<br/>
+/// (size = 152)
+/// (flags = 134250642)
+/// </summary>
+public partial class PhysXParticleSystem : BmSDK.GameObject, BmSDK.IGameObject
+{
+    static BmSDK.Class s_staticClass = null;
+    public static BmSDK.Class StaticClass()
+    {
+        if (s_staticClass is null)
+        {
+            s_staticClass = StaticFindObjectChecked<Class>(null, null, "Engine.PhysXParticleSystem", false);
+            s_staticClass.AddToRoot();
+        }
+        return s_staticClass;
+    }
+
+    /// <summary>
+    /// Gets the class default object as PhysXParticleSystem.
+    /// </summary>
+    public static PhysXParticleSystem DefaultObject => (PhysXParticleSystem)StaticClass().DefaultObject;
+
+    internal PhysXParticleSystem() { }
+
+    /// <summary>
+    /// Constructs a new PhysXParticleSystem
+    /// </summary>
+    public PhysXParticleSystem(BmSDK.GameObject Outer, string Name = null, BmSDK.GameObject.EObjectFlags SetFlags = 0, PhysXParticleSystem Template = null) : base(ConstructObjectInternal(StaticClass(), Outer, Name, SetFlags, Template)) { }
+
+    /// <summary>
+    /// Constructs a new wrapper instance from the given object pointer.
+    /// </summary>
+    protected PhysXParticleSystem(nint ptr) : base(ptr) { }
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Framework.IScriptComponent)"/>
+    public void AttachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<PhysXParticleSystem>
+        => ((GameObject)this).AttachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Type)"/>
+    public TComponent AttachScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<PhysXParticleSystem>, new()
+        => (TComponent)((GameObject)this).AttachScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Framework.IScriptComponent)"/>
+    public bool HasScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<PhysXParticleSystem>
+        => ((GameObject)this).HasScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Type)"/>
+    public bool HasScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<PhysXParticleSystem>
+        => ((GameObject)this).HasScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponent(Type)"/>
+    public TComponent GetScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<PhysXParticleSystem>
+        => (TComponent)((GameObject)this).GetScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponents(Type)"/>
+    public System.Collections.Generic.IReadOnlyList<TComponent> GetScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<PhysXParticleSystem>
+        => ((GameObject)this).GetScriptComponents(typeof(TComponent)).Cast<TComponent>().ToList();
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponent(Framework.IScriptComponent)"/>
+    public void DetachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<PhysXParticleSystem>
+        => ((GameObject)this).DetachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponents(Type)"/>
+    public void DetachScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<PhysXParticleSystem>
+        => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// IntProperty: MaxParticles
+    /// </summary>
+    public unsafe int MaxParticles
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 48); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 48); }
+    }
+
+    /// <summary>
+    /// IntProperty: ParticleSpawnReserve
+    /// </summary>
+    public unsafe int ParticleSpawnReserve
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 52); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 52); }
+    }
+
+    /// <summary>
+    /// ByteProperty: RBChannel
+    /// </summary>
+    public unsafe BmSDK.Engine.PrimitiveComponent.ERBCollisionChannel RBChannel
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PrimitiveComponent.ERBCollisionChannel>(Ptr + 56); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 56); }
+    }
+
+    /// <summary>
+    /// ByteProperty: SimulationMethod
+    /// </summary>
+    public unsafe BmSDK.Engine.PhysXParticleSystem.ESimulationMethod SimulationMethod
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PhysXParticleSystem.ESimulationMethod>(Ptr + 57); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 57); }
+    }
+
+    /// <summary>
+    /// ByteProperty: PacketSizeMultiplier
+    /// </summary>
+    public unsafe BmSDK.Engine.PhysXParticleSystem.EPacketSizeMultiplier PacketSizeMultiplier
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.PhysXParticleSystem.EPacketSizeMultiplier>(Ptr + 58); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 58); }
+    }
+
+    /// <summary>
+    /// StructProperty: RBCollideWithChannels
+    /// </summary>
+    public unsafe ref BmSDK.Engine.PrimitiveComponent.FRBCollisionChannelContainer RBCollideWithChannels
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.Engine.PrimitiveComponent.FRBCollisionChannelContainer>(Ptr + 60);
+
+    /// <summary>
+    /// FloatProperty: CollisionDistance
+    /// </summary>
+    public unsafe float CollisionDistance
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 64); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 64); }
+    }
+
+    /// <summary>
+    /// FloatProperty: RestitutionWithStaticShapes
+    /// </summary>
+    public unsafe float RestitutionWithStaticShapes
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 68); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// FloatProperty: RestitutionWithDynamicShapes
+    /// </summary>
+    public unsafe float RestitutionWithDynamicShapes
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 72); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 72); }
+    }
+
+    /// <summary>
+    /// FloatProperty: FrictionWithStaticShapes
+    /// </summary>
+    public unsafe float FrictionWithStaticShapes
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 76); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 76); }
+    }
+
+    /// <summary>
+    /// FloatProperty: FrictionWithDynamicShapes
+    /// </summary>
+    public unsafe float FrictionWithDynamicShapes
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 80); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 80); }
+    }
+
+    /// <summary>
+    /// FloatProperty: StaticFrictionWithStaticShapes
+    /// </summary>
+    public unsafe float StaticFrictionWithStaticShapes
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 84); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 84); }
+    }
+
+    /// <summary>
+    /// FloatProperty: StaticFrictionWithDynamicShapes
+    /// </summary>
+    public unsafe float StaticFrictionWithDynamicShapes
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 88); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 88); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bDynamicCollision
+    /// </summary>
+    public unsafe bool bDynamicCollision
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 92); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bDisableGravity
+    /// </summary>
+    public unsafe bool bDisableGravity
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 92); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bStaticCollision
+    /// </summary>
+    public unsafe bool bStaticCollision
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 92); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bTwoWayCollision
+    /// </summary>
+    public unsafe bool bTwoWayCollision
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 92); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bDestroy
+    /// </summary>
+    public unsafe bool bDestroy
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 92); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bSyncFailed
+    /// </summary>
+    public unsafe bool bSyncFailed
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 92); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bIsInGame
+    /// </summary>
+    public unsafe bool bIsInGame
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92) & 64) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 92); var newMask = value ? (currentMask | 64) : (currentMask & ~64); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 92); }
+    }
+
+    /// <summary>
+    /// FloatProperty: MaxMotionDistance
+    /// </summary>
+    public unsafe float MaxMotionDistance
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 96); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 96); }
+    }
+
+    /// <summary>
+    /// FloatProperty: Damping
+    /// </summary>
+    public unsafe float Damping
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
+    }
+
+    /// <summary>
+    /// StructProperty: ExternalAcceleration
+    /// </summary>
+    public unsafe ref System.Numerics.Vector3 ExternalAcceleration
+        => ref BmSDK.Framework.MarshalUtil.AsRef<System.Numerics.Vector3>(Ptr + 104);
+
+    /// <summary>
+    /// FloatProperty: RestParticleDistance
+    /// </summary>
+    public unsafe float RestParticleDistance
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
+    }
+
+    /// <summary>
+    /// FloatProperty: RestDensity
+    /// </summary>
+    public unsafe float RestDensity
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+    }
+
+    /// <summary>
+    /// FloatProperty: KernelRadiusMultiplier
+    /// </summary>
+    public unsafe float KernelRadiusMultiplier
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 124); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 124); }
+    }
+
+    /// <summary>
+    /// FloatProperty: Stiffness
+    /// </summary>
+    public unsafe float Stiffness
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
+    }
+
+    /// <summary>
+    /// FloatProperty: Viscosity
+    /// </summary>
+    public unsafe float Viscosity
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 132); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 132); }
+    }
+
+    /// <summary>
+    /// FloatProperty: CollisionResponseCoefficient
+    /// </summary>
+    public unsafe float CollisionResponseCoefficient
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 136); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 136); }
+    }
+
+    /// <summary>
+    /// IntProperty: ParticleReserve
+    /// </summary>
+    public unsafe int ParticleReserve
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
+    }
+
+    /// <summary>
+    /// StructProperty: CascadeScene
+    /// </summary>
+    public unsafe System.IntPtr CascadeScene
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 144); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 144); }
+    }
+
+    /// <summary>
+    /// StructProperty: PSys
+    /// </summary>
+    public unsafe System.IntPtr PSys
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 148); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 148); }
+    }
+
+    /// <summary>
+    /// Enum: EPacketSizeMultiplier
+    /// </summary>
+    public enum EPacketSizeMultiplier : byte
+    {
+        EPSM_4 = 0,
+        EPSM_8 = 1,
+        EPSM_16 = 2,
+        EPSM_32 = 3,
+        EPSM_64 = 4,
+        EPSM_128 = 5,
+        EPSM_MAX = 6,
+    }
+
+    /// <summary>
+    /// Enum: ESimulationMethod
+    /// </summary>
+    public enum ESimulationMethod : byte
+    {
+        ESM_SPH = 0,
+        ESM_NO_PARTICLE_INTERACTION = 1,
+        ESM_MIXED_MODE = 2,
+        ESM_MAX = 3,
+    }
+}

@@ -1,0 +1,495 @@
+#pragma warning disable CS0108
+#pragma warning disable CS1591
+
+namespace BmSDK.Engine;
+
+/// <summary>
+/// Class: SoundNodeWave<br/>
+/// (size = 456)
+/// (flags = 134255794)
+/// </summary>
+public partial class SoundNodeWave : BmSDK.Engine.SoundNode, BmSDK.IGameObject
+{
+    static BmSDK.Class s_staticClass = null;
+    public static BmSDK.Class StaticClass()
+    {
+        if (s_staticClass is null)
+        {
+            s_staticClass = StaticFindObjectChecked<Class>(null, null, "Engine.SoundNodeWave", false);
+            s_staticClass.AddToRoot();
+        }
+        return s_staticClass;
+    }
+
+    /// <summary>
+    /// Gets the class default object as SoundNodeWave.
+    /// </summary>
+    public static SoundNodeWave DefaultObject => (SoundNodeWave)StaticClass().DefaultObject;
+
+    internal SoundNodeWave() { }
+
+    /// <summary>
+    /// Constructs a new SoundNodeWave
+    /// </summary>
+    public SoundNodeWave(BmSDK.GameObject Outer, string Name = null, BmSDK.GameObject.EObjectFlags SetFlags = 0, SoundNodeWave Template = null) : base(ConstructObjectInternal(StaticClass(), Outer, Name, SetFlags, Template)) { }
+
+    /// <summary>
+    /// Constructs a new wrapper instance from the given object pointer.
+    /// </summary>
+    protected SoundNodeWave(nint ptr) : base(ptr) { }
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Framework.IScriptComponent)"/>
+    public void AttachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<SoundNodeWave>
+        => ((GameObject)this).AttachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Type)"/>
+    public TComponent AttachScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<SoundNodeWave>, new()
+        => (TComponent)((GameObject)this).AttachScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Framework.IScriptComponent)"/>
+    public bool HasScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<SoundNodeWave>
+        => ((GameObject)this).HasScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Type)"/>
+    public bool HasScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<SoundNodeWave>
+        => ((GameObject)this).HasScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponent(Type)"/>
+    public TComponent GetScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<SoundNodeWave>
+        => (TComponent)((GameObject)this).GetScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponents(Type)"/>
+    public System.Collections.Generic.IReadOnlyList<TComponent> GetScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<SoundNodeWave>
+        => ((GameObject)this).GetScriptComponents(typeof(TComponent)).Cast<TComponent>().ToList();
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponent(Framework.IScriptComponent)"/>
+    public void DetachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<SoundNodeWave>
+        => ((GameObject)this).DetachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponents(Type)"/>
+    public void DetachScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<SoundNodeWave>
+        => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    private static BmSDK.Function __fn_GeneratePCMData;
+    /// <summary>
+    /// Function: GeneratePCMData
+    /// </summary>
+    public unsafe virtual void GeneratePCMData(out BmSDK.TArray<byte> Buffer, int SamplesNeeded)
+    {
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GeneratePCMData, "Engine.SoundNodeWave.GeneratePCMData");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(SamplesNeeded, paramsPtr + 12);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        Buffer = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.TArray<byte>>(paramsPtr + 0);
+        return;
+    }
+
+    /// <summary>
+    /// IntProperty: CompressionQuality
+    /// </summary>
+    public unsafe int CompressionQuality
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 64); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 64); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bForceRealTimeDecompression
+    /// </summary>
+    public unsafe bool bForceRealTimeDecompression
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bLoopingSound
+    /// </summary>
+    public unsafe bool bLoopingSound
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bDynamicResource
+    /// </summary>
+    public unsafe bool bDynamicResource
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bUseTTS
+    /// </summary>
+    public unsafe bool bUseTTS
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bLinearRollOff
+    /// </summary>
+    public unsafe bool bLinearRollOff
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 16) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 16) : (currentMask & ~16); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bProcedural
+    /// </summary>
+    public unsafe bool bProcedural
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 32) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 32) : (currentMask & ~32); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bMature
+    /// </summary>
+    public unsafe bool bMature
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 64) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 64) : (currentMask & ~64); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bManualWordWrap
+    /// </summary>
+    public unsafe bool bManualWordWrap
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 128) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 128) : (currentMask & ~128); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bDataIsStreamed
+    /// </summary>
+    public unsafe bool bDataIsStreamed
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68) & 256) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 68); var newMask = value ? (currentMask | 256) : (currentMask & ~256); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 68); }
+    }
+
+    /// <summary>
+    /// ByteProperty: TTSSpeaker
+    /// </summary>
+    public unsafe BmSDK.Engine.AudioDevice.ETTSSpeaker TTSSpeaker
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.AudioDevice.ETTSSpeaker>(Ptr + 72); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 72); }
+    }
+
+    /// <summary>
+    /// ByteProperty: DecompressionType
+    /// </summary>
+    public unsafe BmSDK.Engine.SoundNodeWave.EDecompressionType DecompressionType
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SoundNodeWave.EDecompressionType>(Ptr + 73); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 73); }
+    }
+
+    /// <summary>
+    /// StrProperty: SpokenText
+    /// </summary>
+    public unsafe BmSDK.FString SpokenText
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 76); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 76); }
+    }
+
+    /// <summary>
+    /// FloatProperty: VolumeDB
+    /// </summary>
+    public unsafe float VolumeDB
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 88); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 88); }
+    }
+
+    /// <summary>
+    /// FloatProperty: MinRange
+    /// </summary>
+    public unsafe float MinRange
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 92); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 92); }
+    }
+
+    /// <summary>
+    /// FloatProperty: MaxRange
+    /// </summary>
+    public unsafe float MaxRange
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 96); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 96); }
+    }
+
+    /// <summary>
+    /// IntProperty: DialogPriority
+    /// </summary>
+    public unsafe int DialogPriority
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 100); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 100); }
+    }
+
+    /// <summary>
+    /// IntProperty: DialogMode
+    /// </summary>
+    public unsafe int DialogMode
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 104); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 104); }
+    }
+
+    /// <summary>
+    /// FloatProperty: Volume
+    /// </summary>
+    public unsafe float Volume
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 108); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 108); }
+    }
+
+    /// <summary>
+    /// FloatProperty: Pitch
+    /// </summary>
+    public unsafe float Pitch
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 112); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 112); }
+    }
+
+    /// <summary>
+    /// FloatProperty: Duration
+    /// </summary>
+    public unsafe float Duration
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 116); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 116); }
+    }
+
+    /// <summary>
+    /// IntProperty: NumChannels
+    /// </summary>
+    public unsafe int NumChannels
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+    }
+
+    /// <summary>
+    /// IntProperty: SampleRate
+    /// </summary>
+    public unsafe int SampleRate
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 124); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 124); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: ChannelOffsets
+    /// </summary>
+    public unsafe BmSDK.TArray<int> ChannelOffsets
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(Ptr + 128); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 128); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: ChannelSizes
+    /// </summary>
+    public unsafe BmSDK.TArray<int> ChannelSizes
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(Ptr + 140); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 140); }
+    }
+
+    /// <summary>
+    /// StructProperty: RawData
+    /// </summary>
+    public unsafe ref BmSDK.GameObject.FUntypedBulkData_Mirror RawData
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FUntypedBulkData_Mirror>(Ptr + 152);
+
+    /// <summary>
+    /// StructProperty: VorbisDecompressor
+    /// </summary>
+    public unsafe System.IntPtr VorbisDecompressor
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 196); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 196); }
+    }
+
+    /// <summary>
+    /// StructProperty: RawPCMData
+    /// </summary>
+    public unsafe System.IntPtr RawPCMData
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 200); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 200); }
+    }
+
+    /// <summary>
+    /// IntProperty: RawPCMDataSize
+    /// </summary>
+    public unsafe int RawPCMDataSize
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 204); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 204); }
+    }
+
+    /// <summary>
+    /// StructProperty: CompressedPCData
+    /// </summary>
+    public unsafe ref BmSDK.GameObject.FUntypedBulkData_Mirror CompressedPCData
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FUntypedBulkData_Mirror>(Ptr + 208);
+
+    /// <summary>
+    /// StructProperty: CompressedXbox360Data
+    /// </summary>
+    public unsafe ref BmSDK.GameObject.FUntypedBulkData_Mirror CompressedXbox360Data
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FUntypedBulkData_Mirror>(Ptr + 252);
+
+    /// <summary>
+    /// StructProperty: CompressedPS3Data
+    /// </summary>
+    public unsafe ref BmSDK.GameObject.FUntypedBulkData_Mirror CompressedPS3Data
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.GameObject.FUntypedBulkData_Mirror>(Ptr + 296);
+
+    /// <summary>
+    /// IntProperty: ResourceID
+    /// </summary>
+    public unsafe int ResourceID
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 340); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 340); }
+    }
+
+    /// <summary>
+    /// IntProperty: ResourceSize
+    /// </summary>
+    public unsafe int ResourceSize
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 344); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 344); }
+    }
+
+    /// <summary>
+    /// StructProperty: ResourceData
+    /// </summary>
+    public unsafe System.IntPtr ResourceData
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<System.IntPtr>(Ptr + 348); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 348); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: Subtitles
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.Engine.EngineTypes.FSubtitleCue> Subtitles
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.EngineTypes.FSubtitleCue>>(Ptr + 352); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 352); }
+    }
+
+    /// <summary>
+    /// StrProperty: Comment
+    /// </summary>
+    public unsafe BmSDK.FString Comment
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 364); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 364); }
+    }
+
+    /// <summary>
+    /// StrProperty: Effect
+    /// </summary>
+    public unsafe BmSDK.FString Effect
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 376); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 376); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: LocalizedSubtitles
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.Engine.EngineTypes.FLocalizedSubtitle> LocalizedSubtitles
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.EngineTypes.FLocalizedSubtitle>>(Ptr + 388); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 388); }
+    }
+
+    /// <summary>
+    /// NameProperty: StreamFilenameURL
+    /// </summary>
+    public unsafe BmSDK.FName StreamFilenameURL
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FName>(Ptr + 400); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 400); }
+    }
+
+    /// <summary>
+    /// StrProperty: FaceFXGroupName
+    /// </summary>
+    public unsafe BmSDK.FString FaceFXGroupName
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 408); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 408); }
+    }
+
+    /// <summary>
+    /// StrProperty: FaceFXAnimName
+    /// </summary>
+    public unsafe BmSDK.FString FaceFXAnimName
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 420); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 420); }
+    }
+
+    /// <summary>
+    /// StrProperty: SourceFilePath
+    /// </summary>
+    public unsafe BmSDK.FString SourceFilePath
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 432); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 432); }
+    }
+
+    /// <summary>
+    /// StrProperty: SourceFileTimestamp
+    /// </summary>
+    public unsafe BmSDK.FString SourceFileTimestamp
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.FString>(Ptr + 444); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 444); }
+    }
+
+    /// <summary>
+    /// Enum: EDecompressionType
+    /// </summary>
+    public enum EDecompressionType : byte
+    {
+        DTYPE_Setup = 0,
+        DTYPE_Invalid = 1,
+        DTYPE_Preview = 2,
+        DTYPE_Native = 3,
+        DTYPE_RealTime = 4,
+        DTYPE_Procedural = 5,
+        DTYPE_Xenon = 6,
+        DTYPE_MAX = 7,
+    }
+}

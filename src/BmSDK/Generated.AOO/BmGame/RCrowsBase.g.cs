@@ -1,0 +1,341 @@
+#pragma warning disable CS0108
+#pragma warning disable CS1591
+
+namespace BmSDK.BmGame;
+
+/// <summary>
+/// ABSTRACT Class: RCrowsBase<br/>
+/// (size = 512)
+/// (flags = 142639251)
+/// </summary>
+public partial class RCrowsBase : BmSDK.Engine.Actor, BmSDK.IGameObject
+{
+    static BmSDK.Class s_staticClass = null;
+    public static BmSDK.Class StaticClass()
+    {
+        if (s_staticClass is null)
+        {
+            s_staticClass = StaticFindObjectChecked<Class>(null, null, "BmGame.RCrowsBase", false);
+            s_staticClass.AddToRoot();
+        }
+        return s_staticClass;
+    }
+
+    /// <summary>
+    /// Gets the class default object as RCrowsBase.
+    /// </summary>
+    public static RCrowsBase DefaultObject => (RCrowsBase)StaticClass().DefaultObject;
+
+    internal RCrowsBase() { }
+
+    /// <summary>
+    /// Constructs a new wrapper instance from the given object pointer.
+    /// </summary>
+    protected RCrowsBase(nint ptr) : base(ptr) { }
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Framework.IScriptComponent)"/>
+    public void AttachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<RCrowsBase>
+        => ((GameObject)this).AttachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Type)"/>
+    public TComponent AttachScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<RCrowsBase>, new()
+        => (TComponent)((GameObject)this).AttachScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Framework.IScriptComponent)"/>
+    public bool HasScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<RCrowsBase>
+        => ((GameObject)this).HasScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Type)"/>
+    public bool HasScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<RCrowsBase>
+        => ((GameObject)this).HasScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponent(Type)"/>
+    public TComponent GetScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<RCrowsBase>
+        => (TComponent)((GameObject)this).GetScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponents(Type)"/>
+    public System.Collections.Generic.IReadOnlyList<TComponent> GetScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<RCrowsBase>
+        => ((GameObject)this).GetScriptComponents(typeof(TComponent)).Cast<TComponent>().ToList();
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponent(Framework.IScriptComponent)"/>
+    public void DetachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<RCrowsBase>
+        => ((GameObject)this).DetachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponents(Type)"/>
+    public void DetachScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<RCrowsBase>
+        => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    private static BmSDK.Function __fn_Startle;
+    /// <summary>
+    /// Function: Startle
+    /// </summary>
+    public unsafe virtual void Startle(System.Numerics.Vector3 startleLoc, bool startledByKismet = default)
+    {
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_Startle, "BmGame.RCrowsBase.Startle");
+        byte* paramsPtr = stackalloc byte[32];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(startleLoc, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(startledByKismet, paramsPtr + 12);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    private static BmSDK.Function __fn_UpdateEditorComponents;
+    /// <summary>
+    /// Function: UpdateEditorComponents
+    /// </summary>
+    public unsafe virtual void UpdateEditorComponents()
+    {
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdateEditorComponents, "BmGame.RCrowsBase.UpdateEditorComponents");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return;
+    }
+
+    private static BmSDK.Function __fn_CheckForThugsScaring;
+    /// <summary>
+    /// Function: CheckForThugsScaring
+    /// </summary>
+    public unsafe virtual void CheckForThugsScaring()
+    {
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_CheckForThugsScaring, "BmGame.RCrowsBase.CheckForThugsScaring");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return;
+    }
+
+    private static BmSDK.Function __fn_FindClosestVisibleSkelMesh;
+    /// <summary>
+    /// Function: FindClosestVisibleSkelMesh
+    /// </summary>
+    public unsafe virtual bool FindClosestVisibleSkelMesh(System.Numerics.Vector3 TestLoc, float Range, out System.Numerics.Vector3 CrowLoc)
+    {
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_FindClosestVisibleSkelMesh, "BmGame.RCrowsBase.FindClosestVisibleSkelMesh");
+        byte* paramsPtr = stackalloc byte[48];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(TestLoc, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Range, paramsPtr + 12);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out CrowLoc);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CrowLoc, paramsPtr + 16);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        CrowLoc = BmSDK.Framework.MarshalUtil.ToManagedParam<System.Numerics.Vector3>(paramsPtr + 16);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 28);
+    }
+
+    private static BmSDK.Function __fn_FindClosestCrowWithinRange;
+    /// <summary>
+    /// Function: FindClosestCrowWithinRange
+    /// </summary>
+    public unsafe static bool FindClosestCrowWithinRange(System.Numerics.Vector3 TestLoc, float Range, out System.Numerics.Vector3 CrowLoc, out BmSDK.BmGame.RCrowsBase Crow, bool IgnoreFlying, bool IgnoreIdle)
+    {
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_FindClosestCrowWithinRange, "BmGame.RCrowsBase.FindClosestCrowWithinRange");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(TestLoc, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Range, paramsPtr + 12);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out CrowLoc);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CrowLoc, paramsPtr + 16);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Crow);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Crow, paramsPtr + 28);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(IgnoreFlying, paramsPtr + 32);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(IgnoreIdle, paramsPtr + 36);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(StaticClass().DefaultObject.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        CrowLoc = BmSDK.Framework.MarshalUtil.ToManagedParam<System.Numerics.Vector3>(paramsPtr + 16);
+        Crow = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.RCrowsBase>(paramsPtr + 28);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 40);
+    }
+
+    /// <summary>
+    /// FloatProperty: CROW_VS_HELICOPTER_RANGE
+    /// </summary>
+    public unsafe float CROW_VS_HELICOPTER_RANGE
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 464); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 464); }
+    }
+
+    /// <summary>
+    /// InlineArray{ComponentProperty}: crowMeshes
+    /// </summary>
+    public InlineArray<BmSDK.Engine.SkeletalMeshComponent> crowMeshes => new(3, Ptr + 468, 4, this);
+
+    /// <summary>
+    /// ComponentProperty: crowMeshes
+    /// </summary>
+    public unsafe BmSDK.Engine.SkeletalMeshComponent crowMeshes_0
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 468); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 468); }
+    }
+    /// <summary>
+    /// ComponentProperty: crowMeshes
+    /// </summary>
+    public unsafe BmSDK.Engine.SkeletalMeshComponent crowMeshes_1
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 472); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 472); }
+    }
+    /// <summary>
+    /// ComponentProperty: crowMeshes
+    /// </summary>
+    public unsafe BmSDK.Engine.SkeletalMeshComponent crowMeshes_2
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.SkeletalMeshComponent>(Ptr + 476); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 476); }
+    }
+
+    /// <summary>
+    /// BoolProperty: bFlying
+    /// </summary>
+    public unsafe bool bFlying
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 480) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 480); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 480); }
+    }
+
+    /// <summary>
+    /// FloatProperty: maxTakeOffYawLeft
+    /// </summary>
+    public unsafe float maxTakeOffYawLeft
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 484); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 484); }
+    }
+
+    /// <summary>
+    /// FloatProperty: maxTakeOffYawRight
+    /// </summary>
+    public unsafe float maxTakeOffYawRight
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 488); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 488); }
+    }
+
+    /// <summary>
+    /// FloatProperty: flightYawDeviation
+    /// </summary>
+    public unsafe float flightYawDeviation
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 492); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 492); }
+    }
+
+    /// <summary>
+    /// FloatProperty: fadeInnerDistance
+    /// </summary>
+    public unsafe float fadeInnerDistance
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 496); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 496); }
+    }
+
+    /// <summary>
+    /// FloatProperty: fadeOuterDistance
+    /// </summary>
+    public unsafe float fadeOuterDistance
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 500); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 500); }
+    }
+
+    /// <summary>
+    /// InlineArray{ComponentProperty}: editorLines
+    /// </summary>
+    public InlineArray<BmSDK.Engine.DrawConeComponent> editorLines => new(2, Ptr + 504, 4, this);
+
+    /// <summary>
+    /// ComponentProperty: editorLines
+    /// </summary>
+    public unsafe BmSDK.Engine.DrawConeComponent editorLines_0
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawConeComponent>(Ptr + 504); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 504); }
+    }
+    /// <summary>
+    /// ComponentProperty: editorLines
+    /// </summary>
+    public unsafe BmSDK.Engine.DrawConeComponent editorLines_1
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.DrawConeComponent>(Ptr + 508); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 508); }
+    }
+}
+
+/// <summary>
+/// The static native functions of RCrowsBase, callable on an instance. A static native may read the object it runs on, and the static form runs it on the class default object, which has no world.
+/// </summary>
+public static class RCrowsBaseStatics
+{
+    private static BmSDK.Function __fn_FindClosestCrowWithinRange;
+    /// <summary>
+    /// Function: FindClosestCrowWithinRange, run on <paramref name="self"/> rather than the class default object
+    /// </summary>
+    public unsafe static bool FindClosestCrowWithinRange(this BmSDK.BmGame.RCrowsBase self, System.Numerics.Vector3 TestLoc, float Range, out System.Numerics.Vector3 CrowLoc, out BmSDK.BmGame.RCrowsBase Crow, bool IgnoreFlying, bool IgnoreIdle)
+    {
+        BmSDK.Framework.Guard.NotDestroyed(self);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_FindClosestCrowWithinRange, "BmGame.RCrowsBase.FindClosestCrowWithinRange");
+        byte* paramsPtr = stackalloc byte[60];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(TestLoc, paramsPtr + 0);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Range, paramsPtr + 12);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out CrowLoc);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(CrowLoc, paramsPtr + 16);
+        System.Runtime.CompilerServices.Unsafe.SkipInit(out Crow);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(Crow, paramsPtr + 28);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(IgnoreFlying, paramsPtr + 32);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(IgnoreIdle, paramsPtr + 36);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(self.Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        CrowLoc = BmSDK.Framework.MarshalUtil.ToManagedParam<System.Numerics.Vector3>(paramsPtr + 16);
+        Crow = BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.RCrowsBase>(paramsPtr + 28);
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<bool>(paramsPtr + 40);
+    }
+}

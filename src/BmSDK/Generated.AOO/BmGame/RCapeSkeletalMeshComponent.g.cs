@@ -1,0 +1,232 @@
+#pragma warning disable CS0108
+#pragma warning disable CS1591
+
+namespace BmSDK.BmGame;
+
+/// <summary>
+/// Class: RCapeSkeletalMeshComponent<br/>
+/// (size = 1792)
+/// (flags = 2292224150)
+/// </summary>
+public partial class RCapeSkeletalMeshComponent : BmSDK.Engine.SkeletalMeshComponent, BmSDK.IGameObject
+{
+    static BmSDK.Class s_staticClass = null;
+    public static BmSDK.Class StaticClass()
+    {
+        if (s_staticClass is null)
+        {
+            s_staticClass = StaticFindObjectChecked<Class>(null, null, "BmGame.RCapeSkeletalMeshComponent", false);
+            s_staticClass.AddToRoot();
+        }
+        return s_staticClass;
+    }
+
+    /// <summary>
+    /// Gets the class default object as RCapeSkeletalMeshComponent.
+    /// </summary>
+    public static RCapeSkeletalMeshComponent DefaultObject => (RCapeSkeletalMeshComponent)StaticClass().DefaultObject;
+
+    internal RCapeSkeletalMeshComponent() { }
+
+    /// <summary>
+    /// Constructs a new RCapeSkeletalMeshComponent
+    /// </summary>
+    public RCapeSkeletalMeshComponent(BmSDK.GameObject Outer, string Name = null, BmSDK.GameObject.EObjectFlags SetFlags = 0, RCapeSkeletalMeshComponent Template = null) : base(ConstructObjectInternal(StaticClass(), Outer, Name, SetFlags, Template)) { }
+
+    /// <summary>
+    /// Constructs a new wrapper instance from the given object pointer.
+    /// </summary>
+    protected RCapeSkeletalMeshComponent(nint ptr) : base(ptr) { }
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Framework.IScriptComponent)"/>
+    public void AttachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<RCapeSkeletalMeshComponent>
+        => ((GameObject)this).AttachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Type)"/>
+    public TComponent AttachScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<RCapeSkeletalMeshComponent>, new()
+        => (TComponent)((GameObject)this).AttachScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Framework.IScriptComponent)"/>
+    public bool HasScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<RCapeSkeletalMeshComponent>
+        => ((GameObject)this).HasScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Type)"/>
+    public bool HasScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<RCapeSkeletalMeshComponent>
+        => ((GameObject)this).HasScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponent(Type)"/>
+    public TComponent GetScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<RCapeSkeletalMeshComponent>
+        => (TComponent)((GameObject)this).GetScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponents(Type)"/>
+    public System.Collections.Generic.IReadOnlyList<TComponent> GetScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<RCapeSkeletalMeshComponent>
+        => ((GameObject)this).GetScriptComponents(typeof(TComponent)).Cast<TComponent>().ToList();
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponent(Framework.IScriptComponent)"/>
+    public void DetachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<RCapeSkeletalMeshComponent>
+        => ((GameObject)this).DetachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponents(Type)"/>
+    public void DetachScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<RCapeSkeletalMeshComponent>
+        => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    private static BmSDK.Function __fn_InternalUpdateMaterial;
+    /// <summary>
+    /// Function: InternalUpdateMaterial
+    /// </summary>
+    public unsafe virtual void InternalUpdateMaterial()
+    {
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_InternalUpdateMaterial, "BmGame.RCapeSkeletalMeshComponent.InternalUpdateMaterial");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    private static BmSDK.Function __fn_SetupMaterialConstants;
+    /// <summary>
+    /// Function: SetupMaterialConstants
+    /// </summary>
+    public unsafe virtual void SetupMaterialConstants()
+    {
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_SetupMaterialConstants, "BmGame.RCapeSkeletalMeshComponent.SetupMaterialConstants");
+        byte* paramsPtr = stackalloc byte[16];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    private static BmSDK.Function __fn_UpdateOverrideMaterial;
+    /// <summary>
+    /// Function: UpdateOverrideMaterial
+    /// </summary>
+    public unsafe virtual void UpdateOverrideMaterial(BmSDK.Engine.MaterialInterface NewMat)
+    {
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdateOverrideMaterial, "BmGame.RCapeSkeletalMeshComponent.UpdateOverrideMaterial");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(NewMat, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    private static BmSDK.Function __fn_UpdateDefaultMaterial;
+    /// <summary>
+    /// Function: UpdateDefaultMaterial
+    /// </summary>
+    public unsafe virtual void UpdateDefaultMaterial(BmSDK.Engine.MaterialInterface NewMat)
+    {
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_UpdateDefaultMaterial, "BmGame.RCapeSkeletalMeshComponent.UpdateDefaultMaterial");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        BmSDK.Framework.MarshalUtil.ToUnmanaged(NewMat, paramsPtr + 0);
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        return;
+    }
+
+    private static BmSDK.Function __fn_GetCapeComponent;
+    /// <summary>
+    /// Function: GetCapeComponent
+    /// </summary>
+    public unsafe virtual BmSDK.BmGame.RCapeComponent GetCapeComponent()
+    {
+        BmSDK.Framework.Guard.NotDestroyed(this);
+        var funcManaged = BmSDK.Framework.FunctionCache.Get(ref __fn_GetCapeComponent, "BmGame.RCapeSkeletalMeshComponent.GetCapeComponent");
+        byte* paramsPtr = stackalloc byte[20];
+        paramsPtr = (byte*)(((nint)paramsPtr + 15) & ~(nint)15);
+        var oldFlags = funcManaged.FunctionFlags;
+        var oldNative = funcManaged.iNative;
+        funcManaged.FunctionFlags &= ~BmSDK.Function.EFunctionFlags.FUNC_Native;
+        funcManaged.FunctionFlags |= BmSDK.Function.EFunctionFlags.FUNC_Defined;
+        funcManaged.iNative = 0;
+        BmSDK.Framework.GameFunctions.ProcessEvent(Ptr, funcManaged.Ptr, (nint)paramsPtr, 0);
+        funcManaged.iNative = oldNative;
+        funcManaged.FunctionFlags = oldFlags;
+        return BmSDK.Framework.MarshalUtil.ToManagedParam<BmSDK.BmGame.RCapeComponent>(paramsPtr + 0);
+    }
+
+    /// <summary>
+    /// ArrayProperty: CoreAnimSets
+    /// </summary>
+    public unsafe BmSDK.TArray<BmSDK.Engine.AnimSet> CoreAnimSets
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<BmSDK.Engine.AnimSet>>(Ptr + 1748); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1748); }
+    }
+
+    /// <summary>
+    /// ByteProperty: CapeBoundsCalculationType
+    /// </summary>
+    public unsafe BmSDK.BmGame.RCapeSkeletalMeshComponent.ECapeBoundsCalculationType CapeBoundsCalculationType
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.BmGame.RCapeSkeletalMeshComponent.ECapeBoundsCalculationType>(Ptr + 1760); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1760); }
+    }
+
+    /// <summary>
+    /// FloatProperty: LooseCapeBoundsRadius
+    /// </summary>
+    public unsafe float LooseCapeBoundsRadius
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<float>(Ptr + 1764); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1764); }
+    }
+
+    /// <summary>
+    /// ArrayProperty: BoneUseComponentReferenceRotationFlags
+    /// </summary>
+    public unsafe BmSDK.TArray<int> BoneUseComponentReferenceRotationFlags
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.TArray<int>>(Ptr + 1768); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1768); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: MatInstConst
+    /// </summary>
+    public unsafe BmSDK.Engine.MaterialInstanceConstant MatInstConst
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInstanceConstant>(Ptr + 1780); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1780); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: DefaultMaterial
+    /// </summary>
+    public unsafe BmSDK.Engine.MaterialInterface DefaultMaterial
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInterface>(Ptr + 1784); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1784); }
+    }
+
+    /// <summary>
+    /// ObjectProperty: OverrideMaterial
+    /// </summary>
+    public unsafe BmSDK.Engine.MaterialInterface OverrideMaterial
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.MaterialInterface>(Ptr + 1788); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 1788); }
+    }
+
+    /// <summary>
+    /// Enum: ECapeBoundsCalculationType
+    /// </summary>
+    public enum ECapeBoundsCalculationType : byte
+    {
+        CAPEBOUNDSCALCULATION_Tight = 0,
+        CAPEBOUNDSCALCULATION_Loose = 1,
+        CAPEBOUNDSCALCULATION_MAX = 2,
+    }
+}

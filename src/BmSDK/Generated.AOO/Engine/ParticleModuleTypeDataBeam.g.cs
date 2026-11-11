@@ -1,0 +1,206 @@
+#pragma warning disable CS0108
+#pragma warning disable CS1591
+
+namespace BmSDK.Engine;
+
+/// <summary>
+/// Class: ParticleModuleTypeDataBeam<br/>
+/// (size = 216)
+/// (flags = 142651538)
+/// </summary>
+public partial class ParticleModuleTypeDataBeam : BmSDK.Engine.ParticleModuleTypeDataBase, BmSDK.IGameObject
+{
+    static BmSDK.Class s_staticClass = null;
+    public static BmSDK.Class StaticClass()
+    {
+        if (s_staticClass is null)
+        {
+            s_staticClass = StaticFindObjectChecked<Class>(null, null, "Engine.ParticleModuleTypeDataBeam", false);
+            s_staticClass.AddToRoot();
+        }
+        return s_staticClass;
+    }
+
+    /// <summary>
+    /// Gets the class default object as ParticleModuleTypeDataBeam.
+    /// </summary>
+    public static ParticleModuleTypeDataBeam DefaultObject => (ParticleModuleTypeDataBeam)StaticClass().DefaultObject;
+
+    internal ParticleModuleTypeDataBeam() { }
+
+    /// <summary>
+    /// Constructs a new ParticleModuleTypeDataBeam
+    /// </summary>
+    public ParticleModuleTypeDataBeam(BmSDK.GameObject Outer, string Name = null, BmSDK.GameObject.EObjectFlags SetFlags = 0, ParticleModuleTypeDataBeam Template = null) : base(ConstructObjectInternal(StaticClass(), Outer, Name, SetFlags, Template)) { }
+
+    /// <summary>
+    /// Constructs a new wrapper instance from the given object pointer.
+    /// </summary>
+    protected ParticleModuleTypeDataBeam(nint ptr) : base(ptr) { }
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Framework.IScriptComponent)"/>
+    public void AttachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<ParticleModuleTypeDataBeam>
+        => ((GameObject)this).AttachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.AttachScriptComponent(Type)"/>
+    public TComponent AttachScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<ParticleModuleTypeDataBeam>, new()
+        => (TComponent)((GameObject)this).AttachScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Framework.IScriptComponent)"/>
+    public bool HasScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<ParticleModuleTypeDataBeam>
+        => ((GameObject)this).HasScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.HasScriptComponent(Type)"/>
+    public bool HasScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<ParticleModuleTypeDataBeam>
+        => ((GameObject)this).HasScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponent(Type)"/>
+    public TComponent GetScriptComponent<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<ParticleModuleTypeDataBeam>
+        => (TComponent)((GameObject)this).GetScriptComponent(typeof(TComponent));
+
+    /// <inheritdoc cref="GameObject.GetScriptComponents(Type)"/>
+    public System.Collections.Generic.IReadOnlyList<TComponent> GetScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<ParticleModuleTypeDataBeam>
+        => ((GameObject)this).GetScriptComponents(typeof(TComponent)).Cast<TComponent>().ToList();
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponent(Framework.IScriptComponent)"/>
+    public void DetachScriptComponent<TComponent>(TComponent component)
+        where TComponent : class, Framework.IScriptComponent<ParticleModuleTypeDataBeam>
+        => ((GameObject)this).DetachScriptComponent((Framework.IScriptComponent)component);
+
+    /// <inheritdoc cref="GameObject.DetachScriptComponents(Type)"/>
+    public void DetachScriptComponents<TComponent>()
+        where TComponent : class, Framework.IScriptComponent<ParticleModuleTypeDataBeam>
+        => ((GameObject)this).DetachScriptComponents(typeof(TComponent));
+
+    /// <summary>
+    /// Enum: EBeamEndPointMethod
+    /// </summary>
+    public enum EBeamEndPointMethod : byte
+    {
+        PEBEPM_Calculated = 0,
+        PEBEPM_Distribution = 1,
+        PEBEPM_Distribution_Constant = 2,
+        PEBEPM_MAX = 3,
+    }
+
+    /// <summary>
+    /// ByteProperty: BeamMethod
+    /// </summary>
+    public unsafe BmSDK.Engine.ParticleModuleTypeDataBeam.EBeamMethod BeamMethod
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleModuleTypeDataBeam.EBeamMethod>(Ptr + 60); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 60); }
+    }
+
+    /// <summary>
+    /// ByteProperty: EndPointMethod
+    /// </summary>
+    public unsafe BmSDK.Engine.ParticleModuleTypeDataBeam.EBeamEndPointMethod EndPointMethod
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<BmSDK.Engine.ParticleModuleTypeDataBeam.EBeamEndPointMethod>(Ptr + 61); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 61); }
+    }
+
+    /// <summary>
+    /// StructProperty: Distance
+    /// </summary>
+    public unsafe ref BmSDK.DistributionFloat.FRawDistributionFloat Distance
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.DistributionFloat.FRawDistributionFloat>(Ptr + 64);
+
+    /// <summary>
+    /// StructProperty: EndPoint
+    /// </summary>
+    public unsafe ref BmSDK.DistributionVector.FRawDistributionVector EndPoint
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.DistributionVector.FRawDistributionVector>(Ptr + 92);
+
+    /// <summary>
+    /// IntProperty: TessellationFactor
+    /// </summary>
+    public unsafe int TessellationFactor
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 120); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 120); }
+    }
+
+    /// <summary>
+    /// StructProperty: EmitterStrength
+    /// </summary>
+    public unsafe ref BmSDK.DistributionFloat.FRawDistributionFloat EmitterStrength
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.DistributionFloat.FRawDistributionFloat>(Ptr + 124);
+
+    /// <summary>
+    /// StructProperty: TargetStrength
+    /// </summary>
+    public unsafe ref BmSDK.DistributionFloat.FRawDistributionFloat TargetStrength
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.DistributionFloat.FRawDistributionFloat>(Ptr + 152);
+
+    /// <summary>
+    /// StructProperty: EndPointDirection
+    /// </summary>
+    public unsafe ref BmSDK.DistributionVector.FRawDistributionVector EndPointDirection
+        => ref BmSDK.Framework.MarshalUtil.AsRef<BmSDK.DistributionVector.FRawDistributionVector>(Ptr + 180);
+
+    /// <summary>
+    /// IntProperty: TextureTile
+    /// </summary>
+    public unsafe int TextureTile
+    {
+        get { return BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 208); }
+        set { BmSDK.Framework.MarshalUtil.ToUnmanaged(value, Ptr + 208); }
+    }
+
+    /// <summary>
+    /// BoolProperty: RenderGeometry
+    /// </summary>
+    public unsafe bool RenderGeometry
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212) & 1) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212); var newMask = value ? (currentMask | 1) : (currentMask & ~1); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 212); }
+    }
+
+    /// <summary>
+    /// BoolProperty: RenderDirectLine
+    /// </summary>
+    public unsafe bool RenderDirectLine
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212) & 2) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212); var newMask = value ? (currentMask | 2) : (currentMask & ~2); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 212); }
+    }
+
+    /// <summary>
+    /// BoolProperty: RenderLines
+    /// </summary>
+    public unsafe bool RenderLines
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212) & 4) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212); var newMask = value ? (currentMask | 4) : (currentMask & ~4); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 212); }
+    }
+
+    /// <summary>
+    /// BoolProperty: RenderTessellation
+    /// </summary>
+    public unsafe bool RenderTessellation
+    {
+        get { return (BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212) & 8) != 0; }
+        set { var currentMask = BmSDK.Framework.MarshalUtil.ToManaged<int>(Ptr + 212); var newMask = value ? (currentMask | 8) : (currentMask & ~8); BmSDK.Framework.MarshalUtil.ToUnmanaged<int>(newMask, Ptr + 212); }
+    }
+
+    /// <summary>
+    /// Enum: EBeamMethod
+    /// </summary>
+    public enum EBeamMethod : byte
+    {
+        PEBM_Distance = 0,
+        PEBM_EndPoints = 1,
+        PEBM_EndPoints_Interpolated = 2,
+        PEBM_UserSet_EndPoints = 3,
+        PEBM_UserSet_EndPoints_Interpolated = 4,
+        PEBM_MAX = 5,
+    }
+}
